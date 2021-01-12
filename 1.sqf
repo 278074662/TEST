@@ -1,116 +1,128 @@
 /*
-	DZMSInit.sqf by Vampire
-	This is the file that every other file branches off from.
-	It checks that it is safe to run, sets relations, and starts mission timers.
-	Updated for DZMS 2.0 by JasonTM
+	DayZ Mission System Config by Vampire
+	DZMS: https://github.com/SMVampire/DZMS-DayZMissionSystem
 */
-waitUntil{initialized};
 
-// Lets let the heavier scripts run first
-sleep 60;
+///////////////////////////////////////////////////////////////////////
+//If you have ZSC installed then you can set this to true to place money in ai wallets.
+DZMSAICheckWallet = true;
 
-// Error Check
-if (!isServer) exitWith {diag_log text "[DZMS]: <ERROR> DZMS is Installed Incorrectly! DZMS is not Running!";};
-if (!isNil "DZMSInstalled") exitWith {diag_log text "[DZMS]: <ERROR> DZMS is Installed Twice or Installed Incorrectly!";};
+// Do you want your players to gain humanity from killing mission AI?
+DZMSMissHumanity = true;
 
-// Global for other scripts to check if DZMS is installed.
-DZMSInstalled = true;
+// How Much Humanity?
+DZMSCntHumanity = 150;
 
-diag_log text "[DZMS]: Starting DayZ Mission System.";
+// Do You Want AI to use NVGs?
+//(They are deleted on death)
+DZMSUseNVG = true;
 
-DZMSRelations = [];
-if (!isNil "DZAI_isActive") then {DZMSRelations = DZMSRelations + ["DZAI"];};
-if (!isNil "SAR_version") then {DZMSRelations = DZMSRelations + ["SargeAI"];};
-if (!isNil "WAIconfigloaded") then {DZMSRelations = DZMSRelations + ["WickedAI"];};
+// Do you want AI to use RPG7V's?
+//(Only one unit per group spawn will have one)
+DZMSUseRPG = true;
 
-call {
-	
-	// If we have multiple relations running, lets warn the user
-	if (count DZMSRelations > 1) exitWith {
-		diag_log text "[DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!";
-		diag_log text "[DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)";
-	};
-	
-	// If only one set of relations were found, let the user know which one is being used.
-	if (count DZMSRelations == 1) exitWith {diag_log text format["[DZMS]: Using %1 Relations.",(DZMSRelations select 0)];};
-	
-	// They weren't found, so let's set relationships
-	diag_log text "[DZMS]: Relations not found! Using DZMS Relations.";
-	
-	// Create the groups if they aren't created already
-	createCenter east;
-	// Make AI Hostile to Survivors
-	WEST setFriend [EAST,0];
-	EAST setFriend [WEST,0];
-	// Make AI Hostile to Zeds
-	EAST setFriend [CIVILIAN,0];
-	CIVILIAN setFriend [EAST,0];
-};
+// Do you want AI kills to count as bandit kills?
+DZMSCntBanditKls = false;
 
-//Destroy the global variable
-DZMSRelations = nil;
+// Do you want AI to disappear instantly when killed?
+DZMSCleanDeath = false;
 
-// We need to check for Epoch and OverWatch to adjust vehicle spawning, and configurations
-DZMSEpoch = isClass (configFile >> "CfgWeapons" >> "Chainsaw");
-DZMSOverwatch = isClass (configFile >> "CfgWeapons" >> "USSR_cheytacM200");
+// Do you want AI that players run over to not have gear?
+// (If DZMSCleanDeath is true, this doesn't matter)
+DZMSRunGear = false;
 
-// Let's Load the General Mission Configuration
-call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\DZMSConfig.sqf";
+// How long before bodies disappear? (in seconds) (default = 2400)
+DZMSBodyTime = 2400;
 
-// Report the version
-if (DZMSDebug) then {diag_log text format ["[DZMS]: Currently Running Version: %1", DZMSVersion];};
+// Percentage of AI that must be dead before mission completes (default = 0)
+//( 0 is 0% of AI / 0.50 is 50% / 1 is 100% )
+DZMSRequiredKillPercent = .80;
 
-// Lets check for a copy-pasted config file
-if (DZMSVersion != "2.0") then {
-	diag_log text format ["[DZMS]: Outdated Configuration Detected! Please Update DZMS!"];
-	diag_log text format ["[DZMS]: Old Versions are not supported by the Mod Author!"];
-};
+// How long in seconds before mission scenery disappears (default = 1800 / 0 = disabled)
+DZMSSceneryDespawnTimer = 1800;
 
-// These variables are initialized here because they are not used in all versions.
-DZMSMakeVehKey = false; DZMSAICheckWallet = false; DZMSHighValue = []; DZMSUseRPG = false; DZMSM2Static = false;
+// Should crates despawn with scenery? (default = false)
+DZMSSceneryDespawnLoot = false;
 
-call {
-	// Epoch + Overwatch = Overpoch
-	if (DZMSEpoch && DZMSOverwatch) exitWith {
-		call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\ExtConfig\OverpochExtConfig.sqf";
-		diag_log text "[DZMS]: DayZ Overpoch Detected! Overpoch Configs loaded";
-	};
-	// Epoch detected!
-	if (DZMSEpoch && !DZMSOverwatch) exitWith {
-		call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\ExtConfig\EpochExtConfig.sqf";
-		diag_log text "[DZMS]: DayZ Epoch Detected! Epoch Configs loaded!";
-	};
-	// Epoch and Overwatch not detected, load Vanilla Mod configs.
-	call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\ExtConfig\VanillaExtConfig.sqf";
-	diag_log text "[DZMS]: DayZ Vanilla Mod Detected! Vanilla Configs loaded!";
-};
+//////////////////////////////////////////////////////////////////////////////////////////
+// You can adjust the weapons that spawn in weapon crates inside DZMSWeaponCrateList.sqf
+// You can adjust the AI's gear inside DZMSAIConfig.sqf in the ExtConfig folder also.
+//////////////////////////////////////////////////////////////////////////////////////////
 
-// Lets compile our functions
-execVM "\z\addons\dayz_server\DZMS\Scripts\DZMSFunctions.sqf"; // execVM is appropriate here because line functions are saved to global variables.
-DZMSAIKilled = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSAIKilled.sqf";
-DZMSAISpawn = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSAISpawn.sqf";
-DZMSM2Spawn = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSM2Spawn.sqf";
-DZMSBoxSetup = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSBox.sqf";
-DZMSSpawnVeh = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSSpawnVeh.sqf";
-DZMSWaitMissionComp = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSWaitMissionComp.sqf";
-DZMSFindPos = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSFindPos.sqf";
-DZMSSpawnObjects = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSSpawnObjects.sqf";
+//////////////////////////////////////////////////////////////////////////////////////////
+// Do you want to use static coords for missions?
+// Leave this false unless you know what you are doing.
+DZMSStaticPlc = false;
 
-// Let's get the clocks running!
-execVM "\z\addons\dayz_server\DZMS\Scripts\DZMSTimer.sqf";
+// Array of static locations. X,Y,Z
+DZMSStatLocs = [
+[0,0,0],
+[0,0,0]
+];
 
-// Get the static AI spawned (if applicable)
-if (DZMSStaticAI) then {
-	[] spawn {
-		while {true} do {
-			{
-				if !((_x select 0 == 0) && (_x select 1 == 0)) then {
-					[_x,DZMSStaticAICnt,2,"Bandit"] call DZMSAISpawn;
-				};
-				sleep 2;
-			} forEach DZMSStaticSpawn;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Do you want vehicles from missions to save to the Database? (this means they will stay after a restart)
+// If False, vehicles will disappear on restart. It will warn a player who gets inside of a vehicle.
+// This is experimental, and off by default in this version.
+DZMSSaveVehicles = false;
 
-			sleep DZMSStaticAITime;
-		};
-	};
-};
+// Generates keys for mission vehicles and places it in the gear. Only works if DZMSSaveVehicles is set to true and Epoch is detected.
+DZMSMakeVehKey = false;
+
+// Turns the damage handlers off on mission vehicles so they take no damage until a player enters them
+DZMSVehDamageOff = true;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// These are arrays of vehicle classnames for the missions.
+// Adjust to your liking.
+
+//Helicopters
+DZMSChoppers = ["UH1H_DZE","AH6J_EP1_DZ","UH60M_MEV_EP1_DZ","pook_H13_gunship_PMC","UH60M_EP1_DZE"];
+
+//Small Vehicles
+DZMSSmallVic = ["Pickup_PK_TK_GUE_EP1_DZE","Pickup_PK_GUE_DZE","HMMWV_DZ","UAZ_Unarmed_UN_EP1","HMMWV_Ambulance_CZ_DES_EP1","LandRover_TK_CIV_EP1","Offroad_DSHKM_Gue_DZE"];
+
+//Large Vehicles
+DZMSLargeVic = ["ArmoredSUV_PMC_DZE","LandRover_SPG9_TK_EP1","HMMWV_M998A2_SOV_DES_EP1_DZE","HMMWV_M1151_M2_CZ_DES_EP1_DZE","BAF_JACKAL2_L2A1_W","BAF_JACKAL2_GMG_W","BRDM2_HQ_GUE","BTR60_TK_EP1","BTR90_HQ"];
+
+/*///////////////////////////////////////////////////////////////////////////////////////////
+There are two types of missions that run simultaneously on a the server.
+The two types are Major and Minor missions.
+
+Major missions have a higher AI count, but also have more crates to loot.
+Minor missions have less AI than Major missions, but have crates that reflect that.
+
+Below is the array of mission file names and the minimum and maximum times they run.
+Do not edit the Arrays unless you know what you are doing.
+*/
+DZMSMajorArray = ["AN2_Cargo_Drop","APC_Mission","Armored_Vehicles","Bandit_Firebase","Bandit_Medical_Camp","C130_Crash","CH47_Mission","Constructors","Helicopter_Landing","Large_Weapon_Cache","Medical_Cache","NATO_Weapons_Cache","Ural_Ambush"];
+DZMSMinorArray = ["Bandit_Squad","Helicopter_Crash","Hillbillies","Humvee_Crash","Medical_Outpost","Stash_House","Weapons_Truck"];
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// The Minumum time in seconds before a major mission will run.
+// At least this much time will pass between major missions. Default = 650 (10.8 Minutes)
+DZMSMajorMin = 650;
+
+// Maximum time in seconds before a major mission will run.
+// A major mission will always run before this much time has passed. Default = 2000 (33.33 Minutes)
+DZMSMajorMax = 2000;
+
+// Time in seconds before a minor mission will run.
+// At least this much time will pass between minor missions. Default = 600 (10 Minutes)
+DZMSMinorMin = 600;
+
+// Maximum time in seconds before a minor mission will run.
+// A minor mission will always run before this much time has passed. Default = 990 (16.5 Minutes)
+DZMSMinorMax = 990;
+
+// Blacklist Zone Array -- missions will not spawn in these areas
+// format: [[x,y,z],radius]
+// Ex: [[06325,07807,0],300] //Starry Sobor
+DZMSBlacklistZones = [
+	[[0,0,0],50]
+];
+
+/*=============================================================================================*/
+// Do Not Edit Below This Line
+/*=============================================================================================*/
+DZMSVersion = "1.1FIN";
