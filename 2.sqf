@@ -1,116 +1,173 @@
 /*
-	Harvestable Hemp Farms for DayZ Epoch 1.0.6+ by JasonTM
-	Credit to original author Halv: https://pastebin.com/juMsuJ1r
+	DayZ Mission System Config by Vampire
+	DZMS: https://github.com/SMVampire/DZMS-DayZMissionSystem
+	Updated for DZMS 2.0 by JasonTM
 */
 
-#define LOCATIONS	5			// number of concurrent farm locations
-#define NUM_PLANTS	[5,10]		// random number of plants per location [minimum,maximum]
-#define SPACING		5			// number of meters between plant groupings, no not use less than 5
-#define ALLOW_NEW	false		// allow new farms to spawn when existing ones are cleared
-#define DEBUG		true		// turning this to true will turn on rpt entries
-#define MARKER		"mil_triangle"	// list of different marker types: https://community.bistudio.com/wiki/cfgMarkers
-#define COLOR		"ColorGreen"// list of marker colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
+///////////////////////////////////////////////////////////////////////
+// Do you want to see how many AI are at the mission in the mission marker?
+// This option may cause excessive network traffic on high pop. servers as markers are refreshed every 2 seconds.
+DZMSAICount = true;
 
-Weed_Farm_Positions = [];		// DO NOT CHANGE THIS LINE
-Weed_Farm_Markers = [];			// DO NOT CHANGE THIS LINE
+// Time in minutes for a mission to timeout.
+DZMSMissionTimeOut = 20;
 
-_spawnNewFarm = {
-	_pos = [getMarkerPos "center",0,(((getMarkerSize "center") select 1)*0.75),10,0,.3,0] call BIS_fnc_findSafePos;
-	Weed_Farm_Positions set [count Weed_Farm_Positions, _pos];
-	_numPlants = round(random((NUM_PLANTS select 1) - (NUM_PLANTS select 0)) + (NUM_PLANTS select 0));
-	_plantPositions = [[(_pos select 0),(_pos select 1),0],_numPlants,SPACING] call fnc_arrangeweed;
-	
-	{
-		_plant = "Fiberplant" createVehicle _x;
-		_plant setPos _x;
-	} count _plantPositions;
-	
-	if (DEBUG) then {diag_log format["Spawning Weed Farm at %1",_pos];};
-};
+// This is how many bandit missions are allowed to run simultaneously
+DZMSBanditLimit = 1;
 
-FNC_ArrangeWeed = {
-    private ["_posi"];
-    _pos = _this select 0;
-    _amnt = _this select 1;
-    _adjust = _this select 2;
-    _positions = [];
-    _buildDir = 0;
-    _buildRow = 0;
-    _Row = 0;
-    _build = 0;
-    _positions set [count _positions,[_pos select 0,_pos select 1,0]];
-	_amnt = _amnt - 1;
-    for "_i" from 0 to (_amnt-1) do {
-            if(_Row > 1)then{_buildRow = _buildRow + 1;_Row = 0;};
-            if(_buildDir > 3)then{_buildDir = 0;};
-            for "_i" from 0 to _buildRow do {
-                    switch (_buildDir) do{
-                            case 0:{
-                                    _posi = [(_pos select 0),(_pos select 1) + _adjust];
-                                    _positions set [count _positions,[_posi select 0,_posi select 1,0]];
-                            };
-                            case 1:{
-                                    _posi = [(_pos select 0) + _adjust,(_pos select 1)];
-                                    _positions set [count _positions,[_posi select 0,_posi select 1,0]];
-                            };
-                            case 2:{
-                                    _posi = [(_pos select 0),(_pos select 1) - _adjust];
-                                    _positions set [count _positions,[_posi select 0,_posi select 1,0]];
-                            };
-                            case 3:{
-                                    _posi = [(_pos select 0) - _adjust,(_pos select 1)];
-                                    _positions set [count _positions,[_posi select 0,_posi select 1,0]];
-                            };
-                    };
-                    _pos = _posi;
-                    _build = _build + 1;
-                    if(_build >= _amnt)exitWith{};
-            };
-            _buildDir = _buildDir + 1;
-            _Row = _Row + 1;
-            if(_build >= _amnt)exitWith{};
-    };
-    _positions
-};
+// This is how many hero missions are allowed to run simultaneously
+DZMSHeroLimit = 1;
 
-// Spawn initial weed farms
-for "_i" from 1 to LOCATIONS do {
-	call _spawnNewFarm;
-};
+// Do you want to turn off damage to the mission objects?
+DZMSObjectsDamageOff = true;
 
-while {count Weed_Farm_Positions > 0} do {
-	
-	{
-		if (count(nearestObjects [_x,["Fiberplant"],35]) < 1) then {
-			if (DEBUG) then {diag_log format["Weed Farm at %1 Cleared",_x];};
-			Weed_Farm_Positions set [_forEachIndex, "delete"];
-			Weed_Farm_Positions = Weed_Farm_Positions - ["delete"];
-		};
+// Mission announcement style. Options: "Hint","TitleText","rollingMessages","DynamicText".
+//Note: The "Hint" messages will appear in the same area as common debug monitors.
+DZMSAnnounceType = "Hint";
 
-		_marker = createMarker [format ["WeedMarker_%1",_x], _x];
-		_marker setMarkerType MARKER;
-		_marker setMarkerText "Weed Farm";
-		_marker setMarkerColor COLOR;
-		Weed_Farm_Markers set [count Weed_Farm_Markers, _marker];
-	} forEach Weed_Farm_Positions;
+// Turn this on to enable troubleshooting. RPT entries might show where problems occur.
+DZMSDebug = false;
 
-	uiSleep 5; // make the loop sleep for 5 seconds
+// Do you want your players to gain or lose humanity from killing mission AI?
+DZMSMissHumanity = true;
 
-	if (ALLOW_NEW) then {
-		if (count Weed_Farm_Positions < LOCATIONS) then {
-			call _spawnNewFarm;
-		};
-	};
+// How much humanity should a player lose for killing a hero AI?
+DZMSHeroHumanity = 25;
 
-	{
-		deleteMarker _x;
-		Weed_Farm_Markers = Weed_Farm_Markers - [_x];
-	} count Weed_Farm_Markers;
-};
+// How much humanity should a player gain for killing a bandit AI?
+DZMSBanditHumanity = 25;
 
-if (DEBUG) then {diag_log "All Weed Farms Cleared";};
+// Do you want the players to get AI kill messages?
+DZMSKillFeed = false;
 
-// Destroy global variables if script ends
-Weed_Farm_Positions = nil;
-Weed_Farm_Markers = nil;
-FNC_ArrangeWeed = nil;
+// Do You Want AI to use NVGs?
+//(They are deleted on death)
+DZMSUseNVG = true;
+
+// Do you want bandit or hero AI kills to count towards player total?
+DZMSCntKills = true;
+
+// Do you want AI to disappear instantly when killed?
+DZMSCleanDeath = false;
+
+// Do you want AI that players run over to not have gear?
+// (If DZMSCleanDeath is true, this doesn't matter)
+DZMSRunGear = false;
+
+// How long before bodies disappear? (in minutes) (default = 30)
+// Also used by WAI. Make sure they are the same if both are installed.
+ai_cleanup_time = 30;
+
+// Percentage of AI that must be dead before mission completes (default = 0)
+//( 0 is 0% of AI / 0.50 is 50% / 1 is 100% )
+DZMSRequiredKillPercent = .50;
+
+// How long in minutes before mission scenery disappears (default = 30 / 0 = disabled)
+DZMSSceneryDespawnTimer = 30;
+
+// Should crates despawn with scenery? (default = false)
+DZMSSceneryDespawnLoot = true;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// You can adjust AI gear/skills and crate loot in files contained in the ExtConfig folder.
+//////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Do you want to use static coords for missions?
+// Leave this false unless you know what you are doing.
+DZMSStaticPlc = false;
+
+// Array of static locations. X,Y
+DZMSStatLocs = [
+	[0,0],
+	[0,0]
+];
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Do you want to place some static AI in a base or similar?
+// Leave this false unless you know what you are doing.
+DZMSStaticAI = false;
+
+// How long before they respawn? (in seconds) (default 2 hours)
+// If set longer than the amount of time before a server restart, they respawn at restart
+DZMSStaticAITime = 7200;
+
+// How many AI in a group? (Past 6 in a group it's better to just add more positions)
+DZMSStaticAICnt = 4;
+
+// Array of Static AI Locations
+DZMSStaticSpawn = [
+	[0,0,0],
+	[0,0,0]
+];
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Do you want vehicles from missions to save to the Database? (this means they will stay after a restart)
+// If False, vehicles will disappear on restart. It will warn a player who gets inside of a vehicle.
+DZMSSaveVehicles = false;
+
+// Setting this to true will prevent the mission vehicles from taking damage during the mission.
+DZMSVehDamageOff = true;
+
+/*///////////////////////////////////////////////////////////////////////////////////////////
+There are two types of missions that run simultaneously on a the server.
+The two types are Bandit and Hero missions.
+
+Below is the array of mission file names and the minimum and maximum times they run.
+If you don't want a certain mission to run on the server, comment out it's line.
+Remember that the last mission in the list should not have a comma after it.
+*/
+
+DZMSMissionArray = 
+[
+	"AN2_Cargo_Drop", // Weapons
+	"Ural_Ambush", // Weapons, Medical Supplies, Building Supplies
+	"Squad", // No crate
+	"Humvee_Crash", // Weapons
+	//"APC_Mission", // Only uncomment for Epoch/Overpoch
+	"Armed_Vehicles", // No crate
+	"C130_Crash", // Building Supplies
+	"Construction_Site", // Building Supplies
+	"Firebase", // Building Supplies
+	"Helicopter_Crash", // Weapons
+	"Helicopter_Landing", // Weapons, Building Supplies
+	"General_Store", // Survival items found in supermarket
+	"Medical_Cache", // Medical Supplies
+	"Medical_Camp", // Medical Supplies
+	"Medical_Outpost", // Medical Supplies, Weapons
+	"NATO_Weapons_Cache", // Weapons
+	"Stash_house", // Weapons
+	"Weapons_Truck" // Weapons
+];
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// The Minumum time in minutes before a bandit mission will run.
+// At least this much time will pass between bandit missions. Default = 5 minutes.
+DZMSBanditMin = 5;
+
+// Maximum time in seconds before a bandit mission will run.
+// A bandit mission will always run before this much time has passed. Default = 10 minutes.
+DZMSBanditMax = 10;
+
+// Time in seconds before a hero mission will run.
+// At least this much time will pass between hero missions. Default = 5 minutes.
+DZMSHeroMin = 5;
+
+// Maximum time in seconds before a hero mission will run.
+// A hero mission will always run before this much time has passed. Default = 10 minutes.
+DZMSHeroMax = 10;
+
+// Blacklist Zone Array -- missions will not spawn in these areas
+// format: [[x,y,z],[x,y,z]]
+// The first set of xyz coordinates is the upper left corner of a box
+// The second set of xyz coordinates is the lower right corner of a box
+DZMSBlacklistZones = [
+	//[[0,0,0],[0,0,0]]
+	//[[0,16000,0],[1000,-0,0]],	// Left edge of map Chernarus
+    [[0,16000,0],[16000.0,12500,0]] // Top edge of map Chernarus
+];
+
+/*=============================================================================================*/
+// Do Not Edit Below This Line
+/*=============================================================================================*/
+DZMSVersion = "2.0";
