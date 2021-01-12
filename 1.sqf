@@ -1,594 +1,146 @@
-//bombcrate by juandayz with base on rubbletown and 4 sidemissions
+/*
+	Original Construction "IKEA" Event by Aidem
+	Original "crate visited" marker concept and code by Payden
+	Rewritten and updated for DayZ Epoch 1.0.6+ by JasonTM
+	Last update: 11-15-2018
+*/
 
-private ["_timer","_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot","_loot2", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker", "_loot_pos", "_debug_marker","_loot_box", "_hint","_spawnenemys","_enemytype","_aicustomgear","_usewaypoints","_waypointsrange","_enemy","_enemy2","_enemy3","_enemy4","_enemy1","_enemy5","_enemy6","_enemy7"];
- 
-_spawnChance =  0.70; // Percentage chance of event happening
-_markerRadius = 250; // Radius the loot can spawn and used for the marker
-_debug = true; // Puts a marker exactly were the loot spawns
- 
+private ["_spawnChance","_radius","_timeout","_debug","_nameMarker","_markPos","_lootAmount","_type","_visitMarker","_distance","_crate","_chainsawChance","_vaultChance","_lootList",
+"_pos","_lootPos""_saw","_vault","_loot","_pack","_img","_title","_time","_marker","_pMarker","_vMarker","_dot","_done","_visited","_isNear","_box"];
 
-_spawnenemys = false; //allow or disallow enemy AI
-_enemytype = ["TK_Commander_EP1","RU_Soldier_AR","Ins_Commander","RU_Soldier_TL","TK_Soldier_SL_EP1"] call BIS_fnc_selectRandom;
-_aicustomgear = true;//allow custom gear on ai
-_usewaypoints = true; //allow ai to move around
-_waypointsrange = 20;//range to move ai for waypoints 
- 
- 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------//
-/////////////////////////////////////////////////If _aicustomgear = true; customize the gear////////////////////////////////////////////////////////////////////
-//------------------------------------------------------------------------------------------------------------------------------------------------------------//
-_Packlist = [
-"DZ_Patrol_Pack_EP1",
-"DZ_Assault_Pack_EP1",
-"DZ_Czech_Vest_Pouch",
-"DZ_ALICE_Pack_EP1",
-"DZ_TK_Assault_Pack_EP1",
-"DZ_British_ACU",
-"DZ_CivilBackpack_EP1",
-"DZ_Backpack_EP1"
-]call BIS_fnc_selectRandom;
+_spawnChance =  1; // Percentage chance of event happening.The number must be between 0 and 1. 1 = 100% chance.
+_chainsawChance = .25; // Chance that a chainsaw with mixed gas will be added to the crate. The number must be between 0 and 1. 1 = 100% chance.
+_vaultChance = .25; // Chance that a safe or lockbox will be added to the crate. The number must be between 0 and 1. 1 = 100% chance.
+_radius = 250; // Radius the loot can spawn and used for the marker.
+_timeout = 20; // Time it takes for the event to time out (in minutes). To disable timeout set to -1.
+_debug = false; // Diagnostic logs used for troubleshooting.
+_nameMarker = true; // Center marker with the name of the mission.
+_markPos = false; // Puts a marker exactly were the loot spawns.
+_lootAmount = 15; // This is the number of times a random loot selection is made.
+_type = "Hint"; // Type of announcement message. Options "Hint","TitleText". ***Warning: Hint appears in the same screen space as common debug monitors
+_visitMarker = true; // Places a "visited" check mark on the mission if a player gets within range of the crate.
+_distance = 20; // Distance in meters from crate before crate is considered "visited"
+_crate = "USVehicleBox"; // Class name of loot crate.
+#define TITLE_COLOR "#00FF11" // Hint Option: Color of Top Line
+#define TITLE_SIZE "1.75" // Hint Option: Size of top line
+#define IMAGE_SIZE "4" // Hint Option: Size of the image
 
-_Gear0 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_Gear1 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_Gear2 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_Gear3 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_Gear4 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_Gear5 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_Gear6 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_Gear7 = [
-"ItemMorphine",
-"ItemBandage",
-"ItemBriefcase100oz",
-"ItemAntibiotic",
-"ItemPainkiller",
-"FoodMRE",
-"ItemGoldBar",
-"ItemCanvas",
-"CinderBlocks",
-"ItemSodaPepsi",
-"MortarBucket"
-] call BIS_fnc_selectRandom;
-
-_AISkills = [	
-	["aimingAccuracy",0.20,0.25],
-	["aimingShake",0.85,0.95],
-	["aimingSpeed",0.80,0.90],
-	["endurance",0.80,0.90],
-	["spotDistance",0.70,0.85],
-	["spotTime",0.70,0.85],
-	["courage",0.80,1.00],
-	["reloadSpeed",0.80,0.90],
-	["commanding",0.80,0.90],
-	["general",0.80,1.00]
+_lootList = [ // If the item has a number in front of it, then that many will be added to the crate if it is selected one time. Each item can be selected multiple times. Adjust the array configuration to your preferences.
+	[3,"MortarBucket"],"ItemWoodStairs",[12,"CinderBlocks"],"plot_pole_kit",[12,"PartPlankPack"],[12,"PartPlywoodPack"],"m240_nest_kit","light_pole_kit","ItemWoodCrateKit","ItemFuelBarrel",
+	[4,"metal_floor_kit"],[4,"ItemWoodFloor"],[4,"half_cinder_wall_kit"],[4,"metal_panel_kit"],"fuel_pump_kit",[4,"full_cinder_wall_kit"],"ItemWoodWallWithDoorLgLocked","storage_shed_kit","sun_shade_kit","wooden_shed_kit",
+	[2,"ItemComboLock"],[4,"ItemWoodWallLg"],"ItemWoodWallGarageDoorLocked",[4,"ItemWoodWallWindowLg"],"wood_ramp_kit",[8,"ItemWoodFloorQuarter"],"bulk_ItemSandbag","bulk_ItemTankTrap","bulk_ItemWire","bulk_PartGeneric",
+	"workbench_kit","cinder_garage_kit","cinder_door_kit","wood_shack_kit","deer_stand_kit",[3,"ItemWoodWallThird"],"ItemWoodLadder",[3,"desert_net_kit"],[3,"forest_net_kit"],[2,"ItemSandbagLarge"]
 ];
 
+if (random 1 > _spawnChance and !_debug) exitWith {};
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------//
-/////////////////////////////////////////////////If _aicustomgear = true; customize the gear////////////////////////////////////////////////////////////////////
-//------------------------------------------------------------------------------------------------------------------------------------------------------------//
+_pos = [getMarkerPos "center",0,(((getMarkerSize "center") select 1)*0.75),10,0,.3,0] call BIS_fnc_findSafePos;
 
+diag_log format["IKEA Event spawning at %1", _pos];
+ 
+_lootPos = [_pos,0,(_radius - 100),10,0,.4,0] call BIS_fnc_findSafePos;
+ 
+if (_debug) then {diag_log format["IKEA Event: creating ammo box at %1", _lootPos];};
 
- 
- 
- 
-_loot_box = "USVehicleBox";
-_loot_lists = [
-[
-["M9SD","FN_FAL","M4A3_CCO_EP1","AKS_74_kobra","Sa58V_RCO_EP1","ItemEtool","ItemCrowbar","ItemKnife","ItemSledge","ItemCompass","Binocular","Binocular_Vector","NVGoggles","ItemGPS"],
-["ItemBriefcase100oz","150Rnd_127x107_DSHKM","20Rnd_762x51_FNFAL","20Rnd_762x51_FNFAL","20Rnd_762x51_FNFAL","30Rnd_762x39_SA58","30Rnd_762x39_SA58","30Rnd_762x39_SA58","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_545x39_AK","30Rnd_545x39_AK","30Rnd_545x39_AK","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD"]
-],
-[
-["M4A1_HWS_GL_SD_Camo","M16A2GL","M16A4","M16A4_GL","M16A4_ACG_GL","M16A4_ACG","M4A1","M4A1_HWS_GL","M4A1_HWS_GL_camo","M4A1_HWS_GL_SD_Camo","M4A1_RCO_GL","M4A1_Aim","M4A1_Aim_camo","M4A1_AIM_SD_camo"],
-["ItemBriefcase100oz","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor"]
-],
-[
-["ItemToolbox","M4A1_HWS_GL_SD_Camo","M16A2GL","M16A4","M16A4_GL","M16A4_ACG_GL","M16A4_ACG","M4A1","M4A1_HWS_GL","M4A1_HWS_GL_camo","M4A1_HWS_GL_SD_Camo","M4A1_RCO_GL","M4A1_Aim","M4A1_Aim_camo","M4A1_AIM_SD_camo"],
-["15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor","metal_floor_kit","ItemWoodFloor"]
-],
-[
-["ChainSaw"],
-["ItemBriefcase100oz","ItemBriefcase100oz","ItemCorrugated","ItemCorrugated","ItemCorrugated","ItemCorrugated","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemComboLock","ItemGenerator"]
-],
-[
-["Mk48_CCO_DZ","M240_DZ","RPK_74"],
-["ItemBriefcase100oz","100Rnd_762x51_M240","100Rnd_762x51_M240","200Rnd_556x45_M249","100Rnd_556x45_BetaCMag","100Rnd_762x51_M240","200Rnd_556x45_M249","100Rnd_556x45_BetaCMag","100Rnd_762x51_M240","200Rnd_556x45_M249","100Rnd_556x45_BetaCMag","100Rnd_762x51_M240","200Rnd_556x45_M249","100Rnd_556x45_BetaCMag","100Rnd_762x51_M240","200Rnd_556x45_M249","100Rnd_762x51_M240","100Rnd_762x51_M240","200Rnd_556x45_M249","2000Rnd_762x51_M134","2000Rnd_762x51_M134","75Rnd_545x39_RPK","75Rnd_545x39_RPK","75Rnd_545x39_RPK","75Rnd_545x39_RPK","75Rnd_545x39_RPK","75Rnd_545x39_RPK","ItemAVE","ItemLRK","ItemTNK","ItemARM","ItemORP","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked","ItemSeaBassCooked"]
-],
-[
-["M4A1_HWS_GL_SD_Camo","M16A2GL","M16A4","M16A4_GL","M16A4_ACG_GL","M16A4_ACG","M4A1","M4A1_HWS_GL","M4A1_HWS_GL_camo","M4A1_HWS_GL_SD_Camo","M4A1_RCO_GL","M4A1_Aim","M4A1_Aim_camo","M4A1_AIM_SD_camo"],
-["ItemBriefcase100oz","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","FoodCanFrankBeans","FoodCanFrankBeans","FoodCanBakedBeans","FoodMRE","HandGrenade_east","2000Rnd_762x51_M134","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"]
-],
-[
-["VSS_vintorez","Saiga12K","M8_compact"],
-["ItemBriefcase100oz","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_StanagSD","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","HandGrenade_east","HandGrenade_east","FoodCanSardines","FoodMRE","FoodPistachio","FoodNutmix","FoodMRE","FoodPistachio","FoodNutmix","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"]
-]
-];
-_loot = _loot_lists call BIS_fnc_selectRandom;
-_loot2 = _loot_lists call BIS_fnc_selectRandom;
+_box = _crate createVehicle [0,0,0];
+_box setPos _lootPos;
 
-_loot_amount = 75;
-_wait_time = 900;
- 
-// Dont mess with theses unless u know what yours doing
-_start_time = time;
-_spawnRadius = 5000;
-_spawnMarker = 'center';
- 
-if (isNil "EPOCH_EVENT_RUNNING") then {
-EPOCH_EVENT_RUNNING = false;
-};
- 
-// Check for another event running
-if (EPOCH_EVENT_RUNNING) exitWith {
-diag_log("Event already running");
+clearMagazineCargoGlobal _box;
+clearWeaponCargoGlobal _box;
+
+if (random 1 < _vaultChance) then {
+	_vault = ["ItemVault","ItemLockbox"] call dz_fn_array_selectRandom;
+	_box addMagazineCargoGlobal [_vault,1];
 };
 
-EPOCH_EVENT_RUNNING = true;
-
-// Random chance of event happening
-_spawnRoll = random 1;
-if (_spawnRoll > _spawnChance and !_debug) exitWith {};
- 
-// Random location
-_position = [getMarkerPos _spawnMarker,0,_spawnRadius,10,0,2000,0] call BIS_fnc_findSafePos;
- 
-diag_log(format["Spawning loot event at %1", _position]);
-
-_event_marker = createMarker [ format ["loot_event_marker_%1", _start_time], _position];
-_event_marker setMarkerShape "ELLIPSE";
-_event_marker setMarkerType "Cricle01";
-_event_marker setMarkerColor "ColorBlack";
-_event_marker setMarkerAlpha 0.8;
-_event_marker setMarkerBrush "DiagGrid";
-_event_marker setMarkerSize [(_markerRadius + 50), (_markerRadius + 50)];
- 
-_loot_pos = [_position,0,(_markerRadius - 100),10,0,2000,0] call BIS_fnc_findSafePos;
- 
-if (_debug) then {
-_debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
-_debug_marker setMarkerText "BOMBCRATE";
-_debug_marker setMarkerShape "ICON";
-_debug_marker setMarkerType "SupplyVehicle";
-_debug_marker setMarkerColor "ColorRed";
-_debug_marker setMarkerAlpha 1;
-_debug_marker setMarkerSize [1,1];
+if (random 1 < _chainsawChance) then {
+	_saw = ["Chainsaw","ChainSawB","ChainsawG","ChainsawP"] call dz_fn_array_selectRandom;
+	_box addMagazineCargoGlobal ["ItemJerryMixed",2];
+	_box addWeaponCargoGlobal [_saw,1];
 };
- 
-diag_log(format["Creating ammo box at %1", _loot_pos]);
- 
-// Create ammo box
-_loot_box = createVehicle [_loot_box,_loot_pos,[], 0, "NONE"];
-clearMagazineCargoGlobal _loot_box;
-clearWeaponCargoGlobal _loot_box;
-_loot_box setVariable ["permaLoot",true];
- 
-// Cut the grass around the loot position
-_clutter = createVehicle ["ClutterCutter_small_2_EP1", _loot_pos, [], 0, "CAN_COLLIDE"];
-_clutter setPos _loot_pos;
-// cut the grass    end
- 
-// Add loot
-{
-_loot_box addWeaponCargoGlobal [_x,1];
-} forEach (_loot select 0);
-{
-_loot_box addMagazineCargoGlobal [_x,1];
-} forEach (_loot select 1);
-{
-_loot_box addWeaponCargoGlobal [_x,1];
-} forEach (_loot2 select 0);
-{
-_loot_box addMagazineCargoGlobal [_x,1];
-} forEach (_loot2 select 1);
- 
-// Send Top Right message to users , requires Remote message script
-//_hint = parseText format["<t align='center' color='#0D00FF' shadow='2' size='1.75'>THERS A BOMB CRATE!, Check your Map for the Location!</t><br/><t align='center' color='#ffffff'>THERS A BOMB CRATE!, Check your Map for the Location!</t>"];
-//customRemoteMessage = ['hint', _hint];
-//publicVariable "customRemoteMessage";
 
-// Send center message to users
-[nil,nil,rTitleText,"THERS A BOMB CRATE!, Check your Map for the Location!", "PLAIN",10] call RE;
-diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
-
-
-if (_spawnenemys) then {
-//define side for ai
-_this = createCenter east;
-
-_this setFriend [west, 0];
-
-_center_1 = _this;
-_group_1 = createGroup _center_1;
-//
-
-//spawnai
-_enemy = objNull;
-_enemy = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];	
-_enemy enableAI "TARGET";
-_enemy enableAI "AUTOTARGET";
-_enemy enableAI "MOVE";
-_enemy enableAI "ANIM";
-_enemy enableAI "FSM";
-_enemy setCombatMode "YELLOW";
-_enemy setBehaviour "COMBAT";
-_enemy setSkill _AISkills;
-
-
-
-_enemy1 = objNull;
-_enemy1 = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];
-_enemy1 enableAI "TARGET";
-_enemy1 enableAI "AUTOTARGET";
-_enemy1 enableAI "MOVE";
-_enemy1 enableAI "ANIM";
-_enemy1 enableAI "FSM";
-_enemy1 setCombatMode "YELLOW";
-_enemy1 setBehaviour "COMBAT";
-_enemy1 setSkill _AISkills;
-
-
-_enemy2 = objNull;
-_enemy2 = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];
-_enemy2 enableAI "TARGET";
-_enemy2 enableAI "AUTOTARGET";
-_enemy2 enableAI "MOVE";
-_enemy2 enableAI "ANIM";
-_enemy2 enableAI "FSM";
-_enemy2 setCombatMode "YELLOW";
-_enemy2 setBehaviour "COMBAT";
-_enemy2 setSkill _AISkills;
-
-
-_enemy3 = objNull;
-_enemy3 = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];
-_enemy3 enableAI "TARGET";
-_enemy3 enableAI "AUTOTARGET";
-_enemy3 enableAI "MOVE";
-_enemy3 enableAI "ANIM";
-_enemy3 enableAI "FSM";
-_enemy3 setCombatMode "YELLOW";
-_enemy3 setBehaviour "COMBAT";
-_enemy3 setSkill _AISkills;
-
-
-_enemy4 = objNull;
-_enemy4 = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];
-_enemy4 enableAI "TARGET";
-_enemy4 enableAI "AUTOTARGET";
-_enemy4 enableAI "MOVE";
-_enemy4 enableAI "ANIM";
-_enemy4 enableAI "FSM";
-_enemy4 setCombatMode "YELLOW";
-_enemy4 setBehaviour "COMBAT";
-_enemy4 setSkill _AISkills;
+for "_i" from 1 to _lootAmount do {
+	_loot = _lootList call dz_fn_array_selectRandom;
 	
-_enemy5 = objNull;
-_enemy5 = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];
-_enemy5 enableAI "TARGET";
-_enemy5 enableAI "AUTOTARGET";
-_enemy5 enableAI "MOVE";
-_enemy5 enableAI "ANIM";
-_enemy5 enableAI "FSM";
-_enemy5 setCombatMode "YELLOW";
-_enemy5 setBehaviour "COMBAT";
-_enemy5 setSkill _AISkills;
-
-
-_enemy6 = objNull;
-_enemy6 = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];
-_enemy6 enableAI "TARGET";
-_enemy6 enableAI "AUTOTARGET";
-_enemy6 enableAI "MOVE";
-_enemy6 enableAI "ANIM";
-_enemy6 enableAI "FSM";
-_enemy6 setCombatMode "YELLOW";
-_enemy6 setBehaviour "COMBAT";
-_enemy6 setSkill _AISkills;
-
-_enemy7 = objNull;
-_enemy7 = _group_1 createUnit [_enemytype,_loot_pos,[],0,"CAN_COLLIDE"];
-_enemy7 enableAI "TARGET";
-_enemy7 enableAI "AUTOTARGET";
-_enemy7 enableAI "MOVE";
-_enemy7 enableAI "ANIM";
-_enemy7 enableAI "FSM";
-_enemy7 setCombatMode "YELLOW";
-_enemy7 setBehaviour "COMBAT";
-_enemy7 setSkill _AISkills;
-
-
-
-
-//use waypoints : allow ai move
-if (_usewaypoints) then {
-
-_xpos = _position select 0;
-_ypos = _position select 1;
-
-// These are 4 waypoints in a NorthSEW around the center
-_waypos1 = [_xpos, _ypos+20, 0];
-_waypos2 = [_xpos+20, _ypos, 0];
-_waypos3 = [_xpos, _ypos-20, 0];
-_waypos4 = [_xpos-20, _ypos, 0];
-
-
-_wp1 = _group_1 addWaypoint [_waypos1, _waypointsrange];
-_wp1 setWaypointType "MOVE";
-_wp2 = _group_1 addWaypoint [_waypos2, _waypointsrange];
-_wp2 setWaypointType "MOVE";
-_wp3 = _group_1 addWaypoint [_waypos3, _waypointsrange];
-_wp3 setWaypointType "MOVE";
-_wp4 = _group_1 addWaypoint [_waypos4, _waypointsrange];
-_wp4 setWaypointType "MOVE";
-
-
-_waypointend = _group_1 addWaypoint [[_xpos,_ypos, 0], _waypointsrange];
-_waypointend setWaypointType "CYCLE";
-
-};
-sleep 1;
-
-//If use aicustomgear
-if (_aicustomgear) then {
-
-///////////////////////////////////////remove weapons and magazines
-removeAllWeapons _enemy;
-removeAllItems _enemy;
-removeAllWeapons _enemy1;
-removeAllItems _enemy1;
-removeAllWeapons _enemy2;
-removeAllItems _enemy2;
-removeAllWeapons _enemy3;
-removeAllItems _enemy3;
-removeAllWeapons _enemy4;
-removeAllItems _enemy4;
-removeAllWeapons _enemy5;
-removeAllItems _enemy5;
-removeAllWeapons _enemy6;
-removeAllItems _enemy6;
-removeAllWeapons _enemy7;
-removeAllItems _enemy7;
-
-///////////////////////////////////////add weapons and magazines
-_enemy addWeapon "G36C_camo";
-_enemy addMagazine "30Rnd_556x45_G36";
-_enemy addMagazine "30Rnd_556x45_G36";
-_enemy addMagazine "30Rnd_556x45_G36";
-_enemy addMagazine "30Rnd_556x45_G36";
-_enemy addMagazine "30Rnd_556x45_G36";
-_enemy addMagazine "30Rnd_556x45_G36";
-
-_enemy1 addWeapon "G36C_camo";
-_enemy1 addMagazine "30Rnd_556x45_G36";
-_enemy1 addMagazine "30Rnd_556x45_G36";
-_enemy1 addMagazine "30Rnd_556x45_G36";
-_enemy1 addMagazine "30Rnd_556x45_G36";
-_enemy1 addMagazine "30Rnd_556x45_G36";
-_enemy1 addMagazine "30Rnd_556x45_G36";
-
-_enemy2 addWeapon "M4A1_HWS_GL_camo";
-_enemy2 addMagazine "30Rnd_556x45_Stanag";
-_enemy2 addMagazine "30Rnd_556x45_Stanag";
-_enemy2 addMagazine "30Rnd_556x45_Stanag";
-_enemy2 addMagazine "30Rnd_556x45_Stanag";
-_enemy2 addMagazine "30Rnd_556x45_Stanag";
-_enemy2 addMagazine "30Rnd_556x45_Stanag";
-
-_enemy3 addWeapon "M4A1_HWS_GL_camo";
-_enemy3 addMagazine "30Rnd_556x45_Stanag";
-_enemy3 addMagazine "30Rnd_556x45_Stanag";
-_enemy3 addMagazine "30Rnd_556x45_Stanag";
-_enemy3 addMagazine "30Rnd_556x45_Stanag";
-_enemy3 addMagazine "30Rnd_556x45_Stanag";
-_enemy3 addMagazine "30Rnd_556x45_Stanag";
-
-_enemy4 addWeapon "AKS74U_DZ";
-_enemy4 addMagazine "30Rnd_545x39_AK";
-_enemy4 addMagazine "30Rnd_545x39_AK";
-_enemy4 addMagazine "30Rnd_545x39_AK";
-_enemy4 addMagazine "30Rnd_545x39_AK";
-_enemy4 addMagazine "30Rnd_545x39_AK";
-_enemy4 addMagazine "30Rnd_545x39_AK";
-
-_enemy5 addWeapon "FNFAL_DZ";
-_enemy5 addMagazine "20Rnd_762x51_FNFAL";
-_enemy5 addMagazine "20Rnd_762x51_FNFAL";
-_enemy5 addMagazine "20Rnd_762x51_FNFAL";
-_enemy5 addMagazine "20Rnd_762x51_FNFAL";
-_enemy5 addMagazine "20Rnd_762x51_FNFAL";
-_enemy5 addMagazine "20Rnd_762x51_FNFAL";
-
-_enemy6 addWeapon "M249_DZ";
-_enemy6 addMagazine "100Rnd_556x45_M249";
-_enemy6 addMagazine "100Rnd_556x45_M249";
-_enemy6 addMagazine "100Rnd_556x45_M249";
-_enemy6 addMagazine "100Rnd_556x45_M249";
-
-_enemy7 addWeapon "M24_DZ";
-_enemy7 addMagazine "5Rnd_762x51_M24";
-_enemy7 addMagazine "5Rnd_762x51_M24";
-_enemy7 addMagazine "5Rnd_762x51_M24";
-_enemy7 addMagazine "5Rnd_762x51_M24";
-_enemy7 addMagazine "5Rnd_762x51_M24";
-_enemy7 addMagazine "5Rnd_762x51_M24";
-//////////////////////////////////////////////
-
-//add items
-_enemy addMagazine _Gear0;
-_enemy addMagazine _Gear1;
-_enemy1 addMagazine _Gear1;
-_enemy1 addMagazine _Gear2;
-_enemy2 addMagazine _Gear2;
-_enemy2 addMagazine _Gear3;
-_enemy3 addMagazine _Gear3;
-_enemy3 addMagazine _Gear4;
-_enemy4 addMagazine _Gear4;
-_enemy4 addMagazine _Gear5;
-_enemy5 addMagazine _Gear5;
-_enemy5 addMagazine _Gear6;
-_enemy6 addMagazine _Gear6;
-_enemy6 addMagazine _Gear7;
-_enemy7 addMagazine _Gear7;
-_enemy7 addMagazine _Gear0;
-
-
-//add backpacks
-_enemy addBackpack _Packlist;
-_enemy1 addBackpack _Packlist;
-_enemy2 addBackpack _Packlist;
-_enemy3 addBackpack _Packlist;
-_enemy4 addBackpack _Packlist;
-_enemy5 addBackpack _Packlist;
-_enemy6 addBackpack _Packlist;
-_enemy7 addBackpack _Packlist;
-};
-sleep 1;
-//endspawn enemys
+	if ((typeName _loot) == "ARRAY") then {
+		_box addMagazineCargoGlobal [_loot select 1,_loot select 0];
+	} else {
+		_box addMagazineCargoGlobal [_loot,1];
+	};
 };
 
+_pack = DayZ_Backpacks call dz_fn_array_selectRandom;
+_box addBackpackCargoGlobal [_pack,1];
 
-
-
-
-waitUntil{{isPlayer _x && _x distance _loot_box < 10  } count playableunits > 0};
-[nil,nil,rTitleText,"BOMBCRATE IS ACTIVE NOW -25 SECONDS BEFORE EXPLODE!", "PLAIN",10] call RE;
-_timer = 30;//change me if u want more o less time before bomb explode
-
-//#############################CREATE THE BOMB FUNCTION TO EXPLODE############################//
-bombexp = {
-_bomb = ["HelicopterExploSmall","HelicopterExploBig","Bo_GBU12_LGB"] call BIS_fnc_selectRandom;
-_dabomb = objNull;
-if (true) then
-{
-_this = createVehicle [_bomb,_positionobj, [], 2, "CAN_COLLIDE"];
-_dabomb = _this;
+if (_type == "Hint") then {
+	_img = (getText (configFile >> "CfgVehicles" >> "UralCivil_DZE" >> "picture"));
+	RemoteMessage = ["hintWithImage",["STR_CL_ESE_IKEA_TITLE","STR_CL_ESE_IKEA"],[_img,TITLE_COLOR,TITLE_SIZE,IMAGE_SIZE]];
+} else {
+	RemoteMessage = ["titleText","STR_CL_ESE_IKEA"];
 };
+publicVariable "RemoteMessage";
+
+if (_debug) then {diag_log format["IKEA Event setup, event will end in %1 minutes", _timeout];};
+
+_time = diag_tickTime;
+_done = false;
+_visited = false;
+_isNear = true;
+
+while {!_done} do {
+	
+	_marker = createMarker [ format ["eventMark%1", _time], _pos];
+	_marker setMarkerShape "ELLIPSE";
+	_marker setMarkerColor "ColorGreen";
+	_marker setMarkerAlpha 0.5;
+	_marker setMarkerSize [_radius,_radius];
+	
+	if (_nameMarker) then {
+		_dot = createMarker [format["eventDot%1",_time],_pos];
+		_dot setMarkerShape "ICON";
+		_dot setMarkerType "mil_dot";
+		_dot setMarkerColor "ColorBlack";
+		_dot setMarkerText "IKEA supply";
+	};
+	
+	if (_markPos) then {
+		_pMarker = createMarker [format["eventDebug%1",_time],_lootPos];
+		_pMarker setMarkerShape "ICON";
+		_pMarker setMarkerType "mil_dot";
+		_pMarker setMarkerColor "ColorGreen";
+	};
+	
+	if (_visitMarker) then {
+		{if (isPlayer _x && _x distance _box <= _distance && !_visited) then {_visited = true};} count playableUnits;
+	
+		// Add the visit marker to the center of the mission if enabled
+		if (_visited) then {
+			_vMarker = createMarker [ format ["EventVisit%1", _time], [(_pos select 0), (_pos select 1) + 25]];
+			_vMarker setMarkerShape "ICON";
+			_vMarker setMarkerType "hd_pickup";
+			_vMarker setMarkerColor "ColorBlack";
+		}; 
+	};
+	
+	uiSleep 1;
+	
+	deleteMarker _marker;
+	if !(isNil "_dot") then {deleteMarker _dot;};
+	if !(isNil "_pMarker") then {deleteMarker _pMarker;};
+	if !(isNil "_vMarker") then {deleteMarker _vMarker;}; 
+	
+	if (_timeout != -1) then {
+		if (diag_tickTime - _time >= _timeout*60) then {
+			_done = true;
+		};
+	};
 };
-//############################EXIT FROM HERE#################################################//
 
+while {_isNear} do {
+	{if (isPlayer _x && _x distance _box >= _distance) then {_isNear = false};} count playableUnits;
+};
 
-sleep 1;
-
- 
-
-
-_mark = "RoadFlare" createVehicle getPosATL _loot_box;
-_mark attachTo [_loot_box, [0,0,-1]];
-_positionobj = getPosATL _loot_box;    
-
- 
-
-sleep _timer;
-call bombexp;
-
- 
-
- 
 // Clean up
-EPOCH_EVENT_RUNNING = false;
-deleteVehicle _mark;
-deleteVehicle _loot_box;
-deleteMarker _event_marker;
-if (_debug) then {
-deleteMarker _debug_marker;
-};
-if (_spawnenemys) then {
-deleteVehicle _enemy;
-deleteVehicle _enemy1;
-deleteVehicle _enemy2;
-deleteVehicle _enemy3;
-deleteVehicle _enemy4;
-deleteVehicle _enemy5;
-deleteVehicle _enemy6;
-deleteVehicle _enemy7;
-};
+deleteVehicle _box;
+
+diag_log "IKEA Event Ended";
