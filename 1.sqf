@@ -1,176 +1,212 @@
 /*
-	Fuel Station Bombing event by JasonTM
-	Credit to juandayz for original "Random Explosions on Gas Stations" event.
-	Last edited 3-6-2019
+	Original Labyrinth Event by Caveman
+	Rewritten and updated for DayZ Epoch 1.0.6+ by JasonTM
+	Last update: 7-25-2018
 */
 
-private ["_random","_pos","_vMarker"];
+private ["_spawnChance","_markerRadius","_timeout","_debug","_nameMarker","_markPos",
+"_lootAmount","_messageType","_visitMark","_distance","_crate","_numGems","_lootList",
+"_gems","_position","_posarray","_spawnObjects","_lootPos","_box",
+"_runover","_clutter","_gems","_gem","_loot","_pack","_img",
+"_time","_marker","_pMarker","_vMarker","_dot","_finished","_visited","_isNear"];
 
+_spawnChance =  1; // Percentage chance of event happening.The number must be between 0 and 1. 1 = 100% chance.
+_numGems = [0,1]; // Random number of gems to add to the crate [minimum, maximum]. For no gems, set to [0,0].
+_markerRadius = 200; // Radius the loot can spawn and used for the marker
 _timeout = 20; // Time it takes for the event to time out (in minutes). To disable timeout set to -1.
-_delay = 2; // This is the time in minutes it will take for the explosion to occur after announcement
-_lowerGrass = true; // remove grass underneath loot so it is easier to find small objects
-_visitMark = true; // Places a "visited" check mark on the mission if a player gets within range of the vehicle.
-_distance = 20; // Distance from vehicle before event is considered "visited"
+_debug = false; // Diagnostic logs used for troubleshooting.
+_nameMarker = true; // Center marker with the name of the mission.
+_markPos = false; // Puts a marker exactly where the loot spawns.
+_lootAmount = 4; // This is the number of times a random loot selection is made.
+_messageType = "Hint"; // Type of announcement message. Options "Hint","TitleText". ***Warning: Hint appears in the same screen space as common debug monitors
+_visitMark = true; // Places a "visited" check mark on the mission if a player gets within range of the crate.
+_distance = 20; // Distance from crate before crate is considered "visited"
+_crate = "GuerillaCacheBox";
+#define TITLE_COLOR "#ccff33" // Hint Option: Color of Top Line
+#define TITLE_SIZE "1.75" // Hint Option: Size of top line
+#define IMAGE_SIZE "4" // Hint Option: Size of the image
 
-// You can adjust these loot selections to your liking. Must be magazine/item slot class name, not weapon or tool belt.
-// Nested arrays are number of each item and item class name.
-_lootArrays = [
-	[[6,"full_cinder_wall_kit"],[1,"cinder_door_kit"],[1,"cinder_garage_kit"],[4,"forest_large_net_kit"]],
-	[[6,"metal_floor_kit"],[6,"ItemWoodFloor"],[2,"ItemWoodStairs"],[10,"ItemSandbag"]],
-	[[24,"CinderBlocks"],[8,"MortarBucket"]]
+_lootList = [[5,"ItemGoldBar"],[3,"ItemGoldBar10oz"],"ItemBriefcase100oz",[20,"ItemSilverBar"],[10,"ItemSilverBar10oz"]];
+
+if (random 1 > _spawnChance and !_debug) exitWith {};
+
+// Random location
+_position = [getMarkerPos "center",0,(((getMarkerSize "center") select 1)*0.75),10,0,.2,0] call BIS_fnc_findSafePos;
+
+diag_log format["Labyrinth Event Spawning At %1", _position];
+
+_posarray = [
+	[(_position select 0) + 9, (_position select 1) + 2.3,-0.012],
+	[(_position select 0) - 18.6, (_position select 1) + 15.6,-0.012],
+	[(_position select 0) - 8.5, (_position select 1) - 21,-0.012],
+	[(_position select 0) - 33, (_position select 1) - 6,-0.012],
+	[(_position select 0) + 5, (_position select 1) - 44,-0.012],
+	[(_position select 0) - 23, (_position select 1) - 20,-0.012],
+	[(_position select 0) + 13, (_position select 1) - 23,-0.012],
+	[(_position select 0) + 7, (_position select 1) - 6,-0.012],
+	[(_position select 0) - 5, (_position select 1) + 1,-0.012],
+	[(_position select 0) - 42, (_position select 1) - 6,-0.012],
+	[(_position select 0) - 4.3, (_position select 1) - 39,-0.012]
 ];
 
-// Select random loot array from above
-_loot = _lootArrays call BIS_fnc_selectRandom;
+_spawnObjects = {
+	private ["_objArray","_offset","_position","_obj","_objects","_type","_pos"];
 
-// Initialize locations array
-if (isNil "FuelStationEventArray") then {
-	FuelStationEventArray = [
-		// Vehicle direction, vehicle position, fuel station name
-		[96.8,[3640.58,8979.26,0],"Vybor"],
-		[58.3,[6708.22,2986.89,0],"Cherno"],
-		[10,[5849.21,10085.1,0],"Grishino"],
-		[130,[7243.35,7644.83,0],"Novy Sobor"],
-		[29,[10163.4,5304.94,0],"Staroye"],
-		[94.6,[9497.25,2016,0],"Elektro"],
-		[347,[13394.8,6605.09,0],"Solnechiy"],
-		[200,[2034.43,2242.05,0],"Kamenka"],
-		[8.5,[2681.41,5604.03,0],"Zelenogorsk"],
-		[87,[4734.43,6373.43,0],"Pogorevka"],
-		[329.3,[10456.5,8868.75,0],"Gorka"],
-		[10.5,[12998.1,10074.4,0],"Berezino"]
-	];
-};
+	_objects = _this select 0;
+	_pos = _this select 1;
+	_objArray = [];
 
-// Don't spawn the event at a fuel station where a player is refueling/repairing a vehicle
-_validSpot = false;
-while {!_validSpot} do {
-	_random = FuelStationEventArray call BIS_fnc_selectRandom;
-	_pos = _random select 1;
-	{if (isPlayer _x && _x distance _pos >= 20) then {_validSpot = true};} count playableUnits;
-};
-
-_dir = _random select 0;
-_name = _random select 2;
-
-{ // Remove current location from array so there are no repeats
-	if (_name == (_x select 2)) exitWith {
-		FuelStationEventArray set [_forEachIndex, "remove"];
-		FuelStationEventArray = FuelStationEventArray - ["remove"];
-	};
-} forEach FuelStationEventArray;
-
-// If all locations have been removed, reset to original array by destroying global variable
-if (count FuelStationEventArray == 0) then {FuelStationEventArray = nil;};
-
-[nil,nil,rTitleText,format["A bomb has been planted on a truck at the %1 fuel station\nIt will explode in %2 minutes", _name, _delay], "PLAIN",10] call RE;
-
-// Spawn truck
-_truck = "Ural_CDF" createVehicle _pos;
-_truck setDir _dir;
-_truck setPos _pos;
-_truck setVehicleLock "locked";
-_truck setVariable ["CharacterID","9999",true];
-
-// Disable damage to near fuel pumps so the explosion doesn't destroy them.
-// Otherwise players will complain about not being able to refuel and repair their vehicles.
-_pumps = nearestObjects [_pos, ["Land_A_FuelStation_Feed"], 30];
-if (count _pumps > 0) then {
 	{
-		_x allowDamage false;
-	} count _pumps;
+		_type = _x select 0;
+		_offset = _x select 1;
+		_position = [(_pos select 0) + (_offset select 0), (_pos select 1) + (_offset select 1), (_offset select 2)];
+		_obj = _type createVehicle [0,0,0];
+		if (count _x > 2) then {
+			_obj setDir (_x select 2);
+		};
+		_obj setPos _position;
+		_obj setVectorUp surfaceNormal position _obj;
+		_obj addEventHandler ["HandleDamage",{0}];
+		_obj enableSimulation false;
+		_objArray set [count _objArray, _obj];
+	} forEach _objects;
+
+	_objArray
 };
+
+_lootPos = _posarray call dz_fn_array_selectRandom;
+
+if (_debug) then {diag_log format["Labyrinth Event: creating ammo box at %1", _lootPos];};
+
+_box = _crate createVehicle [0,0,0];
+_box setPos _lootPos;
+clearMagazineCargoGlobal _box;
+clearWeaponCargoGlobal _box;
+
+_clutter = createVehicle ["ClutterCutter_EP1", _lootPos, [], 0, "CAN_COLLIDE"];
+_clutter setPos _lootPos;
+
+_runover = [[
+	["Land_MBG_Shoothouse_1",[-35,-6.5,-0.12]],
+	["Land_MBG_Shoothouse_1",[-12,9,-0.12]],
+	["Land_MBG_Shoothouse_1",[-16,-19.3,-0.12]],
+	["Land_MBG_Shoothouse_1",[7,-15,-0.12]],
+	["Land_MBG_Shoothouse_1",[3,-39.5,-0.12]],
+	["Land_A_Castle_Bergfrit",[9.5,3,-10.52]],
+	["Land_A_Castle_Donjon_dam",[4,17,-1.93]],
+	["Land_A_Castle_Wall1_20",[-11.6,21.7,-7.28]],
+	["Land_A_Castle_Wall1_20",[-35.4,6.4,-7.28]],
+	["Land_A_Castle_Donjon",[16,-10.3,-1.93]],
+	["Sign_arrow_down_large_EP1",[15,-35,0.52]],
+	["Sign_arrow_down_large_EP1",[-8.6,-51,0.52]],
+	["Sign_arrow_down_large_EP1",[-27,-30.5,0.52]],
+	["Sign_arrow_down_large_EP1",[-46,-17.4,0.52]],
+	["Sign_arrow_down_large_EP1",[-22.7,7.7,0.52]],
+	["MAP_t_acer2s",[-8,-31,-0.12]],
+	["MAP_t_acer2s",[-46.5,-15,-0.12],91.4],
+	["MAP_t_acer2s",[-23,10,-0.12],89.09],
+	["MAP_t_acer2s",[-27.3,-28,-0.12],90.6],
+	["MAP_t_acer2s",[14,-32,-0.12],-88.1],
+	["MAP_t_acer2s",[-8.5,-48,-0.12],86.08]
+],_position] call _spawnObjects;
+
+_gems = (round(random((_numGems select 1) - (_numGems select 0)))) + (_numGems select 0);
+
+if (_debug) then {diag_log format["Labyrinth Event: %1 gems added to crate", _gems];};
+
+if (_gems > 0) then {
+	for "_i" from 1 to _gems do {
+		_gem = ["ItemTopaz","ItemObsidian","ItemSapphire","ItemAmethyst","ItemEmerald","ItemCitrine","ItemRuby"] call dz_fn_array_selectRandom;
+		_box addMagazineCargoGlobal [_gem,1];
+	};
+};
+
+for "_i" from 1 to _lootAmount do {
+	_loot = _lootList call dz_fn_array_selectRandom;
+	
+	if ((typeName _loot) == "ARRAY") then {
+		_box addMagazineCargoGlobal [_loot select 1,_loot select 0];
+	} else {
+		_box addMagazineCargoGlobal [_loot,1];
+	};
+};
+
+_pack = DayZ_Backpacks call dz_fn_array_selectRandom;
+_box addBackpackCargoGlobal [_pack,1];
+
+if (_messageType == "Hint") then {
+	_img = (getText (configFile >> "CfgVehicles" >> "Land_MBG_Shoothouse_1" >> "icon"));
+	RemoteMessage = ["hintWithImage",["STR_CL_ESE_LABYRINTH_TITLE","STR_CL_ESE_LABYRINTH"],[_img,TITLE_COLOR,TITLE_SIZE,IMAGE_SIZE]];
+} else {
+	RemoteMessage = ["titleText","STR_CL_ESE_LABYRINTH"];
+};
+publicVariable "RemoteMessage";
+
+if (_debug) then {diag_log format["Labyrinth event setup, waiting for %1 minutes", _timeout];};
 
 _time = diag_tickTime;
-_done = false;
+_finished = false;
 _visited = false;
 _isNear = true;
-_spawned = false;
-_lootArray = [];
-_grassArray = [];
 
-// Start monitoring loop
-while {!_done} do {
+while {!_finished} do {
 	
-	_marker = createMarker ["fuel" + str _time,_pos];
+	_marker = createMarker [ format ["eventmarker%1", _time], _position];
 	_marker setMarkerShape "ELLIPSE";
-	_marker setMarkerColor "ColorRed";
-	_marker setMarkerAlpha 0.4;
-	_marker setMarkerSize [150,150];
+	_marker setMarkerColor "ColorYellow";
+	_marker setMarkerAlpha 0.5;
+	_marker setMarkerSize [(_markerRadius + 50), (_markerRadius + 50)];
 	
-	_dot = createMarker ["explosion" + str _time, _pos];
-	_dot setMarkerShape "ICON";
-	_dot setMarkerType "mil_dot";
-	_dot setMarkerColor "ColorBlack";
-	_dot setMarkerText "Fuel Station Explosion";
+	if (_nameMarker) then {
+		_dot = createMarker [format["eventDot%1",_time],_position];
+		_dot setMarkerShape "ICON";
+		_dot setMarkerType "mil_dot";
+		_dot setMarkerColor "ColorBlack";
+		_dot setMarkerText "Labyrinth";
+	};
+	
+	if (_markPos) then {
+		_pMarker = createMarker [ format ["eventPos%1", _time], _lootPos];
+		_pMarker setMarkerShape "ICON";
+		_pMarker setMarkerType "mil_dot";
+		_pMarker setMarkerColor "ColorYellow";
+	};
 	
 	if (_visitMark) then {
-		if (!_visited) then {
-			{
-				if (isPlayer _x && _x distance _pos <= _distance) then {
-					_visited = true;
-				};
-			} count playableUnits;
-		};
+		{if (isPlayer _x && _x distance _box <= _distance && !_visited) then {_visited = true};} count playableUnits;
 	
 		if (_visited) then {
-			_vMarker = createMarker ["fuelVmarker" + str _time, [(_pos select 0), (_pos select 1) + 25]];
+			_vMarker = createMarker [ format ["eventVisit%1", _time], [(_position select 0), (_position select 1) + 25]];
 			_vMarker setMarkerShape "ICON";
 			_vMarker setMarkerType "hd_pickup";
 			_vMarker setMarkerColor "ColorBlack";
-		}; 
+		};
 	};
 	
-	uiSleep 3;
+	uiSleep 1;
 	
 	deleteMarker _marker;
-	deleteMarker _dot;
-	if !(isNil "_vMarker") then {deleteMarker _vMarker;};
+	if !(isNil "_dot") then {deleteMarker _dot;};
+	if !(isNil "_pMarker") then {deleteMarker _pMarker;};
+	if !(isNil "_vMarker") then {deleteMarker _vMarker;}; 
 	
-	if (!_spawned && {diag_tickTime - _time >= _delay*60}) then {
-		
-		[nil,nil,rTitleText,format["Explosion at the %1 fuel station!\nRecover the building supplies!",_name], "PLAIN",10] call RE;
-		
-		// Blow the vehicle up
-		"Bo_GBU12_LGB" createVehicle _pos;
-		
-		uiSleep 2;
-		
-		// Spawn loot around the destroyed vehicle
-		{
-			for "_i" from 1 to (_x select 0) do {
-				_lootRad = (random 10) + 4;
-				_lootPos = [_pos, _lootRad, random 360] call BIS_fnc_relPos;
-				_lootPos set [2, 0];
-				_lootVeh = createVehicle ["WeaponHolder", _lootPos, [], 0, "CAN_COLLIDE"];
-				_lootVeh setVariable ["permaLoot", true];
-				_lootVeh addMagazineCargoGlobal [(_x select 1), 1];
-				_lootArray set[count _lootArray, _lootVeh];
-				if (_lowerGrass) then {
-					_grass = createVehicle ["ClutterCutter_small_2_EP1", _lootPos, [], 0, "CAN_COLLIDE"];
-					_grassArray set[count _grassArray, _grass];
-				};
-			};
-		} count _loot;
-		
-		// Reset the timer once loot is spawned
-		_time = diag_tickTime;
-		_spawned = true;
-	};
-	
-	// Timeout timer starts after loot is spawned
-	if (_spawned && {_timeout != -1}) then {
+	if (_timeout != -1) then {
 		if (diag_tickTime - _time >= _timeout*60) then {
-			_done = true;
+			_finished = true;
 		};
 	};
 };
 
-// If player is near, don't delete the loot piles
 while {_isNear} do {
-	{if (isPlayer _x && _x distance _pos >= 30) then {_isNear = false};} count playableUnits;
+	{if (isPlayer _x && _x distance _box >= _distance) then {_isNear = false};} count playableUnits;
 };
 
-// Delete loot piles and grass cutters
-{deleteVehicle _x;} count _lootArray;
-if (count _grassArray > 0) then {{deleteVehicle _x;} count _grassArray;};
+deleteVehicle _box;
+deleteVehicle _clutter;
+
+{
+	deleteVehicle _x;
+} forEach _runover;
+
+diag_log "Labyrinth Event Ended";
+
