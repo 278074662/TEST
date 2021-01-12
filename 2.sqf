@@ -1,270 +1,80 @@
-/*
-	DayZ Mission System Functions
-	by Vampire
-*/
 
-diag_log text "[DZMS]: Loading ExecVM Functions.";
-DZMSMajTimer = "\z\addons\dayz_server\DZMS\Scripts\DZMSMajTimer.sqf";
-DZMSMinTimer = "\z\addons\dayz_server\DZMS\Scripts\DZMSMinTimer.sqf";
-DZMSMarkerLoop = "\z\addons\dayz_server\DZMS\Scripts\DZMSMarkerLoop.sqf";
-
-DZMSAddMajMarker = "\z\addons\dayz_server\DZMS\Scripts\DZMSAddMajMarker.sqf";
-DZMSAddMinMarker = "\z\addons\dayz_server\DZMS\Scripts\DZMSAddMinMarker.sqf";
-
-DZMSAIKilled = "\z\addons\dayz_server\DZMS\Scripts\DZMSAIKilled.sqf";
-
-DZMSBoxSetup = "\z\addons\dayz_server\DZMS\Scripts\DZMSBox.sqf";
-DZMSSaveVeh = "\z\addons\dayz_server\DZMS\Scripts\DZMSSaveToHive.sqf";
-
-diag_log text "[DZMS]: Loading Compiled Functions.";
-// compiled functions
-DZMSAISpawn = compile preprocessFileLineNumbers "\z\addons\dayz_server\DZMS\Scripts\DZMSAISpawn.sqf";
-
-diag_log text "[DZMS]: Loading All Other Functions.";
-//Attempts to find a mission location
-//If findSafePos fails it searches again until a position is found
-//This fixes the issue with missions spawning in Novy Sobor on Chernarus
-DZMSFindPos = {
-    private["_mapHardCenter","_mapRadii","_isTavi","_centerPos","_pos","_disCorner","_hardX","_hardY","_findRun","_posX","_posY","_feel1","_feel2","_feel3","_feel4","_noWater","_tavTest","_tavHeight","_disMaj","_disMin","_okDis","_isBlack","_playerNear"];
-  
-    //Lets try to use map specific "Novy Sobor Fixes".
-    //If the map is unrecognised this function will still work.
-	//Better code thanks to Halv
-	_mapHardCenter = true;
-	_mapRadii = 5500;
-	_isTavi = false;
-	_tavHeight = 0;
-	switch (DZMSWorldName) do {
-		case "chernarus":{_centerPos = [7100, 7750, 0];_mapRadii = 5500;};
-		case "utes":{_centerPos = [3500, 3500, 0];_mapRadii = 3500;};
-		case "zargabad":{_centerPos = [4096, 4096, 0];_mapRadii = 4096;};
-		case "fallujah":{_centerPos = [3500, 3500, 0];_mapRadii = 3500;};
-		case "takistan":{_centerPos = [5500, 6500, 0];_mapRadii = 5000;};
-		case "tavi":{_centerPos = [10370, 11510, 0];_mapRadii = 14090;_isTavi = true;};
-		case "lingor":{_centerPos = [4400, 4400, 0];_mapRadii = 4400;};
-		case "namalsk":{_centerPos = [4352, 7348, 0]};
-		case "napf":{_centerPos = [10240, 10240, 0];_mapRadii = 10240;};
-		case "mbg_celle2":{_centerPos = [8765.27, 2075.58, 0]};
-		case "oring":{_centerPos = [1577, 3429, 0]};
-		case "panthera2":{_centerPos = [4400, 4400, 0];_mapRadii = 4400;};
-		case "isladuala":{_centerPos = [4400, 4400, 0];_mapRadii = 4400;};
-		case "smd_sahrani_a2":{_centerPos = [13200, 8850, 0]};
-		case "sauerland":{_centerPos = [12800, 12800, 0];_mapRadii = 12800;};
-		case "trinity":{_centerPos = [6400, 6400, 0];_mapRadii = 6400;};
-		//We don't have a supported map. Let's use the norm.
-		default{_pos = [getMarkerPos "center",0,5500,60,0,20,0] call BIS_fnc_findSafePos;_mapHardCenter = false;};
-	};
-
-    //If we have a hardcoded center, then we need to loop for a location
-    //Else we can ignore this block of code and just return the position
-    if (_mapHardCenter AND (!(DZMSStaticPlc))) then {
-   
-        _hardX = _centerPos select 0;
-        _hardY = _centerPos select 1;
-   
-        //We need to loop findSafePos until it doesn't return the map center
-        _findRun = true;
-        while {_findRun} do
-        {
-            _pos = [_centerPos,0,_mapRadii,60,0,20,0] call BIS_fnc_findSafePos;
-           
-            //Apparently you can't compare two arrays and must compare values
-            _posX = _pos select 0;
-            _posY = _pos select 1;
-           
-            //Water Feelers. Checks for nearby water within 50meters.
-            _feel1 = [_posX, _posY+50, 0];
-            _feel2 = [_posX+50, _posY, 0];
-            _feel3 = [_posX, _posY-50, 0];
-            _feel4 = [_posX-50, _posY, 0];
-           
-            //Water Check
-            _noWater = (!surfaceIsWater _pos && !surfaceIsWater _feel1 && !surfaceIsWater _feel2 && !surfaceIsWater _feel3 && !surfaceIsWater _feel4);
-			
-			//Lets test the height on Taviana
-			if (_isTavi) then {
-				_tavTest = createVehicle ["Can_Small",[_posX,_posY,0],[], 0, "CAN_COLLIDE"];
-				_tavHeight = (getPosASL _tavTest) select 2;
-				deleteVehicle _tavTest;
-			};
-			
-			//Lets check for minimum mission separation distance
-			_disMaj = (_pos distance DZMSMajCoords);
-			_disMin = (_pos distance DZMSMinCoords);
-			_okDis = ((_disMaj > 1000) AND (_disMin > 1000));
-		   
-            //make sure the point is not blacklisted
-            _isBlack = false;
-            {
-                if ((_pos distance (_x select 0)) <= (_x select 1)) then {_isBlack = true;};
-            } forEach DZMSBlacklistZones;
-			
-			_playerNear = {isPlayer _x} count (_pos nearEntities ["CAManBase", 500]) > 0;
-            
-			//Lets combine all our checks to possibly end the loop
-            if ((_posX != _hardX) AND (_posY != _hardY) AND _noWater AND _okDis AND !_isBlack AND !_playerNear) then {
-				if (!(_isTavi)) then {
-					_findRun = false;
-				};
-				if (_isTavi AND (_tavHeight <= 185)) then {
-					_findRun = false;
-				};
-            };
-			// If the missions never spawn after running, use this to debug the loop.
-			// Will Complete if: noWater = true / Distance > 1000 / TaviHeight <= 185 / Blacklisted = false / PlayerNear = false
-			//diag_log text format ["[DZMS]: DEBUG: Pos:[%1,%2] / noWater?:%3 / okDistance?:%4 / TaviHeight:%5 / isBlackListed:%6 / isPlayerNear:%7", _posX, _posY, _noWater, _okDis, _tavHeight, _isBlack, _playerNear];
-            sleep 2;
-        };
-       
-    };
-	
-	if (DZMSStaticPlc) then {
-		_pos = DZMSStatLocs call BIS_fnc_selectRandom;
-	};
-   
-    _fin = [(_pos select 0), (_pos select 1), 0];
-    _fin
-};
-
-//Clears the cargo and sets fuel, direction, and orientation
-//Direction stops the awkwardness of every vehicle bearing 0
-DZMSSetupVehicle = {
-	private ["_object","_objectID","_ranFuel","_is50Cal"];
-	_object = _this select 0;
-
-	_objectID = str(round(random 999999));
-	_object setVariable ["ObjectID", _objectID, true];
-	_object setVariable ["ObjectUID", _objectID, true];	
-	
-	if (typeOf _object == "M2StaticMG") then {_is50Cal = true;}else{_is50Cal = false;};
-	
-	dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _object];
-	
-	waitUntil {(!isNull _object)};
-	
-	clearWeaponCargoGlobal _object;
-	clearMagazineCargoGlobal _object;
-	
-	_ranFuel = random 1;
-	if (_ranFuel < .1) then {_ranFuel = .1;};
-	if (!_is50Cal) then {
-		_object setFuel _ranFuel;
-		_object setvelocity [0,0,1];
-		_object setDir (round(random 360));
-		
-		//If saving vehicles to the database is disabled, lets warn players it will disappear
-		if (!(DZMSSaveVehicles)) then {
-			_object addEventHandler ["GetIn",{
-				_nil = [nil,(_this select 2),"loc",rTITLETEXT,"Warning: This vehicle will disappear on server restart!","PLAIN DOWN",5] call RE;
-			}];
-		};
-	};
-
-	true
-};
-
-//Prevents an object being cleaned up by the server anti-hack
-DZMSProtectObj = {
-	private ["_object","_objectID"];
-	_object = _this select 0;
-	
-	_objectID = str(round(random 999999));
-	_object setVariable ["ObjectID", _objectID, true];
-	_object setVariable ["ObjectUID", _objectID, true];
-	_object setvariable ["aiveh",1,true];
-	
-	if (_object isKindOf "ReammoBox") then {
-		// PermaLoot on top of ObjID because that "arma logic"
-		_object setVariable ["permaLoot",true];
-	};
-
-	dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _object];
-	
-    if (!((typeOf _object) in ["USVehicleBox","USLaunchersBox","DZ_AmmoBoxUS","DZ_AmmoBoxRU","DZ_MedBox","USBasicWeaponsBox","USBasicAmmunitionBox","RULaunchersBox","AmmoBoxBig"]) || DZMSSceneryDespawnLoot) then {
-        _object setVariable["DZMSCleanup",true];
-    };
-	true
-};
-
-//Gets the weapon and magazine based on skill level
-DZMSGetWeapon = {
-	private ["_skill","_aiweapon","_weapon","_magazine","_fin"];
-	
-	_skill = _this select 0;
-	
-	//diag_log text format ["[DZMS]: AI Skill Func:%1",_skill];
-	
-	switch (_skill) do {
-		case 0: {_aiweapon = DZMSWeps0;};
-		case 1: {_aiweapon = DZMSWeps1;};
-		case 2: {_aiweapon = DZMSWeps2;};
-		case 3: {_aiweapon = DZMSWeps3;};
-	};
-	_weapon = _aiweapon call BIS_fnc_selectRandom;
-	_magazine = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines") select 0;
-	
-	_fin = [_weapon,_magazine];
-	
-	_fin
-};
-
-//This gets the random vehicle to spawn at a mission
-DZMSGetVeh = {
-	private ["_type","_vehArray","_choseVic"];
-	
-	_type = _this select 0;
-	
-	switch (_type) do {
-		case "heli": {_vehArray = DZMSChoppers;};
-		case "small": {_vehArray = DZMSSmallVic;};
-		case "large": {_vehArray = DZMSLargeVic;};
-	};
-	
-	_choseVic = _vehArray call BIS_fnc_selectRandom;
-	
-	_choseVic
-};
-
-//function to wait for mission completion
-DZMSWaitMissionComp = {
-    private["_objective","_unitArrayName","_numSpawned","_numKillReq"];
-	
-    _objective = _this select 0;
-    _unitArrayName = _this select 1;
-	
-    call compile format["_numSpawned = count %1;",_unitArrayName];
-    _numKillReq = ceil(DZMSRequiredKillPercent * _numSpawned);
-	
-    diag_log text format["[DZMS]: (%3) Waiting for %1/%2 Units or Less to be Alive and a Player to be Near the Objective.",(_numSpawned - _numKillReq),_numSpawned,_unitArrayName];
-	
-    call compile format["waitUntil{sleep 1; ({isPlayer _x && _x distance _objective <= 30} count playableUnits > 0) && ({alive _x} count %1 <= (_numSpawned - _numKillReq));};",_unitArrayName];
-	
-    if (DZMSSceneryDespawnTimer > 0) then {_objective spawn DZMSCleanupThread;};
-};
-
-//sleep function that uses diag_tickTime for accuracy
-DZMSSleep = {
-    private["_sleepTime","_checkInterval","_startTime"];
-	
-    _sleepTime = _this select 0;
-    _checkInterval = _this select 1;
-	
-    _startTime = diag_tickTime;
-    waitUntil{sleep _checkInterval; (diag_tickTime - _startTime) > _sleepTime;};
-};
-
-//function to clean up mission objects
-DZMSCleanupThread = {
-    //sleep for the despawn timer length
-    [DZMSSceneryDespawnTimer,20] call DZMSSleep;
-	
-    //delete flagged nearby objects
-    {
-        if (_x getVariable ["DZMSCleanup",false]) then {
-            _x call sched_co_deleteVehicle;
-        };
-    } forEach (_this nearObjects 50);
-};
-
-//------------------------------------------------------------------//
-diag_log text format ["[DZMS]: Mission Functions Script Loaded!"];
+Version 1.64.144629
+Unable to initialize Steam API.
+Updating base class ->NonStrategic, by ca\config.bin/CfgVehicles/HouseBase/
+Updating base class ->HouseBase, by ca\config.bin/CfgVehicles/Ruins/
+Updating base class ->DestructionEffects, by ca\config.bin/CfgVehicles/House/DestructionEffects/
+Updating base class ->FlagCarrierCore, by ca\ca_pmc\config.bin/CfgVehicles/FlagCarrier/
+Updating base class ->VehicleMagazine, by ca\weapons\config.bin/CfgMagazines/14Rnd_FFAR/
+Updating base class Default->RifleCore, by ca\weapons\config.bin/cfgWeapons/Rifle/
+Updating base class ->LauncherCore, by ca\weapons\config.bin/cfgWeapons/RocketPods/
+Updating base class ->RocketPods, by ca\weapons\config.bin/cfgWeapons/FFARLauncher/
+Updating base class ->UH60_Base, by ca\air\config.bin/CfgVehicles/MH60S/
+Updating base class ->Car, by ca\wheeled2\lada\config.bin/CfgVehicles/Lada_base/
+Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/UN_CDF_Soldier_base_EP1/HitPoints/
+Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Commander/HitPoints/
+Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Militia/HitPoints/
+Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Officer/HitPoints/
+Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Sniper/HitPoints/
+Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Spotter/HitPoints/
+Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CZ_Soldier_Crew_Wdl_ACR/HitPoints/
+Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Small_EP1/
+Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street1_EP1/
+Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street2_EP1/
+Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lampa_Ind_EP1/
+Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_PowLines_Conc2L_EP1/
+Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl/
+Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_2/
+Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_3/
+Updating base class StreetLamp_BaseWeakYellow->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind/
+Updating base class StreetLamp_BaseWeakYellow->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind_zebr/
+Updating base class RscStandardDisplay->, by z\addons\dayz_code\config.bin/RscDisplayStart/ (original (bin\config.bin - no unload))
+Updating base class RscShortcutButton->RscShortcutButtonMain, by z\addons\dayz_code\config.bin/RscDisplayMain/controls/CA_Exit/
+Updating base class CA_IGUI_Title->RscText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/Gear_Title/
+Updating base class Available_items_Text->RscText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/CA_ItemName/
+Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item8/
+Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item9/
+Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item10/
+Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item11/
+Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item12/
+Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item6/
+Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item7/
+Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item8/
+Updating base class CA_Gear_slot_special1->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory1/
+Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory8/
+Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory9/
+Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory10/
+Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory11/
+Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory12/
+Updating base class CA_Gear_slot_item1->CA_Gear_slot_handgun, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_special1/
+Updating base class RscIGUIShortcutButton->RscActiveText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/ButtonClose/
+Updating base class RscText->, by z\addons\dayz_code\config.bin/RscTitles/Default/ (original bin\config.bin)
+Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/Mi17_base/Turrets/MainTurret/ViewOptics/
+Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/UH1H_base/Turrets/MainTurret/ViewOptics/
+Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/UH1_Base/Turrets/MainTurret/ViewOptics/
+Updating base class Strategic->, by z\addons\dayz_code\config.bin/CfgVehicles/Bomb/ (original ca\weapons\config.bin)
+Updating base class HighCommand->Logic, by z\addons\dayz_code\config.bin/CfgVehicles/HighCommandSubordinate/
+Updating base class NonStrategic->BuiltItems, by z\addons\dayz_code\config.bin/CfgVehicles/Fort_RazorWire/
+Updating base class ->DefaultEventhandlers, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroP/EventHandlers/
+Updating base class AnimationSources->AnimationSources, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroC/AnimationSources/
+Updating base class ->DefaultEventhandlers, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroC/EventHandlers/
+Updating base class BuiltItems->Generator_Base, by z\addons\dayz_code\config.bin/CfgVehicles/Generator_DZ/
+Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/29Rnd_30mm_AGS30/
+Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/48Rnd_40mm_MK19/
+Updating base class 4000Rnd_762x51_M134->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/2000Rnd_762x51_M134/
+Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/100Rnd_127x99_M2/
+Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/50Rnd_127x107_DSHKM/
+Updating base class 4000Rnd_762x51_M134->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_1300Rnd_762x51_M60/
+Updating base class 100Rnd_762x51_M240->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_250Rnd_762x51/
+Updating base class 6Rnd_Grenade_Camel->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_12Rnd_Grenade_Camel/
+Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/3Rnd_GyroGrenade/
+Updating base class DropWeapon->None, by z\addons\dayz_code\config.bin/CfgActions/PutWeapon/
+Updating base class DropMagazine->None, by z\addons\dayz_code\config.bin/CfgActions/PutMagazine/
+Updating base class Land_HouseBlock_C1->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseBlock_C4/
+Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1I3/
+Updating base class NonStrategic->House, by zero_buildings\config.bin/CfgVehicles/Land_A_MunicipalOffice/
+Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1L2/
+Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_3I3/
+Updating base class House->DZE_OpenHouse, by warehouse\config.bin/CfgVehicles/Land_Ind_Pec_03/
+ 4:25:23 Initializing Steam server - Game Port: 2302, Steam Query Port: 2303
+ 4:25:24 Connected to Steam servers
