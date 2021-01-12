@@ -1,80 +1,173 @@
+/*
+	DayZ Mission System Config by Vampire
+	DZMS: https://github.com/SMVampire/DZMS-DayZMissionSystem
+	Updated for DZMS 2.0 by JasonTM
+*/
 
-Version 1.64.144629
-Unable to initialize Steam API.
-Updating base class ->NonStrategic, by ca\config.bin/CfgVehicles/HouseBase/
-Updating base class ->HouseBase, by ca\config.bin/CfgVehicles/Ruins/
-Updating base class ->DestructionEffects, by ca\config.bin/CfgVehicles/House/DestructionEffects/
-Updating base class ->FlagCarrierCore, by ca\ca_pmc\config.bin/CfgVehicles/FlagCarrier/
-Updating base class ->VehicleMagazine, by ca\weapons\config.bin/CfgMagazines/14Rnd_FFAR/
-Updating base class Default->RifleCore, by ca\weapons\config.bin/cfgWeapons/Rifle/
-Updating base class ->LauncherCore, by ca\weapons\config.bin/cfgWeapons/RocketPods/
-Updating base class ->RocketPods, by ca\weapons\config.bin/cfgWeapons/FFARLauncher/
-Updating base class ->UH60_Base, by ca\air\config.bin/CfgVehicles/MH60S/
-Updating base class ->Car, by ca\wheeled2\lada\config.bin/CfgVehicles/Lada_base/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/UN_CDF_Soldier_base_EP1/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Commander/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Militia/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Officer/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Sniper/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Spotter/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CZ_Soldier_Crew_Wdl_ACR/HitPoints/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Small_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street1_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street2_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lampa_Ind_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_PowLines_Conc2L_EP1/
-Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl/
-Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_2/
-Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_3/
-Updating base class StreetLamp_BaseWeakYellow->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind/
-Updating base class StreetLamp_BaseWeakYellow->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind_zebr/
-Updating base class RscStandardDisplay->, by z\addons\dayz_code\config.bin/RscDisplayStart/ (original (bin\config.bin - no unload))
-Updating base class RscShortcutButton->RscShortcutButtonMain, by z\addons\dayz_code\config.bin/RscDisplayMain/controls/CA_Exit/
-Updating base class CA_IGUI_Title->RscText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/Gear_Title/
-Updating base class Available_items_Text->RscText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/CA_ItemName/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item8/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item9/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item10/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item11/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item12/
-Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item6/
-Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item7/
-Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item8/
-Updating base class CA_Gear_slot_special1->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory1/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory8/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory9/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory10/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory11/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory12/
-Updating base class CA_Gear_slot_item1->CA_Gear_slot_handgun, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_special1/
-Updating base class RscIGUIShortcutButton->RscActiveText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/ButtonClose/
-Updating base class RscText->, by z\addons\dayz_code\config.bin/RscTitles/Default/ (original bin\config.bin)
-Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/Mi17_base/Turrets/MainTurret/ViewOptics/
-Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/UH1H_base/Turrets/MainTurret/ViewOptics/
-Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/UH1_Base/Turrets/MainTurret/ViewOptics/
-Updating base class Strategic->, by z\addons\dayz_code\config.bin/CfgVehicles/Bomb/ (original ca\weapons\config.bin)
-Updating base class HighCommand->Logic, by z\addons\dayz_code\config.bin/CfgVehicles/HighCommandSubordinate/
-Updating base class NonStrategic->BuiltItems, by z\addons\dayz_code\config.bin/CfgVehicles/Fort_RazorWire/
-Updating base class ->DefaultEventhandlers, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroP/EventHandlers/
-Updating base class AnimationSources->AnimationSources, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroC/AnimationSources/
-Updating base class ->DefaultEventhandlers, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroC/EventHandlers/
-Updating base class BuiltItems->Generator_Base, by z\addons\dayz_code\config.bin/CfgVehicles/Generator_DZ/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/29Rnd_30mm_AGS30/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/48Rnd_40mm_MK19/
-Updating base class 4000Rnd_762x51_M134->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/2000Rnd_762x51_M134/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/100Rnd_127x99_M2/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/50Rnd_127x107_DSHKM/
-Updating base class 4000Rnd_762x51_M134->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_1300Rnd_762x51_M60/
-Updating base class 100Rnd_762x51_M240->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_250Rnd_762x51/
-Updating base class 6Rnd_Grenade_Camel->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_12Rnd_Grenade_Camel/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/3Rnd_GyroGrenade/
-Updating base class DropWeapon->None, by z\addons\dayz_code\config.bin/CfgActions/PutWeapon/
-Updating base class DropMagazine->None, by z\addons\dayz_code\config.bin/CfgActions/PutMagazine/
-Updating base class Land_HouseBlock_C1->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseBlock_C4/
-Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1I3/
-Updating base class NonStrategic->House, by zero_buildings\config.bin/CfgVehicles/Land_A_MunicipalOffice/
-Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1L2/
-Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_3I3/
-Updating base class House->DZE_OpenHouse, by warehouse\config.bin/CfgVehicles/Land_Ind_Pec_03/
- 4:25:23 Initializing Steam server - Game Port: 2302, Steam Query Port: 2303
- 4:25:24 Connected to Steam servers
+///////////////////////////////////////////////////////////////////////
+// Do you want to see how many AI are at the mission in the mission marker?
+// This option may cause excessive network traffic on high pop. servers as markers are refreshed every 2 seconds.
+DZMSAICount = true;
+
+// Time in minutes for a mission to timeout.
+DZMSMissionTimeOut = 20;
+
+// This is how many bandit missions are allowed to run simultaneously
+DZMSBanditLimit = 1;
+
+// This is how many hero missions are allowed to run simultaneously
+DZMSHeroLimit = 1;
+
+// Do you want to turn off damage to the mission objects?
+DZMSObjectsDamageOff = true;
+
+// Mission announcement style. Options: "Hint","TitleText","rollingMessages","DynamicText".
+//Note: The "Hint" messages will appear in the same area as common debug monitors.
+DZMSAnnounceType = "Hint";
+
+// Turn this on to enable troubleshooting. RPT entries might show where problems occur.
+DZMSDebug = false;
+
+// Do you want your players to gain or lose humanity from killing mission AI?
+DZMSMissHumanity = true;
+
+// How much humanity should a player lose for killing a hero AI?
+DZMSHeroHumanity = 25;
+
+// How much humanity should a player gain for killing a bandit AI?
+DZMSBanditHumanity = 25;
+
+// Do you want the players to get AI kill messages?
+DZMSKillFeed = false;
+
+// Do You Want AI to use NVGs?
+//(They are deleted on death)
+DZMSUseNVG = true;
+
+// Do you want bandit or hero AI kills to count towards player total?
+DZMSCntKills = true;
+
+// Do you want AI to disappear instantly when killed?
+DZMSCleanDeath = false;
+
+// Do you want AI that players run over to not have gear?
+// (If DZMSCleanDeath is true, this doesn't matter)
+DZMSRunGear = false;
+
+// How long before bodies disappear? (in minutes) (default = 30)
+// Also used by WAI. Make sure they are the same if both are installed.
+ai_cleanup_time = 30;
+
+// Percentage of AI that must be dead before mission completes (default = 0)
+//( 0 is 0% of AI / 0.50 is 50% / 1 is 100% )
+DZMSRequiredKillPercent = .50;
+
+// How long in minutes before mission scenery disappears (default = 30 / 0 = disabled)
+DZMSSceneryDespawnTimer = 30;
+
+// Should crates despawn with scenery? (default = false)
+DZMSSceneryDespawnLoot = true;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// You can adjust AI gear/skills and crate loot in files contained in the ExtConfig folder.
+//////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Do you want to use static coords for missions?
+// Leave this false unless you know what you are doing.
+DZMSStaticPlc = false;
+
+// Array of static locations. X,Y
+DZMSStatLocs = [
+	[0,0],
+	[0,0]
+];
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Do you want to place some static AI in a base or similar?
+// Leave this false unless you know what you are doing.
+DZMSStaticAI = false;
+
+// How long before they respawn? (in seconds) (default 2 hours)
+// If set longer than the amount of time before a server restart, they respawn at restart
+DZMSStaticAITime = 7200;
+
+// How many AI in a group? (Past 6 in a group it's better to just add more positions)
+DZMSStaticAICnt = 4;
+
+// Array of Static AI Locations
+DZMSStaticSpawn = [
+	[0,0,0],
+	[0,0,0]
+];
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Do you want vehicles from missions to save to the Database? (this means they will stay after a restart)
+// If False, vehicles will disappear on restart. It will warn a player who gets inside of a vehicle.
+DZMSSaveVehicles = false;
+
+// Setting this to true will prevent the mission vehicles from taking damage during the mission.
+DZMSVehDamageOff = true;
+
+/*///////////////////////////////////////////////////////////////////////////////////////////
+There are two types of missions that run simultaneously on a the server.
+The two types are Bandit and Hero missions.
+
+Below is the array of mission file names and the minimum and maximum times they run.
+If you don't want a certain mission to run on the server, comment out it's line.
+Remember that the last mission in the list should not have a comma after it.
+*/
+
+DZMSMissionArray = 
+[
+	"AN2_Cargo_Drop", // Weapons
+	"Ural_Ambush", // Weapons, Medical Supplies, Building Supplies
+	"Squad", // No crate
+	"Humvee_Crash", // Weapons
+	//"APC_Mission", // Only uncomment for Epoch/Overpoch
+	"Armed_Vehicles", // No crate
+	"C130_Crash", // Building Supplies
+	"Construction_Site", // Building Supplies
+	"Firebase", // Building Supplies
+	"Helicopter_Crash", // Weapons
+	"Helicopter_Landing", // Weapons, Building Supplies
+	"General_Store", // Survival items found in supermarket
+	"Medical_Cache", // Medical Supplies
+	"Medical_Camp", // Medical Supplies
+	"Medical_Outpost", // Medical Supplies, Weapons
+	"NATO_Weapons_Cache", // Weapons
+	"Stash_house", // Weapons
+	"Weapons_Truck" // Weapons
+];
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// The Minumum time in minutes before a bandit mission will run.
+// At least this much time will pass between bandit missions. Default = 5 minutes.
+DZMSBanditMin = 5;
+
+// Maximum time in seconds before a bandit mission will run.
+// A bandit mission will always run before this much time has passed. Default = 10 minutes.
+DZMSBanditMax = 10;
+
+// Time in seconds before a hero mission will run.
+// At least this much time will pass between hero missions. Default = 5 minutes.
+DZMSHeroMin = 5;
+
+// Maximum time in seconds before a hero mission will run.
+// A hero mission will always run before this much time has passed. Default = 10 minutes.
+DZMSHeroMax = 10;
+
+// Blacklist Zone Array -- missions will not spawn in these areas
+// format: [[x,y,z],[x,y,z]]
+// The first set of xyz coordinates is the upper left corner of a box
+// The second set of xyz coordinates is the lower right corner of a box
+DZMSBlacklistZones = [
+	//[[0,0,0],[0,0,0]]
+	//[[0,16000,0],[1000,-0,0]],	// Left edge of map Chernarus
+    [[0,16000,0],[16000.0,12500,0]] // Top edge of map Chernarus
+];
+
+/*=============================================================================================*/
+// Do Not Edit Below This Line
+/*=============================================================================================*/
+DZMSVersion = "2.0";
