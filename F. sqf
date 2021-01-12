@@ -440,3 +440,33 @@ for "_x" from 1 to MaxDynamicDebris do {call spawn_roadb>
  6:11:55 "SERVER FPS: 48  PLAYERS: 1"
  6:12:01 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO G_o_d ON"
  6:12:01 "<infiSTAR.de> AdminLog: 0h 08min | TEEMO G_o_d ON"
+ 6:13:32 [DZMS]: Running Minor Mission Helicopter_Crash.
+ 6:13:34 [DZMS]: (DZMSUnitsMinor) 3 AI Spawned, 3 units in mission.
+ 6:13:35 [DZMS]: (DZMSUnitsMinor) 3 AI Spawned, 6 units in mission.
+ 6:13:36 [DZMS]: (DZMSUnitsMinor) 3 AI Spawned, 9 units in mission.
+ 6:13:37 [DZMS]: (DZMSUnitsMinor) Waiting for 1/9 Units or Less to be Alive and a Player to be Near the Objective.
+ 6:15:09 "RUNNING EVENT: player_supply on [2021,1,13,13,15]"
+ 6:15:09 Performance warning: SimpleSerialization::Write 'RemoteMessage' is using type of ',TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+ 6:15:09 Performance warning: SimpleSerialization::Read 'RemoteMessage' is using type of ,'TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+ 6:16:02 "DZAI Monitor :: Server Uptime: 0:12:26. Active AI Groups: 9."
+ 6:16:02 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
+ 6:16:02 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
+ 6:16:04 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7487.92,7818.16,0]]"
+ 6:16:04 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 062071([6260.2,8247.46,0.00143433]) to 074075([7487.92,7818.16,0]) | Key: any"
+ 6:16:04 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7487.92,7818.16,0]]"
+ 6:16:04 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 074075   WorldSpace: [7487.92,7818.16,0]"
+ 6:16:04 "<infiSTAR.de> AdminLog: 0h 12min | Admin TEEMO(76561198127675194) teleported to   GPS: 074075   WorldSpace: [7487.92,7818.16,0]"
+ 6:16:14 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[9195.82,2509.15,0]]"
+ 6:16:14 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 074075([7487.92,7818.16,0.00152588]) to 091128([9195.82,2509.15,0]) | Key: any"
+ 6:16:14 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[9195.82,2509.15,0]]"
+ 6:16:14 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 091128   WorldSpace: [9195.82,2509.15,0]"
+ 6:16:14 "<infiSTAR.de> AdminLog: 0h 12min | Admin TEEMO(76561198127675194) teleported to   GPS: 091128   WorldSpace: [9195.82,2509.15,0]"
+ 6:16:24 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11556.5,7032.27,0]]"
+ 6:16:24 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 091128([9195.53,2486.7,0.00213623]) to 115083([11556.5,7032.27,0]) | Key: any"
+ 6:16:24 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11556.5,7032.27,0]]"
+ 6:16:24 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 115083   WorldSpace: [11556.5,7032.27,0]"
+ 6:16:24 "<infiSTAR.de> AdminLog: 0h 12min | Admin TEEMO(76561198127675194) teleported to   GPS: 115083   WorldSpace: [11556.5,7032.27,0]"
+ 6:16:43 "WAI: [Mission:[MainBandit] Black Hawk Crash]: Starting... [5988.76,9390.81,0]"
+ 6:16:43 No speaker given for Jonas Schwarz
+ 6:16:43 No speaker given for Jonas Weber
+ 6:17:55 "SERVER FPS: 48  PLAYERS: 1"
