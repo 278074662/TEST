@@ -1,142 +1,181 @@
-/*
-	Original Treasure Event by Aidem
-	Original "crate visited" marker concept and code by Payden
-	Rewritten and updated for DayZ Epoch 1.0.6+ by JasonTM
-	Last update: 11-15-2018
-*/
+//by juandayz updated 01/06/2018
 
-private ["_spawnChance","_gemChance","_radius","_timeout","_debug","_nameMarker","_markPos",
-"_lootAmount","_type","_visitMark","_distance","_crate","_lootList",
-"_pos","_lootPos","_cutGrass","_gem","_loot","_wep","_pack","_img","_time",
-"_marker","_pMarker","_vMarker","_dot","_done","_visited","_isNear"];
+private ["_rand_player","_debug_marker","_loot","_loot_lists","_loot2","_loot3","_loot4","_hint","_positionp","_position","_waypointsrange","_aiskin","_plane_class","_boxtype","_loot_lists","_loot","_positionp","_this","_center_1","_unitGroup","_pilot","_carrier","_xpos","_ypos",
+"_cor_y","_cor_x","_waypos1","_waypos2","_waypos3","_waypos4","_wp1","_wp2","_wp3","_wp4","_waypointend","_positiondrop","_box","_chute","_smoke","_positionarray"];
 
-_spawnChance =  1; // Percentage chance of event happening.The number must be between 0 and 1. 1 = 100% chance.
-_gemChance = .25; // Chance that a gem will be added to the crate. The number must be between 0 and 1. 1 = 100% chance.
-_radius = 250; // Radius the loot can spawn and used for the marker
-_timeout = 20; // Time it takes for the event to time out (in minutes). To disable timeout set to -1.
-_debug = false; // Diagnostic logs used for troubleshooting.
-_nameMarker = true; // Center marker with the name of the mission.
-_markPos = false; // Puts a marker exactly were the loot spawns.
-_lootAmount = 4; // This is the number of times a random loot selection is made.
-_type = "Hint"; // Type of announcement message. Options "Hint","TitleText". ***Warning: Hint appears in the same screen space as common debug monitors
-_visitMark = true; // Places a "visited" check mark on the mission if a player gets within range of the crate.
-_distance = 20; // Distance from crate before crate is considered "visited"
-_crate = "GuerillaCacheBox";
-#define TITLE_COLOR "#FFFF66" // Hint Option: Color of Top Line
-#define TITLE_SIZE "1.75" // Hint Option: Size of top line
-#define IMAGE_SIZE "4" // Hint Option: Size of the image
 
-_lootList = [[5,"ItemGoldBar"],[3,"ItemGoldBar10oz"],"ItemBriefcase100oz",[20,"ItemSilverBar"],[10,"ItemSilverBar10oz"]];
+if ((count playableUnits) < 1) exitWith {};
 
-if (random 1 > _spawnChance and !_debug) exitWith {};
+_rand_player    = playableUnits call BIS_fnc_selectRandom;
+_positionp = [_rand_player] call FNC_GetPos;
 
-_pos = [getMarkerPos "center",0,(((getMarkerSize "center") select 1)*0.75),10,0,.3,0] call BIS_fnc_findSafePos;
 
-diag_log format["Pirate Treasure Event Spawning At %1", _pos];
 
-_lootPos = [_pos,0,(_radius - 100),10,0,2000,0] call BIS_fnc_findSafePos;
 
-if (_debug) then {diag_log format["Pirate Treasure Event: creating ammo box at %1", _lootPos];};
+_loot_lists = [
+[
+["ChainSawR","ItemSledge","ItemPickaxe"],
+["MortarBucket","MortarBucket","bulk_ItemSodaCokeFull","bulk_ItemWire","bulk_PartGeneric","PartPlywoodPack","PartPlankPack","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","PartGeneric"]
+],
+[
+["ItemKeyKit"],
+["ItemAntibiotic","ItemBandage","ItemAntibacterialWipe","ItemMorphine","ItemPainkiller","equip_string","equip_gauze","equip_gauzepackaged","equip_rag","equip_herb_box"]
+],
+[
+["ItemMachete","ItemPickaxe","ItemSledge"],
+["ItemRuby","ItemMixOil","plot_pole_kit","PartOre"]
+],
+[
+["ChainSaw"],
+["ItemDesertTent","ItemGenerator","equip_brick","equip_duct_tape","equip_rope","equip_hose","equip_lever","equip_nails","equip_metal_sheet","equip_1inch_metal_pipe","equip_2inch_metal_pipe","ItemWire","ItemTankTrap","ItemCorrugated","ItemPole"]
+],
+[
+["ItemSledge"],
+["ItemComboLock","ItemVault","ItemLockBox"]
+],
+[
+["ItemMachete"],
+["ItemAntibiotic","ItemAntibacterialWipe"]
+],
+[
+["ItemSledge"],
+["50Rnd_127x107_DSHKM","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","transfusionKit","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"]
+],
 
-_crate = _crate createVehicle [0,0,0];
-_crate setPos _lootPos;
-clearMagazineCargoGlobal _crate;
-clearWeaponCargoGlobal _crate;
+[
+["ItemPickaxe"],
+["PartWheel","PartWheel","PartWheel","PartGlass","PartGlass","PartGlass","PartEngine","PartEngine","PartVRotor","PartVRotor","PartFueltank","PartFueltank","ItemFuelcan","ItemFuelcan","ItemJerrycan","ItemJerrycan","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"]
+]
+];
+_loot = _loot_lists call BIS_fnc_selectRandom;
+_loot2 = _loot_lists call BIS_fnc_selectRandom;
+_loot3 = _loot_lists call BIS_fnc_selectRandom;
+_loot4 = _loot_lists call BIS_fnc_selectRandom;
 
-_cutGrass = createVehicle ["ClutterCutter_EP1", _lootPos, [], 0, "CAN_COLLIDE"];
-_cutGrass setPos _lootPos;
+_waypointsrange = 50;//range to move
+_aiskin = "Survivor2_DZ";
+_plane_class = "AN2_DZ";
+_boxtype = "USVehicleBox";
 
-if (random 1 < _gemChance) then {
-	_gem = ["ItemTopaz","ItemObsidian","ItemSapphire","ItemAmethyst","ItemEmerald","ItemCitrine","ItemRuby"] call dz_fn_array_selectRandom;
-	_crate addMagazineCargoGlobal [_gem,1];
-};
 
-for "_i" from 1 to _lootAmount do {
-	_loot = _lootList call dz_fn_array_selectRandom;
-	
-	if ((typeName _loot) == "ARRAY") then {
-		_crate addMagazineCargoGlobal [_loot select 1,_loot select 0];
-	} else {
-		_crate addMagazineCargoGlobal [_loot,1];
-	};
-};
 
-_wep = [["revolver_gold_EP1","6Rnd_45ACP"],["AKS_GOLD","30Rnd_762x39_AK47"]] call dz_fn_array_selectRandom;
-_crate addWeaponCargoGlobal [_wep select 0,1];
-_crate addMagazineCargoGlobal [_wep select 1,3];
 
-_pack = DayZ_Backpacks call dz_fn_array_selectRandom;
-_crate addBackpackCargoGlobal [_pack,1];
 
-if (_type == "Hint") then {
-	_img = (getText (configFile >> "CfgMagazines" >> "ItemRuby" >> "picture"));
-	RemoteMessage = ["hintWithImage",["STR_CL_ESE_TREASURE_TITLE","STR_CL_ESE_TREASURE"],[_img,TITLE_COLOR,TITLE_SIZE,IMAGE_SIZE]];
-} else {
-	RemoteMessage = ["titleText","STR_CL_ESE_TREASURE"];
-};
+
+// Send message to users
+_hint = parseText format["<t align='center' color='#31db3c' shadow='2' size='1.55'>NEW EVENT</t><br/><t align='center' color='#ffffff'>!SUPPLY CRATES! Civil Defense Drops some supply crates.</t>"];
+RemoteMessage = ['hint', _hint];
 publicVariable "RemoteMessage";
 
-if (_debug) then {diag_log format["Pirate Treasure event setup, waiting for %1 minutes", _timeout];};
 
-_time = diag_tickTime;
-_done = false;
-_visited = false;
-_isNear = true;
-
-while {!_done} do {
-	
-	_marker = createMarker [ format ["loot_marker_%1", _time], _pos];
-	_marker setMarkerShape "ELLIPSE";
-	_marker setMarkerColor "ColorYellow";
-	_marker setMarkerAlpha 0.5;
-	_marker setMarkerSize [(_radius + 50), (_radius + 50)];
-	
-	if (_nameMarker) then {
-		_dot = createMarker [format["loot_text_marker_%1",_time],_pos];
-		_dot setMarkerShape "ICON";
-		_dot setMarkerType "mil_dot";
-		_dot setMarkerColor "ColorBlack";
-		_dot setMarkerText "Pirate Treasure";
-	};
-	
-	if (_markPos) then {
-		_pMarker = createMarker [ format ["loot_event_pMarker_%1", _time], _lootPos];
-		_pMarker setMarkerShape "ICON";
-		_pMarker setMarkerType "mil_dot";
-		_pMarker setMarkerColor "ColorYellow";
-	};
-	
-	if (_visitMark) then {
-		{if (isPlayer _x && _x distance _crate <= _distance && !_visited) then {_visited = true};} count playableUnits;
-	
-		if (_visited) then {
-			_vMarker = createMarker [ format ["loot_event_vMarker_%1", _time], [(_pos select 0), (_pos select 1) + 25]];
-			_vMarker setMarkerShape "ICON";
-			_vMarker setMarkerType "hd_pickup";
-			_vMarker setMarkerColor "ColorBlack";
-		}; 
-	};
-	
-	uiSleep 1;
-	
-	deleteMarker _marker;
-	if !(isNil "_dot") then {deleteMarker _dot;};
-	if !(isNil "_pMarker") then {deleteMarker _pMarker;};
-	if !(isNil "_vMarker") then {deleteMarker _vMarker;}; 
-	
-	if (_timeout != -1) then {
-		if (diag_tickTime - _time >= _timeout*60) then {
-			_done = true;
-		};
-	};
+if (isNil "EPOCH_EVENT_RUNNING") then {
+EPOCH_EVENT_RUNNING = false;
+};
+ 
+// Check for another event running
+if (EPOCH_EVENT_RUNNING) exitWith {
+diag_log("Event already running");
 };
 
-while {_isNear} do {
-	{if (isPlayer _x && _x distance _crate >= _distance) then {_isNear = false};} count playableUnits;
-};
+EPOCH_EVENT_RUNNING = true;
 
-// Clean up
-deleteVehicle _crate;
-deleteVehicle _cutGrass;
 
-diag_log "Pirate Treasure Event Ended";
+
+
+	
+
+_this = createCenter west;
+_center_1 = _this;
+_unitGroup = createGroup _center_1;
+//
+
+//spawnai
+_pilot = objNull;
+_pilot = _unitGroup createUnit [_aiskin, [(_positionp select 0) + 90, (_positionp select 1) + 100], [], 1, "NONE"];
+_pilot addEventHandler ["handleDamage", {false}];
+[_pilot] joinSilent _unitGroup;
+
+sleep 1;
+
+_carrier =  createVehicle [_plane_class, [(_positionp select 0) + 50, (_positionp select 1) + 50],[], 0, "FLY"];
+_carrier         setVehicleVarName "heli";
+_carrier 		setFuel 1;
+_carrier 		engineOn true;
+_carrier 		setVehicleAmmo 1;
+_carrier 		flyInHeight 150;
+_carrier 		setVehicleLock "LOCKED";
+_carrier 		addEventHandler ["GetOut",{(_this select 0) setFuel 0;(_this select 0) setDamage 1;}];
+_carrier addEventHandler ["handleDamage", {false}];
+
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_carrier];
+_pilot 	assignAsDriver _carrier;
+_pilot 	moveInDriver _carrier;
+
+
+
+_xpos = _positionp select 0;
+_ypos = _positionp select 1;
+_cor_y = -20;
+_cor_x = 20;
+
+
+// These are 4 waypoints in a NorthSEW around the center
+_waypos1 = [_xpos, _ypos+20, 0];
+_waypos2 = [_xpos+20, _ypos, 0];
+_waypos3 = [_xpos, _ypos-20, 0];
+_waypos4 = [_xpos-20, _ypos, 0];
+
+_wp1 = _unitGroup addWaypoint [[((_positionp select 0) + _cor_y),((_positionp select 1) + _cor_x),50],0];
+_wp1   setWaypointType "MOVE";
+
+
+_wp2 = _unitGroup addWaypoint [_waypos2, _waypointsrange];
+_wp2 setWaypointType "MOVE";
+_wp3 = _unitGroup addWaypoint [_waypos3, _waypointsrange];
+_wp3 setWaypointType "MOVE";
+_wp4 = _unitGroup addWaypoint [_waypos4, _waypointsrange];
+_wp4 setWaypointType "MOVE";
+_waypointend = _unitGroup addWaypoint [[_xpos,_ypos, 0], _waypointsrange];
+_waypointend setWaypointType "CYCLE";
+
+
+
+
+
+_positiondrop = [(_positionp select 0) + 50, (_positionp select 1) + 50,25];
+_box = _boxtype createVehicle _positiondrop;
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_box]; 
+
+
+
+_chute = createVehicle ["ParachuteMediumEast", getPos _box, [], 0, "FLY"];
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_chute]; 
+_box attachTo [_chute, [0,0,3]];
+_smoke = "SmokeShellGreen" createVehicle (getPos _box);
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_smoke]; 
+_smoke attachTo [_box, [0,0,0]];
+_box addEventHandler ["handleDamage", {false}];
+
+clearweaponcargoglobal _box;
+clearmagazinecargoglobal _box;
+
+{
+_box addWeaponCargoGlobal [_x,1];
+} forEach (_loot select 0);
+{
+_box addMagazineCargoGlobal [_x,1];
+} forEach (_loot2 select 1);
+
+{
+_box addWeaponCargoGlobal [_x,1];
+} forEach (_loot3 select 0);
+{
+_box addMagazineCargoGlobal [_x,1];
+} forEach (_loot4 select 1);
+
+EPOCH_EVENT_RUNNING = false;
+
+sleep 60;
+
+deleteVehicle _carrier;
+deleteVehicle _pilot;
