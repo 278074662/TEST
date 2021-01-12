@@ -5,7 +5,7 @@
 == arma2oaserver.exe  -port=2302 "-BEpath=DZE_Server_Config\BattlEye" "-config=11_chernarus.cfg" "-cfg=DZE_Server_Config\basic.cfg" "-profiles=DZE_Server_Config" -name=server "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"
 =====================================================================
 Exe timestamp: 2021/01/07 19:16:09
-Current time:  2021/01/13 07:12:26
+Current time:  2021/01/13 07:44:11
 
 Version 1.64.144629
 Unable to initialize Steam API.
@@ -84,294 +84,290 @@ Updating base class NonStrategic->House, by zero_buildings\config.bin/CfgVehicle
 Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1L2/
 Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_3I3/
 Updating base class House->DZE_OpenHouse, by warehouse\config.bin/CfgVehicles/Land_Ind_Pec_03/
- 7:12:44 Initializing Steam server - Game Port: 2302, Steam Query Port: 2303
- 7:12:46 Connected to Steam servers
- 7:13:48 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
- 7:13:50 Server error: Player without identity TEEMO (id 245161973)
- 7:13:50 Server error: Player without identity TEEMO (id 245161973)
- 7:13:50 Server error: Player without identity TEEMO (id 245161973)
- 7:13:50 Server error: Player without identity TEEMO (id 245161973)
- 7:13:50 Server error: Player without identity TEEMO (id 245161973)
- 7:13:50 Server error: Player without identity TEEMO (id 245161973)
- 7:13:50 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:51 Server error: Player without identity TEEMO (id 245161973)
- 7:13:55 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
- 7:13:55 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
- 7:13:57 Strange convex component81 in zero_buildings\models\housev_3i3_i.p3d:geometryFire
- 7:13:58 Strange convex component31 in zero_buildings\models\proxies\th_arches.p3d:geometryView
- 7:13:58 Strange convex component207 in zero_buildings\models\a_tvtower\a_tvtower_base.p3d:geometryFire
- 7:13:59 Strange convex component44 in zero_buildings\models\houseblock\houseblock_c4.p3d:geometry
- 7:13:59 Strange convex component288 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component289 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component290 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component291 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component292 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component293 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component294 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component295 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component296 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component297 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component298 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component299 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component300 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component301 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component302 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component303 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component304 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component305 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component306 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component307 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component308 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component309 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component310 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component311 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component312 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component313 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component314 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component315 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component316 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component317 in warehouse\models\warehouse.p3d:geometry
- 7:13:59 Strange convex component252 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component253 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component254 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component255 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component256 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component257 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component258 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component259 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component260 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component261 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component262 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component263 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component264 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component265 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component266 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component267 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component268 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component269 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component270 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component271 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component272 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component273 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component274 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component275 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component276 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component277 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component278 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component279 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component280 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component281 in warehouse\models\warehouse.p3d:geometryFire
- 7:13:59 Strange convex component249 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component250 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component251 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component252 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component253 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component254 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component255 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component256 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component257 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component258 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component259 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component260 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component261 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component262 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component263 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component264 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component265 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component266 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component267 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component268 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component269 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component270 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component271 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component272 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component273 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component274 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component275 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component276 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component277 in warehouse\models\warehouse.p3d:geometryView
- 7:13:59 Strange convex component278 in warehouse\models\warehouse.p3d:geometryView
- 7:14:03 "PRELOAD_ Functions\init [[<No group>:0 (FunctionsManager)],any]"
- 7:14:03 "MPframework inited"
- 7:14:03 "dayz_preloadFinished reset"
- 7:14:04 "<infiSTAR.de> Error loading infiSTAR DLL"
- 7:14:04 "<infiSTAR.de> 644435bd443e"
- 7:14:04 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
- 7:14:04 "<infiSTAR.de> "
- 7:14:04 "<infiSTAR.de> Waiting for BIS_fnc_init..."
- 7:14:04 Error in expression <ntFromString == 0x01);
+ 7:44:29 Initializing Steam server - Game Port: 2302, Steam Query Port: 2303
+ 7:44:30 Connected to Steam servers
+ 7:47:15 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:17 Server error: Player without identity TEEMO (id 104256253)
+ 7:47:21 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
+ 7:47:21 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
+ 7:47:23 Strange convex component81 in zero_buildings\models\housev_3i3_i.p3d:geometryFire
+ 7:47:24 Strange convex component31 in zero_buildings\models\proxies\th_arches.p3d:geometryView
+ 7:47:24 Strange convex component207 in zero_buildings\models\a_tvtower\a_tvtower_base.p3d:geometryFire
+ 7:47:25 Strange convex component44 in zero_buildings\models\houseblock\houseblock_c4.p3d:geometry
+ 7:47:25 Strange convex component288 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component289 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component290 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component291 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component292 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component293 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component294 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component295 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component296 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component297 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component298 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component299 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component300 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component301 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component302 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component303 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component304 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component305 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component306 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component307 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component308 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component309 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component310 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component311 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component312 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component313 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component314 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component315 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component316 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component317 in warehouse\models\warehouse.p3d:geometry
+ 7:47:25 Strange convex component252 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component253 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component254 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component255 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component256 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component257 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component258 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component259 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component260 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component261 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component262 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component263 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component264 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component265 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component266 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component267 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component268 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component269 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component270 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component271 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component272 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component273 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component274 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component275 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component276 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component277 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component278 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component279 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component280 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component281 in warehouse\models\warehouse.p3d:geometryFire
+ 7:47:25 Strange convex component249 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component250 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component251 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component252 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component253 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component254 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component255 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component256 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component257 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component258 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component259 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component260 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component261 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component262 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component263 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component264 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component265 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component266 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component267 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component268 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component269 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component270 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component271 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component272 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component273 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component274 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component275 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component276 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component277 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:25 Strange convex component278 in warehouse\models\warehouse.p3d:geometryView
+ 7:47:28 "PRELOAD_ Functions\init [[<No group>:0 (FunctionsManager)],any]"
+ 7:47:28 "MPframework inited"
+ 7:47:28 "dayz_preloadFinished reset"
+ 7:47:29 "<infiSTAR.de> Error loading infiSTAR DLL"
+ 7:47:29 "<infiSTAR.de> 644435bd443e"
+ 7:47:29 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
+ 7:47:29 "<infiSTAR.de> "
+ 7:47:29 "<infiSTAR.de> Waiting for BIS_fnc_init..."
+ 7:47:29 "Epoch detected"
+ 7:47:29 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
+ 7:47:29 Warning Message: Script low_admins.sqf not found
+ 7:47:29 Error in expression <ntFromString == 0x01);
 missionNameSpace setVariable ['armalog',_armalog,true];
 i>
- 7:14:04   Error position: <setVariable ['armalog',_armalog,true];
+ 7:47:29   Error position: <setVariable ['armalog',_armalog,true];
 i>
- 7:14:04   Error 3 elements provided, 2 expected
- 7:14:04 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
- 7:14:04 "Epoch detected"
- 7:14:04 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
- 7:14:04 Warning Message: Script low_admins.sqf not found
- 7:14:04 Warning Message: Script normal_admins.sqf not found
- 7:14:04 Warning Message: Script super_admins.sqf not found
- 7:14:04 Warning Message: Script blacklist.sqf not found
- 7:14:04 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 7:14:04 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 7:14:04 "<infiSTAR.de> _fnc_RandomGen: {
+ 7:47:29   Error 3 elements provided, 2 expected
+ 7:47:29 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
+ 7:47:29 Warning Message: Script normal_admins.sqf not found
+ 7:47:29 Warning Message: Script super_admins.sqf not found
+ 7:47:29 Warning Message: Script blacklist.sqf not found
+ 7:47:29 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
+ 7:47:29 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
+ 7:47:29 "<infiSTAR.de> _fnc_RandomGen: {
 _abc = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'];
 _gen = _abc select (random ((count _abc)-1));
 _arr = ['a','2','c','c','7','0','b','2','2','5','3','7','1','5','5','8','5','2','3','5','a','2','d','a','a','1','b','c','9','1','9','e','f'];
 for '_i' from 0 to (8+(round(random 3))) do {_gen = _gen + str(round(random 9)) + (_arr select (random ((count _arr)-1)));};
 _gen
 }"
- 7:14:04 "<infiSTAR.de> _simple: f68106a852c1c85907322"
- 7:14:04 "<infiSTAR.de> _dialogIds: b21657a4a434b183f936f"
- 7:14:04 "<infiSTAR.de> _badtxts: r4a5b551c53850c2c5302526d"
- 7:14:04 "<infiSTAR.de> _randvar1: q952c5e697b5575374243"
- 7:14:04 "<infiSTAR.de> _randvar2: z82227b25615572082c"
- 7:14:04 "<infiSTAR.de> _randvar0: u1207825a00291389458512"
- 7:14:04 "<infiSTAR.de> _randvar3: p785712856b1b6b71612225"
- 7:14:04 "<infiSTAR.de> _randvar4: e5292851a2345402b01"
- 7:14:04 "<infiSTAR.de> _randvar5: e428271175b6223524735"
- 7:14:04 "<infiSTAR.de> _randvar6: u2a4c3b172225457c22"
- 7:14:04 "<infiSTAR.de> _randvar8: m12830b4c5e27157c43191837"
- 7:14:04 "<infiSTAR.de> _randvar9: f5131759d7c375532627c1062"
- 7:14:04 "<infiSTAR.de> _randvar11: p3a1b627c1b1f6e85619915"
- 7:14:04 "<infiSTAR.de> _randvar12: j215312637d2d41821541"
- 7:14:04 "<infiSTAR.de> _randvar13: q937749714a81923b2155"
- 7:14:04 "<infiSTAR.de> _randvar19: q353c3202252d413a5d2313"
- 7:14:04 "<infiSTAR.de> _randvar27: i4b5c520c21139c770a72"
- 7:14:04 "<infiSTAR.de> _randvar26: s3b3b731a4a49557b3b43"
- 7:14:04 "<infiSTAR.de> _randvar25: b5c3a826911258b73528c33"
- 7:14:04 "<infiSTAR.de> _randvar31: o77653b0a0711529c1852796a"
- 7:14:04 "<infiSTAR.de> _randvar33: i5a02714517629065921092"
- 7:14:04 "<infiSTAR.de> _randvar34: h313a3c8c381e7a8b253705"
- 7:14:04 "<infiSTAR.de> _randvar35: s6a137a8d57873a1502"
- 7:14:04 "<infiSTAR.de> _randvar36: q38585b03196511921c"
- 7:14:04 "<infiSTAR.de> _randvar37: h19428e395719834b55"
- 7:14:04 "<infiSTAR.de> _randvar39: u532537189a7125856a2b"
- 7:14:04 "<infiSTAR.de> _clickOnMapTimer: b45477a982b52673a633101"
- 7:14:04 "<infiSTAR.de> _clickOnMapCaught: t151a45427a529865217c"
- 7:14:04 "<infiSTAR.de> _fnc_handlerandvar10: d3c6a535c3c5a18322b70550e"
- 7:14:04 "<infiSTAR.de> _remark: q312c356317719a918115325b"
- 7:14:04 "<infiSTAR.de> _AHpos: n121b154b82616245322a"
- 7:14:04 "<infiSTAR.de> _loadedcheckpos: g29423a753862871a122c85"
- 7:14:04 "<infiSTAR.de> _loadedchecktime: g456c52227a52576a8a22"
- 7:14:04 "<infiSTAR.de> _MenuChecksRunningx: s251c215a5a494952054591"
- 7:14:04 "<infiSTAR.de> _oneachframe: l62494c4c0c613e2262"
- 7:14:04 "<infiSTAR.de> _anotherloop: j1212126a8b71037c115240"
- 7:14:04 "<infiSTAR.de> _clientoncetwo: g390a994762423c519262"
- 7:14:04 "<infiSTAR.de> _lastUnlock: b29923b782c01977a8a2272"
- 7:14:04 "<infiSTAR.de> _AdminReqCheck: l85511169421c617c3c1b8c"
- 7:14:04 "<infiSTAR.de> _antidupeCheckVar: r75455a506d123a716f2b"
- 7:14:04 "<infiSTAR.de> _antiantihack1_rndvar: w7d797b1b6d05951a4c2c"
- 7:14:04 "<infiSTAR.de> _antiantihack2_rndvar: k8c32154a882a3c3a3177628b"
- 7:14:04 "<infiSTAR.de> _antidupePVResVar: e1a250b1d3549980193754975"
- 7:14:04 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_p3d953a92813b8592856762"
- 7:14:04 "<infiSTAR.de> _randvar10: PVAHR_0_f638a3f6263417a15822b"
- 7:14:04 "<infiSTAR.de> AntiHack LOADED!"
- 7:14:04 "<infiSTAR.de> CREATING AdminMenu"
- 7:14:04 "<infiSTAR.de> AdminMenu LOADED!"
- 7:14:04 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
- 7:14:04 "<infiSTAR.de> AntiHack FULLY LOADED"
- 7:14:05 "<infiSTAR.de> starting main server loop"
- 7:14:20 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 4h 18min | ******ADMIN******"
- 7:14:29 "Loading custom server compiles"
- 7:14:29 "Deploy Anything: loading version 2.8.2 ..."
- 7:14:29 "Deploy Anything: adding deployables to safe vehicle list..."
- 7:14:29 "TraderConvoy: Spawned HMMWV_Ambulance 20e43040# 1055178: m997a2_ambulance.p3d"
- 7:14:30 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
- 7:14:30 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
- 7:14:30 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
- 7:14:30 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
- 7:14:30 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
- 7:14:30 "TraderConvoy: Adding waypoints"
- 7:14:30 "TraderConvoy: Moving to 073100 [7374.67,5267.78]"
- 7:14:31 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
- 7:14:31 "HIVE: Starting"
- 7:14:31 "SERVER FPS: 24  PLAYERS: 1"
- 7:14:31 ["TIME SYNC: Local Time set to:",[2012,8,2,13,14],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,13,14]]
- 7:14:31 "HIVE: trying to get objects"
- 7:14:31 "HIVE: found 409 objects"
- 7:14:31 "HIVE: Request sent"
- 7:14:31 "INFO: Created 156 safe zone bubbles"
- 7:14:31 "HIVE: Streamed 409 objects"
- 7:14:32 "Res3tting B!S effects..."
- 7:14:35 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 409 objects in 3.465 seconds (unscheduled)"
- 7:14:35 "Total Number of spawn locations 6"
- 7:14:35 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
- 7:14:35 "[DZAI] Reading DZAI configuration file."
- 7:14:35 "[DZAI] DZAI configuration file loaded."
- 7:14:35 "CLEANUP: INITIALIZING Vehicle SCRIPT"
- 7:14:35 "[DZAI] Compiling DZAI functions."
- 7:14:35 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,13,14],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,13,14]]
- 7:14:35 "[DZAI] DZAI functions compiled."
- 7:14:35 "[DZAI] Epoch classnames loaded."
- 7:14:35 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
- 7:14:35 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
- 7:14:35 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
- 7:14:35 "[DZAI] DZAI loading completed in 0.479996 seconds."
- 7:14:49 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGGING IN"
- 7:14:49 "EPOCH EVENTS INIT"
- 7:14:49 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
- 7:14:49 "CRASHSPAWNER: Spawning crash site (CrashSite_UN) at [11811.8,10262.4,0] with 5 items."
- 7:14:49 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [7101.62,5356.62,0] with 8 items."
- 7:14:50 "Spawning Weed Farm at [8676.15,11939.3]"
- 7:14:50 "Spawning Weed Farm at [3710.77,9314]"
- 7:14:50 "Spawning Weed Farm at [5403.41,3927.29]"
- 7:14:51 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGGING IN"
- 7:14:51 "WAI: AI Config File Loaded"
- 7:14:51 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [5364.48,10194,0] with 5 items."
- 7:14:51 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGIN PUBLISHING, Location Stary Sobor @062071"
- 7:14:51 "Spawning Weed Farm at [8901.51,10572.7]"
- 7:14:51 "WAI: blacklist Loaded"
- 7:14:51 "WAI: Initializing missions"
- 7:14:51 "Spawning Weed Farm at [3782.01,10371.9]"
- 7:14:51 "WAI: AI Config File Loaded"
- 7:14:51 "[DZAI] Verified 153 unique classnames in 1.086 seconds."
- 7:14:51 "Chernarus spawn areas loaded."
- 7:14:51 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [6309.53,8437.73,0] with 6 items."
- 7:14:51 "WAI: Initializing missions"
- 7:14:51 "WAI: blacklist Loaded"
- 7:14:52 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 7:14:52 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
- 7:14:52 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 7:14:52 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [5799.82,7073.2,0] with 6 items."
- 7:14:52 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
- 7:14:52 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
- 7:14:52 Client: Remote object 3:5 not found
- 7:14:52 Warning: Cleanup player - person 3:4 not found
- 7:14:52 "INFO - Player: TEEMO(UID:76561198127675194/CID:72) Status: CLIENT LOADED & PLAYING"
- 7:14:52 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [9592.06,13269.8,0] with 5 items."
- 7:14:52 "Chernarus static spawn configuration loaded."
- 7:14:52 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [5130.53,9235.34,0] with 8 items."
- 7:14:53 "HIVE: Vehicle Spawn limit reached!"
- 7:14:53 "HIVE: Spawning # of Debris: false"
- 7:14:53 Error in expression <str(MaxDynamicDebris));
+ 7:47:29 "<infiSTAR.de> _simple: t50914c251a11131a228522"
+ 7:47:29 "<infiSTAR.de> _dialogIds: s22022d421a61258c4a25"
+ 7:47:29 "<infiSTAR.de> _badtxts: k3a634755534a819a624582"
+ 7:47:29 "<infiSTAR.de> _randvar1: q807283184558614b97627c"
+ 7:47:29 "<infiSTAR.de> _randvar2: t3835555b97272b5c6a127c"
+ 7:47:29 "<infiSTAR.de> _randvar0: i456a5a2a2a1d85334583"
+ 7:47:29 "<infiSTAR.de> _randvar3: c22224758322380714123"
+ 7:47:29 "<infiSTAR.de> _randvar4: i2142529a5515873c578593"
+ 7:47:29 "<infiSTAR.de> _randvar5: u121c610a57390a5a274111"
+ 7:47:29 "<infiSTAR.de> _randvar6: e094523053558651b316d"
+ 7:47:29 "<infiSTAR.de> _randvar8: k7b919e229a9b6c8795"
+ 7:47:29 "<infiSTAR.de> _randvar9: s1a11718a7e3565470f2b52"
+ 7:47:29 "<infiSTAR.de> _randvar11: v72371a512a73736d2212"
+ 7:47:29 "<infiSTAR.de> _randvar12: z928c2a254b57954d357530"
+ 7:47:29 "<infiSTAR.de> _randvar13: i354b578941153e8e83"
+ 7:47:29 "<infiSTAR.de> _randvar19: j8582351a656b7a4b7d"
+ 7:47:29 "<infiSTAR.de> _randvar27: q220a4d5a218213853c191f7a"
+ 7:47:29 "<infiSTAR.de> _randvar26: k4a2318621a72279c1c534a"
+ 7:47:29 "<infiSTAR.de> _randvar25: g45021273234b732b9b158c"
+ 7:47:29 "<infiSTAR.de> _randvar31: b9c25535d8d793728751c"
+ 7:47:29 "<infiSTAR.de> _randvar33: h12536a22628c581b25"
+ 7:47:29 "<infiSTAR.de> _randvar34: l253f15418525352c35872c"
+ 7:47:29 "<infiSTAR.de> _randvar35: w5c898599724241035a"
+ 7:47:29 "<infiSTAR.de> _randvar36: p2c6c624e4992723c3b17"
+ 7:47:29 "<infiSTAR.de> _randvar37: q1b5c53222d8295529a5a18"
+ 7:47:29 "<infiSTAR.de> _randvar39: k7c83977e657b5c75458c"
+ 7:47:29 "<infiSTAR.de> _clickOnMapTimer: o88653e75685133291e9d61"
+ 7:47:29 "<infiSTAR.de> _clickOnMapCaught: l32783a7163654a3555654d"
+ 7:47:29 "<infiSTAR.de> _fnc_handlerandvar10: h3505658b126a3217055b"
+ 7:47:29 "<infiSTAR.de> _remark: b5a18991c625a5b4f723a4e97"
+ 7:47:29 "<infiSTAR.de> _AHpos: h281247451f3c1c720d1c"
+ 7:47:29 "<infiSTAR.de> _loadedcheckpos: m1261234547458c35585528"
+ 7:47:29 "<infiSTAR.de> _loadedchecktime: f7f12211f132a193743122c37"
+ 7:47:29 "<infiSTAR.de> _MenuChecksRunningx: g3a158a1d3e0565188d97"
+ 7:47:29 "<infiSTAR.de> _oneachframe: h0a7225801175331d2c19776a"
+ 7:47:29 "<infiSTAR.de> _anotherloop: b21434a018c811362236281"
+ 7:47:29 "<infiSTAR.de> _clientoncetwo: p2a657f678282310c408a47"
+ 7:47:29 "<infiSTAR.de> _lastUnlock: c738e25824c4c55610537"
+ 7:47:29 "<infiSTAR.de> _AdminReqCheck: e414b5c6e2830555a773c"
+ 7:47:29 "<infiSTAR.de> _antidupeCheckVar: w19637b5a400c8368750f"
+ 7:47:29 "<infiSTAR.de> _antiantihack1_rndvar: s692381209e318c276702"
+ 7:47:29 "<infiSTAR.de> _antiantihack2_rndvar: h5165327e27587c536a"
+ 7:47:29 "<infiSTAR.de> _antidupePVResVar: e60672997192d4e5a0d71"
+ 7:47:29 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_c222c7b31173a029c4751"
+ 7:47:29 "<infiSTAR.de> _randvar10: PVAHR_0_e58727145936779938c3911"
+ 7:47:30 "<infiSTAR.de> AntiHack LOADED!"
+ 7:47:30 "<infiSTAR.de> CREATING AdminMenu"
+ 7:47:30 "<infiSTAR.de> AdminMenu LOADED!"
+ 7:47:30 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
+ 7:47:30 "<infiSTAR.de> AntiHack FULLY LOADED"
+ 7:47:30 "<infiSTAR.de> starting main server loop"
+ 7:47:45 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 4h 51min | ******ADMIN******"
+ 7:47:54 "TraderConvoy: Spawned HMMWV_Ambulance 205be080# 1055172: m997a2_ambulance.p3d"
+ 7:47:54 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
+ 7:47:54 "Loading custom server compiles"
+ 7:47:54 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
+ 7:47:54 "Deploy Anything: loading version 2.8.2 ..."
+ 7:47:54 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
+ 7:47:54 "Deploy Anything: adding deployables to safe vehicle list..."
+ 7:47:54 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
+ 7:47:54 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
+ 7:47:54 "TraderConvoy: Adding waypoints"
+ 7:47:54 "TraderConvoy: Moving to 074102 [7402.05,5132.84]"
+ 7:47:56 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
+ 7:47:56 "SERVER FPS: 26  PLAYERS: 1"
+ 7:47:56 "HIVE: Starting"
+ 7:47:56 ["TIME SYNC: Local Time set to:",[2012,8,2,13,47],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,13,47]]
+ 7:47:56 "HIVE: trying to get objects"
+ 7:47:56 "HIVE: found 409 objects"
+ 7:47:56 "HIVE: Request sent"
+ 7:47:56 "INFO: Created 156 safe zone bubbles"
+ 7:47:56 "HIVE: Streamed 409 objects"
+ 7:47:57 "Res3tting B!S effects..."
+ 7:47:59 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 409 objects in 3.43399 seconds (unscheduled)"
+ 7:48:00 "Total Number of spawn locations 6"
+ 7:48:00 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
+ 7:48:00 "CLEANUP: INITIALIZING Vehicle SCRIPT"
+ 7:48:00 "[DZAI] Reading DZAI configuration file."
+ 7:48:00 "[DZAI] DZAI configuration file loaded."
+ 7:48:00 "[DZAI] Compiling DZAI functions."
+ 7:48:00 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,13,48],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,13,48]]
+ 7:48:00 "[DZAI] DZAI functions compiled."
+ 7:48:00 "[DZAI] Epoch classnames loaded."
+ 7:48:00 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
+ 7:48:00 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
+ 7:48:00 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
+ 7:48:00 "[DZAI] DZAI loading completed in 0.506989 seconds."
+ 7:48:15 "EPOCH EVENTS INIT"
+ 7:48:15 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGGING IN"
+ 7:48:15 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [5205.62,8973.05,0] with 7 items."
+ 7:48:15 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
+ 7:48:15 "CRASHSPAWNER: Spawning crash site (CrashSite_RU) at [3756.91,7430.76,0] with 7 items."
+ 7:48:15 "Spawning Weed Farm at [3734.08,6326.54]"
+ 7:48:15 "Spawning Weed Farm at [5289.02,9082.78]"
+ 7:48:15 "Spawning Weed Farm at [6772.64,8921.25]"
+ 7:48:15 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGGING IN"
+ 7:48:16 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGIN PUBLISHING, Location Stary Sobor @062071"
+ 7:48:16 "Spawning Weed Farm at [7805.17,8422.04]"
+ 7:48:16 "Spawning Weed Farm at [3270.14,8478.34]"
+ 7:48:16 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [10395.4,8635.05,0] with 7 items."
+ 7:48:16 "WAI: AI Config File Loaded"
+ 7:48:16 "WAI: Initializing missions"
+ 7:48:16 "WAI: blacklist Loaded"
+ 7:48:16 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
+ 7:48:16 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
+ 7:48:16 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+ 7:48:16 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
+ 7:48:16 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+ 7:48:16 Client: Remote object 3:5 not found
+ 7:48:17 Warning: Cleanup player - person 3:4 not found
+ 7:48:17 "INFO - Player: TEEMO(UID:76561198127675194/CID:72) Status: CLIENT LOADED & PLAYING"
+ 7:48:17 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [3596.52,10825.1,0] with 7 items."
+ 7:48:17 "[DZAI] Verified 153 unique classnames in 1.42799 seconds."
+ 7:48:17 "WAI: AI Config File Loaded"
+ 7:48:17 "Chernarus spawn areas loaded."
+ 7:48:17 "WAI: Initializing missions"
+ 7:48:17 "WAI: blacklist Loaded"
+ 7:48:17 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [6813.22,9420.52,0] with 6 items."
+ 7:48:17 "Chernarus static spawn configuration loaded."
+ 7:48:18 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [5727.02,8332.79,0] with 9 items."
+ 7:48:18 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [7957.77,12301.5,0] with 11 items."
+ 7:48:19 "HIVE: Vehicle Spawn limit reached!"
+ 7:48:19 "HIVE: Spawning # of Debris: false"
+ 7:48:19 Error in expression <str(MaxDynamicDebris));
 for "_x" from 1 to MaxDynamicDebris do {call spawn_roadb>
- 7:14:53   Error position: <to MaxDynamicDebris do {call spawn_roadb>
- 7:14:53   Error to: Type Bool, expected Number
- 7:14:53 File z\addons\dayz_server\system\server_monitor.sqf, line 537
- 7:14:58 "DZAI Warning: CH_47F_DZ is an invalid vehicle classname!"
- 7:15:09 "RUNNING EVENT: player_supply on [2021,1,13,13,15]"
- 7:15:49 [DZMS]: Starting DayZ Mission System.
- 7:15:49 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
- 7:15:49 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
- 7:15:49 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
- 7:15:49 [DZMS]: Mission Clock Starting!
- 7:16:46 Ref to nonnetwork object 32177900# 1058912: roadbarrier_long.p3d
- 7:19:52 "DZAI Monitor :: Server Uptime: 0:7:26. Active AI Groups: 9."
- 7:19:52 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 7:19:52 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 0. Air Patrols: 4. Land Patrols: 5."
- 7:20:45 "SERVER FPS: 46  PLAYERS: 1"
- 7:21:49 [DZMS]: Running Hero Mission Humvee_Crash.
- 7:21:52 "Hero Humvee Crash spawned at [6510.14,9445.22,0]"
- 7:21:59 [DZMS]: Running Bandit Mission General_Store.
- 7:22:02 "Bandit General Store spawned at [4324.7,8487.07,0]"
+ 7:48:19   Error position: <to MaxDynamicDebris do {call spawn_roadb>
+ 7:48:19   Error to: Type Bool, expected Number
+ 7:48:19 File z\addons\dayz_server\system\server_monitor.sqf, line 537
+ 7:48:24 "DZAI Warning: CH_47F_DZ is an invalid vehicle classname!"
+ 7:48:58 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
+ 7:48:58 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGGING IN"
+ 7:48:58 Server: Object 3:13 not found (message 94)
+ 7:48:58 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:72) Status: LOGIN PUBLISHING, Location Stary Sobor @062071"
+ 7:48:59 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+ 7:48:59 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
+ 7:48:59 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+ 7:48:59 "INFO - Player: TEEMO(UID:76561198127675194/CID:72) Status: CLIENT LOADED & PLAYING"
+ 7:49:14 [DZMS]: Starting DayZ Mission System.
+ 7:49:14 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
+ 7:49:14 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
+ 7:49:14 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
+ 7:49:14 [DZMS]: Mission Clock Starting!
