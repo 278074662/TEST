@@ -1,286 +1,179 @@
 
-
-=====================================================================
-== C:\dayzserver\arma2oaserver.exe
-== arma2oaserver.exe  -port=2302 "-BEpath=DZE_Server_Config\BattlEye" "-config=11_chernarus.cfg" "-cfg=DZE_Server_Config\basic.cfg" "-profiles=DZE_Server_Config" -name=server "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"
-=====================================================================
-Exe timestamp: 2021/01/07 19:16:09
-Current time:  2021/01/14 03:38:36
-
-Version 1.64.144629
-Unable to initialize Steam API.
-Updating base class ->NonStrategic, by ca\config.bin/CfgVehicles/HouseBase/
-Updating base class ->HouseBase, by ca\config.bin/CfgVehicles/Ruins/
-Updating base class ->DestructionEffects, by ca\config.bin/CfgVehicles/House/DestructionEffects/
-Updating base class ->FlagCarrierCore, by ca\ca_pmc\config.bin/CfgVehicles/FlagCarrier/
-Updating base class ->VehicleMagazine, by ca\weapons\config.bin/CfgMagazines/14Rnd_FFAR/
-Updating base class Default->RifleCore, by ca\weapons\config.bin/cfgWeapons/Rifle/
-Updating base class ->LauncherCore, by ca\weapons\config.bin/cfgWeapons/RocketPods/
-Updating base class ->RocketPods, by ca\weapons\config.bin/cfgWeapons/FFARLauncher/
-Updating base class ->UH60_Base, by ca\air\config.bin/CfgVehicles/MH60S/
-Updating base class ->Car, by ca\wheeled2\lada\config.bin/CfgVehicles/Lada_base/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/UN_CDF_Soldier_base_EP1/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Commander/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Militia/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Officer/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Sniper/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CDF_Soldier_Spotter/HitPoints/
-Updating base class HitPoints->HitPoints, by corepatch\corepatch_characters\config.bin/CfgVehicles/CZ_Soldier_Crew_Wdl_ACR/HitPoints/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Small_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street1_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street2_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lampa_Ind_EP1/
-Updating base class StreetLamp_EP1->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_PowLines_Conc2L_EP1/
-Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl/
-Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_2/
-Updating base class StreetLamp_BaseMediumOrange->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_3/
-Updating base class StreetLamp_BaseWeakYellow->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind/
-Updating base class StreetLamp_BaseWeakYellow->StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind_zebr/
-Updating base class RscStandardDisplay->, by z\addons\dayz_code\config.bin/RscDisplayStart/ (original (bin\config.bin - no unload))
-Updating base class RscShortcutButton->RscShortcutButtonMain, by z\addons\dayz_code\config.bin/RscDisplayMain/controls/CA_Exit/
-Updating base class CA_IGUI_Title->RscText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/Gear_Title/
-Updating base class Available_items_Text->RscText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/CA_ItemName/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item8/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item9/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item10/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item11/
-Updating base class CA_Gear_slot_item7->CA_Gear_slot_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_item12/
-Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item6/
-Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item7/
-Updating base class CA_Gear_slot_handgun_item5->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_handgun_item8/
-Updating base class CA_Gear_slot_special1->CA_Gear_slot_handgun_item1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory1/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory8/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory9/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory10/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory11/
-Updating base class CA_Gear_slot_inventory7->CA_Gear_slot_inventory1, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_inventory12/
-Updating base class CA_Gear_slot_item1->CA_Gear_slot_handgun, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/G_GearItems/Controls/CA_Gear_slot_special1/
-Updating base class RscIGUIShortcutButton->RscActiveText, by z\addons\dayz_code\config.bin/RscDisplayGear/Controls/ButtonClose/
-Updating base class RscText->, by z\addons\dayz_code\config.bin/RscTitles/Default/ (original bin\config.bin)
-Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/Mi17_base/Turrets/MainTurret/ViewOptics/
-Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/UH1H_base/Turrets/MainTurret/ViewOptics/
-Updating base class ->ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/UH1_Base/Turrets/MainTurret/ViewOptics/
-Updating base class Strategic->, by z\addons\dayz_code\config.bin/CfgVehicles/Bomb/ (original ca\weapons\config.bin)
-Updating base class HighCommand->Logic, by z\addons\dayz_code\config.bin/CfgVehicles/HighCommandSubordinate/
-Updating base class NonStrategic->BuiltItems, by z\addons\dayz_code\config.bin/CfgVehicles/Fort_RazorWire/
-Updating base class ->DefaultEventhandlers, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroP/EventHandlers/
-Updating base class AnimationSources->AnimationSources, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroC/AnimationSources/
-Updating base class ->DefaultEventhandlers, by z\addons\dayz_code\config.bin/CfgVehicles/CSJ_GyroC/EventHandlers/
-Updating base class BuiltItems->Generator_Base, by z\addons\dayz_code\config.bin/CfgVehicles/Generator_DZ/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/29Rnd_30mm_AGS30/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/48Rnd_40mm_MK19/
-Updating base class 4000Rnd_762x51_M134->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/2000Rnd_762x51_M134/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/100Rnd_127x99_M2/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/50Rnd_127x107_DSHKM/
-Updating base class 4000Rnd_762x51_M134->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_1300Rnd_762x51_M60/
-Updating base class 100Rnd_762x51_M240->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_250Rnd_762x51/
-Updating base class 6Rnd_Grenade_Camel->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/pook_12Rnd_Grenade_Camel/
-Updating base class VehicleMagazine->CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/3Rnd_GyroGrenade/
-Updating base class DropWeapon->None, by z\addons\dayz_code\config.bin/CfgActions/PutWeapon/
-Updating base class DropMagazine->None, by z\addons\dayz_code\config.bin/CfgActions/PutMagazine/
-Updating base class Land_HouseBlock_C1->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseBlock_C4/
-Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1I3/
-Updating base class NonStrategic->House, by zero_buildings\config.bin/CfgVehicles/Land_A_MunicipalOffice/
-Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1L2/
-Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_3I3/
-Updating base class House->DZE_OpenHouse, by warehouse\config.bin/CfgVehicles/Land_Ind_Pec_03/
- 3:38:54 Initializing Steam server - Game Port: 2302, Steam Query Port: 2303
- 3:38:56 Connected to Steam servers
- 3:41:57 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:41:59 Server error: Player without identity TEEMO (id 921551049)
- 3:42:09 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
- 3:42:09 File mpmissions\__cur_mp.Chernarus\scripts\HUD\HUD.hpp, line 135: '/RscTitles/RebalancedHUD/controls/ResStatusText.h': Missing ';' at the end of line
- 3:42:10 Strange convex component81 in zero_buildings\models\housev_3i3_i.p3d:geometryFire
- 3:42:12 Strange convex component31 in zero_buildings\models\proxies\th_arches.p3d:geometryView
- 3:42:12 Strange convex component207 in zero_buildings\models\a_tvtower\a_tvtower_base.p3d:geometryFire
- 3:42:13 Strange convex component44 in zero_buildings\models\houseblock\houseblock_c4.p3d:geometry
- 3:42:13 Strange convex component288 in warehouse\models\warehouse.p3d:geometry
-
- 3:42:13 Strange convex component278 in warehouse\models\warehouse.p3d:geometryView
- 3:42:16 "PRELOAD_ Functions\init [[<No group>:0 (FunctionsManager)],any]"
- 3:42:16 "MPframework inited"
- 3:42:16 "dayz_preloadFinished reset"
- 3:42:17 "<infiSTAR.de> Error loading infiSTAR DLL"
- 3:42:17 "<infiSTAR.de> 644435bd443e"
- 3:42:17 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
- 3:42:17 "<infiSTAR.de> "
- 3:42:17 "<infiSTAR.de> Waiting for BIS_fnc_init..."
- 3:42:17 Error in expression <ntFromString == 0x01);
+ 3:56:14 "dayz_preloadFinished reset"
+ 3:56:15 "<infiSTAR.de> Error loading infiSTAR DLL"
+ 3:56:15 "<infiSTAR.de> 644435bd443e"
+ 3:56:15 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
+ 3:56:15 "<infiSTAR.de> "
+ 3:56:15 "<infiSTAR.de> Waiting for BIS_fnc_init..."
+ 3:56:15 Error in expression <ntFromString == 0x01);
 missionNameSpace setVariable ['armalog',_armalog,true];
 i>
- 3:42:17   Error position: <setVariable ['armalog',_armalog,true];
+ 3:56:15   Error position: <setVariable ['armalog',_armalog,true];
 i>
- 3:42:17   Error 3 elements provided, 2 expected
- 3:42:17 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
- 3:42:17 "Epoch detected"
- 3:42:17 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
- 3:42:17 Warning Message: Script low_admins.sqf not found
- 3:42:17 Warning Message: Script normal_admins.sqf not found
- 3:42:17 Warning Message: Script super_admins.sqf not found
- 3:42:17 Warning Message: Script blacklist.sqf not found
- 3:42:17 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 3:42:17 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 3:42:17 "<infiSTAR.de> _fnc_RandomGen: {
+ 3:56:15   Error 3 elements provided, 2 expected
+ 3:56:15 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
+ 3:56:15 "Epoch detected"
+ 3:56:15 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
+ 3:56:15 Warning Message: Script low_admins.sqf not found
+ 3:56:15 Warning Message: Script normal_admins.sqf not found
+ 3:56:15 Warning Message: Script super_admins.sqf not found
+ 3:56:15 Warning Message: Script blacklist.sqf not found
+ 3:56:15 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
+ 3:56:15 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
+ 3:56:15 "<infiSTAR.de> _fnc_RandomGen: {
 _abc = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'];
 _gen = _abc select (random ((count _abc)-1));
 _arr = ['a','2','c','c','7','0','b','2','2','5','3','7','1','5','5','8','5','2','3','5','a','2','d','a','a','1','b','c','9','1','9','e','f'];
 for '_i' from 0 to (8+(round(random 3))) do {_gen = _gen + str(round(random 9)) + (_arr select (random ((count _arr)-1)));};
 _gen
 }"
- 3:42:17 "<infiSTAR.de> _simple: u492a3e212a3c0255026943"
- 3:42:17 "<infiSTAR.de> _dialogIds: e3d6a8b1c1a195a125985"
- 3:42:17 "<infiSTAR.de> _badtxts: m425a6b15135c97552a514c"
- 3:42:17 "<infiSTAR.de> _randvar1: u5265598c7a395b528a1258"
- 3:42:17 "<infiSTAR.de> _randvar2: u27408348759c254a557375"
- 3:42:17 "<infiSTAR.de> _randvar0: q891772977e4a420a393c6515"
- 3:42:17 "<infiSTAR.de> _randvar3: l0b3c3221658a5b154b23159c"
- 3:42:17 "<infiSTAR.de> _randvar4: b4545922c1780428a5f1535"
- 3:42:17 "<infiSTAR.de> _randvar5: c752d6d7c5929224e3288"
- 3:42:17 "<infiSTAR.de> _randvar6: c6749230b55414b4c7d15"
- 3:42:17 "<infiSTAR.de> _randvar8: i838555654187888a8b85"
- 3:42:17 "<infiSTAR.de> _randvar9: p4c828b6261755e4188"
- 3:42:17 "<infiSTAR.de> _randvar11: v63796785453c1a471b52"
- 3:42:17 "<infiSTAR.de> _randvar12: m9155719219817a511782750c"
- 3:42:17 "<infiSTAR.de> _randvar13: b328a8a6d839a5c83384192"
- 3:42:17 "<infiSTAR.de> _randvar19: c63021153394c023149137a"
- 3:42:17 "<infiSTAR.de> _randvar27: c8171958e17897247997352"
- 3:42:17 "<infiSTAR.de> _randvar26: j2a8b45324981858375210117"
- 3:42:17 "<infiSTAR.de> _randvar25: w90585f2a826c956c1557"
- 3:42:17 "<infiSTAR.de> _randvar31: e15351b254d1a7e2321398a"
- 3:42:17 "<infiSTAR.de> _randvar33: q377245053d3c89757a"
- 3:42:17 "<infiSTAR.de> _randvar34: f228c1138358225172a9b"
- 3:42:17 "<infiSTAR.de> _randvar35: d15618562455225694c"
- 3:42:17 "<infiSTAR.de> _randvar36: p3102622a250901277b"
- 3:42:17 "<infiSTAR.de> _randvar37: z155191792a28753292127e"
- 3:42:17 "<infiSTAR.de> _randvar39: x537c20315f7a151552232c"
- 3:42:17 "<infiSTAR.de> _clickOnMapTimer: f2a326b2b520c8a19553a8245"
- 3:42:17 "<infiSTAR.de> _clickOnMapCaught: o4215022e38337a7b2a7a"
- 3:42:17 "<infiSTAR.de> _fnc_handlerandvar10: u174a7a5a491b2952694e15"
- 3:42:17 "<infiSTAR.de> _remark: f6a8523923d214a857f21"
- 3:42:17 "<infiSTAR.de> _AHpos: v9c821d1547223752928572"
- 3:42:17 "<infiSTAR.de> _loadedcheckpos: i2148131779995a9b975785"
- 3:42:17 "<infiSTAR.de> _loadedchecktime: m6325016925215539325837"
- 3:42:17 "<infiSTAR.de> _MenuChecksRunningx: v3c05720157453c67375a824a"
- 3:42:17 "<infiSTAR.de> _oneachframe: u3241926002551a013240211f"
- 3:42:17 "<infiSTAR.de> _anotherloop: k7e826a32350b8755121a"
- 3:42:17 "<infiSTAR.de> _clientoncetwo: m57421227186183326f"
- 3:42:17 "<infiSTAR.de> _lastUnlock: x371231925938352a3c8e72"
- 3:42:17 "<infiSTAR.de> _AdminReqCheck: a3c35750371238292258269"
- 3:42:17 "<infiSTAR.de> _antidupeCheckVar: c9b71911d739a121b7c21"
- 3:42:17 "<infiSTAR.de> _antiantihack1_rndvar: t511c354215521b6145786782"
- 3:42:17 "<infiSTAR.de> _antiantihack2_rndvar: i859a32624b12828c6c"
- 3:42:17 "<infiSTAR.de> _antidupePVResVar: n51311a5262617b3e874d"
- 3:42:17 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_k353c8b11151a22720e22"
- 3:42:17 "<infiSTAR.de> _randvar10: PVAHR_0_t4c19258e2c3a5c1502"
- 3:42:17 "<infiSTAR.de> AntiHack LOADED!"
- 3:42:17 "<infiSTAR.de> CREATING AdminMenu"
- 3:42:17 "<infiSTAR.de> AdminMenu LOADED!"
- 3:42:17 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
- 3:42:17 "<infiSTAR.de> AntiHack FULLY LOADED"
- 3:42:30 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
- 3:42:30 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
- 3:42:30 Client: Remote object 2:12 not found
- 3:42:30 "<infiSTAR.de> starting main server loop"
- 3:42:33 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
- 3:42:33 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 5h 25min | ******ADMIN******"
- 3:42:42 "TraderConvoy: Spawned V3S_Supply_TK_GUE_EP1 2011a080# 1055173: v3s_transport.p3d"
- 3:42:42 "Loading custom server compiles"
- 3:42:42 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
- 3:42:42 "Deploy Anything: loading version 2.8.2 ..."
- 3:42:42 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
- 3:42:42 "Deploy Anything: adding deployables to safe vehicle list..."
- 3:42:42 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
- 3:42:42 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
- 3:42:42 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
- 3:42:42 "TraderConvoy: Adding waypoints"
- 3:42:42 "TraderConvoy: Moving to 073102 [7378.21,5131.24]"
- 3:42:44 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
- 3:42:44 "HIVE: Starting"
- 3:42:44 "SERVER FPS: 24  PLAYERS: 1"
- 3:42:44 ["TIME SYNC: Local Time set to:",[2012,8,2,10,42],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,42]]
- 3:42:44 "HIVE: trying to get objects"
- 3:42:44 "INFO: Created 156 safe zone bubbles"
- 3:42:44 "HIVE: found 484 objects"
- 3:42:44 "HIVE: Request sent"
- 3:42:44 "HIVE: Streamed 484 objects"
- 3:42:44 "Res3tting B!S effects..."
- 3:42:48 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 484 objects in 3.739 seconds (unscheduled)"
- 3:42:48 "Total Number of spawn locations 6"
- 3:42:48 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
- 3:42:48 "[DZAI] Reading DZAI configuration file."
- 3:42:48 "[DZAI] DZAI configuration file loaded."
- 3:42:48 "CLEANUP: INITIALIZING Vehicle SCRIPT"
- 3:42:48 "[DZAI] Compiling DZAI functions."
- 3:42:48 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2012,8,2,10,42],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,42]]
- 3:42:48 "[DZAI] DZAI functions compiled."
- 3:42:48 "[DZAI] Epoch classnames loaded."
- 3:42:48 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
- 3:42:48 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
- 3:42:48 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
- 3:42:48 "[DZAI] DZAI loading completed in 0.462006 seconds."
- 3:42:48 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGGING IN"
- 3:42:48 "EPOCH EVENTS INIT"
- 3:43:03 Server: Object 3:8 not found (message 94)
- 3:43:03 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
- 3:43:03 "CRASHSPAWNER: Spawning crash site (CrashSite_RU) at [7559.01,5464.87,0] with 6 items."
- 3:43:03 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGIN PUBLISHING, Location Mogilevka @075103"
- 3:43:03 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [4262.4,6457.88,0] with 10 items."
- 3:43:04 "Spawning Weed Farm at [4673.56,11699.2]"
- 3:43:04 "Spawning Weed Farm at [11648.8,9713.43]"
- 3:43:05 "Spawning Weed Farm at [11249.6,5200.19]"
- 3:43:05 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [3710.71,5007.82,0] with 10 items."
- 3:43:05 "Spawning Weed Farm at [4852.36,9229.46]"
- 3:43:05 "Spawning Weed Farm at [5040.07,12576.9]"
- 3:43:05 "WAI: AI Config File Loaded"
- 3:43:05 "WAI: Initializing missions"
- 3:43:05 "WAI: blacklist Loaded"
- 3:43:05 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [7832.81,8441.58,0] with 8 items."
- 3:43:05 "WAI: AI Config File Loaded"
- 3:43:05 "[DZAI] Verified 153 unique classnames in 1.18301 seconds."
- 3:43:06 "WAI: Initializing missions"
- 3:43:06 "WAI: blacklist Loaded"
- 3:43:06 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [2807.52,4957.69,0] with 8 items."
- 3:43:06 "Chernarus spawn areas loaded."
- 3:43:06 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [3316.54,2659.45,0] with 7 items."
- 3:43:06 "Chernarus static spawn configuration loaded."
- 3:43:06 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [1841.83,8985.02,0] with 11 items."
- 3:43:08 "HIVE: Vehicle Spawn limit reached!"
- 3:43:08 "HIVE: Spawning # of Debris: false"
- 3:43:08 Error in expression <str(MaxDynamicDebris));
+ 3:56:15 "<infiSTAR.de> _simple: l3a31435a957a6b3c55676a49"
+ 3:56:15 "<infiSTAR.de> _dialogIds: g12725a134a211b59372140"
+ 3:56:15 "<infiSTAR.de> _badtxts: f625a62832b25177d1d21"
+ 3:56:15 "<infiSTAR.de> _randvar1: v5c7c555e5c9915556f02"
+ 3:56:15 "<infiSTAR.de> _randvar2: w620e12175511037b608542"
+ 3:56:15 "<infiSTAR.de> _randvar0: k384535316192622547"
+ 3:56:15 "<infiSTAR.de> _randvar3: s6a7f827b8e17857c775819"
+ 3:56:15 "<infiSTAR.de> _randvar4: o7a40831c1f627585692b"
+ 3:56:15 "<infiSTAR.de> _randvar5: k3c35558a255565334c"
+ 3:56:15 "<infiSTAR.de> _randvar6: n3a851c987a29322c8e3738"
+ 3:56:15 "<infiSTAR.de> _randvar8: w83754b555311415b1c3345"
+ 3:56:15 "<infiSTAR.de> _randvar9: d318833959c7c79784352"
+ 3:56:15 "<infiSTAR.de> _randvar11: m12251587824b371a85696a"
+ 3:56:15 "<infiSTAR.de> _randvar12: n5a55551997327a1c287a52"
+ 3:56:15 "<infiSTAR.de> _randvar13: m6301654c7c135c8a1a31"
+ 3:56:15 "<infiSTAR.de> _randvar19: i45728a6115655c593a155a"
+ 3:56:15 "<infiSTAR.de> _randvar27: p63225d5225174702558b4e8e"
+ 3:56:15 "<infiSTAR.de> _randvar26: y15810205806c4e69456b"
+ 3:56:15 "<infiSTAR.de> _randvar25: u4122817c376b5c5a551283"
+ 3:56:15 "<infiSTAR.de> _randvar31: t157533095a2901328a77"
+ 3:56:15 "<infiSTAR.de> _randvar33: m4195958033558252474219"
+ 3:56:15 "<infiSTAR.de> _randvar34: t224d8525317c90733c4b"
+ 3:56:15 "<infiSTAR.de> _randvar35: y0b75518341856943438a4247"
+ 3:56:15 "<infiSTAR.de> _randvar36: q007c41723c45298b312133"
+ 3:56:15 "<infiSTAR.de> _randvar37: h455a515b33631a5f8d62"
+ 3:56:15 "<infiSTAR.de> _randvar39: l5d55673c721a41970a"
+ 3:56:15 "<infiSTAR.de> _clickOnMapTimer: o30332f305503659251717245"
+ 3:56:15 "<infiSTAR.de> _clickOnMapCaught: g2a757a616c457c6a458219"
+ 3:56:15 "<infiSTAR.de> _fnc_handlerandvar10: p91631a7a5a2a12759e124b"
+ 3:56:15 "<infiSTAR.de> _remark: s396e6875655d1b8c7a4922"
+ 3:56:15 "<infiSTAR.de> _AHpos: k01620a7212455a28592c"
+ 3:56:15 "<infiSTAR.de> _loadedcheckpos: o42637a18223a2b295e73"
+ 3:56:15 "<infiSTAR.de> _loadedchecktime: j1a008c756a825c2c20"
+ 3:56:15 "<infiSTAR.de> _MenuChecksRunningx: o9f95818593716c626273"
+ 3:56:15 "<infiSTAR.de> _oneachframe: s254a0f0227828e4c02"
+ 3:56:15 "<infiSTAR.de> _anotherloop: v88826b624e1a89211a2a486e"
+ 3:56:15 "<infiSTAR.de> _clientoncetwo: t1c15526a6c123a3a1018"
+ 3:56:15 "<infiSTAR.de> _lastUnlock: n897a8c67826559991a"
+ 3:56:15 "<infiSTAR.de> _AdminReqCheck: d55823c62113295894c"
+ 3:56:15 "<infiSTAR.de> _antidupeCheckVar: d1278370a639122311b1a8b7f"
+ 3:56:15 "<infiSTAR.de> _antiantihack1_rndvar: h8c8b1152727e1557493f"
+ 3:56:15 "<infiSTAR.de> _antiantihack2_rndvar: v65226a537542758a4c7a72"
+ 3:56:15 "<infiSTAR.de> _antidupePVResVar: v81851b6d308555853b491c3e"
+ 3:56:15 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_j415a02824a8512091c521d"
+ 3:56:15 "<infiSTAR.de> _randvar10: PVAHR_0_y853a4c123525117b1152"
+ 3:56:15 "<infiSTAR.de> AntiHack LOADED!"
+ 3:56:15 "<infiSTAR.de> CREATING AdminMenu"
+ 3:56:15 "<infiSTAR.de> AdminMenu LOADED!"
+ 3:56:15 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
+ 3:56:15 "<infiSTAR.de> AntiHack FULLY LOADED"
+ 3:56:30 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 5h 39min | ******ADMIN******"
+ 3:56:36 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
+ 3:56:36 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
+ 3:56:36 Client: Remote object 2:12 not found
+ 3:56:36 "<infiSTAR.de> starting main server loop"
+ 3:56:40 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
+ 3:56:40 "TraderConvoy: Spawned HMMWV_Ambulance cc9c100# 1055173: m997a2_ambulance.p3d"
+ 3:56:40 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
+ 3:56:40 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
+ 3:56:40 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
+ 3:56:40 "Loading custom server compiles"
+ 3:56:40 "Deploy Anything: loading version 2.8.2 ..."
+ 3:56:40 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
+ 3:56:40 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
+ 3:56:40 "Deploy Anything: adding deployables to safe vehicle list..."
+ 3:56:40 "TraderConvoy: Adding waypoints"
+ 3:56:40 "TraderConvoy: Moving to 125027 [12503.8,12587]"
+ 3:56:42 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
+ 3:56:42 "HIVE: Starting"
+ 3:56:42 ["TIME SYNC: Local Time set to:",[2012,8,2,10,56],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,56]]
+ 3:56:42 "HIVE: trying to get objects"
+ 3:56:42 "SERVER FPS: 23  PLAYERS: 1"
+ 3:56:42 "HIVE: found 484 objects"
+ 3:56:42 "HIVE: Request sent"
+ 3:56:42 "INFO: Created 156 safe zone bubbles"
+ 3:56:42 "HIVE: Streamed 484 objects"
+ 3:56:43 "Res3tting B!S effects..."
+ 3:56:46 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 484 objects in 3.84601 seconds (unscheduled)"
+ 3:56:46 "Total Number of spawn locations 6"
+ 3:56:46 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
+ 3:56:46 "[DZAI] Reading DZAI configuration file."
+ 3:56:46 "[DZAI] DZAI configuration file loaded."
+ 3:56:46 "CLEANUP: INITIALIZING Vehicle SCRIPT"
+ 3:56:46 "[DZAI] Compiling DZAI functions."
+ 3:56:46 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,56],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,56]]
+ 3:56:46 "[DZAI] DZAI functions compiled."
+ 3:56:46 "[DZAI] Epoch classnames loaded."
+ 3:56:46 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
+ 3:56:46 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
+ 3:56:46 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
+ 3:56:46 "[DZAI] DZAI loading completed in 0.493988 seconds."
+ 3:56:47 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGGING IN"
+ 3:56:47 "EPOCH EVENTS INIT"
+ 3:57:01 Server: Object 3:8 not found (message 94)
+ 3:57:01 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [7409.29,7742.78,0] with 5 items."
+ 3:57:02 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGIN PUBLISHING, Location Stary Sobor @063070"
+ 3:57:02 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
+ 3:57:02 "CRASHSPAWNER: Spawning crash site (CrashSite_UN) at [2760.08,8993.44,0] with 5 items."
+ 3:57:02 "Spawning Weed Farm at [4215.19,11014.4]"
+ 3:57:02 "Spawning Weed Farm at [6330.79,8242.19]"
+ 3:57:02 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+ 3:57:02 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
+ 3:57:02 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+ 3:57:02 "Spawning Weed Farm at [4449.04,9688.54]"
+ 3:57:02 "INFO - Player: TEEMO(UID:76561198127675194/CID:106) Status: CLIENT LOADED & PLAYING"
+ 3:57:02 "Spawning Weed Farm at [3232.24,7659.41]"
+ 3:57:02 "INFO: Cannot Sync Character TEEMO near respawn_west [-18700,25800,0.00149536]. This is normal when relogging or changing clothes."
+ 3:57:03 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [4844.31,4523.12,0] with 3 items."
+ 3:57:03 "Spawning Weed Farm at [5994.16,10606.7]"
+ 3:57:03 "WAI: AI Config File Loaded"
+ 3:57:03 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [3246.65,9068.14,0] with 5 items."
+ 3:57:03 "WAI: Initializing missions"
+ 3:57:03 "WAI: blacklist Loaded"
+ 3:57:03 "[DZAI] Verified 153 unique classnames in 1.22299 seconds."
+ 3:57:03 "WAI: AI Config File Loaded"
+ 3:57:03 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [11228.6,5014.07,0] with 4 items."
+ 3:57:03 "Chernarus spawn areas loaded."
+ 3:57:04 "WAI: blacklist Loaded"
+ 3:57:04 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [7466,12336.6,0] with 4 items."
+ 3:57:04 "WAI: Initializing missions"
+ 3:57:04 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [8157.78,8662.28,0] with 6 items."
+ 3:57:04 "Chernarus static spawn configuration loaded."
+ 3:57:06 "HIVE: Vehicle Spawn limit reached!"
+ 3:57:06 "HIVE: Spawning # of Debris: false"
+ 3:57:06 Error in expression <str(MaxDynamicDebris));
 for "_x" from 1 to MaxDynamicDebris do {call spawn_roadb>
- 3:43:08   Error position: <to MaxDynamicDebris do {call spawn_roadb>
- 3:43:08   Error to: Type Bool, expected Number
- 3:43:08 File z\addons\dayz_server\system\server_monitor.sqf, line 537
- 3:43:12 "DZAI Warning: CH_47F_DZ is an invalid vehicle classname!"
- 3:43:19 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 3:43:19 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
- 3:43:19 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 3:43:19 "INFO - Player: TEEMO(UID:76561198127675194/CID:106) Status: CLIENT LOADED & PLAYING"
- 3:43:25 Warning: looped for animation: ca\anims\characters\data\anim\sdr\mov\erc\stp\non\non\amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end.rtm differs (looped now 0)! MoveName: amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end
- 3:44:04 [DZMS]: Starting DayZ Mission System.
- 3:44:04 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
- 3:44:04 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
- 3:44:04 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
- 3:44:04 [DZMS]: Mission Clock Starting!
- 3:44:16 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO G_o_d ON"
- 3:44:16 "<infiSTAR.de> AdminLog: 0h 05min | TEEMO G_o_d ON"
- 3:46:01 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[4639.03,2403.48,0]]"
- 3:46:01 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 075103([7580.22,5047.08,0.0018158]) to 046129([4639.03,2403.48,0]) | Key: any"
- 3:46:01 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[4639.03,2403.48,0]]"
- 3:46:01 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 046129   WorldSpace: [4639.03,2403.48,0]"
- 3:46:01 "<infiSTAR.de> AdminLog: 0h 07min | Admin TEEMO(76561198127675194) teleported to   GPS: 046129   WorldSpace: [4639.03,2403.48,0]"
+ 3:57:06   Error position: <to MaxDynamicDebris do {call spawn_roadb>
+ 3:57:06   Error to: Type Bool, expected Number
+ 3:57:06 File z\addons\dayz_server\system\server_monitor.sqf, line 537
+ 3:57:10 "DZAI Warning: CH_47F_DZ is an invalid vehicle classname!"
+ 3:58:01 [DZMS]: Starting DayZ Mission System.
+ 3:58:01 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
+ 3:58:01 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
+ 3:58:01 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
+ 3:58:01 [DZMS]: Mission Clock Starting!
+ 3:58:19 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO G_o_d ON"
+ 3:58:19 "<infiSTAR.de> AdminLog: 0h 06min | TEEMO G_o_d ON"
+ 3:59:12 Ref to nonnetwork object 32054800# 1058979: roadbarrier_long.p3d
+ 4:00:01 "RUNNING EVENT: bombcrate on [2021,1,14,11,0]"
+ 4:00:01 "Spawning loot event at [3117.54,3851.68]"
+ 4:00:01 "Creating ammo box at [3023.1,3734.54]"
+ 4:00:01 "Loot event setup, waiting for 900 seconds"
+ 4:02:04 "DZAI Monitor :: Server Uptime: 0:10:38. Active AI Groups: 11."
+ 4:02:04 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 0 groups queued."
+ 4:02:04 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 0. Air Patrols: 4. Land Patrols: 5."
+ 4:02:07 "TraderConvoy: Trader has arrived"
+ 4:02:12 "TraderConvoy: Now lock vehicle"
+ 4:02:57 "SERVER FPS: 46  PLAYERS: 1"
+ 4:02:58 Ref to nonnetwork object 32194100# 1058890: roadbarrier_long.p3d
+ 4:03:10 "WAI: [Mission:[MainHero] Base]: Starting... [6566.68,13692.3,0]"
