@@ -1,208 +1,269 @@
- WorldSpace: [3136.92,2008.78,0]"
- 7:22:57 "WAI: [Mission:[MainBandit] Hippy Commune]: Starting... [9774.99,13256.3,0]"
- 7:23:32 "infiSTAR.de fnc_AdminFirstReq: [0,B 1-1-B:1 (TEEMO) REMOTE,"M1A1",[3142.53,2018.56,0]]"
- 7:23:32 "infiSTAR.de fnc_AdminReqProceed: [0,B 1-1-B:1 (TEEMO) REMOTE,"M1A1",[3142.53,2018.56,0]]"
- 7:23:32 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO (76561198127675194) spawned M1A1 @031133"
- 7:23:32 "<infiSTAR.de> AdminLog: 0h 13min | TEEMO (76561198127675194) spawned M1A1 @031133"
- 7:23:56 "SERVER FPS: 42  PLAYERS: 1"
- 7:24:00 Server: Object 3:256 not found (message 70)
- 7:24:00 Server: Object 3:257 not found (message 70)
- 7:24:01 "<infiSTAR.de> VEHICLE_DESTROYED: Vehicle destroyed with <null> @031133 by TEEMO (76561198127675194) - GAZ_Vodnik_DZE, worldspace [26.2446,[3136.84,2008.7,0.0309539]], CharId 0, objID 83, objUID 0, nearby []"
- 7:24:01 "DELETE: PUID(76561198127675194) requested destroy on object GAZ_Vodnik_DZE ID:83 UID:0"
- 7:24:06 "infiSTAR.de fnc_AdminFirstReq: [-2,B 1-1-B:1 (TEEMO) REMOTE,36246080# 1061636: m1_abrams.p3d REMOTE]"
- 7:24:06 "infiSTAR.de fnc_AdminReqProceed: [-2,B 1-1-B:1 (TEEMO) REMOTE,36246080# 1061636: m1_abrams.p3d REMOTE]"
- 7:24:06 "Server_DeleteObj error: Improper parameter format"
- 7:24:06 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO (76561198127675194) deleted M1A1 @031133 - characterID any - objectID: 0 - objectUID: 31425201860355"
- 7:24:06 "<infiSTAR.de> AdminLog: 0h 14min | TEEMO (76561198127675194) deleted M1A1 @031133 - characterID any - objectID: 0 - objectUID: 31425201860355"
- 7:24:37 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8238.29,5307.4,0]]"
- 7:24:37 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 031133([3136.01,2029.4,0.00140524]) to 082100([8238.29,5307.4,0]) | Key: any"
- 7:24:37 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8238.29,5307.4,0]]"
- 7:24:37 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 082100   WorldSpace: [8238.29,5307.4,0]"
- 7:24:37 "<infiSTAR.de> AdminLog: 0h 14min | Admin TEEMO(76561198127675194) teleported to   GPS: 082100   WorldSpace: [8238.29,5307.4,0]"
- 7:24:45 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[9286.65,1946.54,0]]"
- 7:24:45 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 082100([8238.29,5307.4,0.00141907]) to 092134([9286.65,1946.54,0]) | Key: any"
- 7:24:45 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[9286.65,1946.54,0]]"
- 7:24:45 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 092134   WorldSpace: [9286.65,1946.54,0]"
- 7:24:45 "<infiSTAR.de> AdminLog: 0h 14min | Admin TEEMO(76561198127675194) teleported to   GPS: 092134   WorldSpace: [9286.65,1946.54,0]"
- 7:24:59 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3091.52,5898.91,0]]"
- 7:24:59 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 092134([9286.65,1946.54,0.00149441]) to 030094([3091.52,5898.91,0]) | Key: any"
- 7:24:59 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3091.52,5898.91,0]]"
- 7:24:59 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 030094   WorldSpace: [3091.52,5898.91,0]"
- 7:24:59 "<infiSTAR.de> AdminLog: 0h 15min | Admin TEEMO(76561198127675194) teleported to   GPS: 030094   WorldSpace: [3091.52,5898.91,0]"
- 7:25:15 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[12936.8,7647.69,0]]"
- 7:25:15 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 030094([3090.91,5898.14,0.00183105]) to 129077([12936.8,7647.69,0]) | Key: any"
- 7:25:15 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[12936.8,7647.69,0]]"
- 7:25:15 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 129077   WorldSpace: [12936.8,7647.69,0]"
- 7:25:15 "<infiSTAR.de> AdminLog: 0h 15min | Admin TEEMO(76561198127675194) teleported to   GPS: 129077   WorldSpace: [12936.8,7647.69,0]"
- 7:25:31 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[9423.23,8916.38,0]]"
- 7:25:31 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 129077([12936.8,7647.69,7.62939e-005]) to 094064([9423.23,8916.38,0]) | Key: any"
- 7:25:31 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[9423.23,8916.38,0]]"
- 7:25:31 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 094064   WorldSpace: [9423.23,8916.38,0]"
- 7:25:31 "<infiSTAR.de> AdminLog: 0h 15min | Admin TEEMO(76561198127675194) teleported to   GPS: 094064   WorldSpace: [9423.23,8916.38,0]"
- 7:25:39 Server: Object 3:322 not found (message 70)
- 7:25:39 Server: Object 3:335 not found (message 94)
- 7:25:39 Server: Object 3:336 not found (message 70)
- 7:25:39 Server: Object 3:337 not found (message 70)
- 7:25:39 Server: Object 3:341 not found (message 70)
- 7:25:39 Server: Object 3:342 not found (message 70)
- 7:25:39 Server: Object 3:343 not found (message 70)
- 7:25:54 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3947.54,8804.37,0]]"
- 7:25:54 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 094064([9444.25,8916.59,0.00115967]) to 039065([3947.54,8804.37,0]) | Key: any"
- 7:25:54 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3947.54,8804.37,0]]"
- 7:25:54 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 039065   WorldSpace: [3947.54,8804.37,0]"
- 7:25:54 "<infiSTAR.de> AdminLog: 0h 16min | Admin TEEMO(76561198127675194) teleported to   GPS: 039065   WorldSpace: [3947.54,8804.37,0]"
- 7:26:04 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2871.61,9912.99,0]]"
- 7:26:04 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 039065([3947.32,8809.6,0.00143433]) to 028054([2871.61,9912.99,0]) | Key: any"
- 7:26:04 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2871.61,9912.99,0]]"
- 7:26:04 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 028054   WorldSpace: [2871.61,9912.99,0]"
- 7:26:04 "<infiSTAR.de> AdminLog: 0h 16min | Admin TEEMO(76561198127675194) teleported to   GPS: 028054   WorldSpace: [2871.61,9912.99,0]"
- 7:26:09 Server: Object 3:431 not found (message 94)
- 7:26:09 Server: Object 3:432 not found (message 70)
- 7:26:09 Server: Object 3:437 not found (message 70)
- 7:26:09 Server: Object 3:328 not found (message 91)
- 7:26:22 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2719.56,9925.74,0]]"
- 7:26:22 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 028054([2872.12,9922.16,0.00128174]) to 027054([2719.56,9925.74,0]) | Key: any"
- 7:26:22 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2719.56,9925.74,0]]"
- 7:26:22 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 027054   WorldSpace: [2719.56,9925.74,0]"
- 7:26:22 "<infiSTAR.de> AdminLog: 0h 16min | Admin TEEMO(76561198127675194) teleported to   GPS: 027054   WorldSpace: [2719.56,9925.74,0]"
- 7:26:33 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8507.88,1484.28,0]]"
- 7:26:33 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 027054([2714.3,9918.79,1.62778]) to 085138([8507.88,1484.28,0]) | Key: any"
- 7:26:33 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8507.88,1484.28,0]]"
- 7:26:33 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 085138   WorldSpace: [8507.88,1484.28,0]"
- 7:26:33 "<infiSTAR.de> AdminLog: 0h 16min | Admin TEEMO(76561198127675194) teleported to   GPS: 085138   WorldSpace: [8507.88,1484.28,0]"
- 7:26:45 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,26],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,26]]
- 7:26:59 "<infiSTAR.de> VEHICLE_DESTROYED: Vehicle destroyed with <null> @085138 by UNKNOWN (76561198127675194) - TT650_Ins, worldspace [47.1464,[8506.94,1483.52,65.5156]], CharId 0, objID 73, objUID 0, nearby []"
- 7:26:59 "DELETE: PUID(76561198127675194) requested destroy on object TT650_Ins ID:73 UID:0"
- 7:27:07 "DZAI Monitor :: Server Uptime: 0:17:40. Active AI Groups: 9."
- 7:27:07 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 7:27:07 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 7:27:13 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2906.83,5595.7,0]]"
- 7:27:13 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 085138([8509.04,1483.52,0.00751632]) to 029097([2906.83,5595.7,0]) | Key: any"
- 7:27:13 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2906.83,5595.7,0]]"
- 7:27:13 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 029097   WorldSpace: [2906.83,5595.7,0]"
- 7:27:13 "<infiSTAR.de> AdminLog: 0h 17min | Admin TEEMO(76561198127675194) teleported to   GPS: 029097   WorldSpace: [2906.83,5595.7,0]"
- 7:27:18 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2898.13,5437.3,0]]"
- 7:27:18 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 029097([2906.83,5595.7,0.00172424]) to 028099([2898.13,5437.3,0]) | Key: any"
- 7:27:18 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2898.13,5437.3,0]]"
- 7:27:18 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 028099   WorldSpace: [2898.13,5437.3,0]"
- 7:27:18 "<infiSTAR.de> AdminLog: 0h 17min | Admin TEEMO(76561198127675194) teleported to   GPS: 028099   WorldSpace: [2898.13,5437.3,0]"
- 7:27:54 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO - added M249_m145_EP1_Small to his inventory"
- 7:27:54 "<infiSTAR.de> AdminLog: 0h 18min | TEEMO - added M249_m145_EP1_Small to his inventory"
- 7:27:57 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:27:57 "<infiSTAR.de> AdminLog: 0h 18min | TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:27:57 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:27:57 "<infiSTAR.de> AdminLog: 0h 18min | TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:27:58 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:27:58 "<infiSTAR.de> AdminLog: 0h 18min | TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:27:59 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:27:59 "<infiSTAR.de> AdminLog: 0h 18min | TEEMO - added 200Rnd_556x45_L110A1 to his inventory"
- 7:29:52 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11291.5,5167.76,0]]"
- 7:29:52 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 029098([2906.25,5476.68,0.00161743]) to 112101([11291.5,5167.76,0]) | Key: any"
- 7:29:52 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11291.5,5167.76,0]]"
- 7:29:52 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 112101   WorldSpace: [11291.5,5167.76,0]"
- 7:29:52 "<infiSTAR.de> AdminLog: 0h 20min | Admin TEEMO(76561198127675194) teleported to   GPS: 112101   WorldSpace: [11291.5,5167.76,0]"
- 7:29:56 "SERVER FPS: 47  PLAYERS: 1"
- 7:29:59 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11334.1,5171.75,0]]"
- 7:29:59 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 112101([11291.6,5167.25,0.00109863]) to 113101([11334.1,5171.75,0]) | Key: any"
- 7:29:59 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11334.1,5171.75,0]]"
- 7:29:59 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 113101   WorldSpace: [11334.1,5171.75,0]"
- 7:29:59 "<infiSTAR.de> AdminLog: 0h 20min | Admin TEEMO(76561198127675194) teleported to   GPS: 113101   WorldSpace: [11334.1,5171.75,0]"
- 7:30:26 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3316.6,3924.69,0]]"
- 7:30:26 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 113101([11335.4,5173.67,0.00175476]) to 033114([3316.6,3924.69,0]) | Key: any"
- 7:30:26 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3316.6,3924.69,0]]"
- 7:30:26 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 033114   WorldSpace: [3316.6,3924.69,0]"
- 7:30:26 "<infiSTAR.de> AdminLog: 0h 20min | Admin TEEMO(76561198127675194) teleported to   GPS: 033114   WorldSpace: [3316.6,3924.69,0]"
- 7:30:50 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11786.4,6548.91,0]]"
- 7:30:50 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 033114([3313.33,3925.9,0.00143433]) to 117088([11786.4,6548.91,0]) | Key: any"
- 7:30:50 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11786.4,6548.91,0]]"
- 7:30:50 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 117088   WorldSpace: [11786.4,6548.91,0]"
- 7:30:50 "<infiSTAR.de> AdminLog: 0h 21min | Admin TEEMO(76561198127675194) teleported to   GPS: 117088   WorldSpace: [11786.4,6548.91,0]"
- 7:30:56 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[10522.6,7013.29,0]]"
- 7:30:56 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 117088([11786.3,6548.96,0.00122452]) to 105083([10522.6,7013.29,0]) | Key: any"
- 7:30:56 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[10522.6,7013.29,0]]"
- 7:30:56 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 105083   WorldSpace: [10522.6,7013.29,0]"
- 7:30:56 "<infiSTAR.de> AdminLog: 0h 21min | Admin TEEMO(76561198127675194) teleported to   GPS: 105083   WorldSpace: [10522.6,7013.29,0]"
- 7:31:07 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[12082.1,9063.94,0]]"
- 7:31:07 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 105083([10519.1,7020.39,0.00126648]) to 120062([12082.1,9063.94,0]) | Key: any"
- 7:31:07 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[12082.1,9063.94,0]]"
- 7:31:07 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 120062   WorldSpace: [12082.1,9063.94,0]"
- 7:31:07 "<infiSTAR.de> AdminLog: 0h 21min | Admin TEEMO(76561198127675194) teleported to   GPS: 120062   WorldSpace: [12082.1,9063.94,0]"
- 7:31:30 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8044.17,10267,0]]"
- 7:31:30 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 120062([12067,9077.7,0.00144577]) to 080050([8044.17,10267,0]) | Key: any"
- 7:31:30 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8044.17,10267,0]]"
- 7:31:30 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 080050   WorldSpace: [8044.17,10267,0]"
- 7:31:30 "<infiSTAR.de> AdminLog: 0h 21min | Admin TEEMO(76561198127675194) teleported to   GPS: 080050   WorldSpace: [8044.17,10267,0]"
- 7:31:39 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6436.13,10416.2,0]]"
- 7:31:39 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 080050([8047.67,10270.5,0.00100708]) to 064049([6436.13,10416.2,0]) | Key: any"
- 7:31:39 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6436.13,10416.2,0]]"
- 7:31:39 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 064049   WorldSpace: [6436.13,10416.2,0]"
- 7:31:39 "<infiSTAR.de> AdminLog: 0h 21min | Admin TEEMO(76561198127675194) teleported to   GPS: 064049   WorldSpace: [6436.13,10416.2,0]"
- 7:32:02 Action::Process - No target [action: Rearm]
- 7:32:08 "DZAI Monitor :: Server Uptime: 0:22:41. Active AI Groups: 9."
- 7:32:08 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 1 groups queued."
- 7:32:08 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 4."
- 7:32:17 Action::Process - No target [action: Rearm]
- 7:32:22 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8253.09,1531.6,0]]"
- 7:32:22 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 064049([6437.37,10418.4,2.37473]) to 082138([8253.09,1531.6,0]) | Key: any"
- 7:32:22 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[8253.09,1531.6,0]]"
- 7:32:22 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 082138   WorldSpace: [8253.09,1531.6,0]"
- 7:32:22 "<infiSTAR.de> AdminLog: 0h 22min | Admin TEEMO(76561198127675194) teleported to   GPS: 082138   WorldSpace: [8253.09,1531.6,0]"
- 7:32:27 "<infiSTAR.de> VEHICLE_DESTROYED: Vehicle destroyed with ["M249_m145_EP1_Small","M249_m145_EP1_Small","manual","200Rnd_556x45_L110A1",91] @082138 by TEEMO (76561198127675194) - AN2_DZ, worldspace [183.851,[8253.12,1531.82,62.9021]], CharId 0, objID 108, objUID 0, nearby []"
- 7:32:27 "DELETE: PUID(76561198127675194) requested destroy on object AN2_DZ ID:108 UID:0"
- 7:32:37 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7248.25,7670.82,0]]"
- 7:32:37 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 082138([8255.52,1524.11,0.00579751]) to 072076([7248.25,7670.82,0]) | Key: any"
- 7:32:37 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7248.25,7670.82,0]]"
- 7:32:37 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 072076   WorldSpace: [7248.25,7670.82,0]"
- 7:32:37 "<infiSTAR.de> AdminLog: 0h 22min | Admin TEEMO(76561198127675194) teleported to   GPS: 072076   WorldSpace: [7248.25,7670.82,0]"
- 7:32:39 Server: Object 3:774 not found (message 94)
- 7:32:39 Server: Object 3:784 not found (message 70)
- 7:32:39 Server: Object 3:779 not found (message 94)
- 7:32:39 Server: Object 3:782 not found (message 70)
- 7:32:39 Server: Object 3:781 not found (message 70)
- 7:32:39 Server: Object 3:785 not found (message 70)
- 7:32:39 Server: Object 3:780 not found (message 94)
- 7:32:39 Server: Object 3:783 not found (message 94)
- 7:33:42 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[4128.45,11150.1,0]]"
- 7:33:42 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 072076([7252.68,7671.24,0.00137329]) to 041042([4128.45,11150.1,0]) | Key: any"
- 7:33:42 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[4128.45,11150.1,0]]"
- 7:33:42 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 041042   WorldSpace: [4128.45,11150.1,0]"
- 7:33:42 "<infiSTAR.de> AdminLog: 0h 23min | Admin TEEMO(76561198127675194) teleported to   GPS: 041042   WorldSpace: [4128.45,11150.1,0]"
- 7:34:01 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[5598.82,12144.6,0]]"
- 7:34:01 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 041042([4133.15,11152.4,0.00146484]) to 055032([5598.82,12144.6,0]) | Key: any"
- 7:34:01 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[5598.82,12144.6,0]]"
- 7:34:01 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 055032   WorldSpace: [5598.82,12144.6,0]"
- 7:34:01 "<infiSTAR.de> AdminLog: 0h 24min | Admin TEEMO(76561198127675194) teleported to   GPS: 055032   WorldSpace: [5598.82,12144.6,0]"
- 7:35:16 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2563.11,6553.07,0]]"
- 7:35:16 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 055032([5587.59,12142.1,0.00210571]) to 025088([2563.11,6553.07,0]) | Key: any"
- 7:35:16 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2563.11,6553.07,0]]"
- 7:35:16 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 025088   WorldSpace: [2563.11,6553.07,0]"
- 7:35:16 "<infiSTAR.de> AdminLog: 0h 25min | Admin TEEMO(76561198127675194) teleported to   GPS: 025088   WorldSpace: [2563.11,6553.07,0]"
- 7:35:27 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3042.09,2559.92,0]]"
- 7:35:27 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 025088([2563.26,6553.09,0.0012207]) to 030128([3042.09,2559.92,0]) | Key: any"
- 7:35:27 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[3042.09,2559.92,0]]"
- 7:35:27 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 030128   WorldSpace: [3042.09,2559.92,0]"
- 7:35:27 "<infiSTAR.de> AdminLog: 0h 25min | Admin TEEMO(76561198127675194) teleported to   GPS: 030128   WorldSpace: [3042.09,2559.92,0]"
- 7:35:56 "SERVER FPS: 49  PLAYERS: 1"
- 7:36:09 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[13444.5,6084.82,0]]"
- 7:36:09 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 031127([3129.26,2565.33,0.00127411]) to 134092([13444.5,6084.82,0]) | Key: any"
- 7:36:09 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[13444.5,6084.82,0]]"
- 7:36:09 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 134092   WorldSpace: [13444.5,6084.82,0]"
- 7:36:09 "<infiSTAR.de> AdminLog: 0h 26min | Admin TEEMO(76561198127675194) teleported to   GPS: 134092   WorldSpace: [13444.5,6084.82,0]"
- 7:36:23 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11901.4,9233.05,0]]"
- 7:36:23 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 134092([13444.4,6085.25,0.0014863]) to 119061([11901.4,9233.05,0]) | Key: any"
- 7:36:23 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[11901.4,9233.05,0]]"
- 7:36:23 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 119061   WorldSpace: [11901.4,9233.05,0]"
- 7:36:23 "<infiSTAR.de> AdminLog: 0h 26min | Admin TEEMO(76561198127675194) teleported to   GPS: 119061   WorldSpace: [11901.4,9233.05,0]"
- 7:36:36 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[12068.7,9069.65,0]]"
- 7:36:36 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 119061([11902.1,9234.4,0.0014267]) to 120062([12068.7,9069.65,0]) | Key: any"
- 7:36:36 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[12068.7,9069.65,0]]"
- 7:36:36 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 120062   WorldSpace: [12068.7,9069.65,0]"
- 7:36:36 "<infiSTAR.de> AdminLog: 0h 26min | Admin TEEMO(76561198127675194) teleported to   GPS: 120062   WorldSpace: [12068.7,9069.65,0]"
- 7:37:08 "DZAI Monitor :: Server Uptime: 0:27:41. Active AI Groups: 7."
- 7:37:08 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 2 groups queued."
- 7:37:08 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 3."
- 7:37:18 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[5051,2032.34,0]]"
- 7:37:18 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 120062([12070.4,9072.58,0.00143051]) to 050133([5051,2032.34,0]) | Key: any"
- 7:37:18 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[5051,2032.34,0]]"
- 7:37:18 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 050133   WorldSpace: [5051,2032.34,0]"
- 7:37:18 "<infiSTAR.de> AdminLog: 0h 27min | Admin TEEMO(76561198127675194) teleported to   GPS: 050133   WorldSpace: [5051,2032.34,0]"
+//Trader convoy Script by Schalldampfer 2017/6/2
+private ["_typeCar","_typeDriver","_typeCargo","_StayTime","_TradePosition",
+"_spawn_pos","_groupSide","_unitGroup","_vehicle","_driver","_turretCount","_cargo","_Traders",
+"_pos_wp","_wp","_msg","_out",
+"_objTrader","_objTr","_pos"
+];
+if (!isServer) exitWith{};
+////////////////////////////////////////////////////////
+//Config//
+_typeCar = "GAZ_Vodnik_MedEvac"; //The convoy vehicle
+_typeDriver = "UN_CDF_Soldier_Pilot_EP1"; // Vehicle crew
+_typeCargo = ["GUE_Woodlander2","RU_Citizen4","Woodlander3"]; //Array of trader units
+_StayTime = 1200; //How long they open trader city in seconds
+_TradePosition = [ //Where they open trader city
+[12465.473, 12545.1, 0],//NEAF
+[2830.8259, 9782.0029,0],//Lopatino
+[12934.999, 8396.3926,0],//Nizhnoye
+[9975.8164, 5998.436,0],//Oreshka
+[7879.2554, 3325.0015,0],//Prigorodki
+[5143.7515, 2350.385, 0],//Balota
+[7439.4507, 5146.8184,0],//Mogilevka
+[4703.6274,4696.1729,0]//Kozlovka
+];
+
+////////////////////////////////////////////////////
+//Variables//
+DZTR_TraderInMove = true;
+if (isNil "wai_radio_announce") then {wai_radio_announce = false;};
+//Spawn traders//
+_spawn_pos = [getMarkerPos 'center',0,((getMarkerSize "center") select 1) / 2,20,0,0.2,0] call BIS_fnc_findSafePos;
+ 
+//create group
+_groupSide = createCenter civilian;
+_unitGroup = createGroup _groupSide;
+//spawn Car
+_vehicle = createVehicle [_typeCar, _spawn_pos, [], 0, "NONE"];
+_vehicle setFuel 1;
+_vehicle setVehicleAmmo 1;
+_vehicle engineOn true;
+_vehicle setVariable ["unitGroup",_unitGroup];
+_vehicle setVariable ["ObjectID","1",true];
+_vehicle setVariable ["CharacterID","0",true];
+_vehicle allowDamage false;
+_vehicle removeAllEventHandlers "handleDamage";//
+_vehicle addEventHandler ["handleDamage", {false}];//
+_vehicle setcaptive true;
+clearWeaponCargoGlobal _vehicle;
+clearMagazineCargoGlobal _vehicle;
+if (isNil "dayz_serverObjectMonitor") then {dayz_serverObjectMonitor = [];};
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_vehicle];
+_vehicle lock false;
+diag_log format["TraderConvoy: Spawned %1 %2",_typeCar,_vehicle];
+//spawn driver
+_driver = _unitGroup createUnit [_typeDriver, _spawn_pos, [], 1, "NONE"];
+[_driver] joinSilent _unitGroup;
+removeAllItems _driver;
+removeAllWeapons _driver;
+_driver disableAI "AUTOTARGET";
+_driver disableAI "TARGET";
+_driver setBehaviour "CARELESS";
+_driver allowDamage false;
+_driver removeAllEventHandlers "handleDamage";//
+_driver addEventHandler ["handleDamage", { false }];//
+_driver setcaptive true;
+if (!(_driver hasWeapon "NVGoggles")) then {
+ _driver addweapon "NVGoggles";
+};
+_driver setVariable ["isDriver",true];
+_driver setVariable ["bodyName",(name _driver)];
+_unitGroup selectLeader _driver;
+_driver assignAsDriver _vehicle;
+//_driver moveInDriver _vehicle;
+diag_log format["TraderConvoy: Spawned %1 %2 as driver",_typeDriver, name _driver];
+//spawn cargo
+_Traders = [];
+_i = 0;
+{
+ _cargo = _unitGroup createUnit [_x, _spawn_pos, [], 1, "NONE"];
+ //_cargo = createAgent [_x, [0,0,0], [], 1, "NONE"];
+ [_cargo] joinSilent _unitGroup;
+ _cargo setVariable ["bodyName",(name _cargo)];
+ removeAllItems _cargo;
+ removeAllWeapons _cargo;
+ _cargo disableAI "AUTOTARGET";
+ _cargo disableAI "TARGET";
+ _cargo setBehaviour "CARELESS";
+ _cargo setCombatMode "BLUE";
+ _cargo allowDamage false;
+ _cargo removeAllEventHandlers "handleDamage";//
+ _cargo addEventHandler ["handleDamage", { false }];//
+ _cargo setcaptive true;
+ if (!(_cargo hasWeapon "NVGoggles")) then {
+  _cargo addweapon "NVGoggles";
+ };
+ _cargo assignAsCargo _vehicle;
+ //_cargo moveInCargo _vehicle;
+ diag_log format["TraderConvoy: Spawned a Trader %1 %2",_x, name _cargo];
+ _Traders set[count _Traders,_cargo];
+ _i = _i + 1;
+} foreach _typeCargo;
+//Set group status
+_unitGroup setBehaviour "CARELESS";
+_unitGroup setCombatMode "BLUE";
+(units _unitGroup) allowGetIn true;//
+(units _unitGroup) orderGetIn true;//
+_pos_wp = _TradePosition select 0;
+{if ((_pos_wp distance _vehicle) > (_x distance _vehicle)) then {_pos_wp = _x;};} foreach _TradePosition;
+diag_log format["TraderConvoy: %1",_Traders];
+ 
+//Monitor//
+[_vehicle,_driver] spawn {
+ private["_vehicle","_driver","_marker"];
+ _vehicle  = _this select 0;
+ _driver = _this select 1;
+ while {true} do {
+  //Refuel,Repair,Reassign
+  if (fuel _vehicle < 0.2) then { _vehicle setfuel 1; };
+  if (damage _vehicle > 0.3)then{
+   _vehicle setDamage 0;
+  };
+  _vehicle setVectorUp surfaceNormal position _vehicle;
+  if(driver _vehicle != _driver) then {
+   moveOut driver _vehicle;//
+   _driver assignAsDriver _vehicle;
+   _driver moveInDriver _vehicle;
+  };
+  //Create Marker
+  _marker = createMarker ["TraderConvoy", getPos _vehicle];
+  _marker setMarkerColor "ColorBlue";
+  _marker setMarkerText "Trader Convoy";
+  if (!DZTR_TraderInMove) then { // Deployed
+   _marker setMarkerType "mil_circle";
+   sleep 25;
+  } else { // Convoy
+   _marker setMarkerType "mil_dot";
+   sleep 10;
+  };
+  deleteMarker _marker;
+ };
+};
+///////////////////////////////////////////////////////////////////////////////////
+//Start Convoy//
+while {true} do {
+ //Search next city//
+ if (isNil "_pos_wp") then {_pos_wp = _TradePosition call BIS_fnc_selectRandom;};
+ while {_pos_wp distance _vehicle < 500} do {
+  _pos_wp = _TradePosition call BIS_fnc_selectRandom;
+ };
+ _pos_wp = [_pos_wp,0,150,10,0,1.0,0] call BIS_fnc_findSafePos; //select safe position
+ 
+ //Move//
+ //set waypoint
+ diag_log ("TraderConvoy: Adding waypoints");
+ _wp = _unitgroup addWaypoint [_pos_wp,0];
+ _wp setWaypointType "MOVE";
+ _wp setWaypointBehaviour "CARELESS";
+ _wp setWaypointCombatMode "BLUE";
+ _unitgroup setCurrentWaypoint [_unitgroup, 0];
+ 
+ //call
+
+ diag_log format["TraderConvoy: Moving to %2 %1",_pos_wp , mapGridPosition _pos_wp];
+ _msg = format["[Trader Convoy] The convoy is moving to %1",mapGridPosition _pos_wp];
+ if (wai_radio_announce) then {
+  RemoteMessage = ["radio",_msg];
+  publicVariable "RemoteMessage";
+ } else {
+  [nil,nil,rTitleText,_msg,"PLAIN",10] call RE;
+ };
+
+ 
+ //Wait for arrival //
+ waitUntil {sleep 10;(_vehicle distance _pos_wp < 25)};
+ diag_log ("TraderConvoy: Trader has arrived");
+
+ //Deploy Trader//
+ //get out
+ _vehicle engineOn false;
+ _vehicle lock false; //unlock car
+ _Traders orderGetIn false;
+ _Traders allowGetIn false;
+ DZTR_TraderInMove = false;
+ sleep 5;
+ diag_log ("TraderConvoy: Now lock vehicle");
+ {moveOut _x;} forEach (crew _vehicle);
+ _driver assignAsDriver _vehicle;
+ _driver moveInDriver _vehicle;
+ sleep 0.1;
+ _vehicle engineOn false;
+ _vehicle lock true; //lock car
+ //deploy things
+ _objTrader = [];
+ _objTr = objNull;
+ //Info board
+ _objTr = createVehicle ["Info_Board_EP1", _pos_wp, [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ //Light pole
+ _objTr = createVehicle ["ASC_EU_LHVOld", getpos _vehicle, [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ _objTr = createVehicle ["Misc_cargo_cont_net1", getpos (_Traders select 0), [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ _objTr = createVehicle ["Pile_of_wood", getpos (_Traders select 0), [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ //Walls
+ for "_i" from 1 to 12 do {
+  _objTr = createVehicle ["Misc_concrete_High",
+   [((getpos _vehicle) select 0)+10*cos(_i*30),
+   ((getpos _vehicle) select 1)+10*sin(_i*30),
+   0],[], 0, "NONE"];
+  _objTr setDir (_i*30 + 90);
+  _objTrader set [count _objTrader, _objTr];
+ };
+ //Helipad
+ if (true) then {
+  _pos = [_pos_wp,10,40,4,0,2000,0] call BIS_fnc_findSafePos;
+  _objTr = createVehicle ["HeliHCivil", _pos, [], 0, "NONE"];
+  _objTrader set [count _objTrader, _objTr];
+ };
+ //call
+ _msg = format["[Trader Convoy] The convoy has opened a trader city at %1",mapGridPosition _vehicle];
+ if (wai_radio_announce) then {
+  RemoteMessage = ["radio",_msg];
+  publicVariable "RemoteMessage";
+ } else {
+  [nil,nil,rTitleText,_msg,"PLAIN",10] call RE;
+ };
+
+ //Wait//
+ sleep _StayTime;
+
+ //Finish Trader//
+ //call
+ diag_log format["TraderConvoy: Leaving %2 %1",_pos_wp , mapGridPosition _vehicle];
+ _msg = format["[Trader Convoy] The trader convoy is leaving %1",mapGridPosition _vehicle];
+ if (wai_radio_announce) then {
+  RemoteMessage = ["nradio",_msg];
+  publicVariable "RemoteMessage";
+ } else {
+  [nil,nil,rTitleText,_msg,"PLAIN",10] call RE;
+ };
+ 
+ //delete things
+ {deleteVehicle _x;} foreach _objTrader;
+
+ //get in
+ DZTR_TraderInMove = true;
+ _vehicle lock false; //unlock
+ _driver action ["Eject", _vehicle];// eject once
+ _driver assignAsDriver _vehicle;
+ {_x assignAsCargo _vehicle;} foreach _Traders;
+ (units _unitGroup) allowGetIn true;
+ (units _unitGroup) orderGetIn true;
+ 
+ //check crews in and lock
+ waitUntil {(_vehicle emptyPositions "DRIVER" == 0)}; // Wait until driver gets inside vehicle
+ {
+  if (!(_x in crew _vehicle)) then {
+   _x moveInCargo _vehicle;
+  };
+ } foreach _Traders;
+ diag_log ("TraderConvoy: Everyone's in");
+ _vehicle lock true; //lock
+ _vehicle engineOn true;
+};
+/////////////////////////////////////////////////////////////////////////////////////////
