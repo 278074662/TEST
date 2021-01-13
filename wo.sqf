@@ -1,254 +1,497 @@
-/* GENERAL CONFIG */
-
-wai_debug_mode		 = false; // enable debug
-wai_user_spawnpoints = false; // setting this to true will disable the dynamic mission spawning system and enable server owners to define their own mission spawn points in WAI\configs\spawnpoints.sqf.
-wai_use_blacklist	 = true; // You can edit the blacklist per map in file WAI\configs\blacklist.sqf.
-
-/* END GENERAL CONFIG */
+/*
+	DZAI Configuration File
 	
-/* AI CONFIG */
-ai_multiplier		 = 1; // To increase the number of ai per mission use a larger number. Be careful. Tons of ai affect server performance.
-ai_show_count		 = true; //this will show the ai count in the mission markers.
-ai_hasMoney			 = true; //If you have ZSC installed then setting this to true will place random amounts of coins in 50 coin increments in ai wallets.
-ai_moneyMultiplier	 = 200; //This value is multiplied by 50 to set the max amount of ZSC coins in AI wallets. ex. 200x50=10000 max coins.
-ai_clear_body		 = false; // instantly clear bodies
-ai_cleanup_time		 = 30; // time to clear bodies in minutes. Set to -1 to disable AI cleanup.
-ai_clean_roadkill	 = false; // clean bodies that are roadkills
-ai_rk_damageweapon	 = 0; // percentage of chance a roadkill will destroy weapon AI is carrying
-ai_bandit_combatmode = "RED"; // combat mode of bandit AI
-ai_bandit_behaviour	 = "COMBAT"; // behavior of bandit AI
-ai_hero_combatmode	 = "RED"; // combat mode of hero AI
-ai_hero_behaviour	 = "COMBAT"; // behavior of hero AI
-ai_share_info		 = true; // AI share info on player position
-ai_share_distance	 = 300; // distance from killed AI for AI to share your rough position
-ai_kills_gain		 = true; // add kill to bandit/human kill score
-ai_humanity_gain	 = true; // gain humanity for killing AI
-ai_add_humanity		 = 50; // amount of humanity gained for killing a bandit AI
-ai_remove_humanity	 = 50; // amount of humanity lost for killing a hero AI
-ai_reward_veh_gunner = false; // Allows the gunner or "effectiveCommander" of a vehicle to get humanity and kill rewards
-ai_killfeed			 = false; // Sends personal messages when the player kills an ai - may not be good for network performance
+	Description: Contains all configurable settings of DZAI. Contains settings for debugging, customization of AI units, spawning, and loot.
+	
 
-ai_skill_extreme	 = [["aimingAccuracy",1.00],["aimingShake",1.00],["aimingSpeed",1.00],["endurance",1.00],["spotDistance",1.00],["spotTime",1.00],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]]; 	// Extreme
-ai_skill_hard		 = [["aimingAccuracy",0.80],["aimingShake",0.80],["aimingSpeed",0.80],["endurance",1.00],["spotDistance",0.80],["spotTime",0.80],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]]; 	// Hard
-ai_skill_medium		 = [["aimingAccuracy",0.60],["aimingShake",0.60],["aimingSpeed",0.60],["endurance",1.00],["spotDistance",0.60],["spotTime",0.60],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]];	// Medium
-ai_skill_easy		 = [["aimingAccuracy",0.40],["aimingShake",0.50],["aimingSpeed",0.50],["endurance",1.00],["spotDistance",0.50],["spotTime",0.50],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]];	// Easy
-ai_skill_random		 = [ai_skill_extreme,ai_skill_hard,ai_skill_hard,ai_skill_hard,ai_skill_hard,ai_skill_medium,ai_skill_medium,ai_skill_medium,ai_skill_medium,ai_skill_easy];
+*/
 
-ai_static_useweapon	 = true; // Allows AI on static guns to have a loadout 	
-ai_static_weapons	 = ["KORD_high_TK_EP1","DSHKM_Ins","M2StaticMG"]; // static guns
-ai_static_skills	 = false; // Allows you to set custom array for AI on static weapons. (true: On false: Off) 
-ai_static_array		 = [["aimingAccuracy",0.20],["aimingShake",0.70],["aimingSpeed",0.75],["endurance",1.00],["spotDistance",0.70],["spotTime",0.50],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]];
+diag_log "[DZAI] Reading DZAI configuration file.";
 
-ai_gear0			 = [["ItemBandage","ItemBandage","ItemAntibiotic"],["ItemRadio","ItemMachete","ItemCrowbar"]];
-ai_gear1			 = [["ItemBandage","ItemSodaPepsi","ItemMorphine"],["Binocular_Vector"]];
-ai_gear2			 = [["ItemDocument","FoodCanFrankBeans","ItemHeatPack"],["ItemToolbox"]];
-ai_gear3			 = [["ItemWaterbottle","ItemBloodbag"],["ItemCompass","ItemCrowbar"]];
-ai_gear4			 = [["ItemBandage","ItemEpinephrine","ItemPainkiller"],["ItemGPS","ItemKeyKit"]];
-ai_gear_random		 = [ai_gear0,ai_gear1,ai_gear2,ai_gear3,ai_gear4];
+/*	DZAI Settings
+--------------------------------------------------------------------------------------------------------------------*/	
 
-// Weapons
-ai_wep_g36			 = ["G36_C_SD_camo","G36C_DZ","G36C_CCO_DZ","G36C_Holo_DZ","G36C_ACOG_DZ","G36C_SD_DZ","G36C_CCO_SD_DZ","G36C_Holo_SD_DZ","G36C_ACOG_SD_DZ","G36C_camo","G36A_Camo_DZ","G36K_Camo_DZ","G36K_Camo_SD_DZ"];
-ai_wep_m16			 = ["M16A2_DZ","M16A2_GL_DZ","M16A4_DZ","M16A4_CCO_DZ","M16A4_Holo_DZ","M16A4_ACOG_DZ","M16A4_GL_DZ","M16A4_FL_DZ","M16A4_MFL_DZ","M16A4_CCO_FL_DZ","M16A4_Holo_FL_DZ","M16A4_ACOG_FL_DZ","M16A4_GL_FL_DZ","M16A4_CCO_MFL_DZ","M16A4_Holo_MFL_DZ","M16A4_ACOG_MFL_DZ","M16A4_GL_MFL_DZ","M16A4_GL_CCO_DZ","M16A4_GL_Holo_DZ","M16A4_GL_ACOG_DZ","M16A4_GL_CCO_FL_DZ","M16A4_GL_Holo_FL_DZ","M16A4_GL_ACOG_FL_DZ","M16A4_GL_CCO_MFL_DZ","M16A4_GL_Holo_MFL_DZ","M16A4_GL_ACOG_MFL_DZ"];
-ai_wep_m4			 = ["M4A1_AIM_SD_camo","M4A1_DZ","M4A1_FL_DZ","M4A1_MFL_DZ","M4A1_SD_DZ","M4A1_SD_FL_DZ","M4A1_SD_MFL_DZ","M4A1_CCO_DZ","M4A1_CCO_FL_DZ","M4A1_CCO_MFL_DZ","M4A1_CCO_SD_DZ","M4A1_CCO_SD_FL_DZ","M4A1_CCO_SD_MFL_DZ","M4A1_Holo_DZ","M4A1_Holo_FL_DZ","M4A1_Holo_MFL_DZ","M4A1_Holo_SD_DZ","M4A1_Holo_SD_FL_DZ","M4A1_Holo_SD_MFL_DZ","M4A1_ACOG_DZ","M4A1_ACOG_FL_DZ","M4A1_ACOG_MFL_DZ","M4A1_ACOG_SD_DZ","M4A1_ACOG_SD_FL_DZ","M4A1_ACOG_SD_MFL_DZ","M4A1_GL_DZ","M4A1_GL_FL_DZ","M4A1_GL_MFL_DZ","M4A1_GL_SD_DZ","M4A1_GL_SD_FL_DZ","M4A1_GL_SD_MFL_DZ","M4A1_GL_CCO_DZ","M4A1_GL_CCO_FL_DZ","M4A1_GL_CCO_MFL_DZ","M4A1_GL_CCO_SD_DZ","M4A1_GL_CCO_SD_FL_DZ","M4A1_GL_CCO_SD_MFL_DZ","M4A1_GL_Holo_DZ","M4A1_GL_Holo_FL_DZ","M4A1_GL_Holo_MFL_DZ","M4A1_GL_Holo_SD_DZ","M4A1_GL_Holo_SD_FL_DZ","M4A1_GL_Holo_SD_MFL_DZ","M4A1_GL_ACOG_DZ","M4A1_GL_ACOG_FL_DZ","M4A1_GL_ACOG_MFL_DZ","M4A1_GL_ACOG_SD_DZ","M4A1_GL_ACOG_SD_FL_DZ","M4A1_GL_ACOG_SD_MFL_DZ","M4A1_HWS_GL_camo","M4A1_HWS_GL_SD_Camo","M4A3_CCO_EP1"];
-ai_wep_scar			 = ["SCAR_L_CQC","SCAR_L_CQC_CCO_SD","SCAR_L_CQC_Holo","SCAR_L_CQC_EGLM_Holo","SCAR_L_STD_EGLM_RCO","SCAR_L_STD_HOLO","SCAR_L_STD_Mk4CQT","SCAR_H_CQC_CCO","SCAR_H_CQC_CCO_SD","SCAR_H_STD_EGLM_Spect"];
-ai_wep_sa58			 = ["SA58_DZ","SA58_RIS_DZ","SA58_RIS_FL_DZ","SA58_RIS_MFL_DZ","SA58_CCO_DZ","SA58_CCO_FL_DZ","SA58_CCO_MFL_DZ","SA58_Holo_DZ","SA58_Holo_FL_DZ","SA58_Holo_MFL_DZ","SA58_ACOG_DZ","SA58_ACOG_FL_DZ","SA58_ACOG_MFL_DZ","Sa58V_CCO_EP1","Sa58V_RCO_EP1"];
-ai_wep_l85			 = ["L85A2_DZ","L85A2_FL_DZ","L85A2_MFL_DZ","L85A2_SD_DZ","L85A2_SD_FL_DZ","L85A2_SD_MFL_DZ","L85A2_CCO_DZ","L85A2_CCO_FL_DZ","L85A2_CCO_MFL_DZ","L85A2_CCO_SD_DZ","L85A2_CCO_SD_FL_DZ","L85A2_CCO_SD_MFL_DZ","L85A2_Holo_DZ","L85A2_Holo_FL_DZ","L85A2_Holo_MFL_DZ","L85A2_Holo_SD_DZ","L85A2_Holo_SD_FL_DZ","L85A2_Holo_SD_MFL_DZ","L85A2_ACOG_DZ","L85A2_ACOG_FL_DZ","L85A2_ACOG_MFL_DZ","L85A2_ACOG_SD_DZ","L85A2_ACOG_SD_FL_DZ","L85A2_ACOG_SD_MFL_DZ"];
-//ai_wep_ak 		 = ["AKS74U_DZ","AKS74U_Kobra_DZ","AKS74U_SD_DZ","AKS74U_Kobra_SD_DZ","AKM_DZ","AKM_Kobra_DZ","AKM_PSO1_DZ","AK74_DZ","AK74_Kobra_DZ","AK74_PSO1_DZ","AK74_GL_DZ","AK74_SD_DZ","AK74_Kobra_SD_DZ","AK74_PSO1_SD_DZ","AK74_GL_SD_DZ","AK74_GL_Kobra_DZ","AK74_GL_PSO1_DZ","AK74_GL_Kobra_SD_DZ","AK74_GL_PSO1_SD_DZ"];
-ai_wep_ak			 = ["AKM_DZ","AKM_Kobra_DZ","AKM_PSO1_DZ"];
-//ai_wep_machine 	 = ["M249_m145_EP1_DZE","M8_SAW","m240_scoped_EP1_DZE","M60A4_EP1_DZE","MG36_camo","MG36","BAF_L86A2_ACOG","L110A1_DZ","L110A1_CCO_DZ","L110A1_Holo_DZ","M249_DZ","M249_CCO_DZ","M249_Holo_DZ","M240_DZ","M240_CCO_DZ","M240_Holo_DZ","Mk48_DZ","Mk48_CCO_DZ","Mk48_Holo_DZ","RPK_DZ","RPK_Kobra_DZ","RPK_PSO1_DZ","RPK74_DZ","RPK74_Kobra_DZ","RPK74_PSO1_DZ","UK59_DZ","PKM_DZ","Pecheneg_DZ"];
-ai_wep_machine		 = ["M249_m145_EP1_DZE","M8_SAW","m240_scoped_EP1_DZE","M60A4_EP1_DZE","MG36_camo","MG36","BAF_L86A2_ACOG","L110A1_DZ","L110A1_CCO_DZ","L110A1_Holo_DZ","M249_DZ","M249_CCO_DZ","M249_Holo_DZ","M240_DZ","M240_CCO_DZ","M240_Holo_DZ","Mk48_DZ","Mk48_CCO_DZ","Mk48_Holo_DZ","RPK_DZ","RPK_Kobra_DZ","RPK_PSO1_DZ","UK59_DZ","PKM_DZ","Pecheneg_DZ"];
-ai_wep_pistol		 = ["M9_DZ","M9_SD_DZ","G17_DZ","G17_FL_DZ","G17_MFL_DZ","G17_SD_DZ","G17_SD_FL_DZ","G17_SD_MFL_DZ","Makarov_DZ","Makarov_SD_DZ","Revolver_DZ","revolver_gold_EP1","M1911_DZ","Sa61_EP1","PDW_DZ","UZI_SD_EP1"];
-ai_wep_sniper		 = ["Mosin_PU_DZ","m8_sharpshooter","M4SPR","M14_DZ","M14_Gh_DZ","M14_CCO_DZ","M14_Holo_DZ","M14_CCO_Gh_DZ","M14_Holo_Gh_DZ","CZ550_DZ","M24_DZ","M24_Gh_DZ","M24_des_EP1","M40A3_DZ","M40A3_Gh_DZ","SVD_DZ","SVD_Gh_DZ","SVD_PSO1_DZ","SVD_PSO1_Gh_DZ","SVD_des_EP1","FNFAL_DZ","FNFAL_CCO_DZ","FNFAL_Holo_DZ","FN_FAL_ANPVS4_DZE","SCAR_H_LNG_Sniper","SCAR_H_LNG_Sniper_SD","M110_NVG_EP1","DMR_DZ","DMR_Gh_DZ","BAF_LRR_scoped","BAF_LRR_scoped_W","VSS_Vintorez"];
-ai_wep_tws			 = ["AKS_74_GOSHAWK","BAF_AS50_TWS","BAF_L85A2_RIS_TWS_DZ","M249_TWS_EP1_Small","m107_TWS_EP1_Small","m8_tws","m8_tws_sd","SCAR_L_STD_EGLM_TWS","SCAR_H_STD_TWS_SD","M110_TWS_EP1"];
+//Enable or disable event logging to arma2oaserver.rpt. Debug level setting. 0: No debug output, 1: Basic Debug output, 2: Extended Debug output. (Default: 0)
+//Debug output may help finding additional information about DZAI's background behavior. This output is helpful when asking for help regarding bugs or unexpected behaviors.
+DZAI_debugLevel = 0;
 
-// Random Weapons	 // By default, most of the mission crates and ai spawn weapons out of the group below. You can remove any weapon array entries from the list if you don't wish to include them.
-ai_wep_random		 = [ai_wep_g36,ai_wep_m16,ai_wep_m4,ai_wep_scar,ai_wep_sa58,ai_wep_l85,ai_wep_ak,ai_wep_machine,ai_wep_sniper];
+//Frequency of server monitor update to RPT log in seconds. The monitor periodically reports number of max/current AI units and dynamically spawned triggers into RPT log. (Default: 300, 0 = Disable reporting)										
+DZAI_monitorRate = 300;
 
-ai_wep_launchers_AT	 = ["M136","RPG18","JAVELIN"];
-ai_wep_launchers_AA	 = ["Strela","Igla","STINGER"];
+//Enable or disable verification and error-correction of classname tables used by DZAI. If invalid entries are found, they are removed and logged into the RPT log.
+//If disabled, any invalid classnames will not be removed and clients may crash if AI bodies with invalid items are looted. Only disable if a previous scan shows no invalid classnames (Default: true).										
+DZAI_verifyTables = true;
 
-ai_packs			 = ["DZ_Czech_Vest_Pouch","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
-ai_hero_skin		 = ["Soldier_Sniper_PMC_DZ","Drake_Light_DZ","CZ_Special_Forces_GL_DES_EP1_DZ","FR_Rodriguez_DZ","FR_Marksman_DZ","FR_R_DZ","FR_Sapper_DZ","FR_TL_DZ","FR_OHara_DZ","USMC_Soldier_MG_DZ","US_Soldier_EP1_DZ","UN_CDF_Soldier_Guard_EP1_DZ","GER_Soldier_TL_EP1_DZ","BAF_Soldier_Officer_MTP_DZ","BAF_Soldier_N_MTP_DZ"];
-ai_bandit_skin		 = ["Ins_Soldier_GL_DZ","TK_INS_Soldier_EP1_DZ","TK_INS_Warlord_EP1_DZ","GUE_Commander_DZ","GUE_Soldier_Sniper_DZ","GUE_Soldier_MG_DZ","GUE_Soldier_Crew_DZ","GUE_Soldier_2_DZ","GUE_Soldier_CO_DZ","BanditW1_DZ","BanditW2_DZ","Bandit1_DZ","Bandit2_DZ","MVD_Soldier_DZ","Ins_Soldier_2_DZ","CDF_Soldier_DZ","RUS_Soldier1_DZ"];
-ai_special_skin		 = ["Functionary2_EP1"];
-ai_all_skin			 = [ai_hero_skin,ai_bandit_skin,ai_special_skin];
-ai_add_skin			 = true; // adds unit skin to inventory on death. Should set to false if you have takeclothes installed.
+//(Feature in development) Enables additional checking and error-correction of certain classname tables. (Default: false)
+DZAI_extendedVerify = false;
 
-/* END AI CONFIG */
+//Enable to have server spawn in objects/buildings normally spawned clientside by DayZ's CfgTownGenerator. Prevents AI from walking/shooting through clutter and other objects. (Default: true)	
+//If running DayZ Mod ("vanilla DayZ") or DayZ Overwatch, it is highly recommended to enable this option, as many added buildings are handled by the CfgTownGenerator. Not used with Epoch.							
+DZAI_objPatch = true;
 
-/* WAI MISSIONS CONFIG */
-wai_mission_system		= true; // use built in mission system
+//Minimum seconds to pass until each dead AI body or destroyed vehicle can be cleaned up by DZAI's task scheduler. DZAI will not clean up a body/vehicle if there is a player close by (Default: 900).	
+//Note: Other cleanup scripts might interfere by cleaning up dead AI bodies/vehicles!									
+DZAI_cleanupDelay = 900;									
 
-wai_mission_markers		= ["DZMSMajMarker","DZMSMinMarker","DZMSBMajMarker","DZMSBMinMarker"]; // List of DZMS mission markers to check
-wai_avoid_samespot		= false; // Checks to see that a selected mission spawn point has not been used already - 200m check.
-wai_avoid_missions		= 750; // avoid spawning missions this close to other missions, these are defined in wai_mission_markers
-wai_avoid_safezones		= 750; // avoid spawning missions this close to safezones
-wai_avoid_town			= 0; // avoid spawning missions this close to towns, *** doesn't function with infiSTAR enabled ***
-wai_avoid_road			= 0; // avoid spawning missions this close to roads
-wai_avoid_water			= 50; // avoid spawning missions this close to water
-wai_avoid_players 		= 500; // avoid spawning missions this close to a player
-wai_avoid_plots			= 100; // avoid spawning missions near player plots
+//Enable auto detection of DayZ mod type ran by server. If additional support exists for the mod type, DZAI will load additional classnames (example: weapons, skins, or other items)
+//Additional support exists for the following DayZ mods: Epoch, Overwatch, Unleashed, Hunting Grounds, 2017. (Default: true)
+DZAI_modAutoDetect = true;
 
-wai_mission_timer		= [5,15]; // time between missions. Default: 5-15 minutes
-wai_mission_timeout		= [15,30]; // time each mission takes to timeout if inactive. Default: 15-30 minutes
-wai_timeout_distance	= 1000; // if a player is this close to a mission then it won't timeout
 
-wai_clean_mission_time	= 30; // time in minutes after a mission is complete to clean mission buildings. Set to -1 to disable mission cleanup. Default: 30 minutes
-wai_clean_mission_crate	= true; // include the mission crates with the mission cleanup. If a player is within 75 meters of the crates the cleanup script will wait. Does not apply to missions that timeout.
-wai_clean_when_clear	= ["Road Block"]; // These mission names will get cleaned instantly overriding wai_clean_mission_time
+/*	AI Unit Settings
+--------------------------------------------------------------------------------------------------------------------*/		
 
-wai_godmode_objects		= true; // prevents mission objects from taking damage
-wai_mission_fuel		= [5,60]; // fuel inside mission spawned vehicles [min%,max%]
-wai_vehicle_damage		= [20,70]; // damages to spawn vehicles with [min%,max%]
-wai_keep_vehicles		= true; // save vehicles to database and keep them after restart
-wai_godmode_vehicles	= true; // mission vehicles do not take damage until players enter them
-wai_vehicle_keys		= "KeyinCrate"; // Options: "KeyonAI", "KeyinVehicle", "KeyinCrate", "NoVehicleKey".
-wai_vehicle_message		= false; // Shows a warning message to the player when entering a mission vehicle
+//Enhanced AI health system setting. 
+//If enabled, AI units will use DayZ's 12,000 blood system, can be knocked unconscious and Tasered, and can self-bloodbag/morphine. If disabled, AI units will use default Arma 2 damage handling. (Default: true)
+DZAI_useHealthSystem = true;
 
-wai_crates_smoke		= true; // pop smoke on crate when mission is finished during daytime
-wai_crates_flares		= true; // pop flare on crate when mission is finished during nighttime
+//Minimum and maximum AI blood level to spawn each unit with. Each individual unit will have a randomized blood level within this range. Upper limit: 12000 blood (Default: [10000,12000])
+//Note: No effect if DZAI_useHealthSystem is false
+DZAI_unitBloodLevel = [10000,12000];
 
-wai_players_online		= 1; // number of players online before mission starts
-wai_server_fps			= 1; // missions only starts if server FPS is over wai_server_fps
+//Amount of blood restored from a full self-heal. One-third of the total amount is restored 3 times every 3 seconds. Note: Applies to infantry-type AI units. (Default: 6000)
+//Note: No effect if DZAI_useHealthSystem is false
+DZAI_unitHealAmount = 6000;
 
-wai_kill_percent		= 80; // percentage of AI players that must be killed at "crate" missions to be able to trigger completion
+//Below this blood level, AI may decide to heal themselves for amount specified by DZAI_unitHealAmount. Healing requires 9 seconds to fully complete and can be interrupted by knocking the unit unconscious. (Default: 5000)
+//Note: No effect if DZAI_useHealthSystem is false
+DZAI_lowBloodLevel = 5000;
 
-wai_high_value			= true; // enable the possibility of finding a high value item (defined below crate_items_high_value) inside a crate
-wai_high_value_chance	= 10; // chance in percent you find above mentioned item
-wai_num_mags 			= (3 + round(random 3)); // Number of magazines per weapon in the crate
-wai_minimum_loot		= -1; // Number between .01 and 1. 1 = 100% loot based on loot definitions. To disable the feature set value less than or equal to 0 and you will automatically get 100% loot;
+//Enable or disable zombie attraction to AI weapon sounds. No effect if DZAI_zombieEnemy is set to false. Enabling this option may impact server performance as a script is run for each AI bullet fired.
+//Note: AI cannot be attacked or damaged by zombies.(Default: false)		
+DZAI_weaponNoise = false;
 
-wai_enable_minefield	= false; // enable minefields to better defend missions
-wai_enable_static_guns	= true; // Enables or disables static gun placements at missions that have them.
-wai_enable_paradrops	= true; // Enables or disables paratrooper drops at missions that have them.
-wai_enable_patrols		= true; // Enables or disables armored vehicle patrols at missions that have them.
-wai_use_launchers		= true; // add a rocket launcher to each spawned AI group
-wai_remove_launcher		= true; // remove rocket launcher from AI on death
-wai_mission_announce	= "Radio"; // Options: "Radio", "DynamicText", "titleText"
-wai_hero_limit			= 1; // define how many hero missions can run at once
-wai_bandit_limit		= 1; // define how many bandit missions can run at once
+//If enabled, AI group will attempt to track down player responsible for killing a group member. Players with radios will be given text warnings if they are being pursued (Default: true)
+DZAI_findKiller = true;	
 
-// Mission Arrays
-// [mission name, chance to spawn] Chance to spawn is 0-1. Example - If you only want your mission to have a 25% chance to spawn enter .25
-wai_hero_missions = [
-	["patrol",1],
-	["black_hawk_crash",1],
-	["armed_vehicle",1],
-	["base",1],
-	["captured_mv22",1],
-	["scout_patrol",1],
-	["ikea_convoy",1],
-	["medi_camp",1],
-	["broken_down_ural",1],
-	["sniper_extraction",1],
-	["mayors_mansion",1],
-	["weapon_cache",1],
-	["gem_tower",1],
-	["cannibal_cave",1],
-	["crop_raider",1],
-	["drone_pilot",1],
-	["slaughter_house",1],
-	["drugbust",1],
-	["armybase",1],
-	["abandoned_trader",1],
-	["lumberjack",1],
-	["presidents_mansion",1],
-	["tankcolumn",1],
-	["macdonald",1],
-	["radioshack",1],
-	["junkyard",1],
-	["outpost",1],
-	["farmer",1],
-	["firestation",1],
-	["vehicle_drop",1]
+//If normal probability check for spawning NVGs fails, then give AI temporary NVGs only if they are spawned with weapongrade 1 or higher (applies only during nighttime hours). Temporary NVGs are unlootable and will be removed at death (Default: false).									
+DZAI_tempNVGs = false;	
+
+//Amount of humanity to reward player for killing an AI unit (Default: 0)									
+DZAI_humanityGain = 25;										
+
+//If enabled, players with radios will be given text warnings if they are being pursued by AI groups. (Default: true)
+DZAI_radioMsgs = true;
+
+//If enabled, last surviving unit of a group will be granted slightly boosted skills. No effect if unit is spawned alone (Default: false)
+DZAI_lastManStanding = false;
+
+
+/*DZAI client-side addon settings. 
+**NOTE**: These settings require the DZAI client-side addon to be installed to your mission pbo file in order to work.
+--------------------------------------------------------------------------------------------------------------------*/	
+
+//Enable to use client-side radio addon for radio messages instead of remote execution method. (Default: false)
+DZAI_clientRadio = false;
+
+//Enable or disable AI hostility to zombies. If enabled, AI units spawned by DZAI will attack nearby zombies. (Default: false)
+DZAI_zombieEnemy = false;	
+
+//Maximum distance (in meters) for AI group leader to detect zombies. Increasing range beyond default may negatively impact server performance. (Default: 150)							
+DZAI_zDetectRange = 150;
+
+//Enable or disable AI death messages. Messages will be sent only to player responsible for killing the unit. Messages will be sent in System chat in the format "(Unit name) was killed." (Default: false)
+DZAI_deathMessages = false;									
+
+
+/*	Static AI Spawning Settings
+--------------------------------------------------------------------------------------------------------------------*/	
+
+//Enable or disable static AI spawns. If enabled, AI spawn points will be generated in cities, towns, and other predefined areas. Does not affect custom-defined spawns (Default: true).
+DZAI_staticAI = true;
+
+//Set minimum and maximum wait time in seconds to respawn an AI group after all units have been killed. Applies to both static AI and custom spawned AI (Default: Min 300, Max 600).									
+DZAI_respawnTimeMin = 300;
+DZAI_respawnTimeMax = 600;
+
+//Time to allow spawned AI units to exist in seconds before being despawned when no players are present in a trigger area. Applies to both static AI and custom spawned AI (Default: 120)										
+DZAI_despawnWait = 120;										
+
+//Respawn limits. Set to -1 for unlimited respawns. (Default: -1 for each).
+DZAI_respawnLimit0 = -1; 	//Respawn limit for low level AI found in low-value areas (Default: -1)
+DZAI_respawnLimit1 = -1; 	//Respawn limit for mid level AI found in cities and other mid-value areas (Default: -1)
+DZAI_respawnLimit2 = -1; 	//Respawn limit for high level AI found in places with military loot (Default: -1)
+DZAI_respawnLimit3 = -1; 	//Respawn limit for very high level AI in places with high-grade military loot (Default: -1)
+
+//Spawn probabilities
+DZAI_spawnChance0 = 0.40;	//Spawn chance for low-skill AI typically found in small towns (Default: 0.40)
+DZAI_spawnChance1 = 0.60;	//Spawn chance for mid-level AI typically found in cities and large towns (Default: 0.60)
+DZAI_spawnChance2 = 0.80;	//Spawn chance for high-level AI typically found in places with military-grade loot (Default: 0.80)
+DZAI_spawnChance3 = 0.90;	//Spawn chance for expert-level AI found in areas with high-grade military loot (Default: 0.90)
+
+
+/*	Dynamic AI Spawning Settings
+--------------------------------------------------------------------------------------------------------------------*/		
+
+//Enable or disable dynamic AI spawns. If enabled, AI spawn locations will be generated for randomly selected players at randomized intervals (Default: true)									
+DZAI_dynAISpawns = true;
+
+//Time (seconds) required to reach maximum spawn probability per player, after which the probability is reset to 0%. Lower number = More frequent spawns, Higher Number = Less frequent. (Recommended range: 1200-2700, Default: 1200)
+DZAI_maxSpawnTime = 1200;
+
+//Time (seconds) to allow each player to retain maximum spawn probability. (Default: 1200).
+DZAI_keepMaxSpawnTime = 1200;
+
+//Probability for dynamic AI to actively hunt a targeted player. If probability check fails, dynamic AI will patrol the area instead of hunting (Default: 0.50)
+DZAI_huntingChance = 0.50;
+
+//Probability to send first available AI helicopter to reinforce dynamic AI group. No effect if DZAI_maxHeliPatrols is set to zero. (Default: 0.50)
+DZAI_heliReinforceChance = 0.50;
+
+//Array of area blacklist markers. Players within marker areas will not be targeted for dynamic AI spawns (Example: ["BlacklistArea1","BlacklistArea2","BlacklistArea3"])
+//Epoch: DZAI will automatically set up 200m-radius blacklist areas around each trader area.
+DZAI_dynAreaBlacklist = [];
+
+//Time to wait before despawning all AI units in dynamic spawn area when no players are present. (Default: 120)
+DZAI_dynDespawnWait = 120;
+
+//Enable or disable dynamic spawn-free zones of 600m radius around player spawn areas. (Default: false)
+DZAI_freshSpawnSafeArea = false;
+
+
+/*	Random AI Spawning Settings (Feature in development)
+--------------------------------------------------------------------------------------------------------------------*/		
+
+//Maximum number of placed random spawns on map
+DZAI_maxRandomSpawns = 2;
+
+//Time to wait before despawning all AI units in random spawn area when no players are present. (Default: 120)
+DZAI_randDespawnWait = 120;
+
+//Array of area blacklist markers. Players within marker areas will not be targeted for random AI spawns (Example: ["BlacklistArea1","BlacklistArea2","BlacklistArea3"])
+//Epoch: DZAI will automatically set up 200m-radius blacklist areas around each trader area.
+//Tip: To use dynamic-spawn blacklist areas for random-spawn blacklist areas, simply set DZAI_randAreaBlacklist = DZAI_dynAreaBlacklist;
+DZAI_randAreaBlacklist = [];
+
+
+/*	AI Air vehicle patrol settings. These AI vehicles will randomly travel between different cities and towns.
+--------------------------------------------------------------------------------------------------------------------*/		
+
+//Global maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
+DZAI_maxHeliPatrols = 4;
+
+//Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+DZAI_respawnTMinA = 600;
+DZAI_respawnTMaxA = 900;
+
+//Classnames of air vehicle types to use, with the maximum amount of each type to spawn.
+DZAI_heliList = [
+	["UH1H_DZ",2],
+	["CH_47F_DZ",2],
+	["C130J",1],
+	["Mi17_DZ",1]
 ];
 
-wai_bandit_missions	= [
-	["patrol",1],
-	["black_hawk_crash",1],
-	["armed_vehicle",1],
-	["base",1],
-	["captured_mv22",1],
-	["scout_patrol",1],
-	["ikea_convoy",1],
-	["medi_camp",1],
-	["broken_down_ural",1],
-	["sniper_extraction",1],
-	["mayors_mansion",1],
-	["weapon_cache",1],
-	["gem_tower",1],
-	["cannibal_cave",1],
-	["crop_raider",1],
-	["drone_pilot",1],
-	["slaughter_house",1],
-	["drugbust",1],
-	["armybase",1],
-	["abandoned_trader",1],
-	["lumberjack",1],
-	["presidents_mansion",1],
-	["tankcolumn",1],
-	["macdonald",1],
-	["radioshack",1],
-	["junkyard",1],
-	["outpost",1],
-	["farmer",1],
-	["firestation",1],
-	["vehicle_drop",1]
+//Difficulty level of air vehicle patrol units. Difficulty level also affects unit loadout and loot. Possible values: 0 to 3 (Default: 3)
+DZAI_heliUnitLevel = 3;
+
+//Maximum number of gunner units per air vehicle. Limited by actual number of available gunner positions. (Default: 2)
+DZAI_heliGunnerUnits = 3;
+
+//Specify vehicle weapon for air vehicles that are unarmed by default. DZAI will arm these air vehicles with the specified weapons upon spawning each vehicle.
+//Weapon classnames are verified. If the classname is invalid (banned or nonexistent), it will not be added to the vehicle.
+//Format: Each row containing a vehicle classname will be equipped with the weapon from the corresponding row in weapon classnames section. DZAI will automatically select ammo type.
+DZAI_airWeapons = [
+	//Air vehicle classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
+	["Helicopter1_Example_Classname","Helicopter2_Example_Classname"]
+	,
+	//Corresponding weapon classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
+	["Helicopter1_Example_Weapon","Helicopter2_Example_Weapon"]
 ];
 
-// Vehicle arrays
-armed_vehicle 				= ["ArmoredSUV_PMC_DZE","GAZ_Vodnik_DZE","HMMWV_M1151_M2_CZ_DES_EP1_DZE","HMMWV_M998A2_SOV_DES_EP1_DZE","LandRover_MG_TK_EP1_DZE","LandRover_Special_CZ_EP1_DZE","Offroad_DSHKM_Gue_DZE","UAZ_MG_TK_EP1_DZE","Pickup_PK_GUE_DZE","Pickup_PK_INS_DZE","Pickup_PK_TK_GUE_EP1_DZE"];
-armed_chopper 				= ["CH_47F_EP1_DZE","UH1H_DZE","Mi17_DZE","UH60M_EP1_DZE","UH1Y_DZE","MH60S_DZE"];
-civil_chopper 				= ["AH6X_DZ","BAF_Merlin_DZE","MH6J_DZ","Mi17_Civilian_DZ"];
-military_unarmed 			= ["GAZ_Vodnik_MedEvac","HMMWV_Ambulance","HMMWV_Ambulance_CZ_DES_EP1","HMMWV_DES_EP1","HMMWV_DZ","HMMWV_M1035_DES_EP1","LandRover_CZ_EP1","LandRover_TK_CIV_EP1","UAZ_CDF","UAZ_INS","UAZ_RU","UAZ_Unarmed_TK_CIV_EP1","UAZ_Unarmed_TK_EP1","UAZ_Unarmed_UN_EP1"];
-cargo_trucks 				= ["Kamaz_DZE","MTVR_DES_EP1","Ural_CDF","Ural_TK_CIV_EP1","Ural_UN_EP1","V3S_Open_TK_CIV_EP1","V3S_Open_TK_EP1"];
-refuel_trucks				= ["KamazRefuel_DZ","MtvrRefuel_DES_EP1_DZ","UralRefuel_TK_EP1_DZ","V3S_Refuel_TK_GUE_EP1_DZ"];
-civil_vehicles 				= ["hilux1_civil_1_open_DZE","hilux1_civil_2_covered_DZE","hilux1_civil_3_open_DZE","SUV_Blue","SUV_Camo","SUV_Charcoal","SUV_Green","SUV_Orange","SUV_Pink","SUV_Red","SUV_Silver","SUV_TK_CIV_EP1","SUV_White","SUV_Yellow"];
 
-// Dynamic crate array
-crates_large				= ["USVehicleBox","RUVehicleBox","TKVehicleBox_EP1"];
-crates_medium				= ["USBasicWeaponsBox","RUBasicWeaponsBox","USSpecialWeaponsBox","USSpecialWeapons_EP1","RUSpecialWeaponsBox","SpecialWeaponsBox","TKSpecialWeapons_EP1","UNBasicWeapons_EP1"];
-crates_small				= ["GuerillaCacheBox","RULaunchersBox","RUBasicAmmunitionBox","RUOrdnanceBox","USBasicAmmunitionBox","USLaunchersBox","USOrdnanceBox","USOrdnanceBox_EP1","USLaunchers_EP1","USBasicWeapons_EP1","USBasicAmmunitionBox_EP1","UNBasicAmmunitionBox_EP1","TKOrdnanceBox_EP1","TKLaunchers_EP1","TKBasicAmmunitionBox_EP1","GuerillaCacheBox_EP1","GERBasicWeapons_EP1"];
+/*AI Land vehicle patrol settings. These AI vehicles will randomly travel between different cities and towns.
+--------------------------------------------------------------------------------------------------------------------*/	
 
-// Crate Arrays
-crate_weapons_buildables	= ["ChainSaw","ChainSawB","ChainSawG","ChainSawP","ChainSawR"];
-crate_tools					= ["ItemKeyKit","Binocular","Binocular_Vector","ItemCompass","ItemCrowbar","ItemEtool","ItemFishingPole","ItemFlashlightRed","ItemGPS","ItemHatchet","ItemKnife","ItemMachete","ItemMatchbox","ItemToolbox","NVGoggles"];
-crate_tools_buildable		= ["ItemToolbox","ItemEtool","ItemCrowbar","ItemKnife"];
-crate_tools_sniper			= ["ItemCompass","Binocular","Binocular_Vector","NVGoggles","ItemGPS"];
-crate_items_misc			= ["ItemGoldBar","ItemGoldBar10oz"];
-crate_items_high_value		= ["ItemBriefcase100oz","ItemVault","plot_pole_kit","ItemHotwireKit"];
-crate_items_food			= ["ItemWaterbottle","FoodNutmix","FoodPistachio","FoodMRE","ItemSodaOrangeSherbet","ItemSodaRbull","ItemSodaR4z0r","ItemSodaMdew","ItemSodaPepsi","ItemSodaCoke","FoodbaconCooked","FoodCanBakedBeans","FoodCanFrankBeans","FoodCanPasta","FoodCanSardines","FoodchickenCooked","FoodmuttonCooked","FoodrabbitCooked","FishCookedTrout","FishCookedTuna","FishCookedSeaBass"];
-crate_items_buildables		= ["forest_large_net_kit","cinder_garage_kit",["PartPlywoodPack",5],"ItemSandbagExLarge5X","park_bench_kit","ItemComboLock",["CinderBlocks",10],"ItemCanvas","ItemComboLock",["ItemLightBulb",5],"ItemLockbox",["ItemSandbag",10],["ItemTankTrap",10],["ItemWire",10],["MortarBucket",10],["PartPlankPack",5],"PartWoodPile"];
-crate_items_vehicle_repair	= ["PartEngine","PartFueltank","PartGeneric","PartGlass","PartVRotor","PartWheel"];
-crate_items_medical			= ["ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta"];
-crate_items_chainbullets	= ["2000Rnd_762x51_M134","200Rnd_762x51_M240","100Rnd_127x99_M2","150Rnd_127x107_DSHKM"];
-crate_items_sniper			= [["ItemPainkiller",5],"Skin_Sniper1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_GUE_Soldier_Sniper_DZ"];
-crate_items_president		= ["ItemDocument","ItemGoldBar10oz"];
-crate_items_gems			= ["ItemRuby","ItemCitrine","ItemEmerald","ItemAmethyst","ItemSapphire","ItemObsidian","ItemTopaz"];
-crate_items_crop_raider		= ["ItemKiloHemp"];
-crate_items_wood			= [["ItemWoodFloorQuarter",5],["ItemWoodStairs",2],["ItemWoodLadder",2],["ItemWoodWallThird",5],"ItemWoodWallGarageDoor",["ItemWoodWallLg",3],"ItemWoodWallWithDoorLg","wood_ramp_kit"];
-crate_backpacks_all			= ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Pouch","DZ_TerminalPack_EP1","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_CompactPack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
-crate_backpacks_large		= ["DZ_GunBag_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1","DZ_CivilBackpack_EP1"];
+//Global maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).	
+DZAI_maxLandPatrols = 5;
 
-// Random Items				// By default, most of the mission crates spawn items out of the list of arrays below. You can remove or add any array entries in the list.
-crate_items_random			= [crate_items_food,crate_items_vehicle_repair,crate_items_medical,crate_items_chainbullets,crate_items_crop_raider,crate_items_misc];
+//Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+DZAI_respawnTMinL = 600;
+DZAI_respawnTMaxL = 900;
 
-/* END WAI MISSIONS CONFIG */
+//Classnames of land vehicle types to use, with the maximum amount of each type to spawn.
+DZAI_vehList = [
+	["UAZ_Unarmed_TK_EP1",5],
+	["Pickup_PK_INS",5],
+	["Ural_CDF",5],
+	["SUV_TK_CIV_EP1",5]
+];
 
-/* AUTO-CLAIM CONFIG */
+//Difficulty level of land vehicle patrol units. Difficulty level also affects unit loadout and loot. Possible values: 0 to 3 (Default: 3)
+DZAI_vehUnitLevel = 3;
 
-use_wai_autoclaim			= false; // Turn on the auto-claim feature. You should increase wai_avoid_missions to more than the distance below
-ac_alert_distance			= 1000; // Distance from the mission that auto-claim uses to alert closest player
-ac_delay_time				= 30; // Time that the auto-claim waits until it declares a claim and places a marker - time in seconds
-ac_timeout					= 60; // If the claimer leaves the mission area he/she has this much time to return - time in seconds
+//Maximum number of gunner units per land vehicle. Limited by actual number of available gunner positions. (Default: 1)
+DZAI_vehGunnerUnits = 2;
 
-/* END AUTO-CLAIM CONFIG */
+//Maximum number of cargo units per land vehicle. Limited by actual number of available cargo positions. (Default: 3)
+DZAI_vehCargoUnits = 3;
 
-/* STATIC MISSIONS CONFIG */
 
-wai_static_missions			= false; // use static mission file
-wai_custom_per_world		= true;	// use a custom mission file per world
+/*	AI Vehicle (Air & Land) Settings
+--------------------------------------------------------------------------------------------------------------------*/
 
-/* END STATIC MISSIONS CONFIG */
+//Array of area blacklist markers. Areas covered by marker will not be used as waypoints for vehicle patrols. (Example: ["BlacklistArea1","BlacklistArea2","BlacklistArea3"])
+//Note: Vehicles may still pass through these areas but will not make stops unless enemies are encountered.
+DZAI_waypointBlacklist = [];
 
-WAIconfigloaded = true;
+
+/*	AI weapon selection settings
+--------------------------------------------------------------------------------------------------------------------*/
+
+//True: Dynamically generate AI weapon list from CfgBuildingLoot (DayZ loot tables). False: Use preset weapon tables located near the end of this file. (Default: true).
+//Highly recommended to enable DZAI_verifyTables if this option is set to false. 
+DZAI_dynamicWeaponList = true;
+
+//Determines whether DZAI reads from default DayZ loot tables for dynamic AI weapon generation or from user-installed custom loot tables. (Default: false)
+//No effect if DZAI_dynamicWeaponList is 'false'. If DZAI is unable to find custom loot tables installed, default loot tables will be used instead. If no loot tables are found, DZAI will use prebuilt weapon tables.
+DZAI_customLootTables = false;
+
+//List of classnames of weapons that AI should never use. By default, AI may carry any lootable weapon. (Only if DZAI_dynamicWeaponList = true)  
+//Example: DZAI_banAIWeapons = ["M107_DZ","BAF_AS50_scoped"] will remove the M107 and AS50 from AI weapon tables if dynamic weapon list is enabled.								
+//Note: It is recommended to add all melee weapon classnames into this list as AI have issues using melee weapons. 
+//Pre-banned weapons by DZAI: "Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails"
+DZAI_banAIWeapons = [];										
+
+//List of launcher-type weapons for mid/high-level AI to use (by default, weapongrade 1/2/3), example: ["M136"]. If left empty, AI will not use launcher weapons. (Default: [])
+//If AI encounter an armored player vehicle, they will switch to a randomly-selected launcher-type weapon to engage.
+//Weapon classnames added here are verified if DZAI_verifyTables is set to true. Note: Launcher weapons are removed from the AI unit upon death.
+DZAI_launcherTypes = [];	
+
+//List of AI weapongrades that are permitted to use launcher-type weapons. Individual custom weapongrade levels may be added to allow launcher use (Default: [1,2,3])
+DZAI_launcherLevels = [1,2,3];								
+
+//Limit of number of launcher-type weapons to add to each AI group. Groups cannot have more launcher weapons than their weapongrade value (Default: 1).
+DZAI_launchersPerGroup = 1;
+
+
+/*	AI loot quantity settings
+--------------------------------------------------------------------------------------------------------------------*/
+
+//Number of selections of medical items (Inventory)
+DZAI_invmedicals = 1;
+
+//Number of selections of edible items (Inventory) 										
+DZAI_invedibles = 1;	
+
+//Number of selections of medical items (Backpack)									
+DZAI_bpmedicals = 1; 	
+
+//Number of selections of edible items (Backpack)									
+DZAI_bpedibles = 1;	
+
+//Maximum number of items to select from DZAI_MiscItemS table.										
+DZAI_numMiscItemS = 3;						
+
+//Maximum number of items to select from DZAI_MiscItemL table.				
+DZAI_numMiscItemL = 1;										
+
+
+/*	AI loot probability settings
+--------------------------------------------------------------------------------------------------------------------*/
+
+//Chance to add each medical item.
+DZAI_chanceMedicals = 0.70;	
+
+//Chance to add each edible item.								
+DZAI_chanceEdibles = 0.70;
+
+//Chance to add each random item from DZAI_MiscItemS table.									
+DZAI_chanceMiscItemS = 0.60;
+
+//Chance to add each random item from DZAI_MiscItemL table.								
+DZAI_chanceMiscItemL = 0.15;								
+
+
+/*AI weapon/skill probabilities (gradeChances should add up to 1.00) - [Civilian, Military, MilitarySpecial, HeliCrash] - Note: AI with higher grade weaponry will also have higher skill settings.
+--------------------------------------------------------------------------------------------------------------------*/
+
+//equipType level 0 - most AI will have basic pistols or rifles, and occasionally common military weapons.
+DZAI_gradeChances0 = [0.90,0.10,0.00,0.00];	
+
+//equipType level 1 - most AI will have common rifles, many will have common military weapons. Very rarely, AI will spawn with high-grade military or helicrash weapons.				
+DZAI_gradeChances1 = [0.65,0.30,0.04,0.01];	
+
+//equipType level 2 - most AI carry military weapons, and occasionally high-grade military weapons.				
+DZAI_gradeChances2 = [0.15,0.65,0.15,0.05];
+
+//equipType level 3 - All AI will carry at least a military-grade weapon. Many will be carrying high-grade military weapons. Note: Air and land vehicle patrols use equipType level 3.					
+DZAI_gradeChances3 = [0.00,0.50,0.35,0.15];	
+
+//equipType level "dynamic" - Weapongrade chances for dynamic-spawned AI. Majority of dynamic AI will be carrying low-grade military weapons, some will carry high-grade military.			
+DZAI_gradeChancesDyn = [0.00,0.88,0.09,0.03];				
+
+
+/*
+	AI skill settings
+	Skill Level: Description
+	0-1: Low to medium-skilled AI. Most common type of AI encountered. Intended to challenge players.
+	2-3: High-skilled AI. Uncommon/rare type of AI found in places with military loot. Intended to kill players.
+	Hint: The best way to quickly adjust AI difficulty is by modifying aimingAccuracy value. For all skill types, higher number = better skill.
+*/
+
+//AI skill settings level 0 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.50
+DZAI_skill0 = [	
+	["aimingAccuracy",0.10,0.125],
+	["aimingShake",0.50,0.59],
+	["aimingSpeed",0.50,0.59],
+	["endurance",0.50,0.59],
+	["spotDistance",0.50,0.59],
+	["spotTime",0.50,0.59],
+	["courage",0.50,0.59],
+	["reloadSpeed",0.50,0.59],
+	["commanding",0.60,0.69],
+	["general",0.60,0.69]
+];
+
+//AI skill settings level 1 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.60
+DZAI_skill1 = [	
+	["aimingAccuracy",0.125,0.15],
+	["aimingShake",0.60,0.69],
+	["aimingSpeed",0.60,0.69],
+	["endurance",0.60,0.69],
+	["spotDistance",0.60,0.69],
+	["spotTime",0.60,0.69],
+	["courage",0.60,0.69],
+	["reloadSpeed",0.60,0.69],
+	["commanding",0.70,0.79],
+	["general",0.70,0.79]
+];
+
+//AI skill settings level 2 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.70
+DZAI_skill2 = [	
+	["aimingAccuracy",0.175,0.225],
+	["aimingShake",0.70,0.79],
+	["aimingSpeed",0.70,0.79],
+	["endurance",0.70,0.79],
+	["spotDistance",0.70,0.79],
+	["spotTime",0.70,0.79],
+	["courage",0.70,0.79],
+	["reloadSpeed",0.70,0.79],
+	["commanding",0.80,0.89],
+	["general",0.80,0.89]
+];
+
+//AI skill settings level 3 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.80
+DZAI_skill3 = [	
+	["aimingAccuracy",0.225,0.250],
+	["aimingShake",0.80,0.89],
+	["aimingSpeed",0.80,0.89],
+	["endurance",0.80,0.89],
+	["spotDistance",0.80,0.89],
+	["spotTime",0.80,0.89],
+	["courage",0.80,0.89],
+	["reloadSpeed",0.80,0.89],
+	["commanding",0.90,0.99],
+	["general",0.90,0.99]
+];
+
+
+/*
+	Additional AI skill settings can be defined (DZAI_skill4 - DZAI_skill9) for the corresponding custom weapongrade level using the same format above.
+	Note: If a custom weapongrade is used without defining the corresponding custom skill settings, DZAI_skill3 settings will be used instead.
+	Instructions: replace "nil" with the skill array. Refer to the above preset skill arrays for examples.
+	Custom AI skill settings can only be used with custom-defined spawns (spawns created using the DZAI_spawn function).
+*/
+
+//weapongrade 4 skills
+DZAI_skill4 = nil; 
+
+//weapongrade 5 skills
+DZAI_skill5 = nil; 
+
+//weapongrade 6 skills
+DZAI_skill6 = nil; 
+
+//weapongrade 7 skills
+DZAI_skill7 = nil; 
+
+//weapongrade 8 skills
+DZAI_skill8 = nil;
+
+//weapongrade 9 skills
+DZAI_skill9 = nil; 
+
+
+/*
+	AI weapon, loot, and equipment settings
+	
+	DZAI will first load the classname tables defined below, the modify the settings according to the DayZ map/mod being run.
+	
+	Example: DZAI will always first load the classname tables defined below, then if DayZ Epoch is detected, DZAI will add or overwrite settings specified by \world_classname_configs\epoch\dayz_epoch.sqf. 
+	
+*/
+
+//Default weapon classname tables - DZAI will ONLY use these tables if the dynamic weapon list (DZAI_dynamicWeaponList) is disabled, otherwise they are ignored and overwritten if it is enabled.
+//Note: Low-level AI (weapongrade 0) may use pistols listed in DZAI_Pistols0 or DZAI_Pistols1. Mid/high level AI (weapongrade 1+) will carry pistol weapons but not use them - they will use rifle weapons instead.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Pistols0 = ["Makarov_DZ","M1911_DZ","Revolver_DZ"]; 				//Weapongrade 0 pistols
+DZAI_Pistols1 = ["M9_DZ","M9_SD_DZ","Makarov_SD_DZ","PDW_DZ","G17_FL_DZ"]; 	//Weapongrade 1 pistols
+DZAI_Pistols2 = ["M9_SD_DZ","Makarov_SD_DZ","PDW_DZ","G17_FL_DZ"]; 		//Weapongrade 2 pistols
+DZAI_Pistols3 = ["M9_SD_DZ","Makarov_SD_DZ","PDW_DZ","G17_FL_DZ"]; 		//Weapongrade 3 pistols
+
+DZAI_Rifles0 = ["LeeEnfield_DZ","Winchester1866_DZ","MR43_DZ","CZ550_DZ","LeeEnfield_DZ","Winchester1866_DZ","MR43_DZ"]; //Weapongrade 0 rifles
+DZAI_Rifles1 = ["M16A2_DZ","M16A2_GL_DZ","AK74_DZ","M4A1_CCO_DZ","AK74_Kobra_DZ","AKS74U_DZ","AKM_DZ","M24_DZ","M1014_DZ","DMR_DZ","M4A1_DZ","M14_CCO_DZ","Remington870_FL_DZ","MP5_DZ","MP5_SD_DZ","M4A3_CCO_EP1"]; //Weapongrade 1 rifles
+DZAI_Rifles2 = ["M16A2_DZ","M16A2_GL_DZ","M249_DZ","AK74_DZ","M4A1_CCO_DZ","AK74_Kobra_DZ","AKS74U_DZ","AKM_DZ","M24_DZ","SVD_Gh_DZ","M1014_DZ","DMR_DZ","M4A1_DZ","M14_CCO_DZ","Remington870_FL_DZ","M240_DZ","M4A1_AIM_SD_camo","M16A4_ACOG_DZ","M4A1_HWS_GL_camo","Mk48_CCO_DZ","M4A3_CCO_EP1","Sa58V_RCO_EP1","Sa58V_CCO_EP1","M40A3_Gh_DZ","SA58_DZ","SA58_DZ"]; //Weapongrade 2 rifles
+DZAI_Rifles3 = ["FNFAL_DZ","FN_FAL_ANPVS4_DZE","Mk48_CCO_DZ","M249_DZ","L85_Holo_DZ","G36C_DZ","G36C_camo","G36A_Camo_DZ","G36K_Camo_DZ","AKM_DZ","AKS74U_DZ","M14_CCO_DZ","Bizon_SD_DZ","DMR_DZ","RPK74_DZ"]; //Weapongrade 3 rifles
+
+	
+/*
+	Custom rifle tables can be defined below this line (DZAI_Rifles4 - DZAI_Rifles9) for the corresponding custom weapongrade level using the same format above. 
+	Note: If a custom weapongrade is used without defining the corresponding custom rifle array, the DZAI_Rifles3 array will be used instead.
+	Instructions: Replace "nil" with the wanted rifle array. Refer to the above rifle arrays for examples on how to define custom rifle tables.
+	Custom rifle tables can only be used with custom-defined spawns (spawns created using the DZAI_spawn function). 
+*/
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Rifles4 = nil; //weapongrade 4 weapons
+DZAI_Rifles5 = nil; //weapongrade 5 weapons
+DZAI_Rifles6 = nil; //weapongrade 6 weapons
+DZAI_Rifles7 = nil; //weapongrade 7 weapons
+DZAI_Rifles8 = nil; //weapongrade 8 weapons
+DZAI_Rifles9 = nil; //weapongrade 9 weapons
+
+
+//AI skin classnames. DZAI will use any of these classnames for AI spawned. Note: Additional skins may be included on a per-map or per-mod basis - see folders in \world_classname_configs
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_BanditTypes = ["Survivor2_DZ", "SurvivorW2_DZ", "Bandit1_DZ", "BanditW1_DZ", "Camo1_DZ", "Sniper1_DZ"];
+
+
+//AI Backpack types (for weapongrade levels 0-3)
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Backpacks0 = ["DZ_Patrol_Pack_EP1","DZ_Czech_Vest_Pouch","DZ_Assault_Pack_EP1"];
+DZAI_Backpacks1 = ["DZ_Patrol_Pack_EP1","DZ_Czech_Vest_Pouch","DZ_Assault_Pack_EP1","DZ_British_ACU","DZ_TK_Assault_Pack_EP1","DZ_CivilBackpack_EP1","DZ_ALICE_Pack_EP1"];
+DZAI_Backpacks2 = ["DZ_CivilBackpack_EP1","DZ_British_ACU","DZ_Backpack_EP1"];
+DZAI_Backpacks3 = ["DZ_CivilBackpack_EP1","DZ_Backpack_EP1"];
+
+
+//AI Food/Medical item types. DZAI_Edibles: Drinkable and edible items. DZAI_Medicals1: List of common medical items to be added to AI inventory. DZAI_Medicals2: List of all medical items available only in hospitals to be added to AI backpack.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Edibles = ["ItemSodaCoke", "ItemSodaPepsi", "ItemWaterbottle", "FoodCanSardines", "FoodCanBakedBeans", "FoodCanFrankBeans", "FoodCanPasta", "ItemWaterbottleUnfilled","ItemWaterbottleBoiled","FoodmuttonCooked","FoodchickenCooked","FoodBaconCooked","FoodRabbitCooked","FoodbaconRaw","FoodchickenRaw","FoodmuttonRaw","foodrabbitRaw","FoodCanUnlabeled","FoodPistachio","FoodNutmix","FoodMRE"];
+DZAI_Medicals1 = ["ItemBandage", "ItemPainkiller"];
+DZAI_Medicals2 = ["ItemPainkiller", "ItemMorphine", "ItemBandage", "ItemBloodbag", "ItemAntibiotic","ItemEpinephrine"];
+
+
+//AI Miscellaneous item types. DZAI_MiscItemS: List of random low-value items. DZAI_MiscItemL: List of random semi-valuable/useful items
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_MiscItemS = ["ItemHeatpack", "HandRoadFlare", "HandChemBlue", "HandChemRed", "HandChemGreen","SmokeShell","TrashTinCan","TrashJackDaniels","ItemSodaEmpty"];
+DZAI_MiscItemL = ["ItemJerrycan", "PartWheel", "PartEngine", "PartFueltank", "PartGlass", "PartVRotor","PartWoodPile"];
+
+
+//AI toolbelt item types. Toolbelt items are added to AI inventory upon death. Format: [item classname, item probability]
+//Weapongrade level 0-1 AI will use DZAI_tools0 table, weapongrade level 2-3 AI will use DZAI_tools1 table. Custom-spawned AI will use DZAI_tools1 table.
+//NOTE: Do not delete any elements from this list, set its chance to zero intead. Only add elements to the end of the array, not in the middle.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_tools0 = [["ItemFlashlight",0.65],["ItemWatch",0.65],["ItemKnife",0.50],["ItemHatchet",0.40],["ItemCompass",0.40],["ItemMap",0.35],["ItemToolbox",0.15],["ItemMatchbox",0.15],["ItemFlashlightRed",0.05],["ItemGPS",0.005],["ItemRadio",0.005],["ItemCrowbar",0.15]];
+DZAI_tools1 = [["ItemFlashlight",0.75],["ItemWatch",0.75],["ItemKnife",0.75],["ItemHatchet",0.70],["ItemCompass",0.75],["ItemMap",0.70],["ItemToolbox",0.35],["ItemMatchbox",0.40],["ItemFlashlightRed",0.10],["ItemGPS",0.10],["ItemRadio",0.075],["ItemCrowbar",0.35]];
+
+
+//AI-useable toolbelt item types. These items are added to AI inventory at unit creation and may be used by AI. Format: [item classname, item probability]
+//Weapongrade level 0-1 AI will use DZAI_gadgets0 table, weapongrade level 2-3 AI will use DZAI_gadgets1 table. Custom-spawned AI will use DZAI_gadgets1 table.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_gadgets0 = [["binocular",0.40],["NVGoggles",0.00]];
+DZAI_gadgets1 = [["binocular",0.60],["NVGoggles",0.05]];
+
+
+//NOTHING TO EDIT BEYOND THIS POINT
+diag_log "[DZAI] DZAI configuration file loaded.";
