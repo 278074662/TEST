@@ -1,328 +1,496 @@
+/*
+	DZAI Configuration File
+	
+	Description: Contains all configurable settings of DZAI. Contains settings for debugging, customization of AI units, spawning, and loot.
+	
 
- 2:00:49 "MPframework inited"
- 2:00:49 "dayz_preloadFinished reset"
- 2:00:50 "<infiSTAR.de> Error loading infiSTAR DLL"
- 2:00:50 "<infiSTAR.de> 644435bd443e"
- 2:00:50 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
- 2:00:50 "<infiSTAR.de> "
- 2:00:50 "<infiSTAR.de> Waiting for BIS_fnc_init..."
- 2:00:50 "Epoch detected"
- 2:00:50 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
- 2:00:50 Warning Message: Script low_admins.sqf not found
- 2:00:50 Warning Message: Script normal_admins.sqf not found
- 2:00:50 Error in expression <ntFromString == 0x01);
-missionNameSpace setVariable ['armalog',_armalog,true];
-i>
- 2:00:50   Error position: <setVariable ['armalog',_armalog,true];
-i>
- 2:00:50   Error 3 elements provided, 2 expected
- 2:00:50 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
- 2:00:50 Warning Message: Script super_admins.sqf not found
- 2:00:50 Warning Message: Script blacklist.sqf not found
- 2:00:50 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 2:00:50 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 2:00:50 "<infiSTAR.de> _fnc_RandomGen: {
-_abc = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'];
-_gen = _abc select (random ((count _abc)-1));
-_arr = ['a','2','c','c','7','0','b','2','2','5','3','7','1','5','5','8','5','2','3','5','a','2','d','a','a','1','b','c','9','1','9','e','f'];
-for '_i' from 0 to (8+(round(random 3))) do {_gen = _gen + str(round(random 9)) + (_arr select (random ((count _arr)-1)));};
-_gen
-}"
- 2:00:50 "<infiSTAR.de> _simple: i71553c35639c852530"
- 2:00:50 "<infiSTAR.de> _dialogIds: w4f62750a7c27459a0221"
- 2:00:50 "<infiSTAR.de> _badtxts: h130268601c30072c62"
- 2:00:50 "<infiSTAR.de> _randvar1: e933f725a1d378a22658b2e40"
- 2:00:50 "<infiSTAR.de> _randvar2: f62536b382781570e796b4232"
- 2:00:50 "<infiSTAR.de> _randvar0: n8c2883736a538567857d7a22"
- 2:00:50 "<infiSTAR.de> _randvar3: x827d975508150955712395"
- 2:00:50 "<infiSTAR.de> _randvar4: g22214a4c1a7b37624532550c"
- 2:00:50 "<infiSTAR.de> _randvar5: z6a93723c3c752a75484b"
- 2:00:50 "<infiSTAR.de> _randvar6: g323521588b61370742616e"
- 2:00:50 "<infiSTAR.de> _randvar8: e71787a058e075a1e626555"
- 2:00:50 "<infiSTAR.de> _randvar9: g381091622c4a6293420e"
- 2:00:50 "<infiSTAR.de> _randvar11: b893d9c61708b42328553389c"
- 2:00:50 "<infiSTAR.de> _randvar12: g321d487b4b014f522538130d"
- 2:00:50 "<infiSTAR.de> _randvar13: u53513a533b1357957215"
- 2:00:50 "<infiSTAR.de> _randvar19: h3172259539271d1132572f65"
- 2:00:50 "<infiSTAR.de> _randvar27: q4593755b0135516c725a"
- 2:00:50 "<infiSTAR.de> _randvar26: v02218d527b3b523c635a5c"
- 2:00:50 "<infiSTAR.de> _randvar25: i192c3a454995228555"
- 2:00:50 "<infiSTAR.de> _randvar31: k1c8c853a211e024993051c8c"
- 2:00:50 "<infiSTAR.de> _randvar33: t824c5a822c1d752a122b"
- 2:00:50 "<infiSTAR.de> _randvar34: m7c227c097a41333263"
- 2:00:50 "<infiSTAR.de> _randvar35: b421d997939472a354f"
- 2:00:50 "<infiSTAR.de> _randvar36: k3d83836e639a480b82251a60"
- 2:00:50 "<infiSTAR.de> _randvar37: b6b5c68675569622a2a89"
- 2:00:50 "<infiSTAR.de> _randvar39: h9885753d126a9a7c73650242"
- 2:00:50 "<infiSTAR.de> _clickOnMapTimer: t7210184c228101351e5329"
- 2:00:50 "<infiSTAR.de> _clickOnMapCaught: t82132775733a777c62320a2c"
- 2:00:50 "<infiSTAR.de> _fnc_handlerandvar10: n1b657a6099194c358b"
- 2:00:50 "<infiSTAR.de> _remark: h27951b1a1a671d5a4a61558a"
- 2:00:50 "<infiSTAR.de> _AHpos: b8c5b658265178e31459c7b75"
- 2:00:50 "<infiSTAR.de> _loadedcheckpos: i47675171297131758125"
- 2:00:50 "<infiSTAR.de> _loadedchecktime: b8c8305455c3b32634a45"
- 2:00:50 "<infiSTAR.de> _MenuChecksRunningx: c691903729d850532873251"
- 2:00:50 "<infiSTAR.de> _oneachframe: t39698267235572810c6a2c"
- 2:00:50 "<infiSTAR.de> _anotherloop: l398c435c5c9581996532483a"
- 2:00:50 "<infiSTAR.de> _clientoncetwo: b7a883517559c9a32218585"
- 2:00:50 "<infiSTAR.de> _lastUnlock: t3c732a752072587a726512"
- 2:00:50 "<infiSTAR.de> _AdminReqCheck: t0d6d199b6d35224b71"
- 2:00:50 "<infiSTAR.de> _antidupeCheckVar: j3b72578c4142016a723283"
- 2:00:50 "<infiSTAR.de> _antiantihack1_rndvar: z8b0e71575a291a3c6255"
- 2:00:50 "<infiSTAR.de> _antiantihack2_rndvar: w752f253392613a6745758a0a"
- 2:00:50 "<infiSTAR.de> _antidupePVResVar: i8c6057052b8c5e317a692a35"
- 2:00:50 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_b6a7c6e0c89651c6a5537"
- 2:00:50 "<infiSTAR.de> _randvar10: PVAHR_0_e3182321c6923223c551f8a"
- 2:00:51 "<infiSTAR.de> AntiHack LOADED!"
- 2:00:51 "<infiSTAR.de> CREATING AdminMenu"
- 2:00:51 "<infiSTAR.de> AdminMenu LOADED!"
- 2:00:51 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
- 2:00:51 "<infiSTAR.de> AntiHack FULLY LOADED"
- 2:00:51 "<infiSTAR.de> starting main server loop"
- 2:01:06 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 0h 06min | ******ADMIN******"
- 2:01:15 "TraderConvoy: Spawned HMMWV_Ambulance 1f9ad0c0# 1055172: m997a2_ambulance.p3d"
- 2:01:15 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
- 2:01:15 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
- 2:01:15 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
- 2:01:15 "Loading custom server compiles"
- 2:01:15 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
- 2:01:15 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
- 2:01:15 "Deploy Anything: loading version 2.8.2 ..."
- 2:01:15 "TraderConvoy: Adding waypoints"
- 2:01:15 "Deploy Anything: adding deployables to safe vehicle list..."
- 2:01:15 "TraderConvoy: Moving to 029054 [2912.89,9901.58]"
- 2:01:17 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
- 2:01:17 "HIVE: Starting"
- 2:01:17 ["TIME SYNC: Local Time set to:",[2012,8,2,10,1],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,1]]
- 2:01:17 "HIVE: trying to get objects"
- 2:01:17 "SERVER FPS: 22  PLAYERS: 1"
- 2:01:17 "INFO: Created 156 safe zone bubbles"
- 2:01:17 "HIVE: found 484 objects"
- 2:01:17 "HIVE: Request sent"
- 2:01:17 "HIVE: Streamed 484 objects"
- 2:01:17 "Res3tting B!S effects..."
- 2:01:21 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 484 objects in 3.77701 seconds (unscheduled)"
- 2:01:21 "Total Number of spawn locations 6"
- 2:01:21 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
- 2:01:21 "[DZAI] Reading DZAI configuration file."
- 2:01:21 "[DZAI] DZAI configuration file loaded."
- 2:01:21 "CLEANUP: INITIALIZING Vehicle SCRIPT"
- 2:01:21 "[DZAI] Compiling DZAI functions."
- 2:01:21 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,1],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,1]]
- 2:01:21 "[DZAI] DZAI functions compiled."
- 2:01:21 "[DZAI] Epoch classnames loaded."
- 2:01:21 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
- 2:01:21 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
- 2:01:21 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
- 2:01:21 "[DZAI] DZAI loading completed in 0.448975 seconds."
- 2:01:21 "EPOCH EVENTS INIT"
- 2:01:35 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [11451.9,11232.2,0] with 10 items."
- 2:01:35 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:104) Status: LOGGING IN"
- 2:01:35 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
- 2:01:35 "CRASHSPAWNER: Spawning crash site (CrashSite_RU) at [3244.36,7409.01,0] with 5 items."
- 2:01:36 "Spawning Weed Farm at [10697.8,8420.7]"
- 2:01:36 "Spawning Weed Farm at [4371.16,8904.03]"
- 2:01:36 "Spawning Weed Farm at [7376.7,7504.63]"
- 2:01:36 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:104) Status: LOGGING IN"
- 2:01:36 Server: Object 3:6 not found (message 94)
- 2:01:36 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:104) Status: LOGIN PUBLISHING, Location Stary Sobor @062071"
- 2:01:37 "Spawning Weed Farm at [5092.24,8401.51]"
- 2:01:37 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 2:01:37 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
- 2:01:37 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 2:01:37 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
- 2:01:37 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
- 2:01:37 Client: Remote object 3:5 not found
- 2:01:37 "Spawning Weed Farm at [3462.99,7264.12]"
- 2:01:37 "INFO - Player: TEEMO(UID:76561198127675194/CID:104) Status: CLIENT LOADED & PLAYING"
- 2:01:37 "WAI: AI Config File Loaded"
- 2:01:37 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [11863.4,12959.3,0] with 5 items."
- 2:01:37 "WAI: Initializing missions"
- 2:01:37 "WAI: blacklist Loaded"
- 2:01:37 "WAI: AI Config File Loaded"
- 2:01:37 "[DZAI] Verified 153 unique classnames in 1.439 seconds."
- 2:01:37 "WAI: blacklist Loaded"
- 2:01:37 "WAI: Initializing missions"
- 2:01:38 "Chernarus spawn areas loaded."
- 2:01:38 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [10388.1,8729.37,0] with 7 items."
- 2:01:38 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [4806.56,8439.72,0] with 10 items."
- 2:01:38 "Chernarus static spawn configuration loaded."
- 2:01:39 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [1814.45,8858.09,0] with 5 items."
- 2:01:39 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [5329,7559.61,0] with 6 items."
- 2:01:40 "HIVE: Vehicle Spawn limit reached!"
- 2:01:40 "HIVE: Spawning # of Debris: false"
- 2:01:40 Error in expression <str(MaxDynamicDebris));
-for "_x" from 1 to MaxDynamicDebris do {call spawn_roadb>
- 2:01:40   Error position: <to MaxDynamicDebris do {call spawn_roadb>
- 2:01:40   Error to: Type Bool, expected Number
- 2:01:40 File z\addons\dayz_server\system\server_monitor.sqf, line 537
- 2:01:44 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
- 2:01:45 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:104) Status: LOGGING IN"
- 2:01:45 Server: Object 3:13 not found (message 94)
- 2:01:45 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:104) Status: LOGIN PUBLISHING, Location Stary Sobor @062071"
- 2:01:45 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 2:01:45 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
- 2:01:45 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 2:01:45 "INFO - Player: TEEMO(UID:76561198127675194/CID:104) Status: CLIENT LOADED & PLAYING"
- 2:01:56 "infiSTAR.de fnc_AdminFirstReq: [5,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE]"
- 2:01:56 "infiSTAR.de fnc_AdminReqProceed: [5,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE]"
- 2:01:56 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO AdminHeal TEEMO"
- 2:01:56 "<infiSTAR.de> AdminLog: 0h 07min | TEEMO AdminHeal TEEMO"
- 2:02:35 [DZMS]: Starting DayZ Mission System.
- 2:02:35 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
- 2:02:35 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
- 2:02:35 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
- 2:02:35 [DZMS]: Mission Clock Starting!
- 2:04:14 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6295.05,7850.32,0]]"
- 2:04:14 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 062071([6250.49,8233.67,0.00143433]) to 062075([6295.05,7850.32,0]) | Key: any"
- 2:04:14 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6295.05,7850.32,0]]"
- 2:04:14 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 062075   WorldSpace: [6295.05,7850.32,0]"
- 2:04:14 "<infiSTAR.de> AdminLog: 0h 09min | Admin TEEMO(76561198127675194) teleported to   GPS: 062075   WorldSpace: [6295.05,7850.32,0]"
- 2:04:16 Warning: looped for animation: ca\anims\characters\data\anim\sdr\mov\erc\stp\non\non\amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end.rtm differs (looped now 0)! MoveName: amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end
- 2:04:23 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6257.87,8231.11,0]]"
- 2:04:23 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 062075([6295.14,7850.36,0.00146484]) to 062071([6257.87,8231.11,0]) | Key: any"
- 2:04:23 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6257.87,8231.11,0]]"
- 2:04:23 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 062071   WorldSpace: [6257.87,8231.11,0]"
- 2:04:23 "<infiSTAR.de> AdminLog: 0h 09min | Admin TEEMO(76561198127675194) teleported to   GPS: 062071   WorldSpace: [6257.87,8231.11,0]"
- 2:05:22 Ref to nonnetwork object 2085cf00# 1058989: roadbarrier_long.p3d
- 2:06:39 "DZAI Monitor :: Server Uptime: 0:12:7. Active AI Groups: 6."
- 2:06:39 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 0 groups queued."
- 2:06:39 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 0. Air Patrols: 2. Land Patrols: 4."
- 2:07:31 "SERVER FPS: 45  PLAYERS: 1"
- 2:07:32 "TraderConvoy: Trader has arrived"
- 2:07:37 "TraderConvoy: Now lock vehicle"
- 2:07:44 "WAI: [Mission:[MainBandit] Ural Attack]: Starting... [6608.04,3110.24,0]"
- 2:07:49 "WAI: [Mission:[MainHero] Gem Tower]: Starting... [7451.42,7900.92,0]"
- 2:08:36 [DZMS]: Running Hero Mission Weapons_Truck.
- 2:08:39 "Hero Weapons Truck spawned at [2768.66,7276.63,0]"
- 2:09:13 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6500.31,6218.37,0]]"
- 2:09:13 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 062071([6284.47,8228.66,0.00143433]) to 065091([6500.31,6218.37,0]) | Key: any"
- 2:09:13 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6500.31,6218.37,0]]"
- 2:09:13 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 065091   WorldSpace: [6500.31,6218.37,0]"
- 2:09:13 "<infiSTAR.de> AdminLog: 0h 14min | Admin TEEMO(76561198127675194) teleported to   GPS: 065091   WorldSpace: [6500.31,6218.37,0]"
- 2:10:14 "P1ayer PID#3(TEEMO) hit by AI with MP5_SD_DZ/B_9x19_SD <ammo left:27> from 10 meters in head_hit for 0.0531038 damage"
- 2:10:17 "P1ayer PID#3(TEEMO) hit by AI with MP5_SD_DZ/B_9x19_SD <ammo left:12> from 10 meters in head_hit for 0.681681 damage"
- 2:10:19 "TEEMO (76561198127675194) TEEMO was killed by AI with MP5_SD_DZ from 10m @065091 [6500.31,6218.37,0.00164795]"
- 2:10:31 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
- 2:10:31 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
- 2:10:56 [DZMS]: Running Bandit Mission NATO_Weapons_Cache.
- 2:10:59 "Bandit Weapons Cache spawned at [10277.3,6000.76,0]"
- 2:11:39 "DZAI Monitor :: Server Uptime: 0:17:7. Active AI Groups: 7."
- 2:11:39 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 0 groups queued."
- 2:11:39 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 2. Land Patrols: 4."
- 2:13:31 "SERVER FPS: 48  PLAYERS: 1"
- 2:15:07 "RUNNING EVENT: player_supply on [2021,1,14,10,15]"
- 2:16:15 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
- 2:16:15 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGGING IN"
- 2:16:17 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGIN PUBLISHING, Location Drakon @110124"
- 2:16:18 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 2:16:18 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
- 2:16:18 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 2:16:18 "INFO - Player: TEEMO(UID:76561198127675194/CID:106) Status: CLIENT LOADED & PLAYING"
- 2:16:21 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,16],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,16]]
- 2:16:21 "INFO: Cannot Sync Character TEEMO near respawn_west [-18700,25800,0.00146484]. This is normal when relogging or changing clothes."
- 2:16:35 Server: Object 3:123 not found (message 99)
- 2:16:35 Server: Object 3:124 not found (message 91)
- 2:16:38 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO G_o_d ON"
- 2:16:38 "<infiSTAR.de> AdminLog: 0h 21min | TEEMO G_o_d ON"
- 2:16:39 "DZAI Monitor :: Server Uptime: 0:22:7. Active AI Groups: 6."
- 2:16:39 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 2:16:39 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 2. Land Patrols: 4."
- 2:16:40 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6497.51,6218.71,0]]"
- 2:16:40 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 086086([8636.56,6685.84,0.00143433]) to 064091([6497.51,6218.71,0]) | Key: any"
- 2:16:40 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6497.51,6218.71,0]]"
- 2:16:40 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 064091   WorldSpace: [6497.51,6218.71,0]"
- 2:16:40 "<infiSTAR.de> AdminLog: 0h 21min | Admin TEEMO(76561198127675194) teleported to   GPS: 064091   WorldSpace: [6497.51,6218.71,0]"
- 2:16:46 Server: Object 3:139 not found (message 91)
- 2:16:46 Server: Object 3:138 not found (message 99)
- 2:16:46 Server: Object 3:141 not found (message 91)
- 2:16:46 Server: Object 3:140 not found (message 99)
- 2:16:46 Server: Object 3:143 not found (message 91)
- 2:16:46 Server: Object 3:142 not found (message 99)
- 2:16:46 Server: Object 3:145 not found (message 91)
- 2:16:46 Server: Object 3:144 not found (message 99)
- 2:16:47 Server: Object 3:147 not found (message 91)
- 2:16:47 Server: Object 3:146 not found (message 99)
- 2:17:10 Server: Object 3:153 not found (message 94)
- 2:19:31 "SERVER FPS: 49  PLAYERS: 1"
- 2:21:40 "DZAI Monitor :: Server Uptime: 0:27:8. Active AI Groups: 7."
- 2:21:40 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 1 groups queued."
- 2:21:40 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 2. Land Patrols: 4."
- 2:24:13 "WAI: [Mission: Hero Ural Attack]: Timed out at [6608.04,3110.24,0]"
- 2:25:28 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6617.25,6255.96,0]]"
- 2:25:28 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 065091([6567.99,6248.1,0.00167847]) to 066091([6617.25,6255.96,0]) | Key: any"
- 2:25:28 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6617.25,6255.96,0]]"
- 2:25:28 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 066091   WorldSpace: [6617.25,6255.96,0]"
- 2:25:28 "<infiSTAR.de> AdminLog: 0h 30min | Admin TEEMO(76561198127675194) teleported to   GPS: 066091   WorldSpace: [6617.25,6255.96,0]"
- 2:25:31 "SERVER FPS: 47  PLAYERS: 1"
- 2:26:34 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO G_o_d OFF"
- 2:26:34 "<infiSTAR.de> AdminLog: 0h 31min | TEEMO G_o_d OFF"
- 2:26:40 "DZAI Monitor :: Server Uptime: 0:32:8. Active AI Groups: 7."
- 2:26:40 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 0 groups queued."
- 2:26:40 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 2. Land Patrols: 4."
- 2:27:10 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO G_o_d ON"
- 2:27:10 "<infiSTAR.de> AdminLog: 0h 32min | TEEMO G_o_d ON"
- 2:27:17 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7737.68,8888.4,0]]"
- 2:27:17 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 066090([6623.33,6263.81,0.00128174]) to 077064([7737.68,8888.4,0]) | Key: any"
- 2:27:17 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7737.68,8888.4,0]]"
- 2:27:17 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 077064   WorldSpace: [7737.68,8888.4,0]"
- 2:27:17 "<infiSTAR.de> AdminLog: 0h 32min | Admin TEEMO(76561198127675194) teleported to   GPS: 077064   WorldSpace: [7737.68,8888.4,0]"
- 2:27:39 "TraderConvoy: Leaving 029054 [2912.89,9901.58]"
- 2:27:39 "TraderConvoy: Everyone's in"
- 2:27:39 "TraderConvoy: Adding waypoints"
- 2:27:39 "TraderConvoy: Moving to 078119 [7868.38,3362.74]"
- 2:28:11 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2655.59,9900.19,0]]"
- 2:28:11 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 076064([7673.68,8904.41,0.00170898]) to 026054([2655.59,9900.19,0]) | Key: any"
- 2:28:11 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[2655.59,9900.19,0]]"
- 2:28:11 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 026054   WorldSpace: [2655.59,9900.19,0]"
- 2:28:11 "<infiSTAR.de> AdminLog: 0h 33min | Admin TEEMO(76561198127675194) teleported to   GPS: 026054   WorldSpace: [2655.59,9900.19,0]"
- 2:28:17 MuzzleFlashROT - unknown animation source ammoRandom
- 2:28:17 Server: Object 3:270 not found (message 94)
- 2:28:17 Server: Object 3:272 not found (message 94)
- 2:28:17 Server: Object 3:274 not found (message 70)
- 2:28:30 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7561.98,8810.96,0]]"
- 2:28:30 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 026054([2650.3,9914.24,0.00128174]) to 075065([7561.98,8810.96,0]) | Key: any"
- 2:28:30 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7561.98,8810.96,0]]"
- 2:28:30 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 075065   WorldSpace: [7561.98,8810.96,0]"
- 2:28:30 "<infiSTAR.de> AdminLog: 0h 33min | Admin TEEMO(76561198127675194) teleported to   GPS: 075065   WorldSpace: [7561.98,8810.96,0]"
- 2:28:40 [DZMS]: Hero Weapons Truck has Ended.
- 2:28:48 "DZMS: Cleanup for mission 0 complete."
- 2:30:02 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7402.98,8784.82,0]]"
- 2:30:02 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 074065([7469.84,8802.04,0.00164795]) to 074065([7402.98,8784.82,0]) | Key: any"
- 2:30:02 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7402.98,8784.82,0]]"
- 2:30:02 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 074065   WorldSpace: [7402.98,8784.82,0]"
- 2:30:02 "<infiSTAR.de> AdminLog: 0h 35min | Admin TEEMO(76561198127675194) teleported to   GPS: 074065   WorldSpace: [7402.98,8784.82,0]"
- 2:30:33 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7307.15,8938.37,0]]"
- 2:30:33 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 074065([7431.45,8788.91,0.00109863]) to 073064([7307.15,8938.37,0]) | Key: any"
- 2:30:33 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7307.15,8938.37,0]]"
- 2:30:33 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 073064   WorldSpace: [7307.15,8938.37,0]"
- 2:30:33 "<infiSTAR.de> AdminLog: 0h 35min | Admin TEEMO(76561198127675194) teleported to   GPS: 073064   WorldSpace: [7307.15,8938.37,0]"
- 2:30:56 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7206.14,8874.12,0]]"
- 2:30:56 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 073064([7321.21,8954.83,0.00128174]) to 072064([7206.14,8874.12,0]) | Key: any"
- 2:30:56 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7206.14,8874.12,0]]"
- 2:30:56 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 072064   WorldSpace: [7206.14,8874.12,0]"
- 2:30:56 "<infiSTAR.de> AdminLog: 0h 36min | Admin TEEMO(76561198127675194) teleported to   GPS: 072064   WorldSpace: [7206.14,8874.12,0]"
- 2:31:00 [DZMS]: Bandit Weapons Cache has Ended.
- 2:31:03 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7167.38,8915.62,0]]"
- 2:31:03 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 071064([7196.3,8883.55,0.00149536]) to 071064([7167.38,8915.62,0]) | Key: any"
- 2:31:03 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[7167.38,8915.62,0]]"
- 2:31:03 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 071064   WorldSpace: [7167.38,8915.62,0]"
- 2:31:03 "<infiSTAR.de> AdminLog: 0h 36min | Admin TEEMO(76561198127675194) teleported to   GPS: 071064   WorldSpace: [7167.38,8915.62,0]"
- 2:31:08 "DZMS: Cleanup for mission 1 complete."
- 2:31:21 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,31],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,31]]
- 2:31:31 "SERVER FPS: 48  PLAYERS: 1"
- 2:31:34 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[4394.32,5626.83,0]]"
- 2:31:34 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 071064([7137.14,8941.2,0.00158691]) to 043097([4394.32,5626.83,0]) | Key: any"
- 2:31:34 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[4394.32,5626.83,0]]"
- 2:31:34 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 043097   WorldSpace: [4394.32,5626.83,0]"
- 2:31:34 "<infiSTAR.de> AdminLog: 0h 36min | Admin TEEMO(76561198127675194) teleported to   GPS: 043097   WorldSpace: [4394.32,5626.83,0]"
- 2:31:41 "DZAI Monitor :: Server Uptime: 0:37:9. Active AI Groups: 8."
- 2:31:41 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 2:31:41 "DZAI Monitor :: Dynamic Spawns: 1. Random Spawns: 2. Air Patrols: 2. Land Patrols: 4."
- 2:31:48 "<infiSTAR.de> LockUnlockVehicle: LandRover_MG_TK_EP1_DZE UNLOCKED @044097 [4400.81,5648.75,0.00247192]"
- 2:32:02 "<infiSTAR.de> LockUnlockVehicle: LandRover_MG_TK_EP1_DZE LOCKED @044097 [4405.16,5643.6,0.00848389] BY TEEMO(76561198127675194)"
- 2:32:25 "infiSTAR.de fnc_AdminFirstReq: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6258.32,8245.7,0]]"
- 2:32:25 "<infiSTAR.de> ADMINTP: Admin TEEMO(76561198127675194) Teleport: 044097([4412.07,5639.14,0.000946045]) to 062071([6258.32,8245.7,0]) | Key: any"
- 2:32:25 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6258.32,8245.7,0]]"
- 2:32:25 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 062071   WorldSpace: [6258.32,8245.7,0]"
- 2:32:25 "<infiSTAR.de> AdminLog: 0h 37min | Admin TEEMO(76561198127675194) teleported to   GPS: 062071   WorldSpace: [6258.32,8245.7,0]"
+*/
+
+diag_log "[DZAI] Reading DZAI configuration file.";
+
+/*	DZAI Settings
+--------------------------------------------------------------------------------------------------------------------*/	
+
+//Enable or disable event logging to arma2oaserver.rpt. Debug level setting. 0: No debug output, 1: Basic Debug output, 2: Extended Debug output. (Default: 0)
+//Debug output may help finding additional information about DZAI's background behavior. This output is helpful when asking for help regarding bugs or unexpected behaviors.
+DZAI_debugLevel = 0;
+
+//Frequency of server monitor update to RPT log in seconds. The monitor periodically reports number of max/current AI units and dynamically spawned triggers into RPT log. (Default: 300, 0 = Disable reporting)										
+DZAI_monitorRate = 300;
+
+//Enable or disable verification and error-correction of classname tables used by DZAI. If invalid entries are found, they are removed and logged into the RPT log.
+//If disabled, any invalid classnames will not be removed and clients may crash if AI bodies with invalid items are looted. Only disable if a previous scan shows no invalid classnames (Default: true).										
+DZAI_verifyTables = true;
+
+//(Feature in development) Enables additional checking and error-correction of certain classname tables. (Default: false)
+DZAI_extendedVerify = false;
+
+//Enable to have server spawn in objects/buildings normally spawned clientside by DayZ's CfgTownGenerator. Prevents AI from walking/shooting through clutter and other objects. (Default: true)	
+//If running DayZ Mod ("vanilla DayZ") or DayZ Overwatch, it is highly recommended to enable this option, as many added buildings are handled by the CfgTownGenerator. Not used with Epoch.							
+DZAI_objPatch = true;
+
+//Minimum seconds to pass until each dead AI body or destroyed vehicle can be cleaned up by DZAI's task scheduler. DZAI will not clean up a body/vehicle if there is a player close by (Default: 900).	
+//Note: Other cleanup scripts might interfere by cleaning up dead AI bodies/vehicles!									
+DZAI_cleanupDelay = 900;									
+
+//Enable auto detection of DayZ mod type ran by server. If additional support exists for the mod type, DZAI will load additional classnames (example: weapons, skins, or other items)
+//Additional support exists for the following DayZ mods: Epoch, Overwatch, Unleashed, Hunting Grounds, 2017. (Default: true)
+DZAI_modAutoDetect = true;
+
+
+/*	AI Unit Settings
+--------------------------------------------------------------------------------------------------------------------*/		
+
+//Enhanced AI health system setting. 
+//If enabled, AI units will use DayZ's 12,000 blood system, can be knocked unconscious and Tasered, and can self-bloodbag/morphine. If disabled, AI units will use default Arma 2 damage handling. (Default: true)
+DZAI_useHealthSystem = true;
+
+//Minimum and maximum AI blood level to spawn each unit with. Each individual unit will have a randomized blood level within this range. Upper limit: 12000 blood (Default: [10000,12000])
+//Note: No effect if DZAI_useHealthSystem is false
+DZAI_unitBloodLevel = [10000,12000];
+
+//Amount of blood restored from a full self-heal. One-third of the total amount is restored 3 times every 3 seconds. Note: Applies to infantry-type AI units. (Default: 6000)
+//Note: No effect if DZAI_useHealthSystem is false
+DZAI_unitHealAmount = 6000;
+
+//Below this blood level, AI may decide to heal themselves for amount specified by DZAI_unitHealAmount. Healing requires 9 seconds to fully complete and can be interrupted by knocking the unit unconscious. (Default: 5000)
+//Note: No effect if DZAI_useHealthSystem is false
+DZAI_lowBloodLevel = 5000;
+
+//Enable or disable zombie attraction to AI weapon sounds. No effect if DZAI_zombieEnemy is set to false. Enabling this option may impact server performance as a script is run for each AI bullet fired.
+//Note: AI cannot be attacked or damaged by zombies.(Default: false)		
+DZAI_weaponNoise = false;
+
+//If enabled, AI group will attempt to track down player responsible for killing a group member. Players with radios will be given text warnings if they are being pursued (Default: true)
+DZAI_findKiller = true;	
+
+//If normal probability check for spawning NVGs fails, then give AI temporary NVGs only if they are spawned with weapongrade 1 or higher (applies only during nighttime hours). Temporary NVGs are unlootable and will be removed at death (Default: false).									
+DZAI_tempNVGs = false;	
+
+//Amount of humanity to reward player for killing an AI unit (Default: 0)									
+DZAI_humanityGain = 25;										
+
+//If enabled, players with radios will be given text warnings if they are being pursued by AI groups. (Default: true)
+DZAI_radioMsgs = true;
+
+//If enabled, last surviving unit of a group will be granted slightly boosted skills. No effect if unit is spawned alone (Default: false)
+DZAI_lastManStanding = false;
+
+
+/*DZAI client-side addon settings. 
+**NOTE**: These settings require the DZAI client-side addon to be installed to your mission pbo file in order to work.
+--------------------------------------------------------------------------------------------------------------------*/	
+
+//Enable to use client-side radio addon for radio messages instead of remote execution method. (Default: false)
+DZAI_clientRadio = false;
+
+//Enable or disable AI hostility to zombies. If enabled, AI units spawned by DZAI will attack nearby zombies. (Default: false)
+DZAI_zombieEnemy = false;	
+
+//Maximum distance (in meters) for AI group leader to detect zombies. Increasing range beyond default may negatively impact server performance. (Default: 150)							
+DZAI_zDetectRange = 150;
+
+//Enable or disable AI death messages. Messages will be sent only to player responsible for killing the unit. Messages will be sent in System chat in the format "(Unit name) was killed." (Default: false)
+DZAI_deathMessages = true;									
+
+
+/*	Static AI Spawning Settings
+--------------------------------------------------------------------------------------------------------------------*/	
+
+//Enable or disable static AI spawns. If enabled, AI spawn points will be generated in cities, towns, and other predefined areas. Does not affect custom-defined spawns (Default: true).
+DZAI_staticAI = true;
+
+//Set minimum and maximum wait time in seconds to respawn an AI group after all units have been killed. Applies to both static AI and custom spawned AI (Default: Min 300, Max 600).									
+DZAI_respawnTimeMin = 300;
+DZAI_respawnTimeMax = 600;
+
+//Time to allow spawned AI units to exist in seconds before being despawned when no players are present in a trigger area. Applies to both static AI and custom spawned AI (Default: 120)										
+DZAI_despawnWait = 120;										
+
+//Respawn limits. Set to -1 for unlimited respawns. (Default: -1 for each).
+DZAI_respawnLimit0 = -1; 	//Respawn limit for low level AI found in low-value areas (Default: -1)
+DZAI_respawnLimit1 = -1; 	//Respawn limit for mid level AI found in cities and other mid-value areas (Default: -1)
+DZAI_respawnLimit2 = -1; 	//Respawn limit for high level AI found in places with military loot (Default: -1)
+DZAI_respawnLimit3 = -1; 	//Respawn limit for very high level AI in places with high-grade military loot (Default: -1)
+
+//Spawn probabilities
+DZAI_spawnChance0 = 0.40;	//Spawn chance for low-skill AI typically found in small towns (Default: 0.40)
+DZAI_spawnChance1 = 0.60;	//Spawn chance for mid-level AI typically found in cities and large towns (Default: 0.60)
+DZAI_spawnChance2 = 0.80;	//Spawn chance for high-level AI typically found in places with military-grade loot (Default: 0.80)
+DZAI_spawnChance3 = 0.90;	//Spawn chance for expert-level AI found in areas with high-grade military loot (Default: 0.90)
+
+
+/*	Dynamic AI Spawning Settings
+--------------------------------------------------------------------------------------------------------------------*/		
+
+//Enable or disable dynamic AI spawns. If enabled, AI spawn locations will be generated for randomly selected players at randomized intervals (Default: true)									
+DZAI_dynAISpawns = true;
+
+//Time (seconds) required to reach maximum spawn probability per player, after which the probability is reset to 0%. Lower number = More frequent spawns, Higher Number = Less frequent. (Recommended range: 1200-2700, Default: 1200)
+DZAI_maxSpawnTime = 1200;
+
+//Time (seconds) to allow each player to retain maximum spawn probability. (Default: 1200).
+DZAI_keepMaxSpawnTime = 1200;
+
+//Probability for dynamic AI to actively hunt a targeted player. If probability check fails, dynamic AI will patrol the area instead of hunting (Default: 0.50)
+DZAI_huntingChance = 0.10;
+
+//Probability to send first available AI helicopter to reinforce dynamic AI group. No effect if DZAI_maxHeliPatrols is set to zero. (Default: 0.50)
+DZAI_heliReinforceChance = 0.20;
+
+//Array of area blacklist markers. Players within marker areas will not be targeted for dynamic AI spawns (Example: ["BlacklistArea1","BlacklistArea2","BlacklistArea3"])
+//Epoch: DZAI will automatically set up 200m-radius blacklist areas around each trader area.
+DZAI_dynAreaBlacklist = [];
+
+//Time to wait before despawning all AI units in dynamic spawn area when no players are present. (Default: 120)
+DZAI_dynDespawnWait = 120;
+
+//Enable or disable dynamic spawn-free zones of 600m radius around player spawn areas. (Default: false)
+DZAI_freshSpawnSafeArea = true;
+
+
+/*	Random AI Spawning Settings (Feature in development)
+--------------------------------------------------------------------------------------------------------------------*/		
+
+//Maximum number of placed random spawns on map
+DZAI_maxRandomSpawns = 2;
+
+//Time to wait before despawning all AI units in random spawn area when no players are present. (Default: 120)
+DZAI_randDespawnWait = 120;
+
+//Array of area blacklist markers. Players within marker areas will not be targeted for random AI spawns (Example: ["BlacklistArea1","BlacklistArea2","BlacklistArea3"])
+//Epoch: DZAI will automatically set up 200m-radius blacklist areas around each trader area.
+//Tip: To use dynamic-spawn blacklist areas for random-spawn blacklist areas, simply set DZAI_randAreaBlacklist = DZAI_dynAreaBlacklist;
+DZAI_randAreaBlacklist = [];
+
+
+/*	AI Air vehicle patrol settings. These AI vehicles will randomly travel between different cities and towns.
+--------------------------------------------------------------------------------------------------------------------*/		
+
+//Global maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
+DZAI_maxHeliPatrols = 2;
+
+//Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+DZAI_respawnTMinA = 600;
+DZAI_respawnTMaxA = 900;
+
+//Classnames of air vehicle types to use, with the maximum amount of each type to spawn.
+DZAI_heliList = [
+	["UH1H_DZ",1],
+	["C130J",1],
+	["Mi17_DZ",1]
+];
+
+//Difficulty level of air vehicle patrol units. Difficulty level also affects unit loadout and loot. Possible values: 0 to 3 (Default: 3)
+DZAI_heliUnitLevel = 1;
+
+//Maximum number of gunner units per air vehicle. Limited by actual number of available gunner positions. (Default: 2)
+DZAI_heliGunnerUnits = 2;
+
+//Specify vehicle weapon for air vehicles that are unarmed by default. DZAI will arm these air vehicles with the specified weapons upon spawning each vehicle.
+//Weapon classnames are verified. If the classname is invalid (banned or nonexistent), it will not be added to the vehicle.
+//Format: Each row containing a vehicle classname will be equipped with the weapon from the corresponding row in weapon classnames section. DZAI will automatically select ammo type.
+DZAI_airWeapons = [
+	//Air vehicle classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
+	["Helicopter1_Example_Classname","Helicopter2_Example_Classname"]
+	,
+	//Corresponding weapon classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
+	["Helicopter1_Example_Weapon","Helicopter2_Example_Weapon"]
+];
+
+
+/*AI Land vehicle patrol settings. These AI vehicles will randomly travel between different cities and towns.
+--------------------------------------------------------------------------------------------------------------------*/	
+
+//Global maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).	
+DZAI_maxLandPatrols = 5;
+
+//Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+DZAI_respawnTMinL = 600;
+DZAI_respawnTMaxL = 900;
+
+//Classnames of land vehicle types to use, with the maximum amount of each type to spawn.
+DZAI_vehList = [
+	["UAZ_Unarmed_TK_EP1",1],
+	["Pickup_PK_INS",1],
+	["Ural_CDF",1],
+	["SUV_TK_CIV_EP1",1]
+];
+
+//Difficulty level of land vehicle patrol units. Difficulty level also affects unit loadout and loot. Possible values: 0 to 3 (Default: 3)
+DZAI_vehUnitLevel = 2;
+
+//Maximum number of gunner units per land vehicle. Limited by actual number of available gunner positions. (Default: 1)
+DZAI_vehGunnerUnits = 1;
+
+//Maximum number of cargo units per land vehicle. Limited by actual number of available cargo positions. (Default: 3)
+DZAI_vehCargoUnits = 3;
+
+
+/*	AI Vehicle (Air & Land) Settings
+--------------------------------------------------------------------------------------------------------------------*/
+
+//Array of area blacklist markers. Areas covered by marker will not be used as waypoints for vehicle patrols. (Example: ["BlacklistArea1","BlacklistArea2","BlacklistArea3"])
+//Note: Vehicles may still pass through these areas but will not make stops unless enemies are encountered.
+DZAI_waypointBlacklist = [];
+
+
+/*	AI weapon selection settings
+--------------------------------------------------------------------------------------------------------------------*/
+
+//True: Dynamically generate AI weapon list from CfgBuildingLoot (DayZ loot tables). False: Use preset weapon tables located near the end of this file. (Default: true).
+//Highly recommended to enable DZAI_verifyTables if this option is set to false. 
+DZAI_dynamicWeaponList = true;
+
+//Determines whether DZAI reads from default DayZ loot tables for dynamic AI weapon generation or from user-installed custom loot tables. (Default: false)
+//No effect if DZAI_dynamicWeaponList is 'false'. If DZAI is unable to find custom loot tables installed, default loot tables will be used instead. If no loot tables are found, DZAI will use prebuilt weapon tables.
+DZAI_customLootTables = false;
+
+//List of classnames of weapons that AI should never use. By default, AI may carry any lootable weapon. (Only if DZAI_dynamicWeaponList = true)  
+//Example: DZAI_banAIWeapons = ["M107_DZ","BAF_AS50_scoped"] will remove the M107 and AS50 from AI weapon tables if dynamic weapon list is enabled.								
+//Note: It is recommended to add all melee weapon classnames into this list as AI have issues using melee weapons. 
+//Pre-banned weapons by DZAI: "Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails"
+DZAI_banAIWeapons = [];										
+
+//List of launcher-type weapons for mid/high-level AI to use (by default, weapongrade 1/2/3), example: ["M136"]. If left empty, AI will not use launcher weapons. (Default: [])
+//If AI encounter an armored player vehicle, they will switch to a randomly-selected launcher-type weapon to engage.
+//Weapon classnames added here are verified if DZAI_verifyTables is set to true. Note: Launcher weapons are removed from the AI unit upon death.
+DZAI_launcherTypes = [];	
+
+//List of AI weapongrades that are permitted to use launcher-type weapons. Individual custom weapongrade levels may be added to allow launcher use (Default: [1,2,3])
+DZAI_launcherLevels = [1,2,3];								
+
+//Limit of number of launcher-type weapons to add to each AI group. Groups cannot have more launcher weapons than their weapongrade value (Default: 1).
+DZAI_launchersPerGroup = 1;
+
+
+/*	AI loot quantity settings
+--------------------------------------------------------------------------------------------------------------------*/
+
+//Number of selections of medical items (Inventory)
+DZAI_invmedicals = 1;
+
+//Number of selections of edible items (Inventory) 										
+DZAI_invedibles = 1;	
+
+//Number of selections of medical items (Backpack)									
+DZAI_bpmedicals = 1; 	
+
+//Number of selections of edible items (Backpack)									
+DZAI_bpedibles = 1;	
+
+//Maximum number of items to select from DZAI_MiscItemS table.										
+DZAI_numMiscItemS = 3;						
+
+//Maximum number of items to select from DZAI_MiscItemL table.				
+DZAI_numMiscItemL = 1;										
+
+
+/*	AI loot probability settings
+--------------------------------------------------------------------------------------------------------------------*/
+
+//Chance to add each medical item.
+DZAI_chanceMedicals = 0.70;	
+
+//Chance to add each edible item.								
+DZAI_chanceEdibles = 0.70;
+
+//Chance to add each random item from DZAI_MiscItemS table.									
+DZAI_chanceMiscItemS = 0.60;
+
+//Chance to add each random item from DZAI_MiscItemL table.								
+DZAI_chanceMiscItemL = 0.15;								
+
+
+/*AI weapon/skill probabilities (gradeChances should add up to 1.00) - [Civilian, Military, MilitarySpecial, HeliCrash] - Note: AI with higher grade weaponry will also have higher skill settings.
+--------------------------------------------------------------------------------------------------------------------*/
+
+//equipType level 0 - most AI will have basic pistols or rifles, and occasionally common military weapons.
+DZAI_gradeChances0 = [0.90,0.10,0.00,0.00];	
+
+//equipType level 1 - most AI will have common rifles, many will have common military weapons. Very rarely, AI will spawn with high-grade military or helicrash weapons.				
+DZAI_gradeChances1 = [0.65,0.30,0.04,0.01];	
+
+//equipType level 2 - most AI carry military weapons, and occasionally high-grade military weapons.				
+DZAI_gradeChances2 = [0.15,0.65,0.15,0.05];
+
+//equipType level 3 - All AI will carry at least a military-grade weapon. Many will be carrying high-grade military weapons. Note: Air and land vehicle patrols use equipType level 3.					
+DZAI_gradeChances3 = [0.00,0.50,0.35,0.15];	
+
+//equipType level "dynamic" - Weapongrade chances for dynamic-spawned AI. Majority of dynamic AI will be carrying low-grade military weapons, some will carry high-grade military.			
+DZAI_gradeChancesDyn = [0.00,0.88,0.09,0.03];				
+
+
+/*
+	AI skill settings
+	Skill Level: Description
+	0-1: Low to medium-skilled AI. Most common type of AI encountered. Intended to challenge players.
+	2-3: High-skilled AI. Uncommon/rare type of AI found in places with military loot. Intended to kill players.
+	Hint: The best way to quickly adjust AI difficulty is by modifying aimingAccuracy value. For all skill types, higher number = better skill.
+*/
+
+//AI skill settings level 0 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.50
+DZAI_skill0 = [	
+	["aimingAccuracy",0.10,0.125],
+	["aimingShake",0.50,0.59],
+	["aimingSpeed",0.50,0.59],
+	["endurance",0.50,0.59],
+	["spotDistance",0.50,0.59],
+	["spotTime",0.50,0.59],
+	["courage",0.50,0.59],
+	["reloadSpeed",0.50,0.59],
+	["commanding",0.60,0.69],
+	["general",0.60,0.69]
+];
+
+//AI skill settings level 1 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.60
+DZAI_skill1 = [	
+	["aimingAccuracy",0.125,0.15],
+	["aimingShake",0.60,0.69],
+	["aimingSpeed",0.60,0.69],
+	["endurance",0.60,0.69],
+	["spotDistance",0.60,0.69],
+	["spotTime",0.60,0.69],
+	["courage",0.60,0.69],
+	["reloadSpeed",0.60,0.69],
+	["commanding",0.70,0.79],
+	["general",0.70,0.79]
+];
+
+//AI skill settings level 2 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.70
+DZAI_skill2 = [	
+	["aimingAccuracy",0.175,0.225],
+	["aimingShake",0.70,0.79],
+	["aimingSpeed",0.70,0.79],
+	["endurance",0.70,0.79],
+	["spotDistance",0.70,0.79],
+	["spotTime",0.70,0.79],
+	["courage",0.70,0.79],
+	["reloadSpeed",0.70,0.79],
+	["commanding",0.80,0.89],
+	["general",0.80,0.89]
+];
+
+//AI skill settings level 3 (Skill, Minimum skill, Maximum skill). Baseline skill level: 0.80
+DZAI_skill3 = [	
+	["aimingAccuracy",0.225,0.250],
+	["aimingShake",0.80,0.89],
+	["aimingSpeed",0.80,0.89],
+	["endurance",0.80,0.89],
+	["spotDistance",0.80,0.89],
+	["spotTime",0.80,0.89],
+	["courage",0.80,0.89],
+	["reloadSpeed",0.80,0.89],
+	["commanding",0.90,0.99],
+	["general",0.90,0.99]
+];
+
+
+/*
+	Additional AI skill settings can be defined (DZAI_skill4 - DZAI_skill9) for the corresponding custom weapongrade level using the same format above.
+	Note: If a custom weapongrade is used without defining the corresponding custom skill settings, DZAI_skill3 settings will be used instead.
+	Instructions: replace "nil" with the skill array. Refer to the above preset skill arrays for examples.
+	Custom AI skill settings can only be used with custom-defined spawns (spawns created using the DZAI_spawn function).
+*/
+
+//weapongrade 4 skills
+DZAI_skill4 = nil; 
+
+//weapongrade 5 skills
+DZAI_skill5 = nil; 
+
+//weapongrade 6 skills
+DZAI_skill6 = nil; 
+
+//weapongrade 7 skills
+DZAI_skill7 = nil; 
+
+//weapongrade 8 skills
+DZAI_skill8 = nil;
+
+//weapongrade 9 skills
+DZAI_skill9 = nil; 
+
+
+/*
+	AI weapon, loot, and equipment settings
+	
+	DZAI will first load the classname tables defined below, the modify the settings according to the DayZ map/mod being run.
+	
+	Example: DZAI will always first load the classname tables defined below, then if DayZ Epoch is detected, DZAI will add or overwrite settings specified by \world_classname_configs\epoch\dayz_epoch.sqf. 
+	
+*/
+
+//Default weapon classname tables - DZAI will ONLY use these tables if the dynamic weapon list (DZAI_dynamicWeaponList) is disabled, otherwise they are ignored and overwritten if it is enabled.
+//Note: Low-level AI (weapongrade 0) may use pistols listed in DZAI_Pistols0 or DZAI_Pistols1. Mid/high level AI (weapongrade 1+) will carry pistol weapons but not use them - they will use rifle weapons instead.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Pistols0 = ["Makarov_DZ","M1911_DZ","Revolver_DZ"]; 				//Weapongrade 0 pistols
+DZAI_Pistols1 = ["M9_DZ","M9_SD_DZ","Makarov_SD_DZ","PDW_DZ","G17_FL_DZ"]; 	//Weapongrade 1 pistols
+DZAI_Pistols2 = ["M9_SD_DZ","Makarov_SD_DZ","PDW_DZ","G17_FL_DZ"]; 		//Weapongrade 2 pistols
+DZAI_Pistols3 = ["M9_SD_DZ","Makarov_SD_DZ","PDW_DZ","G17_FL_DZ"]; 		//Weapongrade 3 pistols
+
+DZAI_Rifles0 = ["LeeEnfield_DZ","Winchester1866_DZ","MR43_DZ","CZ550_DZ","LeeEnfield_DZ","Winchester1866_DZ","MR43_DZ"]; //Weapongrade 0 rifles
+DZAI_Rifles1 = ["M16A2_DZ","M16A2_GL_DZ","AK74_DZ","M4A1_CCO_DZ","AK74_Kobra_DZ","AKS74U_DZ","AKM_DZ","M24_DZ","M1014_DZ","DMR_DZ","M4A1_DZ","M14_CCO_DZ","Remington870_FL_DZ","MP5_DZ","MP5_SD_DZ","M4A3_CCO_EP1"]; //Weapongrade 1 rifles
+DZAI_Rifles2 = ["M16A2_DZ","M16A2_GL_DZ","M249_DZ","AK74_DZ","M4A1_CCO_DZ","AK74_Kobra_DZ","AKS74U_DZ","AKM_DZ","M24_DZ","SVD_Gh_DZ","M1014_DZ","DMR_DZ","M4A1_DZ","M14_CCO_DZ","Remington870_FL_DZ","M240_DZ","M4A1_AIM_SD_camo","M16A4_ACOG_DZ","M4A1_HWS_GL_camo","Mk48_CCO_DZ","M4A3_CCO_EP1","Sa58V_RCO_EP1","Sa58V_CCO_EP1","M40A3_Gh_DZ","SA58_DZ","SA58_DZ"]; //Weapongrade 2 rifles
+DZAI_Rifles3 = ["FNFAL_DZ","FN_FAL_ANPVS4_DZE","Mk48_CCO_DZ","M249_DZ","L85_Holo_DZ","G36C_DZ","G36C_camo","G36A_Camo_DZ","G36K_Camo_DZ","AKM_DZ","AKS74U_DZ","M14_CCO_DZ","Bizon_SD_DZ","DMR_DZ","RPK74_DZ"]; //Weapongrade 3 rifles
+
+	
+/*
+	Custom rifle tables can be defined below this line (DZAI_Rifles4 - DZAI_Rifles9) for the corresponding custom weapongrade level using the same format above. 
+	Note: If a custom weapongrade is used without defining the corresponding custom rifle array, the DZAI_Rifles3 array will be used instead.
+	Instructions: Replace "nil" with the wanted rifle array. Refer to the above rifle arrays for examples on how to define custom rifle tables.
+	Custom rifle tables can only be used with custom-defined spawns (spawns created using the DZAI_spawn function). 
+*/
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Rifles4 = nil; //weapongrade 4 weapons
+DZAI_Rifles5 = nil; //weapongrade 5 weapons
+DZAI_Rifles6 = nil; //weapongrade 6 weapons
+DZAI_Rifles7 = nil; //weapongrade 7 weapons
+DZAI_Rifles8 = nil; //weapongrade 8 weapons
+DZAI_Rifles9 = nil; //weapongrade 9 weapons
+
+
+//AI skin classnames. DZAI will use any of these classnames for AI spawned. Note: Additional skins may be included on a per-map or per-mod basis - see folders in \world_classname_configs
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_BanditTypes = ["Survivor2_DZ", "SurvivorW2_DZ", "Bandit1_DZ", "BanditW1_DZ", "Camo1_DZ", "Sniper1_DZ"];
+
+
+//AI Backpack types (for weapongrade levels 0-3)
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Backpacks0 = ["DZ_Patrol_Pack_EP1","DZ_Czech_Vest_Pouch","DZ_Assault_Pack_EP1"];
+DZAI_Backpacks1 = ["DZ_Patrol_Pack_EP1","DZ_Czech_Vest_Pouch","DZ_Assault_Pack_EP1","DZ_British_ACU","DZ_TK_Assault_Pack_EP1","DZ_CivilBackpack_EP1","DZ_ALICE_Pack_EP1"];
+DZAI_Backpacks2 = ["DZ_CivilBackpack_EP1","DZ_British_ACU","DZ_Backpack_EP1"];
+DZAI_Backpacks3 = ["DZ_CivilBackpack_EP1","DZ_Backpack_EP1"];
+
+
+//AI Food/Medical item types. DZAI_Edibles: Drinkable and edible items. DZAI_Medicals1: List of common medical items to be added to AI inventory. DZAI_Medicals2: List of all medical items available only in hospitals to be added to AI backpack.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_Edibles = ["ItemSodaCoke", "ItemSodaPepsi", "ItemWaterbottle", "FoodCanSardines", "FoodCanBakedBeans", "FoodCanFrankBeans", "FoodCanPasta", "ItemWaterbottleUnfilled","ItemWaterbottleBoiled","FoodmuttonCooked","FoodchickenCooked","FoodBaconCooked","FoodRabbitCooked","FoodbaconRaw","FoodchickenRaw","FoodmuttonRaw","foodrabbitRaw","FoodCanUnlabeled","FoodPistachio","FoodNutmix","FoodMRE"];
+DZAI_Medicals1 = ["ItemBandage", "ItemPainkiller"];
+DZAI_Medicals2 = ["ItemPainkiller", "ItemMorphine", "ItemBandage", "ItemBloodbag", "ItemAntibiotic","ItemEpinephrine"];
+
+
+//AI Miscellaneous item types. DZAI_MiscItemS: List of random low-value items. DZAI_MiscItemL: List of random semi-valuable/useful items
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_MiscItemS = ["ItemHeatpack", "HandRoadFlare", "HandChemBlue", "HandChemRed", "HandChemGreen","SmokeShell","TrashTinCan","TrashJackDaniels","ItemSodaEmpty"];
+DZAI_MiscItemL = ["ItemJerrycan", "PartWheel", "PartEngine", "PartFueltank", "PartGlass", "PartVRotor","PartWoodPile"];
+
+
+//AI toolbelt item types. Toolbelt items are added to AI inventory upon death. Format: [item classname, item probability]
+//Weapongrade level 0-1 AI will use DZAI_tools0 table, weapongrade level 2-3 AI will use DZAI_tools1 table. Custom-spawned AI will use DZAI_tools1 table.
+//NOTE: Do not delete any elements from this list, set its chance to zero intead. Only add elements to the end of the array, not in the middle.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_tools0 = [["ItemFlashlight",0.65],["ItemWatch",0.65],["ItemKnife",0.50],["ItemHatchet",0.40],["ItemCompass",0.40],["ItemMap",0.35],["ItemToolbox",0.15],["ItemMatchbox",0.15],["ItemFlashlightRed",0.05],["ItemGPS",0.005],["ItemRadio",0.005],["ItemCrowbar",0.15]];
+DZAI_tools1 = [["ItemFlashlight",0.75],["ItemWatch",0.75],["ItemKnife",0.75],["ItemHatchet",0.70],["ItemCompass",0.75],["ItemMap",0.70],["ItemToolbox",0.35],["ItemMatchbox",0.40],["ItemFlashlightRed",0.10],["ItemGPS",0.10],["ItemRadio",0.075],["ItemCrowbar",0.35]];
+
+
+//AI-useable toolbelt item types. These items are added to AI inventory at unit creation and may be used by AI. Format: [item classname, item probability]
+//Weapongrade level 0-1 AI will use DZAI_gadgets0 table, weapongrade level 2-3 AI will use DZAI_gadgets1 table. Custom-spawned AI will use DZAI_gadgets1 table.
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DZAI_gadgets0 = [["binocular",0.40],["NVGoggles",0.00]];
+DZAI_gadgets1 = [["binocular",0.60],["NVGoggles",0.05]];
+
+
+//NOTHING TO EDIT BEYOND THIS POINT
+diag_log "[DZAI] DZAI configuration file loaded.";
