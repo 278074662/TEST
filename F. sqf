@@ -378,3 +378,5 @@ for "_x" from 1 to MaxDynamicDebris do {call spawn_roadb>
  2:51:11 "infiSTAR.de fnc_AdminReqProceed: [1,B 1-1-B:1 (TEEMO) REMOTE,B 1-1-B:1 (TEEMO) REMOTE,[6536.33,2699.82,0]]"
  2:51:11 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   Admin TEEMO(76561198127675194) teleported to   GPS: 065126   WorldSpace: [6536.33,2699.82,0]"
  2:51:11 "<infiSTAR.de> AdminLog: 4h 34min | Admin TEEMO(76561198127675194) teleported to   GPS: 065126   WorldSpace: [6536.33,2699.82,0]"
+ 2:53:42 "TraderConvoy: Trader has arrived"
+ 2:53:47 "TraderConvoy: Now lock vehicle"
