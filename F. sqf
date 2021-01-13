@@ -1,11 +1,8 @@
-
-
-=====================================================================
 == C:\dayzserver\arma2oaserver.exe
 == arma2oaserver.exe  -port=2302 "-BEpath=DZE_Server_Config\BattlEye" "-config=11_chernarus.cfg" "-cfg=DZE_Server_Config\basic.cfg" "-profiles=DZE_Server_Config" -name=server "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"
 =====================================================================
 Exe timestamp: 2021/01/07 19:16:09
-Current time:  2021/01/13 12:33:14
+Current time:  2021/01/13 12:55:45
 
 Version 1.64.144629
 Unable to initialize Steam API.
@@ -84,296 +81,746 @@ Updating base class NonStrategic->House, by zero_buildings\config.bin/CfgVehicle
 Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_1L2/
 Updating base class Land_HouseV_1I2->House, by zero_buildings\config.bin/CfgVehicles/Land_HouseV_3I3/
 Updating base class House->DZE_OpenHouse, by warehouse\config.bin/CfgVehicles/Land_Ind_Pec_03/
-12:33:33 Initializing Steam server - Game Port: 2302, Steam Query Port: 2303
-12:33:35 Connected to Steam servers
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:43 Server error: Player without identity TEEMO (id 170699513)
-12:34:56 Strange convex component81 in zero_buildings\models\housev_3i3_i.p3d:geometryFire
-12:34:57 Strange convex component31 in zero_buildings\models\proxies\th_arches.p3d:geometryView
-12:34:58 Strange convex component207 in zero_buildings\models\a_tvtower\a_tvtower_base.p3d:geometryFire
-12:34:58 Strange convex component44 in zero_buildings\models\houseblock\houseblock_c4.p3d:geometry
-12:34:58 Strange convex component288 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component289 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component290 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component291 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component292 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component293 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component294 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component295 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component296 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component297 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component298 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component299 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component300 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component301 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component302 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component303 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component304 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component305 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component306 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component307 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component308 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component309 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component310 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component311 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component312 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component313 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component314 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component315 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component316 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component317 in warehouse\models\warehouse.p3d:geometry
-12:34:58 Strange convex component252 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component253 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component254 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component255 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component256 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component257 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component258 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component259 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component260 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component261 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component262 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component263 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component264 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component265 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component266 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component267 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component268 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component269 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component270 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component271 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component272 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component273 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component274 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component275 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component276 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component277 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component278 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component279 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component280 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component281 in warehouse\models\warehouse.p3d:geometryFire
-12:34:58 Strange convex component249 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component250 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component251 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component252 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component253 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component254 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component255 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component256 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component257 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component258 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component259 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component260 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component261 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component262 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component263 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component264 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component265 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component266 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component267 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component268 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component269 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component270 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component271 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component272 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component273 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component274 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component275 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component276 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component277 in warehouse\models\warehouse.p3d:geometryView
-12:34:58 Strange convex component278 in warehouse\models\warehouse.p3d:geometryView
-12:35:02 "PRELOAD_ Functions\init [[<No group>:0 (FunctionsManager)],any]"
-12:35:02 "MPframework inited"
-12:35:02 "dayz_preloadFinished reset"
-12:35:03 "<infiSTAR.de> Error loading infiSTAR DLL"
-12:35:03 "<infiSTAR.de> 644435bd443e"
-12:35:03 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
-12:35:03 "<infiSTAR.de> "
-12:35:03 "<infiSTAR.de> Waiting for BIS_fnc_init..."
-12:35:03 Error in expression <ntFromString == 0x01);
+12:56:04 Initializing Steam server - Game Port: 2302, Steam Query Port: 2303
+12:56:07 Connected to Steam servers
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:37 Server error: Player without identity jjw080081 (id 1347864985)
+12:56:48 Strange convex component81 in zero_buildings\models\housev_3i3_i.p3d:geometryFire
+12:56:50 Strange convex component31 in zero_buildings\models\proxies\th_arches.p3d:geometryView
+12:56:50 Strange convex component207 in zero_buildings\models\a_tvtower\a_tvtower_base.p3d:geometryFire
+12:56:51 Strange convex component44 in zero_buildings\models\houseblock\houseblock_c4.p3d:geometry
+12:56:51 Strange convex component288 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component289 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component290 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component291 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component292 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component293 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component294 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component295 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component296 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component297 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component298 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component299 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component300 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component301 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component302 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component303 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component304 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component305 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component306 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component307 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component308 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component309 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component310 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component311 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component312 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component313 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component314 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component315 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component316 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component317 in warehouse\models\warehouse.p3d:geometry
+12:56:51 Strange convex component252 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component253 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component254 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component255 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component256 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component257 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component258 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component259 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component260 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component261 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component262 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component263 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component264 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component265 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component266 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component267 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component268 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component269 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component270 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component271 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component272 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component273 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component274 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component275 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component276 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component277 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component278 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component279 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component280 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component281 in warehouse\models\warehouse.p3d:geometryFire
+12:56:51 Strange convex component249 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component250 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component251 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component252 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component253 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component254 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component255 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component256 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component257 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component258 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component259 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component260 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component261 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component262 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component263 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component264 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component265 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component266 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component267 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component268 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component269 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component270 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component271 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component272 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component273 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component274 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component275 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component276 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component277 in warehouse\models\warehouse.p3d:geometryView
+12:56:51 Strange convex component278 in warehouse\models\warehouse.p3d:geometryView
+12:56:54 "PRELOAD_ Functions\init [[<No group>:0 (FunctionsManager)],any]"
+12:56:54 "MPframework inited"
+12:56:54 "dayz_preloadFinished reset"
+12:56:55 "<infiSTAR.de> Error loading infiSTAR DLL"
+12:56:55 "<infiSTAR.de> 644435bd443e"
+12:56:55 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
+12:56:55 "<infiSTAR.de> "
+12:56:55 "<infiSTAR.de> Waiting for BIS_fnc_init..."
+12:56:55 Error in expression <ntFromString == 0x01);
 missionNameSpace setVariable ['armalog',_armalog,true];
 i>
-12:35:03   Error position: <setVariable ['armalog',_armalog,true];
+12:56:55   Error position: <setVariable ['armalog',_armalog,true];
 i>
-12:35:03   Error 3 elements provided, 2 expected
-12:35:03 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
-12:35:03 "Epoch detected"
-12:35:03 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
-12:35:03 Warning Message: Script low_admins.sqf not found
-12:35:03 Warning Message: Script normal_admins.sqf not found
-12:35:03 Warning Message: Script super_admins.sqf not found
-12:35:03 Warning Message: Script blacklist.sqf not found
-12:35:03 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
-12:35:03 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
-12:35:03 "<infiSTAR.de> _fnc_RandomGen: {
+12:56:55   Error 3 elements provided, 2 expected
+12:56:55 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
+12:56:56 "Epoch detected"
+12:56:56 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
+12:56:56 Warning Message: Script low_admins.sqf not found
+12:56:56 Warning Message: Script normal_admins.sqf not found
+12:56:56 Warning Message: Script super_admins.sqf not found
+12:56:56 Warning Message: Script blacklist.sqf not found
+12:56:56 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
+12:56:56 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
+12:56:56 "<infiSTAR.de> _fnc_RandomGen: {
 _abc = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'];
 _gen = _abc select (random ((count _abc)-1));
 _arr = ['a','2','c','c','7','0','b','2','2','5','3','7','1','5','5','8','5','2','3','5','a','2','d','a','a','1','b','c','9','1','9','e','f'];
 for '_i' from 0 to (8+(round(random 3))) do {_gen = _gen + str(round(random 9)) + (_arr select (random ((count _arr)-1)));};
 _gen
 }"
-12:35:03 "<infiSTAR.de> _simple: f5a3c43118b0770255395352a"
-12:35:03 "<infiSTAR.de> _dialogIds: o955c329c35291a89115c4c"
-12:35:03 "<infiSTAR.de> _badtxts: r4363815e2b09924a25721c22"
-12:35:03 "<infiSTAR.de> _randvar1: j9a626c685c55421d5b1028"
-12:35:03 "<infiSTAR.de> _randvar2: d3051727e2c1b710f15193c"
-12:35:03 "<infiSTAR.de> _randvar0: b471532236b871b1b8a313c"
-12:35:03 "<infiSTAR.de> _randvar3: p556f2062705c511272725a"
-12:35:03 "<infiSTAR.de> _randvar4: c1a85323b65428b8a518c4e61"
-12:35:03 "<infiSTAR.de> _randvar5: a9c4201253b2e824c6b1c68"
-12:35:03 "<infiSTAR.de> _randvar6: q91751a12358a827a4e5a"
-12:35:03 "<infiSTAR.de> _randvar8: b417532620a4c706528"
-12:35:03 "<infiSTAR.de> _randvar9: f815c8c125a6335120542"
-12:35:03 "<infiSTAR.de> _randvar11: g22554a6d39126c9c18"
-12:35:03 "<infiSTAR.de> _randvar12: q8a1c3b326f172c45352b"
-12:35:03 "<infiSTAR.de> _randvar13: y3b3165489a3b2b2a3f01"
-12:35:03 "<infiSTAR.de> _randvar19: b511555832285430832157959"
-12:35:03 "<infiSTAR.de> _randvar27: r9c5355323b8c31153c355f"
-12:35:03 "<infiSTAR.de> _randvar26: c6c221c5c8a9d4585708b2b01"
-12:35:03 "<infiSTAR.de> _randvar25: l158b5c836a3e8387515a"
-12:35:03 "<infiSTAR.de> _randvar31: o796d5f5e7e3c155b3c1a124a"
-12:35:03 "<infiSTAR.de> _randvar33: v20174562751532731a703b"
-12:35:03 "<infiSTAR.de> _randvar34: w07421b154c725f515735"
-12:35:03 "<infiSTAR.de> _randvar35: d3d32536b22481e35883a"
-12:35:03 "<infiSTAR.de> _randvar36: l214275610c95325e956a"
-12:35:03 "<infiSTAR.de> _randvar37: b6025424857321c925563"
-12:35:03 "<infiSTAR.de> _randvar39: a0c382502873d4c651c6a51"
-12:35:03 "<infiSTAR.de> _clickOnMapTimer: u1273776c056d2c8b096c21"
-12:35:03 "<infiSTAR.de> _clickOnMapCaught: z33697d2985653e2c47797081"
-12:35:03 "<infiSTAR.de> _fnc_handlerandvar10: f65421a3c8a1249575058331c"
-12:35:03 "<infiSTAR.de> _remark: b119a22315b3222125c097143"
-12:35:03 "<infiSTAR.de> _AHpos: j85352c3d429223417979"
-12:35:03 "<infiSTAR.de> _loadedcheckpos: s281c1359825e0561502125"
-12:35:03 "<infiSTAR.de> _loadedchecktime: o83530772625c52327a"
-12:35:03 "<infiSTAR.de> _MenuChecksRunningx: g658a170c7a0c125f9b"
-12:35:03 "<infiSTAR.de> _oneachframe: s929552877571527c5a5c"
-12:35:03 "<infiSTAR.de> _anotherloop: b608135888c6d0542434568"
-12:35:03 "<infiSTAR.de> _clientoncetwo: u423e2c80235565978d47"
-12:35:03 "<infiSTAR.de> _lastUnlock: y194a65510b520a42079b3c88"
-12:35:03 "<infiSTAR.de> _AdminReqCheck: j037a3561821b1b899833"
-12:35:03 "<infiSTAR.de> _antidupeCheckVar: r615345152a4a5a893d2b"
-12:35:03 "<infiSTAR.de> _antiantihack1_rndvar: h2835821185419d5a693163"
-12:35:03 "<infiSTAR.de> _antiantihack2_rndvar: l62597d4c2a4a8c158c8c"
-12:35:03 "<infiSTAR.de> _antidupePVResVar: o023c6a2d6a424c8a45"
-12:35:03 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_l8a1c4a278562519a852c"
-12:35:03 "<infiSTAR.de> _randvar10: PVAHR_0_a898a5b7c410d5719318251"
-12:35:03 "<infiSTAR.de> AntiHack LOADED!"
-12:35:03 "<infiSTAR.de> CREATING AdminMenu"
-12:35:03 "<infiSTAR.de> AdminMenu LOADED!"
-12:35:03 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
-12:35:03 "<infiSTAR.de> AntiHack FULLY LOADED"
-12:35:17 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
-12:35:17 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
-12:35:17 Client: Remote object 2:12 not found
-12:35:17 "<infiSTAR.de> starting main server loop"
-12:35:19 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
-12:35:19 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 3h 53min | ******ADMIN******"
-12:35:30 "Loading custom server compiles"
-12:35:30 "Deploy Anything: loading version 2.8.2 ..."
-12:35:30 "Deploy Anything: adding deployables to safe vehicle list..."
-12:35:30 "TraderConvoy: Spawned HMMWV_Ambulance d466080# 1055174: m997a2_ambulance.p3d"
-12:35:30 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
-12:35:30 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
-12:35:30 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
-12:35:30 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
-12:35:30 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
-12:35:30 "TraderConvoy: Adding waypoints"
-12:35:30 "TraderConvoy: Moving to 098093 [9826.98,5970.94]"
-12:35:32 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
-12:35:32 "HIVE: Starting"
-12:35:32 "SERVER FPS: 24  PLAYERS: 1"
-12:35:32 ["TIME SYNC: Local Time set to:",[2012,8,2,10,35],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,10,35]]
-12:35:32 "HIVE: trying to get objects"
-12:35:32 "HIVE: found 409 objects"
-12:35:32 "HIVE: Request sent"
-12:35:32 "INFO: Created 156 safe zone bubbles"
-12:35:32 "HIVE: Streamed 409 objects"
-12:35:33 "Res3tting B!S effects..."
-12:35:36 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 409 objects in 3.877 seconds (unscheduled)"
-12:35:36 "Total Number of spawn locations 6"
-12:35:36 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
-12:35:36 "[DZAI] Reading DZAI configuration file."
-12:35:36 "[DZAI] DZAI configuration file loaded."
-12:35:36 "CLEANUP: INITIALIZING Vehicle SCRIPT"
-12:35:36 "[DZAI] Compiling DZAI functions."
-12:35:36 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,35],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,10,35]]
-12:35:36 "[DZAI] DZAI functions compiled."
-12:35:36 "[DZAI] Epoch classnames loaded."
-12:35:36 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
-12:35:36 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
-12:35:36 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
-12:35:36 "[DZAI] DZAI loading completed in 0.563995 seconds."
-12:35:52 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:73) Status: LOGGING IN"
-12:35:52 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:73) Status: LOGGING IN"
-12:35:52 "EPOCH EVENTS INIT"
-12:35:52 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
-12:35:52 "CRASHSPAWNER: Spawning crash site (CrashSite_US) at [3710.83,7458.19,0] with 6 items."
-12:35:52 CrashSite_US: MainTurret - unknown animation source MainTurret
-12:35:52 CrashSite_US: MainGun - unknown animation source mainGun
-12:35:52 CrashSite_US: Gatling - unknown animation source Gatling
-12:35:52 "Spawning Weed Farm at [4753.99,10151.2]"
-12:35:52 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:73) Status: LOGIN PUBLISHING, Location Stary Sobor @063076"
-12:35:52 "Spawning Weed Farm at [4444.12,10172.8]"
-12:35:52 "Spawning Weed Farm at [6779.63,9403.68]"
-12:35:53 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [7825.73,8850.36,0] with 5 items."
-12:35:53 "Spawning Weed Farm at [5113.04,5456.75]"
-12:35:53 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
-12:35:53 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
-12:35:53 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
-12:35:53 "INFO - Player: TEEMO(UID:76561198127675194/CID:73) Status: CLIENT LOADED & PLAYING"
-12:35:53 "Spawning Weed Farm at [6579.4,7245.32]"
-12:35:53 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [13101.3,6931.8,0] with 9 items."
-12:35:54 "WAI: AI Config File Loaded"
-12:35:54 "WAI: Initializing missions"
-12:35:54 "WAI: blacklist Loaded"
-12:35:54 "[DZAI] Verified 153 unique classnames in 1.51001 seconds."
-12:35:54 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [4997.71,8481.65,0] with 3 items."
-12:35:54 "WAI: AI Config File Loaded"
-12:35:54 "WAI: blacklist Loaded"
-12:35:54 "WAI: Initializing missions"
-12:35:54 "Chernarus spawn areas loaded."
-12:35:54 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [6532.36,7249.46,0] with 8 items."
-12:35:55 "Chernarus static spawn configuration loaded."
-12:35:55 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [4608.42,8389.23,0] with 7 items."
-12:35:55 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [6709.56,7894,0] with 5 items."
-12:35:56 "HIVE: Vehicle Spawn limit reached!"
-12:35:56 "HIVE: Spawning # of Debris: false"
-12:35:56 Error in expression <str(MaxDynamicDebris));
+12:56:56 "<infiSTAR.de> _simple: x3c2327156c1e916c02910371"
+12:56:56 "<infiSTAR.de> _dialogIds: l62810b624c481b4b29"
+12:56:56 "<infiSTAR.de> _badtxts: g59622a1a823921273225"
+12:56:56 "<infiSTAR.de> _randvar1: e9a1c48856e8b1535831951"
+12:56:56 "<infiSTAR.de> _randvar2: u272b6b41480c2a8a355b478a"
+12:56:56 "<infiSTAR.de> _randvar0: x11582318155702724315"
+12:56:56 "<infiSTAR.de> _randvar3: h81307c8a71855a55814a23"
+12:56:56 "<infiSTAR.de> _randvar4: c91492b55624c7f952512"
+12:56:56 "<infiSTAR.de> _randvar5: d1e458d950b717d6d1d41911d"
+12:56:56 "<infiSTAR.de> _randvar6: r338e32453c0981878551"
+12:56:56 "<infiSTAR.de> _randvar8: o573a0e257a9c3882522c69"
+12:56:56 "<infiSTAR.de> _randvar9: g5d7c95257c818d5260625e11"
+12:56:56 "<infiSTAR.de> _randvar11: v33513572753c5b416515"
+12:56:56 "<infiSTAR.de> _randvar12: s000909455b0e683a7c"
+12:56:56 "<infiSTAR.de> _randvar13: d798531929e255a330931581c"
+12:56:56 "<infiSTAR.de> _randvar19: y2a59489141412f204a25"
+12:56:56 "<infiSTAR.de> _randvar27: e1a027a7c8e1f5a8931"
+12:56:56 "<infiSTAR.de> _randvar26: m7a2a4b67134c6243055e2c"
+12:56:56 "<infiSTAR.de> _randvar25: v72454f822b2a4522332559"
+12:56:56 "<infiSTAR.de> _randvar31: k181c6d42031209512255156a"
+12:56:56 "<infiSTAR.de> _randvar33: c5041122572396152759c8998"
+12:56:56 "<infiSTAR.de> _randvar34: t302c4c42255d210c835505"
+12:56:56 "<infiSTAR.de> _randvar35: u176580332585258d754959"
+12:56:56 "<infiSTAR.de> _randvar36: g8155138249903a5d856363"
+12:56:56 "<infiSTAR.de> _randvar37: o25891a121c1e7a3a192c"
+12:56:56 "<infiSTAR.de> _randvar39: w555735459f63226062"
+12:56:56 "<infiSTAR.de> _clickOnMapTimer: v35696729255f6a523c3a"
+12:56:56 "<infiSTAR.de> _clickOnMapCaught: k311a353d0d29823b15"
+12:56:56 "<infiSTAR.de> _fnc_handlerandvar10: y7a4737428589524702396575"
+12:56:56 "<infiSTAR.de> _remark: m710e27378242621a606a"
+12:56:56 "<infiSTAR.de> _AHpos: a0c23115c7737604232"
+12:56:56 "<infiSTAR.de> _loadedcheckpos: w332c912933124d0268297215"
+12:56:56 "<infiSTAR.de> _loadedchecktime: r1b68759518621a1215658f"
+12:56:56 "<infiSTAR.de> _MenuChecksRunningx: q191a078d32728c9a2c991d60"
+12:56:56 "<infiSTAR.de> _oneachframe: w015c696f951c8821416523"
+12:56:56 "<infiSTAR.de> _anotherloop: v5e616c273182037c117231"
+12:56:56 "<infiSTAR.de> _clientoncetwo: d4a62834c4f2a273271228c"
+12:56:56 "<infiSTAR.de> _lastUnlock: p0e7202857c95704b31"
+12:56:56 "<infiSTAR.de> _AdminReqCheck: g2219421c0239522c1195"
+12:56:56 "<infiSTAR.de> _antidupeCheckVar: s8c3b49555c7283827e12"
+12:56:56 "<infiSTAR.de> _antiantihack1_rndvar: q4c57625d2009673e8321"
+12:56:56 "<infiSTAR.de> _antiantihack2_rndvar: c333d30727a61527195724c"
+12:56:56 "<infiSTAR.de> _antidupePVResVar: w1b8b610257314a23892d4592"
+12:56:56 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_r104b2a57573245632a35"
+12:56:56 "<infiSTAR.de> _randvar10: PVAHR_0_s81256c58657a7a520747"
+12:56:56 "<infiSTAR.de> AntiHack LOADED!"
+12:56:56 "<infiSTAR.de> CREATING AdminMenu"
+12:56:56 "<infiSTAR.de> AdminMenu LOADED!"
+12:56:56 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
+12:56:56 "<infiSTAR.de> AntiHack FULLY LOADED"
+12:57:11 "<infiSTAR.de> Player-Log: jjw080081(76561198075739489) - 4h 14min"
+12:57:21 "<infiSTAR.de> starting main server loop"
+12:57:22 "Loading custom server compiles"
+12:57:22 "Deploy Anything: loading version 2.8.2 ..."
+12:57:22 "Deploy Anything: adding deployables to safe vehicle list..."
+12:57:24 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
+12:57:24 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 4h 15min | ******ADMIN******"
+12:57:24 "HIVE: Starting"
+12:57:24 ["TIME SYNC: Local Time set to:",[2012,8,2,10,57],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,10,57]]
+12:57:24 "HIVE: trying to get objects"
+12:57:24 "HIVE: found 409 objects"
+12:57:24 "HIVE: Request sent"
+12:57:24 "HIVE: Streamed 409 objects"
+12:57:25 "TraderConvoy: Spawned HMMWV_Ambulance 1799b040# 1055355: m997a2_ambulance.p3d"
+12:57:25 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
+12:57:25 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
+12:57:25 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
+12:57:25 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
+12:57:25 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
+12:57:25 "TraderConvoy: Adding waypoints"
+12:57:25 "TraderConvoy: Moving to 029054 [2961.42,9919.46]"
+12:57:25 "Res3tting B!S effects..."
+12:57:28 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 409 objects in 3.995 seconds (unscheduled)"
+12:57:28 "Total Number of spawn locations 6"
+12:57:28 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
+12:57:28 "[DZAI] Reading DZAI configuration file."
+12:57:28 "[DZAI] DZAI configuration file loaded."
+12:57:28 "[DZAI] Compiling DZAI functions."
+12:57:28 "[DZAI] DZAI functions compiled."
+12:57:28 "[DZAI] Epoch classnames loaded."
+12:57:28 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
+12:57:28 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
+12:57:28 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
+12:57:28 "[DZAI] DZAI loading completed in 0.328003 seconds."
+12:57:28 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
+12:57:29 "INFO: Created 156 safe zone bubbles"
+12:57:29 "SERVER FPS: 44  PLAYERS: 2"
+12:57:29 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [12915.2,10763.4,0] with 4 items."
+12:57:29 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [10088.1,8712.69,0] with 6 items."
+12:57:30 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [10384.2,4722.1,0] with 6 items."
+12:57:30 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [8475.3,2669.5,0] with 8 items."
+12:57:30 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [1889.45,9194.06,0] with 8 items."
+12:57:30 "DEBUG: Spawning a care package (Misc_cargo_cont_net3) at [11715.5,12421.4,0] with 9 items."
+12:57:30 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
+12:57:30 "CRASHSPAWNER: Spawning crash site (CrashSite_UN) at [8786.2,6411.83,0] with 5 items."
+12:57:46 "<infiSTAR.de> CONNECTLOG: CONNECT - jjw080081(76561198075739489)"
+12:57:46 Client: Remote object 2:27 not found
+12:57:47 "HIVE: Vehicle Spawn limit reached!"
+12:57:47 "HIVE: Spawning # of Debris: false"
+12:57:47 Error in expression <str(MaxDynamicDebris));
 for "_x" from 1 to MaxDynamicDebris do {call spawn_roadb>
-12:35:56   Error position: <to MaxDynamicDebris do {call spawn_roadb>
-12:35:56   Error to: Type Bool, expected Number
-12:35:56 File z\addons\dayz_server\system\server_monitor.sqf, line 537
-12:36:01 "DZAI Warning: CH_47F_DZ is an invalid vehicle classname!"
-12:36:11 Warning: looped for animation: ca\anims\characters\data\anim\sdr\mov\erc\stp\non\non\amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end.rtm differs (looped now 0)! MoveName: amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end
-12:36:52 [DZMS]: Starting DayZ Mission System.
-12:36:52 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
-12:36:52 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
-12:36:52 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
-12:36:52 [DZMS]: Mission Clock Starting!
-12:40:56 "DZAI Monitor :: Server Uptime: 0:7:41. Active AI Groups: 9."
-12:40:56 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 0 groups queued."
-12:40:56 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 0. Air Patrols: 4. Land Patrols: 5."
-12:41:08 "TraderConvoy: Trader has arrived"
-12:41:13 "TraderConvoy: Now lock vehicle"
-12:41:20 "WAI: [Mission:[MainBandit] Farmer]: Starting... [3190.99,13874.3,0]"
-12:41:48 "SERVER FPS: 48  PLAYERS: 1"
-12:44:13 [DZMS]: Running Bandit Mission Medical_Outpost.
-12:44:13 MuzzleFlashROT - unknown animation source ammoRandom
-12:44:16 "Bandit Medical Outpost spawned at [4272.17,9530.21,0]"
-12:44:23 [DZMS]: Running Hero Mission Construction_Site.
-12:44:26 "Hero Construction Site spawned at [3135.86,8343.46,0]"
+12:57:47   Error position: <to MaxDynamicDebris do {call spawn_roadb>
+12:57:47   Error to: Type Bool, expected Number
+12:57:47 File z\addons\dayz_server\system\server_monitor.sqf, line 537
+12:57:47 "EPOCH EVENTS INIT"
+12:57:48 "Spawning Weed Farm at [11820.4,11998]"
+12:57:48 "Spawning Weed Farm at [5281.96,7244.68]"
+12:57:48 "Spawning Weed Farm at [11410,12694.1]"
+12:57:48 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
+12:57:48 "<infiSTAR.de> CONNECTLOG: CONNECT - __SERVER__()"
+12:57:48 "CLEANUP: INITIALIZING Vehicle SCRIPT"
+12:57:48 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,57],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,13,10,57]]
+12:57:48 "Spawning Weed Farm at [4894.36,9362.15]"
+12:57:48 "WAI: AI Config File Loaded"
+12:57:48 "WAI: Initializing missions"
+12:57:48 "WAI: blacklist Loaded"
+12:57:48 "Spawning Weed Farm at [8609.97,11447.1]"
+12:57:48 "WAI: AI Config File Loaded"
+12:57:48 "WAI: Initializing missions"
+12:57:48 "WAI: blacklist Loaded"
+12:57:48 "INFO - Player: PID#4(TEEMO)(UID:76561198127675194/CID:73) Status: LOGGING IN"
+12:57:48 "[DZAI] Verified 153 unique classnames in 0.347 seconds."
+12:57:48 "Chernarus spawn areas loaded."
+12:57:48 Server: Object 4:8 not found (message 70)
+12:57:49 "INFO - Player: PID#4(TEEMO)(UID:76561198127675194/CID:73) Status: LOGIN PUBLISHING, Location Stary Sobor @063076"
+12:57:49 "Chernarus static spawn configuration loaded."
+12:57:49 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+12:57:49 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
+12:57:49 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
+12:57:49 "INFO - Player: TEEMO(UID:76561198127675194/CID:73) Status: CLIENT LOADED & PLAYING"
+12:57:50 "INFO - Player: PID#3(jjw080081)(UID:76561198075739489/CID:74) Status: LOGGING IN"
+12:57:50 "<infiSTAR.de> CONNECTLOG: DISCONNECT - jjw080081(76561198075739489)"
+12:57:50 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198075739489","jjw080081"]"
+12:57:50 Client: Remote object 2:10 not found
+12:57:50 Client: Remote object 2:11 not found
+12:57:50 Client: Remote object 2:12 not found
+12:57:55 "DZAI Warning: CH_47F_DZ is an invalid vehicle classname!"
+12:57:57 "<infiSTAR.de> CONNECTLOG: CONNECT - jjw080081(76561198075739489)"
+12:57:58 "INFO - Player: PID#3(jjw080081)(UID:76561198075739489/CID:74) Status: LOGGING IN"
+12:57:59 "INFO - Player: PID#3(jjw080081)(UID:76561198075739489/CID:74) Status: LOGIN PUBLISHING, Location Drakon @111123"
+12:58:00 "INFO - Player: jjw080081(UID:76561198075739489/CID:74) Status: CLIENT LOADED & PLAYING"
+12:58:05 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO Spectating jjw080081"
+12:58:05 "<infiSTAR.de> AdminLog: 4h 15min | TEEMO Spectating jjw080081"
+12:58:07 Warning: looped for animation: ca\anims\characters\data\anim\sdr\mov\erc\stp\non\non\amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end.rtm differs (looped now 0)! MoveName: amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon_end
+12:58:27 "INFO: Cannot Sync Character jjw080081 near respawn_west [-18700.2,25800.3,0.00152588]. This is normal when relogging or changing clothes."
+12:58:30 Server: Object 3:16 not found (message 99)
+12:58:30 Server: Object 3:16 not found (message 99)
+12:58:30 Server: Object 3:17 not found (message 91)
+12:58:30 Server: Object 3:16 not found (message 99)
+12:58:31 Server: Object 3:16 not found (message 99)
+12:58:31 Server: Object 3:16 not found (message 99)
+12:58:31 Server: Object 3:16 not found (message 98)
+12:58:31 Server: Object 3:16 not found (message 99)
+12:58:31 Server: Object 3:16 not found (message 99)
+12:58:31 Server: Object 3:16 not found (message 98)
+12:58:31 Server: Object 3:16 not found (message 98)
+12:58:31 Server: Object 3:16 not found (message 99)
+12:58:31 Server: Object 3:16 not found (message 99)
+12:58:31 Server: Object 3:16 not found (message 98)
+12:58:31 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:32 Server: Object 3:16 not found (message 98)
+12:58:32 Server: Object 3:16 not found (message 99)
+12:58:33 Server: Object 3:16 not found (message 98)
+12:58:33 Server: Object 3:16 not found (message 99)
+12:58:33 Server: Object 3:16 not found (message 98)
+12:58:33 Server: Object 3:16 not found (message 99)
+12:58:33 Server: Object 3:16 not found (message 98)
+12:58:33 Server: Object 3:16 not found (message 99)
+12:58:33 Server: Object 3:16 not found (message 98)
+12:58:33 Server: Object 3:16 not found (message 99)
+12:58:33 Server: Object 3:16 not found (message 98)
+12:58:33 Server: Object 3:16 not found (message 99)
+12:58:41 Server: Object 3:23 not found (message 99)
+12:58:41 Server: Object 3:24 not found (message 91)
+12:58:41 Server: Object 3:23 not found (message 99)
+12:58:41 Server: Object 3:24 not found (message 91)
+12:58:41 Server: Object 3:23 not found (message 99)
+12:58:41 Server: Object 3:27 not found (message 91)
+12:58:41 Server: Object 3:26 not found (message 99)
+12:58:41 Server: Object 3:23 not found (message 99)
+12:58:41 Server: Object 3:25 not found (message 94)
+12:58:41 Server: Object 3:24 not found (message 91)
+12:58:41 Server: Object 3:27 not found (message 91)
+12:58:41 Server: Object 3:26 not found (message 99)
+12:58:41 Server: Object 3:23 not found (message 99)
+12:58:41 Server: Object 3:27 not found (message 91)
+12:58:41 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:22 not found (message 91)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:22 not found (message 91)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:21 not found (message 99)
+12:58:42 Server: Object 3:26 not found (message 99)
+12:58:42 Server: Object 3:23 not found (message 99)
+12:58:42 Server: Object 3:27 not found (message 91)
+12:58:42 Server: Object 3:24 not found (message 91)
+12:58:43 Server: Object 3:27 not found (message 91)
+12:58:43 Server: Object 3:23 not found (message 99)
+12:58:43 Server: Object 3:26 not found (message 99)
+12:58:43 Server: Object 3:24 not found (message 91)
+12:58:43 Server: Object 3:21 not found (message 99)
+12:58:43 Server: Object 3:22 not found (message 91)
+12:58:43 Server: Object 3:26 not found (message 99)
+12:58:43 Server: Object 3:23 not found (message 99)
+12:58:43 Server: Object 3:21 not found (message 99)
+12:58:43 Server: Object 3:23 not found (message 99)
+12:58:43 Server: Object 3:25 not found (message 70)
+12:58:43 Server: Object 3:26 not found (message 99)
+12:58:43 Server: Object 3:23 not found (message 99)
+12:58:43 Server: Object 3:21 not found (message 99)
+12:58:43 Server: Object 3:23 not found (message 99)
+12:58:43 Server: Object 3:22 not found (message 91)
+12:58:43 Server: Object 3:21 not found (message 99)
+12:58:43 Server: Object 3:26 not found (message 99)
+12:58:43 Server: Object 3:26 not found (message 99)
+12:58:43 Server: Object 3:23 not found (message 99)
+12:58:49 [DZMS]: Starting DayZ Mission System.
+12:58:49 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
+12:58:49 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
+12:58:49 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
+12:58:49 [DZMS]: Mission Clock Starting!
+12:58:58 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO Spectating jjw080081"
+12:58:58 "<infiSTAR.de> AdminLog: 4h 16min | TEEMO Spectating jjw080081"
+12:59:09 Server: Object 3:29 not found (message 99)
+12:59:09 Server: Object 3:31 not found (message 99)
+12:59:09 Server: Object 3:29 not found (message 99)
+12:59:09 Server: Object 3:31 not found (message 99)
+12:59:09 Server: Object 3:29 not found (message 99)
+12:59:09 Server: Object 3:31 not found (message 99)
+12:59:09 Server: Object 3:29 not found (message 99)
+12:59:09 Server: Object 3:31 not found (message 99)
+12:59:09 Server: Object 3:29 not found (message 99)
+12:59:09 Server: Object 3:31 not found (message 99)
+12:59:10 Server: Object 3:29 not found (message 99)
+12:59:52 Server: Object 3:38 not found (message 94)
+12:59:52 Server: Object 3:39 not found (message 70)
+12:59:52 Server: Object 3:37 not found (message 70)
+12:59:52 Server: Object 3:42 not found (message 70)
+12:59:53 Server: Object 3:43 not found (message 94)
+12:59:53 Server: Object 3:48 not found (message 94)
+12:59:53 Server: Object 3:37 not found (message 94)
+12:59:53 Server: Object 3:33 not found (message 94)
+12:59:53 Server: Object 3:38 not found (message 94)
+12:59:53 Server: Object 3:34 not found (message 94)
+12:59:58 Ref to nonnetwork object 332bb900# 1058947: roadbarrier_long.p3d
+13:00:08 "RUNNING EVENT: bombcrate on [2021,1,13,11,0]"
+13:00:08 "Spawning loot event at [7632.8,7571.71]"
+13:00:08 "Creating ammo box at [7497.61,7712.96]"
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry 'bin\config.bin/CfgMagazines.ItemSeaBassCooked'.
+13:00:08 Warning Message: No entry '.picture'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.scope'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: Error: creating magazine ItemSeaBassCooked with scope=private
+13:00:08 Warning Message: No entry '.displayName'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.displayNameShort'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.nameSound'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.Library'.
+13:00:08 Warning Message: No entry '.libTextDesc'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.type'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.count'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.maxLeadSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.initSpeed'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.reloadAction'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.modelSpecial'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 Warning Message: No entry '.ammo'.
+13:00:08 Warning Message: '/' is not a value
+13:00:08 "Loot event setup, waiting for 900 seconds"
+13:00:21 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO Spectating jjw080081"
+13:00:21 "<infiSTAR.de> AdminLog: 4h 18min | TEEMO Spectating jjw080081"
