@@ -1,179 +1,229 @@
 
- 3:56:14 "dayz_preloadFinished reset"
- 3:56:15 "<infiSTAR.de> Error loading infiSTAR DLL"
- 3:56:15 "<infiSTAR.de> 644435bd443e"
- 3:56:15 "<infiSTAR.de> 2cc70b2253715585235a2daa1bc919ef"
- 3:56:15 "<infiSTAR.de> "
- 3:56:15 "<infiSTAR.de> Waiting for BIS_fnc_init..."
- 3:56:15 Error in expression <ntFromString == 0x01);
-missionNameSpace setVariable ['armalog',_armalog,true];
-i>
- 3:56:15   Error position: <setVariable ['armalog',_armalog,true];
-i>
- 3:56:15   Error 3 elements provided, 2 expected
- 3:56:15 File z\addons\dayz_server\infiSTAR\AH.sqf, line 83
- 3:56:15 "Epoch detected"
- 3:56:15 "<infiSTAR.de> BIS_fnc_init done - AntiHack STARTING...!"
- 3:56:15 Warning Message: Script low_admins.sqf not found
- 3:56:15 Warning Message: Script normal_admins.sqf not found
- 3:56:15 Warning Message: Script super_admins.sqf not found
- 3:56:15 Warning Message: Script blacklist.sqf not found
- 3:56:15 "<infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 3:56:15 "<infiSTAR.de> start: <infiSTAR.de> iproductVersion: 05-11-2017 23-03-09-v1445 | Server productVersion: ["ArmA 2 OA","ArmA2OA",164,144629] | worldName: Chernarus | dayz_instance: 11 | missionName: DayZ_Epoch_11"
- 3:56:15 "<infiSTAR.de> _fnc_RandomGen: {
-_abc = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'];
-_gen = _abc select (random ((count _abc)-1));
-_arr = ['a','2','c','c','7','0','b','2','2','5','3','7','1','5','5','8','5','2','3','5','a','2','d','a','a','1','b','c','9','1','9','e','f'];
-for '_i' from 0 to (8+(round(random 3))) do {_gen = _gen + str(round(random 9)) + (_arr select (random ((count _arr)-1)));};
-_gen
-}"
- 3:56:15 "<infiSTAR.de> _simple: l3a31435a957a6b3c55676a49"
- 3:56:15 "<infiSTAR.de> _dialogIds: g12725a134a211b59372140"
- 3:56:15 "<infiSTAR.de> _badtxts: f625a62832b25177d1d21"
- 3:56:15 "<infiSTAR.de> _randvar1: v5c7c555e5c9915556f02"
- 3:56:15 "<infiSTAR.de> _randvar2: w620e12175511037b608542"
- 3:56:15 "<infiSTAR.de> _randvar0: k384535316192622547"
- 3:56:15 "<infiSTAR.de> _randvar3: s6a7f827b8e17857c775819"
- 3:56:15 "<infiSTAR.de> _randvar4: o7a40831c1f627585692b"
- 3:56:15 "<infiSTAR.de> _randvar5: k3c35558a255565334c"
- 3:56:15 "<infiSTAR.de> _randvar6: n3a851c987a29322c8e3738"
- 3:56:15 "<infiSTAR.de> _randvar8: w83754b555311415b1c3345"
- 3:56:15 "<infiSTAR.de> _randvar9: d318833959c7c79784352"
- 3:56:15 "<infiSTAR.de> _randvar11: m12251587824b371a85696a"
- 3:56:15 "<infiSTAR.de> _randvar12: n5a55551997327a1c287a52"
- 3:56:15 "<infiSTAR.de> _randvar13: m6301654c7c135c8a1a31"
- 3:56:15 "<infiSTAR.de> _randvar19: i45728a6115655c593a155a"
- 3:56:15 "<infiSTAR.de> _randvar27: p63225d5225174702558b4e8e"
- 3:56:15 "<infiSTAR.de> _randvar26: y15810205806c4e69456b"
- 3:56:15 "<infiSTAR.de> _randvar25: u4122817c376b5c5a551283"
- 3:56:15 "<infiSTAR.de> _randvar31: t157533095a2901328a77"
- 3:56:15 "<infiSTAR.de> _randvar33: m4195958033558252474219"
- 3:56:15 "<infiSTAR.de> _randvar34: t224d8525317c90733c4b"
- 3:56:15 "<infiSTAR.de> _randvar35: y0b75518341856943438a4247"
- 3:56:15 "<infiSTAR.de> _randvar36: q007c41723c45298b312133"
- 3:56:15 "<infiSTAR.de> _randvar37: h455a515b33631a5f8d62"
- 3:56:15 "<infiSTAR.de> _randvar39: l5d55673c721a41970a"
- 3:56:15 "<infiSTAR.de> _clickOnMapTimer: o30332f305503659251717245"
- 3:56:15 "<infiSTAR.de> _clickOnMapCaught: g2a757a616c457c6a458219"
- 3:56:15 "<infiSTAR.de> _fnc_handlerandvar10: p91631a7a5a2a12759e124b"
- 3:56:15 "<infiSTAR.de> _remark: s396e6875655d1b8c7a4922"
- 3:56:15 "<infiSTAR.de> _AHpos: k01620a7212455a28592c"
- 3:56:15 "<infiSTAR.de> _loadedcheckpos: o42637a18223a2b295e73"
- 3:56:15 "<infiSTAR.de> _loadedchecktime: j1a008c756a825c2c20"
- 3:56:15 "<infiSTAR.de> _MenuChecksRunningx: o9f95818593716c626273"
- 3:56:15 "<infiSTAR.de> _oneachframe: s254a0f0227828e4c02"
- 3:56:15 "<infiSTAR.de> _anotherloop: v88826b624e1a89211a2a486e"
- 3:56:15 "<infiSTAR.de> _clientoncetwo: t1c15526a6c123a3a1018"
- 3:56:15 "<infiSTAR.de> _lastUnlock: n897a8c67826559991a"
- 3:56:15 "<infiSTAR.de> _AdminReqCheck: d55823c62113295894c"
- 3:56:15 "<infiSTAR.de> _antidupeCheckVar: d1278370a639122311b1a8b7f"
- 3:56:15 "<infiSTAR.de> _antiantihack1_rndvar: h8c8b1152727e1557493f"
- 3:56:15 "<infiSTAR.de> _antiantihack2_rndvar: v65226a537542758a4c7a72"
- 3:56:15 "<infiSTAR.de> _antidupePVResVar: v81851b6d308555853b491c3e"
- 3:56:15 "<infiSTAR.de> _antidupePVCheckVar: PVAHR_0_j415a02824a8512091c521d"
- 3:56:15 "<infiSTAR.de> _randvar10: PVAHR_0_y853a4c123525117b1152"
- 3:56:15 "<infiSTAR.de> AntiHack LOADED!"
- 3:56:15 "<infiSTAR.de> CREATING AdminMenu"
- 3:56:15 "<infiSTAR.de> AdminMenu LOADED!"
- 3:56:15 "<infiSTAR.de> ADDING SERVERSIDE HANDLERS"
- 3:56:15 "<infiSTAR.de> AntiHack FULLY LOADED"
- 3:56:30 "<infiSTAR.de> Player-Log: TEEMO(76561198127675194) - 5h 39min | ******ADMIN******"
- 3:56:36 "<infiSTAR.de> CONNECTLOG: DISCONNECT - TEEMO(76561198127675194)"
- 3:56:36 "INFO: OnPlayerDisconnect exiting. Player is near respawn_west. This is normal after death. ["76561198127675194","TEEMO"]"
- 3:56:36 Client: Remote object 2:12 not found
- 3:56:36 "<infiSTAR.de> starting main server loop"
- 3:56:40 "<infiSTAR.de> CONNECTLOG: CONNECT - TEEMO(76561198127675194)"
- 3:56:40 "TraderConvoy: Spawned HMMWV_Ambulance cc9c100# 1055173: m997a2_ambulance.p3d"
- 3:56:40 "TraderConvoy: Spawned UN_CDF_Soldier_Pilot_EP1 Stanislav Novak as driver"
- 3:56:40 "TraderConvoy: Spawned a Trader GUE_Woodlander2 Dobromil Tkachuk"
- 3:56:40 "TraderConvoy: Spawned a Trader RU_Citizen4 Mikhail Bulgakov"
- 3:56:40 "Loading custom server compiles"
- 3:56:40 "Deploy Anything: loading version 2.8.2 ..."
- 3:56:40 "TraderConvoy: Spawned a Trader Woodlander3 Ruslan Ledvina"
- 3:56:40 "TraderConvoy: [C 1-1-A:2,C 1-1-A:3,C 1-1-A:4]"
- 3:56:40 "Deploy Anything: adding deployables to safe vehicle list..."
- 3:56:40 "TraderConvoy: Adding waypoints"
- 3:56:40 "TraderConvoy: Moving to 125027 [12503.8,12587]"
- 3:56:42 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."
- 3:56:42 "HIVE: Starting"
- 3:56:42 ["TIME SYNC: Local Time set to:",[2012,8,2,10,56],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,56]]
- 3:56:42 "HIVE: trying to get objects"
- 3:56:42 "SERVER FPS: 23  PLAYERS: 1"
- 3:56:42 "HIVE: found 484 objects"
- 3:56:42 "HIVE: Request sent"
- 3:56:42 "INFO: Created 156 safe zone bubbles"
- 3:56:42 "HIVE: Streamed 484 objects"
- 3:56:43 "Res3tting B!S effects..."
- 3:56:46 "HIVE: BENCHMARK - Server_monitor.sqf finished streaming 484 objects in 3.84601 seconds (unscheduled)"
- 3:56:46 "Total Number of spawn locations 6"
- 3:56:46 "[DZAI] Initializing DZAI version 2.2.1 Release Build 20141208 using base path z\addons\dayz_server\DZAI."
- 3:56:46 "[DZAI] Reading DZAI configuration file."
- 3:56:46 "[DZAI] DZAI configuration file loaded."
- 3:56:46 "CLEANUP: INITIALIZING Vehicle SCRIPT"
- 3:56:46 "[DZAI] Compiling DZAI functions."
- 3:56:46 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,10,56],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,14,10,56]]
- 3:56:46 "[DZAI] DZAI functions compiled."
- 3:56:46 "[DZAI] Epoch classnames loaded."
- 3:56:46 "[DZAI] DZAI settings: Debug Level: 0. DebugMarkers: false. WorldName: chernarus. ModName: epoch (Ver: dayz epoch 1.0.6.2). DZAI_dynamicWeaponList: true. VerifyTables: true."
- 3:56:46 "[DZAI] AI spawn settings: Static: true. Dynamic: true. Random: true. Air: true. Land: true."
- 3:56:46 "[DZAI] AI settings: DZAI_findKiller: true. DZAI_useHealthSystem: true. DZAI_weaponNoise: false. DZAI_zombieEnemy: false."
- 3:56:46 "[DZAI] DZAI loading completed in 0.493988 seconds."
- 3:56:47 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGGING IN"
- 3:56:47 "EPOCH EVENTS INIT"
- 3:57:01 Server: Object 3:8 not found (message 94)
- 3:57:01 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [7409.29,7742.78,0] with 5 items."
- 3:57:02 "INFO - Player: PID#3(TEEMO)(UID:76561198127675194/CID:106) Status: LOGIN PUBLISHING, Location Stary Sobor @063070"
- 3:57:02 "CRASHSPAWNER: Starting crash site spawner. Frequency: 25±20 min. Spawn chance: 0.75"
- 3:57:02 "CRASHSPAWNER: Spawning crash site (CrashSite_UN) at [2760.08,8993.44,0] with 5 items."
- 3:57:02 "Spawning Weed Farm at [4215.19,11014.4]"
- 3:57:02 "Spawning Weed Farm at [6330.79,8242.19]"
- 3:57:02 "infiSTAR.de fnc_AdminFirstReq: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 3:57:02 "infiSTAR.de ******ADMIN-LOGIN******: TEEMO(76561198127675194)"
- 3:57:02 "infiSTAR.de fnc_AdminReqProceed: [1234,B 1-1-B:1 (TEEMO) REMOTE,"76561198127675194"]"
- 3:57:02 "Spawning Weed Farm at [4449.04,9688.54]"
- 3:57:02 "INFO - Player: TEEMO(UID:76561198127675194/CID:106) Status: CLIENT LOADED & PLAYING"
- 3:57:02 "Spawning Weed Farm at [3232.24,7659.41]"
- 3:57:02 "INFO: Cannot Sync Character TEEMO near respawn_west [-18700,25800,0.00149536]. This is normal when relogging or changing clothes."
- 3:57:03 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [4844.31,4523.12,0] with 3 items."
- 3:57:03 "Spawning Weed Farm at [5994.16,10606.7]"
- 3:57:03 "WAI: AI Config File Loaded"
- 3:57:03 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [3246.65,9068.14,0] with 5 items."
- 3:57:03 "WAI: Initializing missions"
- 3:57:03 "WAI: blacklist Loaded"
- 3:57:03 "[DZAI] Verified 153 unique classnames in 1.22299 seconds."
- 3:57:03 "WAI: AI Config File Loaded"
- 3:57:03 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [11228.6,5014.07,0] with 4 items."
- 3:57:03 "Chernarus spawn areas loaded."
- 3:57:04 "WAI: blacklist Loaded"
- 3:57:04 "DEBUG: Spawning a care package (Misc_cargo_cont_net2) at [7466,12336.6,0] with 4 items."
- 3:57:04 "WAI: Initializing missions"
- 3:57:04 "DEBUG: Spawning a care package (Misc_cargo_cont_net1) at [8157.78,8662.28,0] with 6 items."
- 3:57:04 "Chernarus static spawn configuration loaded."
- 3:57:06 "HIVE: Vehicle Spawn limit reached!"
- 3:57:06 "HIVE: Spawning # of Debris: false"
- 3:57:06 Error in expression <str(MaxDynamicDebris));
-for "_x" from 1 to MaxDynamicDebris do {call spawn_roadb>
- 3:57:06   Error position: <to MaxDynamicDebris do {call spawn_roadb>
- 3:57:06   Error to: Type Bool, expected Number
- 3:57:06 File z\addons\dayz_server\system\server_monitor.sqf, line 537
- 3:57:10 "DZAI Warning: CH_47F_DZ is an invalid vehicle classname!"
- 3:58:01 [DZMS]: Starting DayZ Mission System.
- 3:58:01 [DZMS]: Multiple Relations Detected! Unwanted AI Behaviour May Occur!
- 3:58:01 [DZMS]: If Issues Arise, Decide on a Single AI System! (DZAI, SargeAI, or WickedAI)
- 3:58:01 [DZMS]: DayZ Epoch Detected! Epoch Configs loaded!
- 3:58:01 [DZMS]: Mission Clock Starting!
- 3:58:19 "infiSTAR.de PVAH_WriteLog: B 1-1-B:1 (TEEMO) REMOTE   TEEMO G_o_d ON"
- 3:58:19 "<infiSTAR.de> AdminLog: 0h 06min | TEEMO G_o_d ON"
- 3:59:12 Ref to nonnetwork object 32054800# 1058979: roadbarrier_long.p3d
- 4:00:01 "RUNNING EVENT: bombcrate on [2021,1,14,11,0]"
- 4:00:01 "Spawning loot event at [3117.54,3851.68]"
- 4:00:01 "Creating ammo box at [3023.1,3734.54]"
- 4:00:01 "Loot event setup, waiting for 900 seconds"
- 4:02:04 "DZAI Monitor :: Server Uptime: 0:10:38. Active AI Groups: 11."
- 4:02:04 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 0 groups queued."
- 4:02:04 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 0. Air Patrols: 4. Land Patrols: 5."
- 4:02:07 "TraderConvoy: Trader has arrived"
- 4:02:12 "TraderConvoy: Now lock vehicle"
- 4:02:57 "SERVER FPS: 46  PLAYERS: 1"
- 4:02:58 Ref to nonnetwork object 32194100# 1058890: roadbarrier_long.p3d
- 4:03:10 "WAI: [Mission:[MainHero] Base]: Starting... [6566.68,13692.3,0]"
+
+if (isDedicated) then {
+	call compile preprocessFileLineNumbers "\z\addons\dayz_server\init\server_check.sqf";
+	
+	// Send AI spawning information to the server
+	"EAT_PVEH_aiSpawn" addPublicVariableEventHandler {(_this select 1) spawn EAT_serverAiSpawn;};
+	
+	EAT_HumanityGainLoss = 25;
+    EAT_aiDeleteTimer = 600;
+	
+	_donn_delete_body_time = 600;
+	
+	
+	
+};
+
+
+
+/*	
+	For DayZ Epoch
+	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
+*/
+//Server settings
+dayZ_instance = 11; //Instance ID of this server
+dayZ_serverName = "UMDZ"; //Shown to all players in the bottom left of the screen (country code + server number)
+//Debug Monitor
+DebugMonitorScript = false;
+//Game settings
+dayz_antihack = 0; // DayZ Antihack / 1 = enabled // 0 = disabled
+dayz_REsec = 0; // DayZ RE Security / 1 = enabled // 0 = disabled
+dayz_enableRules = true; //Enables a nice little news/rules feed on player login (make sure to keep the lists quick).
+dayz_quickSwitch = true; //Turns on forced animation for weapon switch. (hotkeys 1,2,3) False = enable animations, True = disable animations
+dayz_POIs = false; //Adds Point of Interest map additions (negatively impacts FPS)
+dayz_infectiousWaterholes = false; //Randomly adds some bodies, graves and wrecks by ponds (negatively impacts FPS)
+dayz_ForcefullmoonNights = true; // Forces night time to be full moon.
+dayz_randomMaxFuelAmount = 500; //Puts a random amount of fuel in all fuel stations.
+ZombZ_Notif_File_Name = "notification_op5";
+//DayZMod presets
+dayz_presets = "Custom"; //"Custom","Classic","Vanilla","Elite"
+
+//Only need to edit if you are running a custom server.
+if (dayz_presets == "Custom") then {
+	dayz_enableGhosting = false; //Enable disable the ghosting system.
+	dayz_ghostTimer = 60; //Sets how long in seconds a player must be disconnected before being able to login again.
+	dayz_spawnselection = 0; //(Chernarus only) Turn on spawn selection 0 = random only spawns, 1 = spawn choice based on limits
+	dayz_spawncarepkgs_clutterCutter = 0; //0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
+	dayz_spawnCrashSite_clutterCutter = 0;	// heli crash options 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
+	dayz_spawnInfectedSite_clutterCutter = 0; // infected base spawn 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass 
+	dayz_bleedingeffect = 2; //1 = blood on the ground (negatively impacts FPS), 2 = partical effect, 3 = both
+	dayz_OpenTarget_TimerTicks = 60 * 10; //how long can a player be freely attacked for after attacking someone unprovoked
+	dayz_nutritionValuesSystem = false; //true, Enables nutrition system, false, disables nutrition system.
+	dayz_classicBloodBagSystem = true; // disable blood types system and use the single classic ItemBloodbag
+	dayz_enableFlies = false; // Enable flies on dead bodies (negatively impacts FPS).
+};
+
+	//Temp settings
+	dayz_DamageMultiplier = 2; //1 - 0 = Disabled, anything over 1 will multiply damage. Damage Multiplier for Zombies.
+	dayz_maxGlobalZeds = 50; //Limit the total zeds server wide.
+	dayz_temperature_override = true; // Set to true to disable all temperature changes.
+
+	enableRadio false;
+	enableSentences false;
+
+	// EPOCH CONFIG VARIABLES START //
+	#include "configVariables.sqf" // Don't remove this line
+	// See the above file for a full list including descriptions and default values
+	// Uncomment the lines below to change the default loadout
+	//DefaultMagazines = ["HandRoadFlare","ItemBandage","ItemPainkiller","8Rnd_9x18_Makarov","8Rnd_9x18_Makarov"];
+	//DefaultWeapons = ["Makarov_DZ","ItemFlashlight"];
+	//DefaultBackpack = "DZ_Patrol_Pack_EP1";
+	//DefaultBackpackItems = []; // Can include both weapons and magazines i.e. ["PDW_DZ","30Rnd_9x19_UZI"];
+	dayz_paraSpawn = false; // Halo spawn
+	DZE_slowZombies = false; // Force zombies to always walk
+	DZE_BackpackAntiTheft = true; // Prevent stealing from backpacks in trader zones
+	DZE_BuildOnRoads = false; // Allow building on roads
+	DZE_DamageBeforeMaint = 0.09;
+	DZE_PlayerZed = false; // Enable spawning as a player zombie when players die with infected status
+	DZE_R3F_WEIGHT = false; // Enable R3F weight. Players carrying too much will be overburdened and forced to move slowly.
+	DZE_StaticConstructionCount = 0; // Steps required to build. If greater than 0 this applies to all objects.
+	DZE_GodModeBase = true; // Make player built base objects indestructible
+	DZE_requireplot = 1; // Require a plot pole to build  0 = Off, 1 = On
+	DZE_PlotPole = [150,800]; // Radius owned by plot pole [Regular objects,Other plotpoles]. Difference between them is the minimum buffer between bases.
+	DZE_BuildingLimit = 1000; // Max number of built objects allowed in DZE_PlotPole radius
+	DZE_SafeZonePosArray = [[[6325,7807,0],100],[[4063,11664,0],100],[[11447,11364,0],100],[[1606,7803,0],100],[[12944,12766,0],100],[[12060,12638,0],100]]; // Format is [[[3D POS],RADIUS],[[3D POS],RADIUS]]; Stops loot and zed spawn, salvage and players being killed if their vehicle is destroyed in these zones.
+	DZE_SelfTransfuse = true; // Allow players to bloodbag themselves
+	DZE_selfTransfuse_Values = [5000,15,120]; // [blood amount given, infection chance %, cooldown in seconds]
+	DZE_ZombieSpeed = [3,3]; //slow zombies
+	MaxDynamicDebris = 0; // Max number of random road blocks to spawn around the map
+	MaxVehicleLimit = 25; // Max number of random vehicles to spawn around the map
+	spawnArea = 1400; // Distance around markers to find a safe spawn position
+	spawnShoremode = 1; // Random spawn locations  1 = on shores, 0 = inland
+	EpochUseEvents = true; //Enable event scheduler. Define custom scripts in dayz_server\modules to run on a schedule.
+	EpochEvents = [
+	["any","any","any","any",5,"abandonedvaults"],
+	["any","any","any","any",10,"building_supplies"],
+	["any","any","any","any",15,"Military"],
+	["any","any","any","any",20,"gasstation"],
+	["any","any","any","any",25,"Bombcrate"],
+	["any","any","any","any",30,"Player_supply"],
+	["any","any","any","any",35,"VeinFarm"],
+	["any","any","any","any",40,"drug_bust"],
+	["any","any","any","any",45,"special_forces"],
+	["any","any","any","any",50,"Battlezone"] 
+	];
+	CustomHUD = true;
+	DZE_UI = "epoch";
+	// EPOCH CONFIG VARIABLES END //
+
+	diag_log 'dayz_preloadFinished reset';
+	dayz_preloadFinished=nil;
+	onPreloadStarted "diag_log [diag_tickTime,'onPreloadStarted']; dayz_preloadFinished = false;";
+	onPreloadFinished "diag_log [diag_tickTime,'onPreloadFinished']; dayz_preloadFinished = true;";
+	with uiNameSpace do {RscDMSLoad=nil;}; // autologon at next logon
+
+	if (!isDedicated) then {
+		enableSaving [false, false];	
+		startLoadingScreen ["","RscDisplayLoadCustom"];
+		progressLoadingScreen 0;
+		dayz_loadScreenMsg = localize 'str_login_missionFile';
+		progress_monitor = [] execVM "dayz_code\system\progress_monitor.sqf";
+		0 cutText ['','BLACK',0];
+		0 fadeSound 0;
+		0 fadeMusic 0;
+	};
+
+	initialized = false;
+	call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";
+	call compile preprocessFileLineNumbers "dayz_code\init\variables.sqf";
+	progressLoadingScreen 0.05;
+	call compile preprocessFileLineNumbers "custom\publicEH.sqf";
+	progressLoadingScreen 0.1;
+	call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";
+	progressLoadingScreen 0.15;
+	call compile preprocessFileLineNumbers "dayz_code\init\compiles.sqf";
+	call compile preprocessFileLineNumbers "addons\bike\init.sqf";
+	progressLoadingScreen 0.25;
+	
+	call compile preprocessFileLineNumbers "scripts\clickActions\init.sqf";
+	call compile preprocessFileLineNumbers "scripts\traders\server_traders.sqf";
+	call compile preprocessFileLineNumbers "baseJump\init.sqf";
+	call compile preprocessFileLineNumbers "logistic\init.sqf";
+	call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus11.sqf"; //Add trader city objects locally on every machine early
+	initialized = true;
+	//Taser 
+	execVM "dayz_code\ddopp\init.sqf";
+	execVM "dayz_code\gui\hud.sqf";
+	enableCamShake false;
+	if (dayz_REsec == 1) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\REsec.sqf";};
+	//execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
+
+
+	
+	if (isServer) then {
+		if (dayz_POIs && (toLower worldName == "chernarus")) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus\poi\init.sqf";};
+		call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\dynamic_vehicle.sqf";
+		call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\server_monitor.sqf";
+		execVM "\z\addons\dayz_server\traders\chernarus11.sqf"; //Add trader agents
+		if (Z_singleCurrency && {Z_globalBanking && Z_globalBankingTraders}) then {execVM "\z\addons\dayz_server\bankTraders\chernarus.sqf";}; // Add banking agents
+
+		//Get the server to setup what waterholes are going to be infected and then broadcast to everyone.
+		if (dayz_infectiousWaterholes && (toLower worldName == "chernarus")) then {execVM "\z\addons\dayz_code\system\mission\chernarus\infectiousWaterholes\init.sqf";};
+		
+		// Lootable objects from CfgTownGeneratorDefault.hpp
+		if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\system\mission\chernarus\MainLootableObjects.sqf"; };
+	};
+
+	if (!isDedicated) then {
+		if (toLower worldName == "chernarus") then {
+			execVM "\z\addons\dayz_code\system\mission\chernarus\hideGlitchObjects.sqf";
+		};
+		
+		//Enables Plant lib fixes
+		execVM "\z\addons\dayz_code\system\antihack.sqf";
+		
+		if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\compile\client_plantSpawner.sqf"; };
+		call compile preprocessFileLineNumbers "spawn\init.sqf";
+		execFSM "\z\addons\dayz_code\system\player_monitor.fsm";
+		[] execVM "dayz_code\external\starter_crate\new_player.sqf";
+		//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
+		if (DZE_R3F_WEIGHT) then {execVM "\z\addons\dayz_code\external\R3F_Realism\R3F_Realism_Init.sqf";};
+		[] execVM "custom\base_SafeArea.sqf";
+		
+		if (Z_singleCurrency) then {
+			call compile preprocessFileLineNumbers "scripts\zsc\zscInit.sqf";
+			//execVM "scripts\zsc\playerHud.sqf";
+			execVM "dayz_code\compile\remote_message.sqf";
+		};
+		execVM "scripts\servicePoints\init.sqf";
+		// Menu
+		//[]execVM "scripts\HUD\init_HUD.sqf";
+		//Paycheck
+		//execVM "scripts\Paycheck\Paychecks.sqf";
+		//Paycheck2
+		 execVM "Custom\fn_rewardLoyalty.sqf";
+
+		waitUntil {scriptDone progress_monitor};
+		cutText ["","BLACK IN", 3];
+		3 fadeSound 1;
+		3 fadeMusic 1;
+		endLoadingScreen;
+		[] execVM "CY6\teargas.sqf";
+	};
+	
+	
+//*******************Changed by brook**************************//
+[] execVM "scripts\aispawner\aispawner.sqf";
+//*************************************************************//	
+	execVM "custom\16_safezone.sqf";
+	//Weed
+	 execVM "scripts\WeedFarm\farms.sqf";
+	// Nox's Custom Action Menu
+	 //execVM "actions\activate.sqf";
+	//Notification part vi
+	#include "p2.sqf"
+	//Intro Music
+	ExecVM "dayz_code\gui\key_binds.sqf";
+	// Weapon GUI/Notifs
+	ExecVM "dayz_code\scripts\weapons.sqf";
+	
+	///markers 
+	[] execvm 'markers.sqf';
+	
+	//CY6 Notification System (Modular)
+	if (isDedicated && !hasInterface || isServer) then { call compile preprocessFileLineNumbers "\z\addons\dayz_server\notifs\server_init.sqf"; };
+	if (hasInterface && !isDedicated) then { call compile preprocessFileLineNumbers "dayz_code\init\notifs\client_init.sqf"; };
+	if (isServer) then {execVM "\z\addons\dayz_server\andre_most_wanted.sqf";};
+	// End
+[] execVM "admineventsclientside\init_adminevents.sqf";
