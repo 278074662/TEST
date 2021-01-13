@@ -1,169 +1,269 @@
-call compile preprocessFileLineNumbers "scripts\traders\server_traders.sqf"; 
+//Trader convoy Script by Schalldampfer 2017/6/2
+private ["_typeCar","_typeDriver","_typeCargo","_StayTime","_TradePosition",
+"_spawn_pos","_groupSide","_unitGroup","_vehicle","_driver","_turretCount","_cargo","_Traders",
+"_pos_wp","_wp","_msg","_out",
+"_objTrader","_objTr","_pos"
+];
+if (!isServer) exitWith{};
+////////////////////////////////////////////////////////
+//Config//
+_typeCar = "GAZ_Vodnik_MedEvac"; //The convoy vehicle
+_typeDriver = "UN_CDF_Soldier_Pilot_EP1"; // Vehicle crew
+_typeCargo = ["GUE_Woodlander2","RU_Citizen4","Woodlander3"]; //Array of trader units
+_StayTime = 1200; //How long they open trader city in seconds
+_TradePosition = [ //Where they open trader city
+[12465.473, 12545.1, 0],//NEAF
+[2830.8259, 9782.0029,0],//Lopatino
+[12934.999, 8396.3926,0],//Nizhnoye
+[9975.8164, 5998.436,0],//Oreshka
+[7879.2554, 3325.0015,0],//Prigorodki
+[5143.7515, 2350.385, 0],//Balota
+[7439.4507, 5146.8184,0],//Mogilevka
+[4703.6274,4696.1729,0]//Kozlovka
+];
 
-call compile preprocessFileLineNumbers "logistic\init.sqf";
-	
-
-
-/*
-	For DayZ Epoch
-	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
-*/
-
-//Server settings
-dayZ_instance = 11; //Instance ID of this server
-dayZ_serverName = ""; //Shown to all players in the bottom left of the screen (country code + server number)
-
-//Game settings
-dayz_antihack = 0; // DayZ Antihack / 1 = enabled // 0 = disabled
-dayz_REsec = 1; // DayZ RE Security / 1 = enabled // 0 = disabled
-dayz_enableRules = true; //Enables a nice little news/rules feed on player login (make sure to keep the lists quick).
-dayz_quickSwitch = false; //Turns on forced animation for weapon switch. (hotkeys 1,2,3) False = enable animations, True = disable animations
-dayz_POIs = false; //Adds Point of Interest map additions (negatively impacts FPS)
-dayz_infectiousWaterholes = false; //Randomly adds some bodies, graves and wrecks by ponds (negatively impacts FPS)
-dayz_ForcefullmoonNights = true; // Forces night time to be full moon.
-dayz_randomMaxFuelAmount = 500; //Puts a random amount of fuel in all fuel stations.
-
-//DayZMod presets
-dayz_presets = "Custom"; //"Custom","Classic","Vanilla","Elite"
-
-//Only need to edit if you are running a custom server.
-if (dayz_presets == "Custom") then {
-	dayz_enableGhosting = false; //Enable disable the ghosting system.
-	dayz_ghostTimer = 60; //Sets how long in seconds a player must be disconnected before being able to login again.
-	dayz_spawnselection = 0; //(Chernarus only) Turn on spawn selection 0 = random only spawns, 1 = spawn choice based on limits
-	dayz_spawncarepkgs_clutterCutter = 0; //0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
-	dayz_spawnCrashSite_clutterCutter = 0;	// heli crash options 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
-	dayz_spawnInfectedSite_clutterCutter = 0; // infected base spawn 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass 
-	dayz_bleedingeffect = 2; //1 = blood on the ground (negatively impacts FPS), 2 = partical effect, 3 = both
-	dayz_OpenTarget_TimerTicks = 60 * 10; //how long can a player be freely attacked for after attacking someone unprovoked
-	dayz_nutritionValuesSystem = true; //true, Enables nutrition system, false, disables nutrition system.
-	dayz_classicBloodBagSystem = true; // disable blood types system and use the single classic ItemBloodbag
-	dayz_enableFlies = false; // Enable flies on dead bodies (negatively impacts FPS).
+////////////////////////////////////////////////////
+//Variables//
+DZTR_TraderInMove = true;
+if (isNil "wai_radio_announce") then {wai_radio_announce = false;};
+//Spawn traders//
+_spawn_pos = [getMarkerPos 'center',0,((getMarkerSize "center") select 1) / 2,20,0,0.2,0] call BIS_fnc_findSafePos;
+ 
+//create group
+_groupSide = createCenter civilian;
+_unitGroup = createGroup _groupSide;
+//spawn Car
+_vehicle = createVehicle [_typeCar, _spawn_pos, [], 0, "NONE"];
+_vehicle setFuel 1;
+_vehicle setVehicleAmmo 1;
+_vehicle engineOn true;
+_vehicle setVariable ["unitGroup",_unitGroup];
+_vehicle setVariable ["ObjectID","1",true];
+_vehicle setVariable ["CharacterID","0",true];
+_vehicle allowDamage false;
+_vehicle removeAllEventHandlers "handleDamage";//
+_vehicle addEventHandler ["handleDamage", {false}];//
+_vehicle setcaptive true;
+clearWeaponCargoGlobal _vehicle;
+clearMagazineCargoGlobal _vehicle;
+if (isNil "dayz_serverObjectMonitor") then {dayz_serverObjectMonitor = [];};
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_vehicle];
+_vehicle lock false;
+diag_log format["TraderConvoy: Spawned %1 %2",_typeCar,_vehicle];
+//spawn driver
+_driver = _unitGroup createUnit [_typeDriver, _spawn_pos, [], 1, "NONE"];
+[_driver] joinSilent _unitGroup;
+removeAllItems _driver;
+removeAllWeapons _driver;
+_driver disableAI "AUTOTARGET";
+_driver disableAI "TARGET";
+_driver setBehaviour "CARELESS";
+_driver allowDamage false;
+_driver removeAllEventHandlers "handleDamage";//
+_driver addEventHandler ["handleDamage", { false }];//
+_driver setcaptive true;
+if (!(_driver hasWeapon "NVGoggles")) then {
+ _driver addweapon "NVGoggles";
 };
-
-//Temp settings
-dayz_DamageMultiplier = 2; //1 - 0 = Disabled, anything over 1 will multiply damage. Damage Multiplier for Zombies.
-dayz_maxGlobalZeds = 500; //Limit the total zeds server wide.
-dayz_temperature_override = false; // Set to true to disable all temperature changes.
-
-enableRadio false;
-enableSentences false;
-
-// EPOCH CONFIG VARIABLES START //
-#include "\z\addons\dayz_code\configVariables.sqf" // Don't remove this line
-// See the above file for a full list including descriptions and default values
-// Uncomment the lines below to change the default loadout
-//DefaultMagazines = ["HandRoadFlare","ItemBandage","ItemPainkiller","8Rnd_9x18_Makarov","8Rnd_9x18_Makarov"];
-//DefaultWeapons = ["Makarov_DZ","ItemFlashlight"];
-//DefaultBackpack = "DZ_Patrol_Pack_EP1";
-//DefaultBackpackItems = []; // Can include both weapons and magazines i.e. ["PDW_DZ","30Rnd_9x19_UZI"];
-dayz_paraSpawn = false; // Halo spawn
-DZE_BackpackAntiTheft = true; // Prevent stealing from backpacks in trader zones
-DZE_BuildOnRoads = false; // Allow building on roads
-DZE_PlayerZed = true; // Enable spawning as a player zombie when players die with infected status
-DZE_R3F_WEIGHT = false; // Enable R3F weight. Players carrying too much will be overburdened and forced to move slowly.
-DZE_StaticConstructionCount = 0; // Steps required to build. If greater than 0 this applies to all objects.
-DZE_GodModeBase = false; // Make player built base objects indestructible
-DZE_requireplot = 1; // Require a plot pole to build  0 = Off, 1 = On
-DZE_PlotPole = [45,90]; // Radius owned by plot pole [Regular objects,Other plotpoles]. Difference between them is the minimum buffer between bases.
-DZE_BuildingLimit = 999; // Max number of built objects allowed in DZE_PlotPole radius
-DZE_SafeZonePosArray = [[[6325,7807,0],100],[[4063,11664,0],100],[[11447,11364,0],100],[[1606,7803,0],100],[[12944,12766,0],100],[[12060,12638,0],100]]; // Format is [[[3D POS],RADIUS],[[3D POS],RADIUS]]; Stops loot and zed spawn, salvage and players being killed if their vehicle is destroyed in these zones.
-DZE_SelfTransfuse = true; // Allow players to bloodbag themselves
-DZE_selfTransfuse_Values = [12000,15,120]; // [blood amount given, infection chance %, cooldown in seconds]
-MaxDynamicDebris = false; // Max number of random road blocks to spawn around the map
-MaxVehicleLimit = 30; // Max number of random vehicles to spawn around the map
-spawnArea = 1400; // Distance around markers to find a safe spawn position
-spawnShoremode = 1; // Random spawn locations  1 = on shores, 0 = inland
-EpochUseEvents = true; //Enable event scheduler. Define custom scripts in dayz_server\modules to run on a schedule.
-//EpochEvents = [["any","any","any","any",0,"building_supplies"],["any","any","any","any",15,"pirate_treasure"],["any","any","any","any",30,"special_forces"],["any","any","any","any",45,"un_supply"]];
-//EpochEvents = [["any","any","any","any",0,"event_init"],["any","any","any","any",15,"event_init"],["any","any","any","any",30,"event_init"],["any","any","any","any",45,"event_init"],["any","any","any","any",55,"bombcrate"]];
-EpochEvents = [["any","any","any","any",0,"bombcrate"],["any","any","any","any",15,"player_supply"]];
-// EPOCH CONFIG VARIABLES END //
-
-diag_log 'dayz_preloadFinished reset';
-dayz_preloadFinished=nil;
-onPreloadStarted "diag_log [diag_tickTime,'onPreloadStarted']; dayz_preloadFinished = false;";
-onPreloadFinished "diag_log [diag_tickTime,'onPreloadFinished']; dayz_preloadFinished = true;";
-with uiNameSpace do {RscDMSLoad=nil;}; // autologon at next logon
-
-if (!isDedicated) then {
-	enableSaving [false, false];	startLoadingScreen ["","RscDisplayLoadCustom"];
-	progressLoadingScreen 0;
-	dayz_loadScreenMsg = localize 'str_login_missionFile';
-	progress_monitor = [] execVM "\z\addons\dayz_code\system\progress_monitor.sqf";
-	0 cutText ['','BLACK',0];
-	0 fadeSound 0;
-	0 fadeMusic 0;
+_driver setVariable ["isDriver",true];
+_driver setVariable ["bodyName",(name _driver)];
+_unitGroup selectLeader _driver;
+_driver assignAsDriver _vehicle;
+//_driver moveInDriver _vehicle;
+diag_log format["TraderConvoy: Spawned %1 %2 as driver",_typeDriver, name _driver];
+//spawn cargo
+_Traders = [];
+_i = 0;
+{
+ _cargo = _unitGroup createUnit [_x, _spawn_pos, [], 1, "NONE"];
+ //_cargo = createAgent [_x, [0,0,0], [], 1, "NONE"];
+ [_cargo] joinSilent _unitGroup;
+ _cargo setVariable ["bodyName",(name _cargo)];
+ removeAllItems _cargo;
+ removeAllWeapons _cargo;
+ _cargo disableAI "AUTOTARGET";
+ _cargo disableAI "TARGET";
+ _cargo setBehaviour "CARELESS";
+ _cargo setCombatMode "BLUE";
+ _cargo allowDamage false;
+ _cargo removeAllEventHandlers "handleDamage";//
+ _cargo addEventHandler ["handleDamage", { false }];//
+ _cargo setcaptive true;
+ if (!(_cargo hasWeapon "NVGoggles")) then {
+  _cargo addweapon "NVGoggles";
+ };
+ _cargo assignAsCargo _vehicle;
+ //_cargo moveInCargo _vehicle;
+ diag_log format["TraderConvoy: Spawned a Trader %1 %2",_x, name _cargo];
+ _Traders set[count _Traders,_cargo];
+ _i = _i + 1;
+} foreach _typeCargo;
+//Set group status
+_unitGroup setBehaviour "CARELESS";
+_unitGroup setCombatMode "BLUE";
+(units _unitGroup) allowGetIn true;//
+(units _unitGroup) orderGetIn true;//
+_pos_wp = _TradePosition select 0;
+{if ((_pos_wp distance _vehicle) > (_x distance _vehicle)) then {_pos_wp = _x;};} foreach _TradePosition;
+diag_log format["TraderConvoy: %1",_Traders];
+ 
+//Monitor//
+[_vehicle,_driver] spawn {
+ private["_vehicle","_driver","_marker"];
+ _vehicle  = _this select 0;
+ _driver = _this select 1;
+ while {true} do {
+  //Refuel,Repair,Reassign
+  if (fuel _vehicle < 0.2) then { _vehicle setfuel 1; };
+  if (damage _vehicle > 0.3)then{
+   _vehicle setDamage 0;
+  };
+  _vehicle setVectorUp surfaceNormal position _vehicle;
+  if(driver _vehicle != _driver) then {
+   moveOut driver _vehicle;//
+   _driver assignAsDriver _vehicle;
+   _driver moveInDriver _vehicle;
+  };
+  //Create Marker
+  _marker = createMarker ["TraderConvoy", getPos _vehicle];
+  _marker setMarkerColor "ColorBlue";
+  _marker setMarkerText "Trader Convoy";
+  if (!DZTR_TraderInMove) then { // Deployed
+   _marker setMarkerType "mil_circle";
+   sleep 25;
+  } else { // Convoy
+   _marker setMarkerType "mil_dot";
+   sleep 10;
+  };
+  deleteMarker _marker;
+ };
 };
+///////////////////////////////////////////////////////////////////////////////////
+//Start Convoy//
+while {true} do {
+ //Search next city//
+ if (isNil "_pos_wp") then {_pos_wp = _TradePosition call BIS_fnc_selectRandom;};
+ while {_pos_wp distance _vehicle < 500} do {
+  _pos_wp = _TradePosition call BIS_fnc_selectRandom;
+ };
+ _pos_wp = [_pos_wp,0,150,10,0,1.0,0] call BIS_fnc_findSafePos; //select safe position
+ 
+ //Move//
+ //set waypoint
+ diag_log ("TraderConvoy: Adding waypoints");
+ _wp = _unitgroup addWaypoint [_pos_wp,0];
+ _wp setWaypointType "MOVE";
+ _wp setWaypointBehaviour "CARELESS";
+ _wp setWaypointCombatMode "BLUE";
+ _unitgroup setCurrentWaypoint [_unitgroup, 0];
+ 
+ //call
 
-initialized = false;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";
-call compile preprocessFileLineNumbers "dayz_code\init\variables.sqf";
-progressLoadingScreen 0.05;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";
-progressLoadingScreen 0.1;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";
-progressLoadingScreen 0.15;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";
-call compile preprocessFileLineNumbers "dayz_code\init\compiles.sqf";
-//Call compile preprocessFileLineNumbers "custom\lock_god.sqf";
-progressLoadingScreen 0.25;
-call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
-call compile preprocessFileLineNumbers "scripts\clickActions\init.sqf";
-call compile preprocessFileLineNumbers "scripts\deployAnything\init.sqf";
-call compile preprocessFileLineNumbers "scripts\traders\server_traders.sqf";
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus11.sqf"; //Add trader city objects locally on every machine early
-execVM "scripts\safe_zones.sqf";
-initialized = true;
+ diag_log format["TraderConvoy: Moving to %2 %1",_pos_wp , mapGridPosition _pos_wp];
+ _msg = format["[Trader Convoy] The convoy is moving to %1",mapGridPosition _pos_wp];
+ if (wai_radio_announce) then {
+  RemoteMessage = ["radio",_msg];
+  publicVariable "RemoteMessage";
+ } else {
+  [nil,nil,rTitleText,_msg,"PLAIN",10] call RE;
+ };
 
-setTerrainGrid 25;
-if (dayz_REsec == 1) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\REsec.sqf";};
-execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
+ 
+ //Wait for arrival //
+ waitUntil {sleep 10;(_vehicle distance _pos_wp < 25)};
+ diag_log ("TraderConvoy: Trader has arrived");
 
-if (isServer) then {
-	if (dayz_POIs && (toLower worldName == "chernarus")) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus\poi\init.sqf";};
-	call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\dynamic_vehicle.sqf";
-	call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\server_monitor.sqf";
-	execVM "\z\addons\dayz_server\traders\chernarus11.sqf"; //Add trader agents
-	if (Z_singleCurrency && {Z_globalBanking && Z_globalBankingTraders}) then {execVM "\z\addons\dayz_server\bankTraders\init.sqf";}; // Add global banking agents
-	execVM "\z\addons\dayz_server\modules\weedfarm.sqf"; // Add weed farms
-	
-	//Get the server to setup what waterholes are going to be infected and then broadcast to everyone.
-	if (dayz_infectiousWaterholes && (toLower worldName == "chernarus")) then {execVM "\z\addons\dayz_code\system\mission\chernarus\infectiousWaterholes\init.sqf";};
-	
-	// Lootable objects from CfgTownGeneratorDefault.hpp
-	if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\system\mission\chernarus\MainLootableObjects.sqf"; };
+ //Deploy Trader//
+ //get out
+ _vehicle engineOn false;
+ _vehicle lock false; //unlock car
+ _Traders orderGetIn false;
+ _Traders allowGetIn false;
+ DZTR_TraderInMove = false;
+ sleep 5;
+ diag_log ("TraderConvoy: Now lock vehicle");
+ {moveOut _x;} forEach (crew _vehicle);
+ _driver assignAsDriver _vehicle;
+ _driver moveInDriver _vehicle;
+ sleep 0.1;
+ _vehicle engineOn false;
+ _vehicle lock true; //lock car
+ //deploy things
+ _objTrader = [];
+ _objTr = objNull;
+ //Info board
+ _objTr = createVehicle ["Info_Board_EP1", _pos_wp, [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ //Light pole
+ _objTr = createVehicle ["ASC_EU_LHVOld", getpos _vehicle, [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ _objTr = createVehicle ["Misc_cargo_cont_net1", getpos (_Traders select 0), [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ _objTr = createVehicle ["Pile_of_wood", getpos (_Traders select 0), [], 0, "NONE"];
+ _objTr setDir (random 360);
+ _objTrader set [count _objTrader, _objTr];
+ //Walls
+ for "_i" from 1 to 12 do {
+  _objTr = createVehicle ["Misc_concrete_High",
+   [((getpos _vehicle) select 0)+10*cos(_i*30),
+   ((getpos _vehicle) select 1)+10*sin(_i*30),
+   0],[], 0, "NONE"];
+  _objTr setDir (_i*30 + 90);
+  _objTrader set [count _objTrader, _objTr];
+ };
+ //Helipad
+ if (true) then {
+  _pos = [_pos_wp,10,40,4,0,2000,0] call BIS_fnc_findSafePos;
+  _objTr = createVehicle ["HeliHCivil", _pos, [], 0, "NONE"];
+  _objTrader set [count _objTrader, _objTr];
+ };
+ //call
+ _msg = format["[Trader Convoy] The convoy has opened a trader city at %1",mapGridPosition _vehicle];
+ if (wai_radio_announce) then {
+  RemoteMessage = ["radio",_msg];
+  publicVariable "RemoteMessage";
+ } else {
+  [nil,nil,rTitleText,_msg,"PLAIN",10] call RE;
+ };
+
+ //Wait//
+ sleep _StayTime;
+
+ //Finish Trader//
+ //call
+ diag_log format["TraderConvoy: Leaving %2 %1",_pos_wp , mapGridPosition _vehicle];
+ _msg = format["[Trader Convoy] The trader convoy is leaving %1",mapGridPosition _vehicle];
+ if (wai_radio_announce) then {
+  RemoteMessage = ["nradio",_msg];
+  publicVariable "RemoteMessage";
+ } else {
+  [nil,nil,rTitleText,_msg,"PLAIN",10] call RE;
+ };
+ 
+ //delete things
+ {deleteVehicle _x;} foreach _objTrader;
+
+ //get in
+ DZTR_TraderInMove = true;
+ _vehicle lock false; //unlock
+ _driver action ["Eject", _vehicle];// eject once
+ _driver assignAsDriver _vehicle;
+ {_x assignAsCargo _vehicle;} foreach _Traders;
+ (units _unitGroup) allowGetIn true;
+ (units _unitGroup) orderGetIn true;
+ 
+ //check crews in and lock
+ waitUntil {(_vehicle emptyPositions "DRIVER" == 0)}; // Wait until driver gets inside vehicle
+ {
+  if (!(_x in crew _vehicle)) then {
+   _x moveInCargo _vehicle;
+  };
+ } foreach _Traders;
+ diag_log ("TraderConvoy: Everyone's in");
+ _vehicle lock true; //lock
+ _vehicle engineOn true;
 };
-
-if (!isDedicated) then {
-	if (toLower worldName == "chernarus") then {
-		execVM "\z\addons\dayz_code\system\mission\chernarus\hideGlitchObjects.sqf";
-	};
-	
-	//Enables Plant lib fixes
-	execVM "\z\addons\dayz_code\system\antihack.sqf";
-	
-	if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\compile\client_plantSpawner.sqf"; };
-	call compile preprocessFileLineNumbers "spawn\init.sqf";
-	execFSM "\z\addons\dayz_code\system\player_monitor.fsm";
-	execVM "scripts\servicePoints\init.sqf";
-	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
-	if (DZE_R3F_WEIGHT) then {execVM "\z\addons\dayz_code\external\R3F_Realism\R3F_Realism_Init.sqf";};
-	// REMOVE AI FROM Safe Zones 
-    [] execVM "scripts\safezone\safezone_ai_remover.sqf";
-
-	if (Z_singleCurrency) then {
-		call compile preprocessFileLineNumbers "scripts\zsc\zscInit.sqf";
-		execVM "scripts\zsc\playerHud.sqf";
-		execVM "dayz_code\compile\remote_message.sqf";
-	};
-	execVM "scripts\servicePoints\init.sqf";
-	
-	[]execVM "scripts\HUD\init_HUD.sqf";
-
-	waitUntil {scriptDone progress_monitor};
-	cutText ["","BLACK IN", 3];
-	3 fadeSound 1;
-	3 fadeMusic 1;
-	endLoadingScreen;
-};
+/////////////////////////////////////////////////////////////////////////////////////////
