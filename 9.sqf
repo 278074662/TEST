@@ -1,40 +1,14 @@
-hostName = "[CNCA] DayZ Epoch Chernarus Qun471018450 (1.0.6.2/131129)";
-password = "";
-passwordAdmin = "";
-maxPlayers = 50;
-steamport = 2304;
-steamqueryport = 2303;
-
-motd[] = {"DayZ Epoch","Have fun!"};
-motdInterval = 0;
-
-logFile = "server_log.txt";
-voteThreshold = 2;
-voteMissionPlayers = 999;
-timeStampFormat = "short";
-
-vonCodecQuality = 11;
-disableVoN = 0;
-kickduplicate = 1;
-verifySignatures = 2;
-persistent = 1;
-BattlEye = 1;
-doubleIdDetected = "";
-
-onUserConnected = "";
-onUserDisconnected = "";
-onUnsignedData = "kick (_this select 0)";
-onHackedData = "kick (_this select 0)";
-onDifferentData = "";
-
-regularCheck = "";
-requiredBuild = 131129;
-class Missions
-{
-    class Mission1
-    {
-    	template = "DayZ_Epoch_11.Chernarus";
-    	difficulty="veteran";
-    };
-
-};
+@echo off
+cls
+echo Watching arma2oaserver For Crashes/Restarts...
+echo If you want to close arma2oaserver and this script, close the arma2oaserver window and type Y depending on your language followed by Enter.
+title Raklatif's Arma2OA Monitor
+set becpath="D:\testserver\instance_11_Chernarus\BattlEye\Bec"
+cd /d %becpath%
+:arma2oaserver
+start "BattleEye Extended Control" "BEC Control Epoch.bat"
+echo (%time%) arma2oaserver started.
+start /wait "arma2" /min /high "D:\testserver\arma2oaserver.exe" -cpuCount=2 -maxmem=2047 -exThreads=1 -port=2302 "-config=instance_11_Chernarus\config.cfg" "-cfg=instance_11_Chernarus\basic.cfg" "-profiles=instance_11_Chernarus" -name=instance_11_Chernarus "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"
+echo (%time%) WARNING: arma2oaserver closed or crashed, restarting.
+// TIMEOUT /T 180 /NOBREAK
+goto arma2oaserver
