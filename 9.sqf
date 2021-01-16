@@ -1,228 +1,76 @@
-2:19:27 "DZMS: Cleanup for mission 7 complete."
- 2:21:02 "WAI: [Mission:[MainBandit] Sniper Extraction]: Starting... [3657.56,14061.4,0]"
- 2:21:02 No speaker given for Tim Hoffmann
- 2:21:02 No speaker given for Kristian Weber
- 2:21:03 No speaker given for Jorg Becker
- 2:22:06 "TraderConvoy: Leaving 124029 [12445,12401.6]"
- 2:22:06 "TraderConvoy: Everyone's in"
- 2:22:06 "TraderConvoy: Adding waypoints"
- 2:22:06 "TraderConvoy: Moving to 098094 [9829.66,5865.15]"
- 2:23:02 "DZAI Monitor :: Server Uptime: 3:14:59. Active AI Groups: 3."
- 2:23:02 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 2:23:02 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 2:23:46 "SERVER FPS: 46  PLAYERS: 1"
- 2:28:03 "DZAI Cleanup: Cleaned up 1 dead units and 1 destroyed vehicles."
- 2:28:03 "DZAI Monitor :: Server Uptime: 3:20:0. Active AI Groups: 3."
- 2:28:03 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 2:28:03 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 2:29:28 [DZMS]: Running Hero Mission Humvee_Crash.
- 2:29:30 "Hero Humvee Crash spawned at [6890.69,8351.28,0]"
- 2:29:46 "SERVER FPS: 49  PLAYERS: 1"
- 2:30:04 "Server_DeleteObj error: Improper parameter format"
- 2:32:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,12,32],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,12,32]]
- 2:33:03 "DZAI Monitor :: Server Uptime: 3:25:0. Active AI Groups: 3."
- 2:33:03 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 2:33:03 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 2:33:40 [DZMS]: Bandit Construction Site has Ended.
- 2:33:49 "DZMS: Cleanup for mission 8 complete."
- 2:35:46 "SERVER FPS: 47  PLAYERS: 1"
- 2:37:12 "WAI: [Mission: Hero Sniper Extraction CH-47F AL]: Timed out at [3657.56,14061.4,0]"
- 2:38:04 "DZAI Monitor :: Server Uptime: 3:30:0. Active AI Groups: 3."
- 2:38:04 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 2:38:04 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 2:40:39 [DZMS]: Running Bandit Mission General_Store.
- 2:40:41 "Bandit General Store spawned at [3209.61,9934.38,0]"
- 2:41:46 "SERVER FPS: 47  PLAYERS: 1"
- 2:43:04 "DZAI Monitor :: Server Uptime: 3:35:0. Active AI Groups: 3."
- 2:43:04 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 2:43:04 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 2:43:16 "WAI: [Mission: Bandit Gem Tower]: Timed out at [10490.6,8272.2,0]"
- 2:47:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,12,47],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,12,47]]
- 2:47:46 "SERVER FPS: 45  PLAYERS: 1"
- 2:48:04 "DZAI Monitor :: Server Uptime: 3:40:1. Active AI Groups: 4."
- 2:48:04 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 2:48:04 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 2:48:17 "WAI: [Mission:[MainBandit] Hippy Commune]: Starting... [14089.1,13970.5,0]"
- 2:48:17 MuzzleFlashROT - unknown animation source ammoRandom
- 2:53:04 "DZAI Monitor :: Server Uptime: 3:45:1. Active AI Groups: 4."
- 2:53:04 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 2:53:04 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 2:53:46 "SERVER FPS: 47  PLAYERS: 1"
- 2:54:53 "WAI: Mission:[MainHero] Lumber Mill started at [6572.44,14205,0]"
- 2:57:53 "CRASHSPAWNER: Spawning crash site (CrashSite_EU) at [4901.19,7070.51,0] with 6 items."
- 2:58:05 "DZAI Monitor :: Server Uptime: 3:50:1. Active AI Groups: 4."
- 2:58:05 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 2:58:05 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 2:59:46 "SERVER FPS: 47  PLAYERS: 1"
- 3:00:00 "RUNNING EVENT: bombcrate on [2021,1,17,13,0]"
- 3:00:00 "Event already running"
- 3:00:42 [DZMS]: Bandit General Store has Ended.
- 3:00:50 "DZMS: Cleanup for mission 10 complete."
- 3:02:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,13,2],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,13,2]]
- 3:03:05 "DZAI Monitor :: Server Uptime: 3:55:2. Active AI Groups: 4."
- 3:03:05 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 3:03:05 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 4. Land Patrols: 5."
- 3:05:46 "SERVER FPS: 46  PLAYERS: 1"
- 3:06:45 "WAI: [Mission: Hero Crop Raider]: Timed out at [14089.1,13970.5,0]"
- 3:07:41 [DZMS]: Running Bandit Mission Medical_Cache.
- 3:07:43 "Bandit Medical Cache spawned at [3672.56,7522.07,0]"
- 3:08:05 "DZAI Monitor :: Server Uptime: 4:0:2. Active AI Groups: 4."
- 3:08:05 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 3:08:05 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 3:11:46 "SERVER FPS: 47  PLAYERS: 1"
- 3:13:06 "DZAI Monitor :: Server Uptime: 4:5:2. Active AI Groups: 4."
- 3:13:06 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 3:13:06 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 4. Land Patrols: 5."
- 3:14:40 "WAI: Mission:[MainBandit] Lumber Mill started at [10158.7,8336.64,0]"
- 3:14:40 No speaker given for Jonas Menger
- 3:14:40 No speaker given for Thomas Koch
- 3:14:40 No speaker given for Paul Schmidt
- 3:15:01 "RUNNING EVENT: player_supply on [2021,1,17,13,15]"
- 3:15:01 Performance warning: SimpleSerialization::Write 'RemoteMessage' is using type of ',TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
- 3:15:01 "Event already running"
- 3:15:01 Performance warning: SimpleSerialization::Read 'RemoteMessage' is using type of ,'TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
- 3:17:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,13,17],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,13,17]]
- 3:17:46 "SERVER FPS: 47  PLAYERS: 1"
- 3:18:06 "DZAI Monitor :: Server Uptime: 4:10:3. Active AI Groups: 4."
- 3:18:06 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 3:18:06 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 4. Land Patrols: 5."
- 3:21:06 "WAI: [Mission: Bandit Lumber Mill]: Timed out at [6572.44,14205,0]"
- 3:23:06 "DZAI Monitor :: Server Uptime: 4:15:3. Active AI Groups: 4."
- 3:23:06 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 3:23:06 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 4. Land Patrols: 5."
- 3:23:46 "SERVER FPS: 47  PLAYERS: 1"
- 3:27:24 "Server_DeleteObj error: Improper parameter format"
- 3:27:45 [DZMS]: Bandit Medical Cache has Ended.
- 3:27:53 "DZMS: Cleanup for mission 11 complete."
- 3:28:07 "DZAI Monitor :: Server Uptime: 4:20:3. Active AI Groups: 4."
- 3:28:07 "DZAI Monitor :: Static Spawns: 1. Respawn Queue: 1 groups queued."
- 3:28:07 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 3:29:46 "SERVER FPS: 48  PLAYERS: 1"
- 3:32:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,13,32],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,13,32]]
- 3:33:07 "DZAI Monitor :: Server Uptime: 4:25:3. Active AI Groups: 3."
- 3:33:07 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 3:33:07 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 3:33:35 "Server_DeleteObj error: Improper parameter format"
- 3:34:27 "WAI: [Mission:[MainHero] Fire Station]: Starting... [6891.86,14144.4,0]"
- 3:34:35 [DZMS]: Running Bandit Mission Helicopter_Crash.
- 3:34:37 "Bandit Helicopter Crash spawned at [3744.32,4761.44,0]"
- 3:35:49 "SERVER FPS: 48  PLAYERS: 1"
- 3:38:10 "DZAI Monitor :: Server Uptime: 4:30:7. Active AI Groups: 3."
- 3:38:10 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 2 groups queued."
- 3:38:10 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 3:38:55 "WAI: [Mission: Hero Lumber Mill]: Timed out at [10158.7,8336.64,0]"
- 3:41:49 "SERVER FPS: 46  PLAYERS: 1"
- 3:43:10 "DZAI Monitor :: Server Uptime: 4:35:7. Active AI Groups: 3."
- 3:43:10 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 3:43:10 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 3. Land Patrols: 5."
- 3:47:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,13,47],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,13,47]]
- 3:47:49 "SERVER FPS: 46  PLAYERS: 1"
- 3:48:11 "DZAI Monitor :: Server Uptime: 4:40:7. Active AI Groups: 4."
- 3:48:11 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 3:48:11 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 4. Land Patrols: 5."
- 3:48:51 "WAI: [Mission:[MainBandit] Drug Bust]: Starting... [9733.92,13139.8,0]"
- 3:48:52 No speaker given for Paul Muller
- 3:53:11 "DZAI Monitor :: Server Uptime: 4:45:7. Active AI Groups: 3."
- 3:53:11 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 3:53:11 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 3:53:49 "SERVER FPS: 48  PLAYERS: 1"
- 3:54:38 [DZMS]: Bandit Helicopter Crash has Ended.
- 3:54:46 "DZMS: Cleanup for mission 12 complete."
- 3:54:58 "Server_DeleteObj error: Improper parameter format"
- 3:58:12 "DZAI Cleanup: Cleaned up 6 null objects from server object monitor."
- 3:58:12 "DZAI Monitor :: Server Uptime: 4:50:8. Active AI Groups: 2."
- 3:58:12 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 2 groups queued."
- 3:58:12 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 2. Land Patrols: 5."
- 3:59:49 "SERVER FPS: 46  PLAYERS: 1"
- 4:00:07 "RUNNING EVENT: bombcrate on [2021,1,17,14,0]"
- 4:00:07 "Event already running"
- 4:01:37 [DZMS]: Running Bandit Mission Helicopter_Landing.
- 4:01:37 MuzzleFlashROT - unknown animation source ammoRandom
- 4:01:39 "Bandit Helicopter Landing spawned at [13077.9,6943.6,0]"
- 4:02:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,14,2],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,14,2]]
- 4:03:12 "DZAI Monitor :: Server Uptime: 4:55:8. Active AI Groups: 2."
- 4:03:12 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 2 groups queued."
- 4:03:12 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 2. Land Patrols: 5."
- 4:03:27 "Server_DeleteObj error: Improper parameter format"
- 4:04:14 "WAI: [Mission: Bandit Fire Station]: Timed out at [6891.86,14144.4,0]"
- 4:05:49 "SERVER FPS: 46  PLAYERS: 1"
- 4:07:56 "CRASHSPAWNER: Spawning crash site (CrashSite_UN) at [5899.51,8304.09,0] with 7 items."
- 4:08:12 "DZAI Cleanup: Cleaned up 1 dead units and 0 destroyed vehicles."
- 4:08:12 "DZAI Monitor :: Server Uptime: 5:0:9. Active AI Groups: 2."
- 4:08:12 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 2 groups queued."
- 4:08:12 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 2. Land Patrols: 5."
- 4:11:49 "SERVER FPS: 45  PLAYERS: 1"
- 4:11:57 "WAI: [Mission: Hero Drug Bust]: Timed out at [9733.92,13139.8,0]"
- 4:13:12 "DZAI Monitor :: Server Uptime: 5:5:9. Active AI Groups: 2."
- 4:13:12 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 2 groups queued."
- 4:13:12 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 2. Land Patrols: 5."
- 4:14:17 "Server_DeleteObj error: Improper parameter format"
- 4:15:08 "RUNNING EVENT: player_supply on [2021,1,17,14,15]"
- 4:15:08 Performance warning: SimpleSerialization::Write 'RemoteMessage' is using type of ',TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
- 4:15:08 "Event already running"
- 4:15:08 Performance warning: SimpleSerialization::Read 'RemoteMessage' is using type of ,'TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
- 4:17:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,14,17],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,14,17]]
- 4:17:49 "SERVER FPS: 45  PLAYERS: 1"
- 4:18:13 "DZAI Monitor :: Server Uptime: 5:10:9. Active AI Groups: 2."
- 4:18:13 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 2 groups queued."
- 4:18:13 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 2. Land Patrols: 5."
- 4:18:47 "WAI: [Mission:[MainHero] Hippy Commune]: Starting... [7521.96,7814.32,0]"
- 4:21:41 [DZMS]: Bandit Helicopter Landing has Ended.
- 4:21:49 "DZMS: Cleanup for mission 13 complete."
- 4:22:30 "WAI: [Mission:[MainBandit] Captured MV22]: Starting... [7715.06,9623.05,0]"
- 4:22:31 No speaker given for Jonas Muller
- 4:23:13 "DZAI Monitor :: Server Uptime: 5:15:10. Active AI Groups: 3."
- 4:23:13 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 1 groups queued."
- 4:23:13 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 3. Land Patrols: 5."
- 4:23:49 "SERVER FPS: 48  PLAYERS: 1"
- 4:28:14 "DZAI Cleanup: Cleaned up 1 dead units and 0 destroyed vehicles."
- 4:28:14 "DZAI Monitor :: Server Uptime: 5:20:10. Active AI Groups: 4."
- 4:28:14 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 4:28:14 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 4:28:38 [DZMS]: Running Bandit Mission Firebase.
- 4:28:41 "Bandit Firebase spawned at [4005.25,7315.39,0]"
- 4:29:49 "SERVER FPS: 48  PLAYERS: 1"
- 4:32:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,14,32],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,14,32]]
- 4:33:14 "DZAI Monitor :: Server Uptime: 5:25:10. Active AI Groups: 3."
- 4:33:14 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 4:33:14 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 4:35:49 "SERVER FPS: 48  PLAYERS: 1"
- 4:37:04 "WAI: [Mission: Bandit Crop Raider]: Timed out at [7521.96,7814.32,0]"
- 4:38:14 "DZAI Monitor :: Server Uptime: 5:30:11. Active AI Groups: 3."
- 4:38:14 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 4:38:14 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 4:41:49 "SERVER FPS: 46  PLAYERS: 1"
- 4:43:14 "DZAI Monitor :: Server Uptime: 5:35:11. Active AI Groups: 3."
- 4:43:14 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 4:43:14 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 4. Land Patrols: 5."
- 4:43:21 "WAI: [Mission: Hero Captured MV22]: Timed out at [7715.06,9623.05,0]"
- 4:46:33 "WAI: [Mission:[MainHero] Tank Column]: Starting... [6171.41,8648.45,0]"
- 4:47:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,14,47],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,14,47]]
- 4:47:49 "SERVER FPS: 48  PLAYERS: 1"
- 4:48:15 "DZAI Monitor :: Server Uptime: 5:40:11. Active AI Groups: 3."
- 4:48:15 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 4:48:15 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 0. Air Patrols: 4. Land Patrols: 5."
- 4:48:41 [DZMS]: Bandit Firebase has Ended.
- 4:48:49 "DZMS: Cleanup for mission 14 complete."
- 4:50:27 "CRASHSPAWNER: Spawning crash site (CrashSite_EU) at [3873.69,9379.71,0] with 5 items."
- 4:53:15 "DZAI Monitor :: Server Uptime: 5:45:12. Active AI Groups: 3."
- 4:53:15 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 4:53:15 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 0. Air Patrols: 4. Land Patrols: 5."
- 4:53:49 "SERVER FPS: 46  PLAYERS: 1"
- 4:55:40 [DZMS]: Running Bandit Mission NATO_Weapons_Cache.
- 4:55:43 "Bandit Weapons Cache spawned at [5560.22,7811.07,0]"
- 4:56:55 "WAI: [Mission:[MainBandit] Patrol]: Starting... [3326.74,3886.73,-186.501]"
- 4:58:15 "DZAI Monitor :: Server Uptime: 5:50:12. Active AI Groups: 3."
- 4:58:15 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 4:58:15 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 1. Air Patrols: 4. Land Patrols: 5."
- 4:59:49 "SERVER FPS: 47  PLAYERS: 1"
- 5:00:00 "RUNNING EVENT: bombcrate on [2021,1,17,15,0]"
- 5:00:00 "Event already running"
- 5:02:33 ["z\addons\dayz_server\system\scheduler\sched_sync.sqf","TIME SYNC: Local Time set to:",[2035,6,1,15,2],"Fullmoon:",true,"Date given by HiveExt.dll:",[2021,1,17,15,2]]
- 5:03:15 "DZAI Monitor :: Server Uptime: 5:55:12. Active AI Groups: 3."
- 5:03:15 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 5:03:15 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
- 5:05:49 "SERVER FPS: 47  PLAYERS: 1"
- 5:08:16 "DZAI Monitor :: Server Uptime: 6:0:13. Active AI Groups: 3."
- 5:08:16 "DZAI Monitor :: Static Spawns: 0. Respawn Queue: 0 groups queued."
- 5:08:16 "DZAI Monitor :: Dynamic Spawns: 0. Random Spawns: 2. Air Patrols: 4. Land Patrols: 5."
+if(isServer) then {
+	cache_units				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\cache_units.sqf";
+	spawn_group				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\spawn_group.sqf";
+	spawn_static			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\spawn_static.sqf";
+	group_waypoints			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\group_waypoints.sqf";
+	heli_para				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\heli_para.sqf";
+	heli_patrol				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\heli_patrol.sqf";
+	vehicle_patrol			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\vehicle_patrol.sqf";
+
+	on_kill					= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\on_kill.sqf";
+	hero_behaviour			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\hero_behaviour.sqf";
+	bandit_behaviour		= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\bandit_behaviour.sqf";
+
+	dynamic_crate 			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\dynamic_crate.sqf";
+
+	ai_monitor				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\ai_monitor.sqf";
+	vehicle_monitor			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\vehicle_monitor.sqf";
+	find_position			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\find_position.sqf";
+	load_ammo				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\load_ammo.sqf";
+
+	call 					compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\functions.sqf";
+
+	if(isNil("DZMSInstalled")) then {
+
+		createCenter			EAST;
+		createCenter			RESISTANCE;
+	
+		WEST					setFriend [EAST,0];
+		WEST					setFriend [RESISTANCE,0];
+	
+		EAST					setFriend [WEST,0];
+		EAST					setFriend [RESISTANCE,0];
+		
+		RESISTANCE				setFriend [EAST,0];
+		RESISTANCE				setFriend [WEST,0];
+
+	} else {
+	
+		createCenter			RESISTANCE;
+		
+		EAST					setFriend [RESISTANCE,0];
+		WEST					setFriend [RESISTANCE,0];
+		
+		RESISTANCE				setFriend [EAST,0];
+		RESISTANCE				setFriend [WEST,0];	
+	};
+	
+	wai_staticloaded 		= false;
+	WAIconfigloaded			= false;
+
+	ai_ground_units			= 0;
+	ai_emplacement_units	= 0;
+	ai_air_units			= 0;
+	ai_vehicle_units		= 0;
+	
+	//Load config
+	ExecVM "\z\addons\dayz_server\WAI\config.sqf";
+	waitUntil {WAIconfigloaded};
+	if ((preProcessFileLineNumbers ("\z\addons\dayz_server\WAI\customsettings.sqf")) != "") then {
+		ExecVM "\z\addons\dayz_server\WAI\customsettings.sqf";
+		diag_log "WAI: Custom Config File Loaded";
+	};
+	diag_log "WAI: AI Config File Loaded";
+
+	[] spawn ai_monitor;
+
+	if(static_missions) then {
+		ExecVM "\z\addons\dayz_server\WAI\static\init.sqf";
+		waitUntil {wai_staticloaded};
+	};
+	
+	if (wai_mission_system) then {
+		ExecVM "\z\addons\dayz_server\WAI\missions\init.sqf";
+	};
+
+};
