@@ -1,0 +1,11 @@
+ [
+        [13270.1,3336.64,0.00256],            // Position
+        4,                                    // Number Of units
+        "extreme",                            // Skill level of unit (easy, medium, hard, extreme, Random)
+       ["Random","at"],           // Primary gun set number and rocket launcher. "Random" for random weapon set, "at" for anti-tank, "aa" for anti-air launcher
+        4,                                    // Number of magazines
+        "Random",                            // Backpack classname, use "Random" or classname here
+        "Random",                            // Skin classname, use "Random" or classname here
+        "Random",                            // Gearset number. "Random" for random gear set
+        "Bandit"                            // AI Type, "Hero" or "Bandit".
+    ] call spawn_group;
