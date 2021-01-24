@@ -1,103 +1,169 @@
-;This is a comment
-;Comments above a certain setting will provide it's description
+call compile preprocessFileLineNumbers "scripts\traders\server_traders.sqf"; 
 
-;The format for a setting is 
-;Variable = Value
+call compile preprocessFileLineNumbers "logistic\init.sqf";
+	
 
-;If you see a commented line of that form, it means that the setting is optional, and the Value shows the default
-;To change from the default, simply uncomment the line and change the Value
 
-;This configuration file should be placed inside your server instance's configuration directory (like cfgdayz)
+/*
+	For DayZ Epoch
+	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
+*/
 
-[Time]
-;Possible values: Local, Custom, Static
-;You cannot use Static on OFFICIAL Hive, it will just revert to Local
-Type = Static
-;If using Custom type, offset from UTC in hours (can be negative as well)
-;Offset = -1
-;If using Static type (Hour value always the same on every server start), the value (0-24) to set the Hour to
-Hour = 10
+//Server settings
+dayZ_instance = 11; //Instance ID of this server
+dayZ_serverName = ""; //Shown to all players in the bottom left of the screen (country code + server number)
 
-[Database]
-;Hostname or IP of the server to connect to
-;If you leave this line commented or blank, HiveExt will connect to the OFFICIAL Hive, which requires registration
-;See support.dayzmod.com for more information on what OFFICIAL Hive means, what are the rules, etc.
-;If using OFFICIAL hive, the rest of the settings in this section have no effect
-Host = localhost
+//Game settings
+dayz_antihack = 0; // DayZ Antihack / 1 = enabled // 0 = disabled
+dayz_REsec = 1; // DayZ RE Security / 1 = enabled // 0 = disabled
+dayz_enableRules = true; //Enables a nice little news/rules feed on player login (make sure to keep the lists quick).
+dayz_quickSwitch = false; //Turns on forced animation for weapon switch. (hotkeys 1,2,3) False = enable animations, True = disable animations
+dayz_POIs = false; //Adds Point of Interest map additions (negatively impacts FPS)
+dayz_infectiousWaterholes = false; //Randomly adds some bodies, graves and wrecks by ponds (negatively impacts FPS)
+dayz_ForcefullmoonNights = true; // Forces night time to be full moon.
+dayz_randomMaxFuelAmount = 500; //Puts a random amount of fuel in all fuel stations.
 
-;Currently, only MySQL is supported
-Type = MySQL
+//DayZMod presets
+dayz_presets = "Custom"; //"Custom","Classic","Vanilla","Elite"
 
-;Port to connect to. The default is the default listening port of a server of the selected Type
-;Instead of specifying Port, you can specify Socket and set Value to the socket name
-Port = 3306
+//Only need to edit if you are running a custom server.
+if (dayz_presets == "Custom") then {
+	dayz_enableGhosting = false; //Enable disable the ghosting system.
+	dayz_ghostTimer = 60; //Sets how long in seconds a player must be disconnected before being able to login again.
+	dayz_spawnselection = 0; //(Chernarus only) Turn on spawn selection 0 = random only spawns, 1 = spawn choice based on limits
+	dayz_spawncarepkgs_clutterCutter = 0; //0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
+	dayz_spawnCrashSite_clutterCutter = 0;	// heli crash options 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
+	dayz_spawnInfectedSite_clutterCutter = 0; // infected base spawn 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass 
+	dayz_bleedingeffect = 2; //1 = blood on the ground (negatively impacts FPS), 2 = partical effect, 3 = both
+	dayz_OpenTarget_TimerTicks = 60 * 10; //how long can a player be freely attacked for after attacking someone unprovoked
+	dayz_nutritionValuesSystem = true; //true, Enables nutrition system, false, disables nutrition system.
+	dayz_classicBloodBagSystem = true; // disable blood types system and use the single classic ItemBloodbag
+	dayz_enableFlies = false; // Enable flies on dead bodies (negatively impacts FPS).
+};
 
-;Database name to connect to.
-Database = dayz_epoch
+//Temp settings
+dayz_DamageMultiplier = 2; //1 - 0 = Disabled, anything over 1 will multiply damage. Damage Multiplier for Zombies.
+dayz_maxGlobalZeds = 500; //Limit the total zeds server wide.
+dayz_temperature_override = false; // Set to true to disable all temperature changes.
 
-;Username to connect with
-Username = root
-;Password to authenticate with (default is blank)
-Password = 2151623.
+enableRadio false;
+enableSentences false;
 
-;If using OFFICIAL hive, the settings in this section have no effect, appropriate layout will be used
-[Characters]
-;The field name that Player's IDs are stored in (unique per game license)
-;Some table layouts have this as PlayerID, and some as PlayerUID, that's why this is configurable
-;IDField = PlayerUID
-;The field name that Player's World Position and rotation is stored in
-;Enables you to run multiple different maps (different instances) off the same character table
-;WSField = Worldspace
+// EPOCH CONFIG VARIABLES START //
+#include "\z\addons\dayz_code\configVariables.sqf" // Don't remove this line
+// See the above file for a full list including descriptions and default values
+// Uncomment the lines below to change the default loadout
+//DefaultMagazines = ["HandRoadFlare","ItemBandage","ItemPainkiller","8Rnd_9x18_Makarov","8Rnd_9x18_Makarov"];
+//DefaultWeapons = ["Makarov_DZ","ItemFlashlight"];
+//DefaultBackpack = "DZ_Patrol_Pack_EP1";
+//DefaultBackpackItems = []; // Can include both weapons and magazines i.e. ["PDW_DZ","30Rnd_9x19_UZI"];
+dayz_paraSpawn = false; // Halo spawn
+DZE_BackpackAntiTheft = true; // Prevent stealing from backpacks in trader zones
+DZE_BuildOnRoads = false; // Allow building on roads
+DZE_PlayerZed = true; // Enable spawning as a player zombie when players die with infected status
+DZE_R3F_WEIGHT = false; // Enable R3F weight. Players carrying too much will be overburdened and forced to move slowly.
+DZE_StaticConstructionCount = 0; // Steps required to build. If greater than 0 this applies to all objects.
+DZE_GodModeBase = false; // Make player built base objects indestructible
+DZE_requireplot = 1; // Require a plot pole to build  0 = Off, 1 = On
+DZE_PlotPole = [70,110]; // Radius owned by plot pole [Regular objects,Other plotpoles]. Difference between them is the minimum buffer between bases.
+DZE_BuildingLimit = 1000; // Max number of built objects allowed in DZE_PlotPole radius
+DZE_SafeZonePosArray = [[[6325,7807,0],100],[[4063,11664,0],100],[[11447,11364,0],100],[[1606,7803,0],100],[[12944,12766,0],100],[[12060,12638,0],100]]; // Format is [[[3D POS],RADIUS],[[3D POS],RADIUS]]; Stops loot and zed spawn, salvage and players being killed if their vehicle is destroyed in these zones.
+DZE_SelfTransfuse = true; // Allow players to bloodbag themselves
+DZE_selfTransfuse_Values = [12000,15,120]; // [blood amount given, infection chance %, cooldown in seconds]
+MaxDynamicDebris = false; // Max number of random road blocks to spawn around the map
+MaxVehicleLimit = 30; // Max number of random vehicles to spawn around the map
+spawnArea = 1400; // Distance around markers to find a safe spawn position
+spawnShoremode = 1; // Random spawn locations  1 = on shores, 0 = inland
+EpochUseEvents = true; //Enable event scheduler. Define custom scripts in dayz_server\modules to run on a schedule.
+//EpochEvents = [["any","any","any","any",0,"building_supplies"],["any","any","any","any",15,"pirate_treasure"],["any","any","any","any",30,"special_forces"],["any","any","any","any",45,"un_supply"]];
+//EpochEvents = [["any","any","any","any",0,"event_init"],["any","any","any","any",15,"event_init"],["any","any","any","any",30,"event_init"],["any","any","any","any",45,"event_init"],["any","any","any","any",55,"bombcrate"]];
+EpochEvents = [["any","any","any","any",0,"bombcrate"],["any","any","any","any",15,"player_supply"]];
+// EPOCH CONFIG VARIABLES END //
 
-;If using OFFICIAL hive, the settings in this section have no effect, as it will clean up by itself
-[Objects]
-;Which table should the objects be stored and fetched from ?
-;Table = Object_DATA
+diag_log 'dayz_preloadFinished reset';
+dayz_preloadFinished=nil;
+onPreloadStarted "diag_log [diag_tickTime,'onPreloadStarted']; dayz_preloadFinished = false;";
+onPreloadFinished "diag_log [diag_tickTime,'onPreloadFinished']; dayz_preloadFinished = true;";
+with uiNameSpace do {RscDMSLoad=nil;}; // autologon at next logon
 
-;Negative values will disable this feature
-;0 means that ALL empty placed items will be deleted every server restart
-;A positive number is how old (in days) a placed empty item must be, in order for it to be deleted
-;Leaving CleanupPlacedAfterDays below commented (with a ; in front) will NOT disable the cleanup, but will make the objects get cleaned up after the default 6 days.
-;CleanupPlacedAfterDays = 6
+if (!isDedicated) then {
+	enableSaving [false, false];	startLoadingScreen ["","RscDisplayLoadCustom"];
+	progressLoadingScreen 0;
+	dayz_loadScreenMsg = localize 'str_login_missionFile';
+	progress_monitor = [] execVM "\z\addons\dayz_code\system\progress_monitor.sqf";
+	0 cutText ['','BLACK',0];
+	0 fadeSound 0;
+	0 fadeMusic 0;
+};
 
-;Flag indicating whether hiveext should detect vehicles out of map boundaries (X < 0, or Y > 15360) and reset their position to []
-;Note: YOU MUST have a proper dayz_server.pbo that supports this feature, otherwise you will get script errors
-;You can find that file under the SQF directory for your server version
-;ResetOOBVehicles = false
+initialized = false;
+call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";
+call compile preprocessFileLineNumbers "dayz_code\init\variables.sqf";
+progressLoadingScreen 0.05;
+call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";
+progressLoadingScreen 0.1;
+call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";
+progressLoadingScreen 0.15;
+call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";
+call compile preprocessFileLineNumbers "dayz_code\init\compiles.sqf";
+//Call compile preprocessFileLineNumbers "custom\lock_god.sqf";
+progressLoadingScreen 0.25;
+call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
+call compile preprocessFileLineNumbers "scripts\clickActions\init.sqf";
+call compile preprocessFileLineNumbers "scripts\deployAnything\init.sqf";
+call compile preprocessFileLineNumbers "scripts\traders\server_traders.sqf";
+call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus11.sqf"; //Add trader city objects locally on every machine early
+execVM "scripts\safe_zones.sqf";
+initialized = true;
 
-;A string of comma separated object class names that are to be cleaned up, after the CleanupPlacedAfterDays period, regardless of inventory
-;This variable was implemented to compensate for door/plot management storing information in the inventory field
-;custom buildables which use the inventory field should be added to this variable
-;If you wish to cleaup locked storage objects, instead of letting them zero out, you can add them to the variable
-;Do not use double quotation marks, only use single quotation marks [']
-;MaintenanceObjects = 'Land_DZE_GarageWoodDoorLocked','Land_DZE_LargeWoodDoorLocked','Land_DZE_WoodDoorLocked','CinderWallDoorLocked_DZ','CinderWallDoorSmallLocked_DZ','Plastic_Pole_EP1_DZ'
+setTerrainGrid 25;
+if (dayz_REsec == 1) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\REsec.sqf";};
+//execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
 
-;If using OFFICIAL hive, the settings in this section have no effect, it will manage objects on its own
-[ObjectDB]
-;Setting this to true separates the Object fetches from the Character fetches
-;That means that the Object Table must be on this other database
-;Use = false
+if (isServer) then {
+	if (dayz_POIs && (toLower worldName == "chernarus")) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus\poi\init.sqf";};
+	call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\dynamic_vehicle.sqf";
+	call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\server_monitor.sqf";
+	execVM "\z\addons\dayz_server\traders\chernarus11.sqf"; //Add trader agents
+	if (Z_singleCurrency && {Z_globalBanking && Z_globalBankingTraders}) then {execVM "\z\addons\dayz_server\bankTraders\init.sqf";}; // Add global banking agents
+	execVM "\z\addons\dayz_server\modules\weedfarm.sqf"; // Add weed farms
+	
+	//Get the server to setup what waterholes are going to be infected and then broadcast to everyone.
+	if (dayz_infectiousWaterholes && (toLower worldName == "chernarus")) then {execVM "\z\addons\dayz_code\system\mission\chernarus\infectiousWaterholes\init.sqf";};
+	
+	// Lootable objects from CfgTownGeneratorDefault.hpp
+	if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\system\mission\chernarus\MainLootableObjects.sqf"; };
+};
 
-;The settings here have the same meaning as in [Database], and are only used if the setting above is set to true
-;Type = MySQL
-;Host = localhost
-;Port = 3306
-;Database = dayz
-;Username = root
-;Password = 2151623.
-[Logger]
-;Possible values: trace, debug, information, notice, warning, error, critical, fatal, none
-;They are sorted by importance (low to high), with trace being the most verbose, and none would turn off logging
-;This controls both the file output level, and the console output level
-;Level = trace
+if (!isDedicated) then {
+	if (toLower worldName == "chernarus") then {
+		execVM "\z\addons\dayz_code\system\mission\chernarus\hideGlitchObjects.sqf";
+	};
+	
+	//Enables Plant lib fixes
+	execVM "\z\addons\dayz_code\system\antihack.sqf";
+	
+	if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\compile\client_plantSpawner.sqf"; };
+	call compile preprocessFileLineNumbers "spawn\init.sqf";
+	execFSM "\z\addons\dayz_code\system\player_monitor.fsm";
+	execVM "scripts\servicePoints\init.sqf";
+	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
+	if (DZE_R3F_WEIGHT) then {execVM "\z\addons\dayz_code\external\R3F_Realism\R3F_Realism_Init.sqf";};
+	// REMOVE AI FROM Safe Zones 
+    [] execVM "scripts\safezone\safezone_ai_remover.sqf";
 
-;Uncomment this option to override the logging level for the console only
-;The specified level can only be higher than the global one, setting lower values will have no effect
-;So for example, if you want to have information-level logs in your file, but only warning-level and higher in your console
-;You would uncomment this option and set it to warning
-;Leaving it commented out means there's no special level for the console, so it will just use the global one
-;ConsoleLevel = trace
+	if (Z_singleCurrency) then {
+		call compile preprocessFileLineNumbers "scripts\zsc\zscInit.sqf";
+		execVM "scripts\zsc\playerHud.sqf";
+		execVM "dayz_code\compile\remote_message.sqf";
+	};
+	execVM "scripts\servicePoints\init.sqf";
+	
+	[]execVM "scripts\HUD\init_HUD.sqf";
 
-;By default, the HiveExt console log output will go to the Arma2 server window, with colour highlighing by importance
-;If you want to use the old style, separate windows console window for the HiveExt log output, set this option to true
-;SeparateConsole = false
+	waitUntil {scriptDone progress_monitor};
+	cutText ["","BLACK IN", 3];
+	3 fadeSound 1;
+	3 fadeMusic 1;
+	endLoadingScreen;
+};
