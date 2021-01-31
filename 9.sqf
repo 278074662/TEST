@@ -1,170 +1,173 @@
-call compile preprocessFileLineNumbers "scripts\traders\server_traders.sqf"; 
-
-call compile preprocessFileLineNumbers "logistic\init.sqf";
-	
-
-
 /*
-	For DayZ Epoch
-	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
+	DayZ Mission System Config by Vampire
+	DZMS: https://github.com/SMVampire/DZMS-DayZMissionSystem
+	Updated for DZMS 2.0 by JasonTM
 */
 
-//Server settings
-dayZ_instance = 11; //Instance ID of this server
-dayZ_serverName = ""; //Shown to all players in the bottom left of the screen (country code + server number)
+///////////////////////////////////////////////////////////////////////
+// Do you want to see how many AI are at the mission in the mission marker?
+// This option may cause excessive network traffic on high pop. servers as markers are refreshed every 2 seconds.
+DZMSAICount = false;
 
-//Game settings
-dayz_antihack = 0; // DayZ Antihack / 1 = enabled // 0 = disabled
-dayz_REsec = 1; // DayZ RE Security / 1 = enabled // 0 = disabled
-dayz_enableRules = true; //Enables a nice little news/rules feed on player login (make sure to keep the lists quick).
-dayz_quickSwitch = false; //Turns on forced animation for weapon switch. (hotkeys 1,2,3) False = enable animations, True = disable animations
-dayz_POIs = false; //Adds Point of Interest map additions (negatively impacts FPS)
-dayz_infectiousWaterholes = false; //Randomly adds some bodies, graves and wrecks by ponds (negatively impacts FPS)
-dayz_ForcefullmoonNights = true; // Forces night time to be full moon.
-dayz_randomMaxFuelAmount = 500; //Puts a random amount of fuel in all fuel stations.
+// Time in minutes for a mission to timeout.
+DZMSMissionTimeOut = 20;
 
-//DayZMod presets
-dayz_presets = "Custom"; //"Custom","Classic","Vanilla","Elite"
+// This is how many bandit missions are allowed to run simultaneously
+DZMSBanditLimit = 1;
 
-//Only need to edit if you are running a custom server.
-if (dayz_presets == "Custom") then {
-	dayz_enableGhosting = false; //Enable disable the ghosting system.
-	dayz_ghostTimer = 60; //Sets how long in seconds a player must be disconnected before being able to login again.
-	dayz_spawnselection = 0; //(Chernarus only) Turn on spawn selection 0 = random only spawns, 1 = spawn choice based on limits
-	dayz_spawncarepkgs_clutterCutter = 0; //0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
-	dayz_spawnCrashSite_clutterCutter = 0;	// heli crash options 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass
-	dayz_spawnInfectedSite_clutterCutter = 0; // infected base spawn 0 = loot hidden in grass, 1 = loot lifted, 2 = no grass 
-	dayz_bleedingeffect = 2; //1 = blood on the ground (negatively impacts FPS), 2 = partical effect, 3 = both
-	dayz_OpenTarget_TimerTicks = 60 * 10; //how long can a player be freely attacked for after attacking someone unprovoked
-	dayz_nutritionValuesSystem = true; //true, Enables nutrition system, false, disables nutrition system.
-	dayz_classicBloodBagSystem = true; // disable blood types system and use the single classic ItemBloodbag
-	dayz_enableFlies = false; // Enable flies on dead bodies (negatively impacts FPS).
-};
+// This is how many hero missions are allowed to run simultaneously
+DZMSHeroLimit = 1;
 
-//Temp settings
-dayz_DamageMultiplier = 2; //1 - 0 = Disabled, anything over 1 will multiply damage. Damage Multiplier for Zombies.
-dayz_maxGlobalZeds = 500; //Limit the total zeds server wide.
-dayz_temperature_override = false; // Set to true to disable all temperature changes.
+// Do you want to turn off damage to the mission objects?
+DZMSObjectsDamageOff = true;
 
-enableRadio false;
-enableSentences false;
+// Mission announcement style. Options: "Hint","TitleText","rollingMessages","DynamicText".
+//Note: The "Hint" messages will appear in the same area as common debug monitors.
+DZMSAnnounceType = "Hint";
 
-// EPOCH CONFIG VARIABLES START //
-#include "\z\addons\dayz_code\configVariables.sqf" // Don't remove this line
-// See the above file for a full list including descriptions and default values
-// Uncomment the lines below to change the default loadout
-//DefaultMagazines = ["HandRoadFlare","ItemBandage","ItemPainkiller","8Rnd_9x18_Makarov","8Rnd_9x18_Makarov"];
-//DefaultWeapons = ["Makarov_DZ","ItemFlashlight"];
-//DefaultBackpack = "DZ_Patrol_Pack_EP1";
-//DefaultBackpackItems = []; // Can include both weapons and magazines i.e. ["PDW_DZ","30Rnd_9x19_UZI"];
-dayz_paraSpawn = false; // Halo spawn
-DZE_BackpackAntiTheft = true; // Prevent stealing from backpacks in trader zones
-DZE_BuildOnRoads = false; // Allow building on roads
-DZE_PlayerZed = true; // Enable spawning as a player zombie when players die with infected status
-DZE_R3F_WEIGHT = false; // Enable R3F weight. Players carrying too much will be overburdened and forced to move slowly.
-DZE_StaticConstructionCount = 0; // Steps required to build. If greater than 0 this applies to all objects.
-DZE_GodModeBase = false; // Make player built base objects indestructible
-DZE_requireplot = 1; // Require a plot pole to build  0 = Off, 1 = On
-DZE_PlotPole = [60,80]; // Radius owned by plot pole [Regular objects,Other plotpoles]. Difference between them is the minimum buffer between bases.
-DZE_BuildingLimit = 300; // Max number of built objects allowed in DZE_PlotPole radius
-DZE_SafeZonePosArray = [[[6325,7807,0],100],[[4063,11664,0],100],[[11447,11364,0],100],[[1606,7803,0],100],[[12944,12766,0],100],[[12060,12638,0],100]]; // Format is [[[3D POS],RADIUS],[[3D POS],RADIUS]]; Stops loot and zed spawn, salvage and players being killed if their vehicle is destroyed in these zones.
-DZE_SelfTransfuse = true; // Allow players to bloodbag themselves
-DZE_selfTransfuse_Values = [12000,15,120]; // [blood amount given, infection chance %, cooldown in seconds]
-MaxDynamicDebris = false; // Max number of random road blocks to spawn around the map
-MaxVehicleLimit = 30; // Max number of random vehicles to spawn around the map
-spawnArea = 1400; // Distance around markers to find a safe spawn position
-spawnShoremode = 1; // Random spawn locations  1 = on shores, 0 = inland
-EpochUseEvents = true; //Enable event scheduler. Define custom scripts in dayz_server\modules to run on a schedule.
-//EpochEvents = [["any","any","any","any",0,"building_supplies"],["any","any","any","any",15,"pirate_treasure"],["any","any","any","any",30,"special_forces"],["any","any","any","any",45,"un_supply"]];
-//EpochEvents = [["any","any","any","any",0,"event_init"],["any","any","any","any",15,"event_init"],["any","any","any","any",30,"event_init"],["any","any","any","any",45,"event_init"],["any","any","any","any",55,"bombcrate"]];
-EpochEvents = [["any","any","any","any",0,"bombcrate"],["any","any","any","any",15,"player_supply"]];
-// EPOCH CONFIG VARIABLES END //
+// Turn this on to enable troubleshooting. RPT entries might show where problems occur.
+DZMSDebug = false;
 
-diag_log 'dayz_preloadFinished reset';
-dayz_preloadFinished=nil;
-onPreloadStarted "diag_log [diag_tickTime,'onPreloadStarted']; dayz_preloadFinished = false;";
-onPreloadFinished "diag_log [diag_tickTime,'onPreloadFinished']; dayz_preloadFinished = true;";
-with uiNameSpace do {RscDMSLoad=nil;}; // autologon at next logon
+// Do you want your players to gain or lose humanity from killing mission AI?
+DZMSMissHumanity = true;
 
-if (!isDedicated) then {
-	enableSaving [false, false];	startLoadingScreen ["","RscDisplayLoadCustom"];
-	progressLoadingScreen 0;
-	dayz_loadScreenMsg = localize 'str_login_missionFile';
-	progress_monitor = [] execVM "\z\addons\dayz_code\system\progress_monitor.sqf";
-	0 cutText ['','BLACK',0];
-	0 fadeSound 0;
-	0 fadeMusic 0;
-};
+// How much humanity should a player lose for killing a hero AI?
+DZMSHeroHumanity = 25;
 
-initialized = false;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";
-call compile preprocessFileLineNumbers "dayz_code\init\variables.sqf";
-progressLoadingScreen 0.05;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";
-progressLoadingScreen 0.1;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";
-progressLoadingScreen 0.15;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";
-call compile preprocessFileLineNumbers "dayz_code\init\compiles.sqf";
-//Call compile preprocessFileLineNumbers "custom\lock_god.sqf";
-progressLoadingScreen 0.25;
-call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
-call compile preprocessFileLineNumbers "scripts\clickActions\init.sqf";
-call compile preprocessFileLineNumbers "scripts\deployAnything\init.sqf";
-call compile preprocessFileLineNumbers "scripts\traders\server_traders.sqf";
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus11.sqf"; //Add trader city objects locally on every machine early
-execVM "scripts\safe_zones.sqf";
-initialized = true;
+// How much humanity should a player gain for killing a bandit AI?
+DZMSBanditHumanity = 25;
 
-setTerrainGrid 25;
-if (dayz_REsec == 1) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\REsec.sqf";};
-//execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
+// Do you want the players to get AI kill messages?
+DZMSKillFeed = true;
 
-if (isServer) then {
-	if (dayz_POIs && (toLower worldName == "chernarus")) then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\mission\chernarus\poi\init.sqf";};
-	call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\dynamic_vehicle.sqf";
-	call compile preprocessFileLineNumbers "\z\addons\dayz_server\system\server_monitor.sqf";
-	execVM "\z\addons\dayz_server\traders\chernarus11.sqf"; //Add trader agents
-	if (Z_singleCurrency && {Z_globalBanking && Z_globalBankingTraders}) then {execVM "\z\addons\dayz_server\bankTraders\init.sqf";}; // Add global banking agents
-	execVM "\z\addons\dayz_server\modules\weedfarm.sqf"; // Add weed farms
-	
-	//Get the server to setup what waterholes are going to be infected and then broadcast to everyone.
-	if (dayz_infectiousWaterholes && (toLower worldName == "chernarus")) then {execVM "\z\addons\dayz_code\system\mission\chernarus\infectiousWaterholes\init.sqf";};
-	
-	// Lootable objects from CfgTownGeneratorDefault.hpp
-	if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\system\mission\chernarus\MainLootableObjects.sqf"; };
-};
+// Do You Want AI to use NVGs?
+//(They are deleted on death)
+DZMSUseNVG = true;
 
-if (!isDedicated) then {
-	if (toLower worldName == "chernarus") then {
-		execVM "\z\addons\dayz_code\system\mission\chernarus\hideGlitchObjects.sqf";
-	};
-	
-	//Enables Plant lib fixes
-	execVM "\z\addons\dayz_code\system\antihack.sqf";
-	
-	if (dayz_townGenerator) then { execVM "\z\addons\dayz_code\compile\client_plantSpawner.sqf"; };
-	call compile preprocessFileLineNumbers "spawn\init.sqf";
-	execFSM "\z\addons\dayz_code\system\player_monitor.fsm";
-	execVM "scripts\servicePoints\init.sqf";
-	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
-	if (DZE_R3F_WEIGHT) then {execVM "\z\addons\dayz_code\external\R3F_Realism\R3F_Realism_Init.sqf";};
-	// REMOVE AI FROM Safe Zones 
-    [] execVM "scripts\safezone\safezone_ai_remover.sqf";
+// Do you want bandit or hero AI kills to count towards player total?
+DZMSCntKills = true;
 
-	if (Z_singleCurrency) then {
-		call compile preprocessFileLineNumbers "scripts\zsc\zscInit.sqf";
-		execVM "scripts\zsc\playerHud.sqf";
-		execVM "dayz_code\compile\remote_message.sqf";
-	};
-	execVM "scripts\servicePoints\init.sqf";
-	
-	[]execVM "scripts\HUD\init_HUD.sqf";
-	
+// Do you want AI to disappear instantly when killed?
+DZMSCleanDeath = false;
 
-	waitUntil {scriptDone progress_monitor};
-	cutText ["","BLACK IN", 3];
-	3 fadeSound 1;
-	3 fadeMusic 1;
-	endLoadingScreen;
-};
+// Do you want AI that players run over to not have gear?
+// (If DZMSCleanDeath is true, this doesn't matter)
+DZMSRunGear = false;
+
+// How long before bodies disappear? (in minutes) (default = 30)
+// Also used by WAI. Make sure they are the same if both are installed.
+ai_cleanup_time = 30;
+
+// Percentage of AI that must be dead before mission completes (default = 0)
+//( 0 is 0% of AI / 0.50 is 50% / 1 is 100% )
+DZMSRequiredKillPercent = .50;
+
+// How long in minutes before mission scenery disappears (default = 30 / 0 = disabled)
+DZMSSceneryDespawnTimer = 30;
+
+// Should crates despawn with scenery? (default = false)
+DZMSSceneryDespawnLoot = true;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// You can adjust AI gear/skills and crate loot in files contained in the ExtConfig folder.
+//////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Do you want to use static coords for missions?
+// Leave this false unless you know what you are doing.
+DZMSStaticPlc = false;
+
+// Array of static locations. X,Y
+DZMSStatLocs = [
+	[0,0],
+	[0,0]
+];
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Do you want to place some static AI in a base or similar?
+// Leave this false unless you know what you are doing.
+DZMSStaticAI = false;
+
+// How long before they respawn? (in seconds) (default 2 hours)
+// If set longer than the amount of time before a server restart, they respawn at restart
+DZMSStaticAITime = 7200;
+
+// How many AI in a group? (Past 6 in a group it's better to just add more positions)
+DZMSStaticAICnt = 4;
+
+// Array of Static AI Locations
+DZMSStaticSpawn = [
+	[0,0,0],
+	[0,0,0]
+];
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Do you want vehicles from missions to save to the Database? (this means they will stay after a restart)
+// If False, vehicles will disappear on restart. It will warn a player who gets inside of a vehicle.
+DZMSSaveVehicles = false;
+
+// Setting this to true will prevent the mission vehicles from taking damage during the mission.
+DZMSVehDamageOff = true;
+
+/*///////////////////////////////////////////////////////////////////////////////////////////
+There are two types of missions that run simultaneously on a the server.
+The two types are Bandit and Hero missions.
+
+Below is the array of mission file names and the minimum and maximum times they run.
+If you don't want a certain mission to run on the server, comment out it's line.
+Remember that the last mission in the list should not have a comma after it.
+*/
+
+DZMSMissionArray = 
+[
+	"AN2_Cargo_Drop", // Weapons
+	"Ural_Ambush", // Weapons, Medical Supplies, Building Supplies
+	"Squad", // No crate
+	"Humvee_Crash", // Weapons
+	//"APC_Mission", // Only uncomment for Epoch/Overpoch
+	"Armed_Vehicles", // No crate
+	"C130_Crash", // Building Supplies
+	"Construction_Site", // Building Supplies
+	"Firebase", // Building Supplies
+	"Helicopter_Crash", // Weapons
+	"Helicopter_Landing", // Weapons, Building Supplies
+	"General_Store", // Survival items found in supermarket
+	"Medical_Cache", // Medical Supplies
+	"Medical_Camp", // Medical Supplies
+	"Medical_Outpost", // Medical Supplies, Weapons
+	"NATO_Weapons_Cache", // Weapons
+	"Stash_house", // Weapons
+	"Weapons_Truck" // Weapons
+];
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// The Minumum time in minutes before a bandit mission will run.
+// At least this much time will pass between bandit missions. Default = 5 minutes.
+DZMSBanditMin = 5;
+
+// Maximum time in seconds before a bandit mission will run.
+// A bandit mission will always run before this much time has passed. Default = 10 minutes.
+DZMSBanditMax = 10;
+
+// Time in seconds before a hero mission will run.
+// At least this much time will pass between hero missions. Default = 5 minutes.
+DZMSHeroMin = 5;
+
+// Maximum time in seconds before a hero mission will run.
+// A hero mission will always run before this much time has passed. Default = 10 minutes.
+DZMSHeroMax = 10;
+
+// Blacklist Zone Array -- missions will not spawn in these areas
+// format: [[x,y,z],[x,y,z]]
+// The first set of xyz coordinates is the upper left corner of a box
+// The second set of xyz coordinates is the lower right corner of a box
+DZMSBlacklistZones = [
+	//[[0,0,0],[0,0,0]]
+	//[[0,16000,0],[1000,-0,0]],	// Left edge of map Chernarus
+    [[0,16000,0],[16000.0,12500,0]] // Top edge of map Chernarus
+];
+
+/*=============================================================================================*/
+// Do Not Edit Below This Line
+/*=============================================================================================*/
+DZMSVersion = "2.0";
