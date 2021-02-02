@@ -1,180 +1,93 @@
-# Example MySQL config file for small systems.
-#
-# This is for a system with little memory (<= 64M) where MySQL is only used
-# from time to time and it's important that the mysqld daemon
-# doesn't use much resources.
-#
-# You can copy this file to
-# C:/xampp/mysql/bin/my.cnf to set global options,
-# mysql-data-dir/my.cnf to set server-specific options (in this
-# installation this directory is C:/xampp/mysql/data) or
-# ~/.my.cnf to set user-specific options.
-#
-# In this file, you can use all long options that a program supports.
-# If you want to know which options a program supports, run the program
-# with the "--help" option.
-
-# The following options will be passed to all MySQL clients
-[client] 
-# password       = 2151623 
-port            = 3306 
-socket          = "C:/xampp/mysql/mysql.sock"
+[Main]
+Version = 5
+;Threads = 0  
+; Default Value is the number of CPU Cores Detected (max value is 6, min value is 2)
+Randomize Config File = false
+;This is a legacy option to randomize config file for Arma2 Servers. Only for Windows Builds
 
 
-# Here follows entries for some specific programs 
+[Rcon]
+;; This is functional, should be working fine. Just needs abit of testing on a $
+;; Allow for changing Address for those running server in a VM environment.
+IP = 127.0.0.1
+Port = 2302
 
-# The MySQL server
-[mysqld]
-port= 3306
-socket = "C:/xampp/mysql/mysql.sock"
-basedir = "C:/xampp/mysql" 
-tmpdir = "C:/xampp/tmp" 
-datadir = "C:/xampp/mysql/data"
-pid_file = "mysql.pid"
-# enable-named-pipe
-key_buffer = 16M
-max_allowed_packet = 1M
-sort_buffer_size = 512K
-net_buffer_length = 8K
-read_buffer_size = 256K
-read_rnd_buffer_size = 512K
-myisam_sort_buffer_size = 8M
-log_error = "mysql_error.log"
+;; Rcon Password i.e Battleye/beserver.cfg
+Password = password
 
-# Change here for bind listening
-# bind-address="127.0.0.1" 
-# bind-address = ::1          # for ipv6
+;; Bad Player Name Checks
+;;		This will only work if your mission / mod has started extDB2 Rcon. i.e 9:START_RCON:RCON
+Bad Playername Enable = true
+Bad Playername Kick Message = Bad Player Name
 
-# Where do all the plugins live
-plugin_dir = "C:/xampp/mysql/lib/plugin/" 
+;; By default : is a bad character (used as seperator for extDB2 Calls (this is hardcoded in)
+Bad Playername Strings = (:):{:}
+;;Bad Playername Regex_1 = [:alnum:]
+;;Bad Playername Regex_2 = [:alnum:]
+;;Bad Playername Regex_3 = [:alnum:]
 
-# Don't listen on a TCP/IP port at all. This can be a security enhancement,
-# if all processes that need to connect to mysqld run on the same host.
-# All interaction with mysqld must be made via Unix sockets or named pipes.
-# Note that using this option without enabling named pipes on Windows
-# (via the "enable-named-pipe" option) will render mysqld useless!
-# 
-# commented in by lampp security
-#skip-networking
-#skip-federated
+;; Whitelisting / Reserve Slots
+;;		This will only work if your mission / mod has started extDB2 Rcon. i.e 9:START_RCON:RCON
+Whitelist Enable = false
+Whitelist Kick Message = Only Reserved Slots Left
+Whitelist Public Slots = 999
 
-# Replication Master Server (default)
-# binary logging is required for replication
-# log-bin deactivated by default since XAMPP 1.4.11
-#log-bin=mysql-bin
+;; Database settings to use (Optional)
+Whitelist Database = MySQL_Example
+Whitelist SQL Prepared Statement = SELECT CASE WHEN EXISTS(SELECT UID FROM PlayerInfo WHERE BattlEyeGUID=? AND Whitelisted=1) THEN 1 ELSE 0 END
+Whitelist Kick on SQL Query Failed = false
 
-# required unique id between 1 and 2^32 - 1
-# defaults to 1 if master-host is not set
-# but will not function as a master if omitted
-server-id	= 1
+;; Hardcoded BEGuids for whitelisted players
+;Whitelist BEGuids = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx : yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
-# Replication Slave (comment out master section to use this)
-#
-# To configure this host as a replication slave, you can choose between
-# two methods :
-#
-# 1) Use the CHANGE MASTER TO command (fully described in our manual) -
-#    the syntax is:
-#
-#    CHANGE MASTER TO MASTER_HOST=<host>, MASTER_PORT=<port>,
-#    MASTER_USER=<user>, MASTER_PASSWORD=<password> ;
-#
-#    where you replace <host>, <user>, <password> by quoted strings and
-#    <port> by the master's port number (3306 by default).
-#
-#    Example:
-#
-#    CHANGE MASTER TO MASTER_HOST='125.564.12.1', MASTER_PORT=3306,
-#    MASTER_USER='joe', MASTER_PASSWORD='secret';
-#
-# OR
-#
-# 2) Set the variables below. However, in case you choose this method, then
-#    start replication for the first time (even unsuccessfully, for example
-#    if you mistyped the password in master-password and the slave fails to
-#    connect), the slave will create a master.info file, and any later
-#    change in this file to the variables' values below will be ignored and
-#    overridden by the content of the master.info file, unless you shutdown
-#    the slave server, delete master.info and restart the slaver server.
-#    For that reason, you may want to leave the lines below untouched
-#    (commented) and instead use CHANGE MASTER TO (see above)
-#
-# required unique id between 2 and 2^32 - 1
-# (and different from the master)
-# defaults to 2 if master-host is set
-# but will not function as a slave if omitted
-#server-id       = 2
-#
-# The replication master for this slave - required
-#master-host     =   <hostname>
-#
-# The username the slave will use for authentication when connecting
-# to the master - required
-#master-user     =   <username>
-#
-# The password the slave will authenticate with when connecting to
-# the master - required
-#master-password =   <password>
-#
-# The port the master is listening on.
-# optional - defaults to 3306
-#master-port     =  <port>
-#
-# binary logging - not required for slaves, but recommended
-#log-bin=mysql-bin
+[Steam]
+;; This is for VAC Protocol for VAC Bans + Steam Friends.
+;; https://steamcommunity.com/dev/apikey
+API Key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+[VAC]
+;; This feature requires Steam + Rcon to be enabled.
+;; Also this feature is called via SQF Code atm, i.e it doesn't auto detect players joining server yet....
+Auto Ban = false
 
-# Point the following paths to different dedicated disks
-#tmpdir = "C:/xampp/tmp"
-#log-update = /path-to-dedicated-directory/hostname
+;; For Player to get banned ( their total VAC Bans => NumberOfVACBans)  AND ( Days Since their Last Ban was <= DaysSinceLastBan)
+;; This is also used extDB Protocol VAC:VACBanned returned results
 
-# Uncomment the following if you are using BDB tables
-#bdb_cache_size = 4M
-#bdb_max_lock = 10000
+NumberOfVACBans = 1
+DaysSinceLastBan = 999999999
+BanDuration = 1
+;; 0 = Forever, otherwise its x Minutes
+BanMessage = Steam VAC Banned
 
-# Comment the following if you are using InnoDB tables
-#skip-innodb
-innodb_data_home_dir = "C:/xampp/mysql/data"
-innodb_data_file_path = ibdata1:10M:autoextend
-innodb_log_group_home_dir = "C:/xampp/mysql/data"
-#innodb_log_arch_dir = "C:/xampp/mysql/data"
-## You can set .._buffer_pool_size up to 50 - 80 %
-## of RAM but beware of setting memory usage too high
-innodb_buffer_pool_size = 16M
-innodb_additional_mem_pool_size = 2M
-## Set .._log_file_size to 25 % of buffer pool size
-innodb_log_file_size = 5M
-innodb_log_buffer_size = 8M
-innodb_flush_log_at_trx_commit = 1
-innodb_lock_wait_timeout = 50
+[Log]
+;; Flush Logs after each write, more work on Harddrive
+Flush = true
 
-## UTF 8 Settings
-#init-connect=\'SET NAMES utf8\'
-#collation_server=utf8_unicode_ci
-#character_set_server=utf8
-#skip-character-set-client-handshake
-#character_sets-dir="C:/xampp/mysql/share/charsets"
+[exile]
+Type = MySQL
+Name = exile
+Username = root
+Password = 
+IP = 127.0.0.1
+Port = 3306
+minSessions = 2
+idleTime = 60
+; Really should only use this if MySQL server is external. Also only for MySQL
+compress = false
+; Recommend you turn this on  http://dev.mysql.com/doc/refman/5.6/en/mysql-command-options.html#option_mysql_secure-auth
+Secure Auth = true
 
-[mysqldump]
-quick
-max_allowed_packet = 16M
+[SQLite_Example]
+Type = SQLite
+Name = sqlite.db
 
-[mysql]
-no-auto-rehash
-# Remove the next comment character if you are not familiar with SQL
-#safe-updates
+minSessions = 1
+; minSession Default Value = 1
 
-[isamchk]
-key_buffer = 20M
-sort_buffer_size = 20M
-read_buffer = 2M
-write_buffer = 2M
-
-[myisamchk]
-key_buffer = 20M
-sort_buffer_size = 20M
-read_buffer = 2M
-write_buffer = 2M
-
-[mysqlhotcopy]
-interactive-timeout
+;maxSessions = 4
+; maxSession Default Value = number of Main->Threads
+; 	You really should leave this value alone
+idleTime = 60
+; idleTime no Default Value yet, needs to be defined.
+; 	idleTime is the time before a database session is stopped if not used. 
+;	If Database Sessions are greater than minSessions
