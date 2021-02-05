@@ -1,160 +1,160 @@
-![ArmA 1.80](https://img.shields.io/badge/Arma-1.80-blue.svg) ![Exile 1.0.3 "Lemon"](https://img.shields.io/badge/Exile-1.0.3%20Lemon-C72651.svg) ![DMS Version](https://img.shields.io/badge/DMS%20Version-2018--02--12-blue.svg)
+/*
 
+ExileZ Mod by [FPS]kuplion - Based on ExileZ 2.0 by Patrix87
 
-# To the User:
-#### Read the instructions carefully. Before leaving any questions regarding DMS, please read through the [DMS "config.sqf"](https://github.com/Defent/DMS_Exile/blob/master/%40ExileServer/addons/a3_dms/config.sqf?ts=4); the majority of the questions we receive are answered (directly or indirectly) by the config.
+*/
 
-#### Disclaimer:
-Defent's Mission System (DMS) is written from the ground up to be an efficient, easy to install, and vastly customizable mission system for the ArmA 3 [Exile Mod](http://www.exilemod.com/).
+// Logging Settings
+EZM_Debug							= false;			// debug messages.
+EZM_ExtendedLogging					= true;				// Slightly more information in logs.
 
-However, creating such a mission system takes a lot of time and testing. We (the authors of DMS) are not perfect, and as a result, there may be bugs, glitches, and/or errors within DMS. We appreciate your co-operation in identifying and resolving such issues to improve DMS; however we are not liable for any issues resulting from the usage of DMS on/by your server. We are also not liable to help you in resolving any issues that may arise.
+// Global Settings
+EZM_MaxZombies						= 100;				// How many Zombies overall?
+EZM_ZombieSide						= EAST;             // zombie team side east, west and Civilian can be used.
+EZM_MinSpawnDistance				= 20;               // Closest distance from any player to spawn a zombie.
+EZM_MaxSpawnDistance				= 100;              // Max distance a zombie should spawn from a player.
+EZM_MaxDistance						= 300;              // Max distance to players before delete.
+EZM_MaxTime							= 30;               // Max time away from a player before delete.
+EZM_MaxTimeDead						= 300;				// Max time for a dead Zombie to stay before delete. (Default 5 minutes)
+EZM_RemoveZfromTraders				= true;             // Will kill zombies when they get too close to a safezone. (the check is done every MaxTime)
+EZM_RemoveZfromTerritory			= true;             // Will kill zombies when they get too close to a flag. (the check is done every MaxTime)
+EZM_TriggerGroupScaling				= 0;				// 1 player = Groupsize, 2 player in trigger = Groupsize + (GroupSize * TriggerGroupScalling * number of player in the trigger) set at 0 to disable scaling
 
-You are welcome to port DMS or any of its functions for any other mod or (legal) purposes. For more information read the License Overview below:
+// Night settings
+EZM_LightsOff						= true;             // Kill all the light on map except the player lights.           
+EZM_NightStartTime					= 18;               // Time at which it is night in hours
+EZM_NightEndTime					= 6;                // Time at which it is no longer night in hours
 
-### License Overview:
-This work is protected by [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](http://creativecommons.org/licenses/by-nc-sa/4.0/). By using, downloading, or copying any of the work contained, you agree to the license included.
+// Explosive zombies          
+EZM_ExplosiveZombies				= true;				// randomly boobie trapped zombies exploding a few seconds after dying.
+EZM_ExplosiveZombiesRatio			= 2;                // percentage of explosive zombies
+EZM_ExplosiveZombieWarning			= "IT'S A TRAP !!!";// Message that will display a few seconds before the explosion of a zombie.
+EZM_ExplosionDelay					= 3;                // self-explanatory
+EZM_ExplosiveType					= "Grenade";		// "mini_Grenade" for small almost non-lethal explosion or "Grenade" Big and dangerous explosion.
+EZM_ExplosiveRespect				= 100;              // Bonus respect for Exploding zombies
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">DMS</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/Defent/DMS_Exile" property="cc:attributionName" rel="cc:attributionURL">Defent and eraser1</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/Defent/DMS_Exile" rel="dct:source">https://github.com/Defent/DMS_Exile</a>.
+// Killing zombies settings
+EZM_EnableMoneyOnPlayer				= false;            // Money goes directly on killer
+EZM_EnableMoneyOnCorpse				= true;             // Money stays on corpse for looting
+EZM_ZombieMoney						= 5;                // Money per zombie kill
+EZM_ZombieMaxMoney					= 15;               // Max Money per zombie kill-random amount put on corpses
 
-The following overview is a human-readable summary of (and not a substitute for) [the full license](http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
+// Stats settings
+EZM_EnableStatKill					= false;				// Enable stat tracking for Kills DB entry
+EZM_EnableZombieStatKill			= false;			// Enable stat tracking for ZedKills DB entry
+EZM_EnableRankChange				= false;			// Enable Rank change
+EZM_EnableHumanityChange			= false;			// Enable GR8's Humanity change
+EZM_ExileZombieKillRankChange		= 5;				// Both Rank and Humanity are dependant on this config
 
-#### You are free to:
+// Respect settings
+EZM_EnableRespectOnKill				= true;				// Self Explanatory
+EZM_ZombieRespect					= 10;				// Respect per zombie kill
 
-**Share** — copy and redistribute the material in any medium or format.
+// Frag settings
+EZM_RoadKillBonus					= 10;				// Bonus Respect if roadkill
+EZM_MinDistance						= 50;				// Minimal distance for range bonus
+EZM_CqbDistance						= 10;				// Minimal ditance for close quarter bonus
+EZM_CqbBonus						= 40;				// Respect for close quarter bonus at 1 meter
+EZM_DistanceBonusDivider			= 10;				// Distance divided by that number = respect E.G. 300m / [20] = 15 Respect
 
-**Adapt** — remix, transform, and build upon the material.
+// Zombie settings : SET TO -1 TO DISABLE AND USE DEFAULT FROM RYANZOMBIES
+EZM_Ryanzombiesdamagecaliberneeded			= -1;		// -1 for RZ default, 0 for always explode, set it to anything else to manually configure it..
+EZM_ryanzombieglowingeyes					= -1;		// Glowing Eyes
+EZM_ryanzombieshealth						= 0.8;		// Health, *(initial damage level 0 is no damage 1 is dead)
+EZM_ryanzombieshealthdemon					= 0.5;		// Health, *(initial damage level 0 is no damage 1 is dead)
+EZM_ryanzombiesattackspeed					= 1.5;		// Attack speed, *(Time is seconds between attacks)
+EZM_ryanzombiesattackdistance				= 2;		// Attack distance, *(in meters)
+EZM_ryanzombiesattackstrenth				= 0;		// Attack strength *(Knockback strength) *(TYPO IS NORMAL)
+EZM_ryanzombiesdamage						= 0.09;		// Attack damage *(% of players life per hit, 1 is 100%)
+EZM_ryanzombiesdamagecar					= 0.05;		// Attack damage to car *(% of car health per hit, 1 is 100%)
+EZM_ryanzombiesdamageair					= 0.01;		// Attack damage to air *(% of car health per hit, 1 is 100%)
+EZM_ryanzombiesdamagetank					= 0.005;	// Attack damage to tank *(% of car health per hit, 1 is 100%)
+EZM_ryanzombiesdamagecarstrenth				= 1.5;		// Car attack strength *(Knockback strength in M/S)
+EZM_ryanzombiesdamageairstrenth				= 1;		// Air attack strength *(Knockback strength M/S)
+EZM_ryanzombiesdamagetankstrenth			= 0.4;		// Tank attack strength *(Knockback strength M/S)
+                                                    
+EZM_ryanzombiescanthrow						= -1;		// Enable or disable Throwing for zombies
+EZM_ryanzombiescanthrowtank					= -1;		// Enable or disable Throwing tank for zombies                                              
+EZM_ryanzombiescanthrowdistance				= 10;		// Max throw distance
+EZM_ryanzombiescanthrowtankdistance			= 0;		// Max throw distance for tanks                         
+                                                    
+EZM_ryanzombiescanthrowdemon				= 1;		// Enable or disable Throwing for demons
+EZM_ryanzombiescanthrowtankdemon			= 1;		// Enable or disable Throwing tank for demons
+EZM_ryanzombiescanthrowdistancedemon		= 50;		// Max throw distance demon
+EZM_ryanzombiescanthrowtankdistancedemon	= 10;		// Max throw distance for tanks      
 
+EZM_ryanzombiesdisablebleeding				= 1;		// 1 to DISABLE player bleeding on hit, -1 to ENABLE player bleeding on hit.
+EZM_ryanzombiesstartinganim					= 1;		// Enable Spawning animation
+EZM_ryanzombieslimit						= 100;		// Player detection distance in meters
+		
+EZM_ryanzombiesdisablemoaning				= -1;		// No idle sound
+EZM_ryanzombiesdisableaggressive			= -1;		// No aggressive sounds
+EZM_ryanzombiescivilianattacks				= -1;		// Attack civilians
+EZM_ryanzombieslogicroam					= -1;		// Roam ***roaming can be heavy on cpu
+EZM_ryanzombieslogicroamdemon				= -1;		// Demon Roam
+                                                 
+EZM_ryanzombiesjump							= -1;		// Jumping Zombies
+EZM_ryanzombiesjumpdemon					= 1;		// Jumping Demons
+                                                    
+EZM_ryanzombiesfeed							= -1;		// Feeding Zombies
+EZM_ryanzombiesfeeddemon					= 1;		// Feeding Demons
 
+// Infection Settings
+EZM_ryanzombiesinfection					= -1;		// Enable infections *(-1 to disable)
+EZM_ryanzombiesinfectedchance				= 0;		// Precent chances to be infected on hit (Default 0)
+EZM_ryanzombiesinfectedrate					= 0.05;		// Damage per minute when infected (+/- 30 minutes to live)
+EZM_ryanzombiesinfectedsymptoms				= 0.9;		// Symptomes showed when infected 0.9 = Normal 0.7 = Less 0.5 = None
+EZM_ryanzombiesinfecteddeath				= 0.9;		// 0.9 = Scream on death 0.7 = Silent death
+EZM_ryanzombiesantivirusduration			= 300;		// Antivirus duration *(5 minutes)
 
-#### Under the following terms:
+// http://steamcommunity.com/sharedfiles/filedetails/?id=614815221 must be installed on the client for the cure to work
+// You also need to overide an Exile script, Details here : http://www.exilemod.com/topic/10999-rz-infection-for-exile/
 
-**Attribution** — You must give **appropriate credit**, provide a link to the license, and **indicate if changes were made**. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+EZM_ryanzombiesmovementspeedwalker			= 1;		// Animation speed for walker zombies
+EZM_ryanzombiesmovementspeedslow			= 1;		// Animation speed for slow zombies
+EZM_ryanzombiesmovementspeedmedium			= 1;		// Animation speed for medium zombies
+EZM_ryanzombiesmovementspeedfast			= 1;		// Animation speed for fast zombies
+EZM_ryanzombiesmovementspeeddemon			= 1;		// Animation speed for demons
+EZM_ryanzombiesmovementspeedspider			= 1;		// Animation speed for spider
+EZM_ryanzombiesmovementspeedcrawler			= 1;		// Animation speed for crawler
 
-**NonCommercial** — You may not use the material for commercial purposes.
+// Harassing Zombies Config
+EZM_UseHarassingZombies						= true;		// Spawn harassing zombies around the player.
+EZM_HarassingZedChance						= 100;		// Percent chance per player for a harassing Zed to spawn on them
+EZM_HarassingZombieAtNightOnly				= false;	// Spawn harassing zombies at night only.
+EZM_HarassingLoopTime						= 180;		// Check for players to harass every X seconds (Default 180 seconds)
+EZM_HarassingConfig = [
+/* 0 Groups Size  */         2,							// maximum number of zombies around a player
+/* 1 Vest group */           EZM_Nothing,				// Vest function defined in ZVest.sqf
+/* 2 Loot group */           EZM_Nothing,				// Loot function defined in ZLoot.sqf
+/* 3 Zombie group */         EZM_Easy					// Group function defined in ZClasses.sqf
+];
 
-**ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the **same license** as the original.
+// Hordes Config
+EZM_UseHorde								= true;		// Use the horde spawner  
+EZM_HordeLoopTime							= 30;		// Spawn a Horde every X Minutes. (Default 30 mins)
+EZM_HordeConfig = [
+/* 0 Groups Size  */         15,						// maximum number of zombies around a player
+/* 1 Vest group */           EZM_Basic,					// Vest function defined in ZVest.sqf
+/* 2 Loot group */           EZM_DocAndAmmo,			// Loot function defined in ZLoot.sqf
+/* 3 Zombie group */         EZM_MediumMix,				// Group function defined in ZClasses.sqf
+/* 4 Horde density */        25							// Radius in which the zombies will spawn should be lower than Min Spawn Distance.
+];
 
-**No additional restrictions** — You may not apply legal terms or **technological measures** that legally restrict others from doing anything the license permits.
+// Blacklisted Areas Config
+EZM_UseAreaBlacklist						= true;
+EZM_BlacklistedPositions =								// Manual blacklisted areas
+[
+	//[[CoordinatesX,CoordinatesY],Radius]				// Example
+	//[[14599,16797],175],
+	//[[23334,24188],175],
+	[[2998,18175],175]
+];
+EZM_BlacklistExtendTraders					= true;		// Extend the Traders Blacklist area
+EZM_BlacklistExtendDistance					= 200;		// Extend the Traders Blacklist area by this much
 
+// Use Map Triggers as well as Hordes and Harassing Zombies?
+EZM_UseTriggers								= true;
 
-
-#### Notices:
-
-You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable **exception or limitation**.
-No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as **publicity, privacy, or moral rights** may limit how you use the material.
-
-
-___
-
-
-# Instructions
-[Please search the DMS thread before asking any questions](http://www.exilemod.com/topic/61-dms-defents-mission-system/?do=findComment&comment=242)
-DMS will work "out-of-the-box" for almost any map. You have to keep in mind that if the map is too small (such as Stratis), then you will need to reduce the [Mission spawn location settings](https://github.com/Defent/DMS_Exile/blob/master/%40ExileServer/addons/a3_dms/config.sqf?ts=4). Also, for especially hilly maps (such as Panthera), you will need to reduce the [Minimum surfaceNormal](https://github.com/Defent/DMS_Exile/blob/master/%40ExileServer/addons/a3_dms/config.sqf?ts=4) (the config value is automatically adjusted for some maps. You can check the [map configs](https://github.com/Defent/DMS_Exile/tree/master/%40ExileServer/addons/a3_dms/map_configs) to see the adjusted config value overwrites).
-
-## BattlEye Filters:
-It is highly recommended that you add
-
-```
-!="(_this select 0) execVM \"\A3\Structures_F\Wrecks\Scripts\Wreck_Heli_Attack_01.sqf\""
-```
-
-at ***the END of the line that starts with "7 exec" in scripts.txt*** (if it exists). [Here is the pastebin](http://pastebin.com/W8bH252U).
-
-***AND:***
-
-```
-!="_v)} do {\n_posV = getPos _v;\n_smoke1 = \"#particlesource\" createVehicleLocal getpos _v;\n_smoke1 attachTo [_v,[0,0,0],\"engine_effe"
-```
-after "7 createVehicle"
-
-
-## Installation:
-
-
-1. Download the [a3_dms](https://github.com/Defent/DMS_Exile/tree/master/%40ExileServer/addons/a3_dms) folder
-2. Edit the [config.sqf](https://github.com/Defent/DMS_Exile/blob/master/%40ExileServer/addons/a3_dms/config.sqf?ts=4) to your preferences.
-3. Pack the a3_dms folder with a PBO tool ([PBO Manager](http://www.armaholic.com/page.php?id=16369), [Eliteness](https://dev.withsix.com/projects/mikero-pbodll/files), or [the Arma 3 Tools suite](http://store.steampowered.com/app/233800/))
-4. Put the generated PBO in your ```@ExileServer\addons\``` directory. It should be alongside ```exile_server.pbo``` and ```exile_server_config.pbo```.
-
-<br>
-## infiSTAR:
-* If you want to enable "VehicleWhiteList_check", make sure to add ```'O_HMG_01_high_F'``` to ```_VehicleWhiteList```, as well as any other vehicles you add to DMS that are not whitelisted.
-
-<br><br>
-### Vilayer or other Game Server Providers Instructions:
-
-If you are using Vilayer or some other GameServer hosting service, and/or the above steps did not work, then follow these instructions:
-
-1. Create a new folder called @a3_dms in the root ArmA 3 folder.
-2. Create a subfolder called "addons".
-3. Place the "a3_dms.pbo" in the "addons" subfolder.
-4. Edit your startup parameters/modline to include "@a3_dms". For example: ```-serverMod=@ExileServer;@a3_dms;```
-
-<br><br>
-
-## Troubleshooting:
-If you're having any issues with DMS, check your RPT for errors and make sure PBO is packed correctly by unpacking it and ensuring the folder structure is "\x\addons\a3_DMS\...".
-
-If you can't figure it out, leave a post on [the DMS thread on exile forums](http://www.exilemod.com/topic/61-dms-defents-mission-system/?do=findComment&comment=242). **Make sure to include your RPT, config.sqf, as well as any changed files. Please use [pastebin](http://pastebin.com/), spoilers, or something similar; DO NOT PASTE EVERYTHING DIRECTLY INTO THE POST (without putting it in a spoiler)**
-
-<br><br>
-### HEADLESS CLIENT:
-
-**DMS does not currently support headless client. Do not attempt to use HC with DMS unless you know what you are doing.**
-
-___
-<br><br>
-
-# Credits:
-### Authors:
-- [Defent](https://github.com/Defent) from [NumenaDayZ](http://numenadayz.com/).
-- [eraser1](https://github.com/eraser1) from [TrainwreckDayZ](http://www.trainwreckdayz.com/home).
-- [secondcoming](https://github.com/secondcoming) from [ExileYorkshire](http://exileyorkshire.co.uk/).
-
-
-### Thanks:
-- [Zupa](https://github.com/Windmolders) for suggestions and coding help.
-- [Nawuko](https://github.com/Nawuko) for catching a silly mistake :P
-- [shaworth](https://github.com/shaworth) and [KawaiiPotato](https://github.com/KawaiiPotato) for making the README all nice and pretty :)
-- [maca134](http://maca134.co.uk/portfolio/m3editor-arma-3-map-editor/) for M3Editor Stuff
-- [Darth Rogue from SOA](http://soldiersofanarchy.net/) for the awesome base for the first DMS static mission :D
-- [William from Refugees of the Fallen](http://rtfgaming.com/) for the amazing slums static mission base and ideas :)
-- [DONKEYPUNCH](https://github.com/donkeypunchepoch) for everything on the [February 17th 2016 commit](https://github.com/Defent/DMS_Exile/wiki/Changelog#february-17-2016-600-pm-cst-america) ;)
-- [MGTDB](https://github.com/MGTDB) for the plethora of fixes, testing, and all-around doing our work for us :P
-- Everybody's feedback on [the DMS thread on exile forums](http://www.exilemod.com/topic/61-dms-defents-mission-system/?do=findComment&comment=242)
-
-#### Testers/Reporters:
-- [William from Refugees of the Fallen](http://rtfgaming.com/)
-- [JamieKG from Eternal Gamer](http://eternal-gamer.com/)
-- [Valthos from The Altis Project](https://www.thealtisproject.co.uk/)
-- [Flowrider from Optimum Gaming](http://www.optimum-multigaming.com/)
-- [CEN from ATD Gaming](http://atdgaming.com/)
-
-___
-<br><br><br>
-
-# Ideas:
-### Zombies are NOT SUPPORTED by DMS, nor do we ever plan to support zombies within DMS.
-
-#### Convoy Mission:
-* Regularly update marker position.
-* Implement function(s) for AI pathing.
-
-#### Dynamic Underwater Missions
-
-#### Dynamic/Ambient AI Spawning
-* Spawn AI that are meant to "hunt" individual players.
-* Air/Land AI Vehicle Patrols
-
-#### Random community ideas:
-* Spawning in a trader on mission completion ([Trillseeker82](http://www.exilemod.com/topic/61-dms-defents-mission-system/?do=findComment&comment=43932)).
-
-#### Full Headless Client Support.
-* AI will still be offloaded to clients (ideally); strictly DMS functions will be handled by the HC.
-
-
-___
-<br><br><br>
-
-# Changelog:
-https://github.com/Defent/DMS_Exile/wiki/Changelog
+// Check Config Compiled
+EZM_CompiledOkay							= true;
