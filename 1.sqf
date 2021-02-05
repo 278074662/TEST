@@ -1,539 +1,848 @@
+/*
 
-20:43:38 "ExileServer - Starting session for 'klos' with ID 'dtejbvpl'..."
-20:43:38 "default/BIS_fnc_log: [BIS_fnc_preload] ----- Scripts initialized at 29605 ms -----"
-20:43:39 "ExileZ Mod: Turning off the lights.. SPOOKY!!"
-20:43:39 "ExileZ Mod: Version v1.6.0 - 20/05/18 Started at (2.522)"
-20:43:39 "default/BIS_fnc_log: [postInit] exilez_mod_fnc_postInit (23510 ms)"
-20:43:39 "ExileServer - Job with handle 10009 added."
-20:43:39 "DMS_DEBUG :: DMS post-init complete. productVersion: [""Arma 3"",""Arma3"",200,146773,""Stable"",true,""Windows"",""x86""] | infiSTAR version: not installed |::|::| (DMS_Version: ""September 7, 2017"" | time: 2.543 | diag_tickTime: 123.536 | 0.842504 FPS)"
-20:43:39 "default/BIS_fnc_log: [postInit] DMS_fnc_DMS_postInit (14.9994 ms)"
-20:43:39 "default/BIS_fnc_log: [postInit] yorkshire_fnc_YORKS_init (0.999451 ms)"
-20:43:39 "default/BIS_fnc_log: [postInit] chernarusredux_functions_fnc_postInit (0 ms)"
-20:43:39 "[OCCUPATION]:: Occupation V71 (23-01-2019) Giving the server time to start before starting [OCCUPATION] (2.566)"
-20:43:39 "DMS :: Initializing FSM mission script"
-20:43:39 "ExileServer - Dispatching hasPlayerRequest for session 'dtejbvpl'..."
-20:43:40 a3\weapons_f\binocular\nvg_proxy.p3d: No geometry and no visual shape
-20:43:40 exile_assets\model\exile_item_xm8.p3d: No geometry and no visual shape
-20:43:40 Inventory item with given name: [Rangefinder] not found
-20:43:49 "[OCCUPATION MOD]:: Occupation V71 (23-01-2019) Loading Config at 12.584"
-20:43:49 "V71 (23-01-2019) ============================================================================================================="
-20:43:49 "V71 (23-01-2019) [OCCUPATION MOD]:: Occupation V71 (23-01-2019) Initialised at 12.715"
-20:43:49 "V71 (23-01-2019) ============================================================================================================="
-20:43:49 "V71 (23-01-2019) [OCCUPATION:Traders] starting @ 12.737"
-20:43:49 "V71 (23-01-2019) [processReporter]:: Initialised at 12.737"
-20:43:49 "ExileServer - Job with handle 10010 added."
-20:43:49 "V71 (23-01-2019) [OCCUPATION]:: Detected DMS version September 7, 2017"
-20:43:49 "V71 (23-01-2019) [OCCUPATION]:: Occupation V71 (23-01-2019) Adding modules to Exile system thread manager at 12.737"
-20:44:04 "ExileServer - Job with handle 10011 added."
-20:44:04 "ExileServer - Job with handle 10012 added."
-20:44:11 "ExileZ Mod: Monitored Zombies	|	0	"
-20:44:19 "V71 (23-01-2019) [OCCUPATION:HeliCrashes]:: Initialised at 42.775"
-20:44:19 "V71 (23-01-2019) [OCCUPATION:HeliCrashes]::  worldname: ChernarusRedux crashes to spawn: 5"
-20:44:20 "V71 (23-01-2019) [OCCUPATION:HeliCrashes] Crash 1 : Location [7571.86,5305.13,0]"
-20:44:20 "ExileServer - Job with handle 10013 added."
-20:44:21 "ExileServer - Job with handle 10014 added."
-20:44:21 "ExileServer - Job with handle 10015 added."
-20:44:21 "ExileServer - Job with handle 10016 added."
-20:44:21 "ExileServer - Job with handle 10017 added."
-20:44:21 "ExileServer - Job with handle 10018 added."
-20:44:21 "V71 (23-01-2019) [OCCUPATION:HeliCrash]::  Creating HeliCrash 1 at [7571.86,5305.13,0] with 6 guards"
-20:44:21 a3\characters_f\common\headgear_helmet_heli_shield.p3d: No geometry and no visual shape
-20:44:21 a3\characters_f\common\headgear_helmet_heli_shield.p3d: No geometry and no visual shape
-20:44:23 "V71 (23-01-2019) [OCCUPATION:HeliCrashes] Crash 2 : Location [3358.87,6976.67,0]"
-20:44:23 "ExileServer - Job with handle 10019 added."
-20:44:23 "ExileServer - Job with handle 10020 added."
-20:44:23 "ExileServer - Job with handle 10021 added."
-20:44:24 "V71 (23-01-2019) [OCCUPATION:HeliCrash]::  Creating HeliCrash 2 at [3358.87,6976.67,0] with 3 guards"
-20:44:25 "V71 (23-01-2019) [OCCUPATION:HeliCrashes] Crash 3 : Location [5810.49,11883.9,0]"
-20:44:25 hidebullet_001 - unknown animation source codrivermuzzle_revolving
-20:44:25 hidebullet_002 - unknown animation source codrivermuzzle_revolving
-20:44:25 hidebullet2_001 - unknown animation source codrivermuzzle_revolving
-20:44:25 hidebullet2_002 - unknown animation source codrivermuzzle_revolving
-20:44:25 "ExileServer - Job with handle 10022 added."
-20:44:25 "ExileServer - Job with handle 10023 added."
-20:44:25 "V71 (23-01-2019) [OCCUPATION:HeliCrash]::  Creating HeliCrash 3 at [5810.49,11883.9,0] with 2 guards"
-20:44:26 "V71 (23-01-2019) [OCCUPATION:HeliCrashes] Crash 4 : Location [4186.5,8221.74,0]"
-20:44:26 "ExileServer - Job with handle 10024 added."
-20:44:26 "ExileServer - Job with handle 10025 added."
-20:44:26 "ExileServer - Job with handle 10026 added."
-20:44:26 "V71 (23-01-2019) [OCCUPATION:HeliCrash]::  Creating HeliCrash 4 at [4186.5,8221.74,0] with 3 guards"
-20:44:28 "V71 (23-01-2019) [OCCUPATION:HeliCrashes] Crash 5 : Location [1614.58,10331.6,0]"
-20:44:28 hidebullet_001 - unknown animation source codrivermuzzle_revolving
-20:44:28 hidebullet_002 - unknown animation source codrivermuzzle_revolving
-20:44:28 hidebullet2_001 - unknown animation source codrivermuzzle_revolving
-20:44:28 hidebullet2_002 - unknown animation source codrivermuzzle_revolving
-20:44:28 "ExileServer - Job with handle 10027 added."
-20:44:28 "ExileServer - Job with handle 10028 added."
-20:44:28 "ExileServer - Job with handle 10029 added."
-20:44:28 "V71 (23-01-2019) [OCCUPATION:HeliCrash]::  Creating HeliCrash 5 at [1614.58,10331.6,0] with 3 guards"
-20:44:28 exile_assets\model\exile_item_noodles.p3d: No geometry and no visual shape
-20:44:43 "ExileServer - Job with handle 10030 added."
-20:44:45 "ExileZ Mod: Monitored Zombies	|	0	"
-20:44:50 "V71 (23-01-2019) ======================================================================================================="
-20:44:50 "V71 (23-01-2019) [processReporter] Started @ 73.815 : [FPS: 46.3768|PLAYERS: 1|THREADS: 3]"
-20:44:50 "V71 (23-01-2019) ======================================================================================================="
-20:44:50 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:44:50 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 73.815"
-20:44:50 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 73.815"
-20:44:50 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_sortNum"",""x\addons\a3_exile_occupation\scripts\startOccupation.sqf"",true,105] @ 73.815"
-20:44:50 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-73.815] @ 73.815"
-20:44:50 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-73.815] @ 73.815"
-20:44:50 "V71 (23-01-2019) [processReporter] Ended @ 73.815"
-20:44:58 "ExileServer - Job with handle 10031 added."
-20:45:05 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 8:31 multipler is 4"
-20:45:13 "ExileServer - Job with handle 10032 added."
-20:45:15 "ExileZ Mod: Monitored Zombies	|	0	"
-20:45:28 "V71 (23-01-2019) [OCCUPATION:transport]:: Starting @ 111.916"
-20:45:28 a3\air_f\data\plane_flag_medium_inv_f.p3d: No geometry and no visual shape
-20:45:28 "V71 (23-01-2019) [OCCUPATION:transport] Vehicle Exile_Chopper_Orca_BlackCustom spawned @ [8192,8192,200]"
-20:45:28 "V71 (23-01-2019) [OCCUPATION:transport]:: Found 3 markers to use as pickup points @ 112.338"
-20:45:28 "V71 (23-01-2019) [OCCUPATION:transport]:: textures for vehicle are: [""a3\air_f_heli\heli_light_02\data\heli_light_02_ext_opfor_v2_co.paa""]"
-20:45:29 "[OCCUPATION:transport] Running"
-20:45:43 "ExileServer - Job with handle 10033 added."
-20:45:43 "V71 (23-01-2019) [OCCUPATION]:: threads added at 126.915"
-20:45:45 "ExileZ Mod: Monitored Zombies	|	0	"
-20:45:50 "V71 (23-01-2019) ======================================================================================================="
-20:45:50 "V71 (23-01-2019) [processReporter] Started @ 133.959 : [FPS: 46.2428|PLAYERS: 1|THREADS: 3]"
-20:45:50 "V71 (23-01-2019) ======================================================================================================="
-20:45:50 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:45:50 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 133.959"
-20:45:50 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 133.959"
-20:45:50 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 133.959"
-20:45:50 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-133.959] @ 133.959"
-20:45:50 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-133.959] @ 133.959"
-20:45:50 "V71 (23-01-2019) [processReporter] Ended @ 133.959"
-20:46:05 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 8:35 multipler is 4"
-20:46:15 "ExileZ Mod: Monitored Zombies	|	0	"
-20:46:42 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.
-ryanzombies
-20:46:42 Loading movesType CfgGesturesMale
-20:46:42 MovesType CfgGesturesMale load time 128 ms
-20:46:42 Loading movesType CfgRyanZombiesMovesMaleSdrwalker
-20:46:42 MovesType CfgRyanZombiesMovesMaleSdrwalker load time 32 ms
-20:46:42 "ExileZ Mod: Spawning 1 Zombie	and adding it to the Monitor"
-20:46:43 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.
-ryanzombies
-20:46:43 "ExileZ Mod: Spawning 1 Zombie	and adding it to the Monitor"
-20:46:44 "ExileZ Mod: Spawning 2 Harassing Zombie(s) for klos."
-20:46:49 "ExileZ Mod: Monitored Zombies	|	2	"
-20:46:54 "V71 (23-01-2019) ======================================================================================================="
-20:46:54 "V71 (23-01-2019) [processReporter] Started @ 198.034 : [FPS: 45.8453|PLAYERS: 1|THREADS: 5]"
-20:46:54 "V71 (23-01-2019) ======================================================================================================="
-20:46:54 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 4 exec-ed: 0 execFSM-ed: 2"
-20:46:54 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 198.034"
-20:46:54 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 198.034"
-20:46:54 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 198.034"
-20:46:54 "V71 (23-01-2019) [processReporter] Active SQF: [""Zombie Brains v4.7"",""\ryanzombies\functions\fn_preInit.sqf [RyanZM_fnc_rzfunctionpreinit]"",true,1044] @ 198.034"
-20:46:54 "V71 (23-01-2019) [processReporter] Active SQF: [""Zombie Brains v4.7"",""\ryanzombies\functions\fn_preInit.sqf [RyanZM_fnc_rzfunctionpreinit]"",true,794] @ 198.034"
-20:46:54 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-198.034] @ 198.034"
-20:46:54 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-198.034] @ 198.034"
-20:46:54 "V71 (23-01-2019) [processReporter] Ended @ 198.034"
-20:47:09 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 8:39 multipler is 4"
-20:47:19 "ExileZ Mod: Monitored Zombies	|	2	"
-20:47:30 "ExileZ Mod: Zombie killed by klos"
-20:47:30 Ragdoll - loading of ragdoll source "Soldier" started.
-20:47:30 Ragdoll - loading of ragdoll source "Soldier" finished successfully.
-20:47:49 "ExileZ Mod: Monitored Zombies	|	1	"
-20:47:54 "V71 (23-01-2019) ======================================================================================================="
-20:47:54 "V71 (23-01-2019) [processReporter] Started @ 258.146 : [FPS: 45.4545|PLAYERS: 1|THREADS: 5]"
-20:47:54 "V71 (23-01-2019) ======================================================================================================="
-20:47:54 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 2 execVM-ed: 3 exec-ed: 0 execFSM-ed: 2"
-20:47:54 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 258.146"
-20:47:54 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 258.146"
-20:47:54 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,302] @ 258.146"
-20:47:54 "V71 (23-01-2019) [processReporter] Active SQF: [""Zombie Brains v4.7"",""\ryanzombies\functions\fn_preInit.sqf [RyanZM_fnc_rzfunctionpreinit]"",true,794] @ 258.146"
-20:47:54 "V71 (23-01-2019) [processReporter] Active SQF: [""<spawn>
-_zombie = _this;
+ExileZ Mod by [FPS]kuplion - Based on ExileZ 2.0 by Patrix87
 
-sleep 60;
-remoteExecCall [""""fnc_RyanZombies_RemoveGroups"""", owner _zombie];
-if !(is"",""\ryanzombies\functions\fn_preInit.sqf [RyanZM_fnc_rzfunctionpreinit]"",true,207] @ 258.146"
-20:47:54 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-258.146] @ 258.146"
-20:47:54 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-258.146] @ 258.146"
-20:47:54 "V71 (23-01-2019) [processReporter] Ended @ 258.146"
-20:47:56 "ExileZ Mod: Zombie killed by klos"
-20:48:09 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 8:43 multipler is 4"
-20:48:11 Error: Object(4 : 73) not found
-20:48:19 "ExileZ Mod: Monitored Zombies	|	0	"
-20:48:40 "ExileZ Mod: Monitored Dead Zombies	|	2	"
-20:48:50 "ExileZ Mod: Monitored Zombies	|	0	"
-20:48:55 "V71 (23-01-2019) ======================================================================================================="
-20:48:55 "V71 (23-01-2019) [processReporter] Started @ 318.283 : [FPS: 45.977|PLAYERS: 1|THREADS: 4]"
-20:48:55 "V71 (23-01-2019) ======================================================================================================="
-20:48:55 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 2 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:48:55 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 318.283"
-20:48:55 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 318.283"
-20:48:55 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 318.283"
-20:48:55 "V71 (23-01-2019) [processReporter] Active SQF: [""<spawn>
-_zombie = _this;
+*/
 
-sleep 60;
-remoteExecCall [""""fnc_RyanZombies_RemoveGroups"""", owner _zombie];
-if !(is"",""\ryanzombies\functions\fn_preInit.sqf [RyanZM_fnc_rzfunctionpreinit]"",true,207] @ 318.283"
-20:48:55 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-318.283] @ 318.283"
-20:48:55 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-318.283] @ 318.283"
-20:48:55 "V71 (23-01-2019) [processReporter] Ended @ 318.283"
-20:49:10 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 8:47 multipler is 4"
-20:49:20 "ExileZ Mod: Monitored Zombies	|	0	"
-20:49:46 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.
-ryanzombies
-20:49:46 "ExileZ Mod: Spawning 1 Zombie	and adding it to the Monitor"
-20:49:47 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.
-ryanzombies
-20:49:47 "ExileZ Mod: Spawning 1 Zombie	and adding it to the Monitor"
-20:49:48 "ExileZ Mod: Spawning 2 Harassing Zombie(s) for klos."
-20:49:49 "V71 (23-01-2019) [OCCUPATION:Vehicle] Started"
-20:49:52 "[OCCUPATION:Vehicle] found position [3348.74,10049.4,0]"
-20:49:52 "ExileServer - Job with handle 10034 added."
-20:49:52 "ExileServer - Job with handle 10035 added."
-20:49:52 "ExileServer - Job with handle 10036 added."
-20:49:52 "ExileServer - Job with handle 10037 added."
-20:49:52 "V71 (23-01-2019) [OCCUPATION:Vehicle] bandit vehicle B_GEN_Offroad_01_gen_F spawned @ [3348.74,10049.4,0]"
-20:50:11 "[OCCUPATION:Vehicle] found position [12759,10684.5,0]"
-20:50:11 "ExileServer - Job with handle 10038 added."
-20:50:11 "ExileServer - Job with handle 10039 added."
-20:50:12 "ExileServer - Job with handle 10040 added."
-20:50:12 "ExileServer - Job with handle 10041 added."
-20:50:12 "V71 (23-01-2019) [OCCUPATION:Vehicle] bandit vehicle B_GEN_Offroad_01_gen_F spawned @ [12759,10684.5,0]"
-20:50:21 Loading movesType CfgMovesSheep_F
-20:50:21 MovesType CfgMovesSheep_F load time 11 ms
-20:50:39 exile_assets\model\exile_item_cookingpot.p3d: No geometry and no visual shape
-20:50:39 "DMS_SpawnAIGroup :: Spawned 4 AI at [1432.32,12166.1,0]."
-20:50:39 "[OCCUPATION:Vehicle] found position [3894.98,10124.1,0]"
-20:50:39 "ExileServer - Job with handle 10042 added."
-20:50:39 "ExileServer - Job with handle 10043 added."
-20:50:39 "ExileServer - Job with handle 10044 added."
-20:50:39 "V71 (23-01-2019) [OCCUPATION:Vehicle] bandit vehicle C_Offroad_02_unarmed_F spawned @ [3894.98,10124.1,0]"
-20:50:52 "V71 (23-01-2019) [OCCUPATION:Vehicle] End check 3 currently active (max 3) @ 435.187"
-20:50:52 "ExileZ Mod: Monitored Zombies	|	2	"
-20:50:52 "ExileZ Mod: Removing 1 Zombie due to no Players	|	Position : [5610.48,14022.5,0.00140381]	|	Class : RyanZombieC_man_polo_5_Fwalker"
-20:50:52 "ExileZ Mod: Removing 1 Zombie due to no Players	|	Position : [5610,14018.5,0.00183105]	|	Class : RyanZombieC_journalist_Fwalker"
-20:50:52 "V71 (23-01-2019) ======================================================================================================="
-20:50:52 "V71 (23-01-2019) [processReporter] Started @ 435.706 : [FPS: 46.5116|PLAYERS: 1|THREADS: 5]"
-20:50:52 "V71 (23-01-2019) ======================================================================================================="
-20:50:52 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 4 exec-ed: 0 execFSM-ed: 2"
-20:50:52 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 435.706"
-20:50:52 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 435.706"
-20:50:52 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,302] @ 435.706"
-20:50:52 "V71 (23-01-2019) [processReporter] Active SQF: [""Zombie Brains v4.7"",""\ryanzombies\functions\fn_preInit.sqf [RyanZM_fnc_rzfunctionpreinit]"",true,1044] @ 435.706"
-20:50:52 "V71 (23-01-2019) [processReporter] Active SQF: [""Zombie Brains v4.7"",""\ryanzombies\functions\fn_preInit.sqf [RyanZM_fnc_rzfunctionpreinit]"",true,1044] @ 435.706"
-20:50:52 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-435.706] @ 435.706"
-20:50:52 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-435.706] @ 435.706"
-20:50:52 "V71 (23-01-2019) [processReporter] Ended @ 435.706"
-20:50:52 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 8:54 multipler is 4"
-20:50:52 "V71 (23-01-2019) [OCCUPATION:Sky] Started"
-20:50:52 "_randomLocation: [[8197,9081,400],3000,""Tanoa""]"
-20:50:52 "[OCCUPATION:Sky] found position [8197,9081,400]"
-20:50:52 Warning: Convex component representing Skids not found
-20:50:52 Array mat in bin\config.bin/CfgVehicles/UH1HL_base/Damage/ not multiply of 3
-20:50:52 Duplicate HitPoint name 'HitTurret' in 'Exile_Chopper_Huey_Armed_Green'
-20:50:52 Duplicate HitPoint name 'HitGun' in 'Exile_Chopper_Huey_Armed_Green'
-20:50:52 Duplicate HitPoint name 'HitTurret' in 'Exile_Chopper_Huey_Armed_Green'
-20:50:52 Duplicate HitPoint name 'HitGun' in 'Exile_Chopper_Huey_Armed_Green'
-20:50:52 Error: bin\config.bin/CfgVehicles/UH1H_M240/Turrets/RightDoorGun/: Turret body Turret2 not found while initializing the model exile_psycho_uh1h\psycho_uh1h_m240.p3d
-20:50:52 Error: bin\config.bin/CfgVehicles/UH1H_M240/Turrets/CoPilotObs/: Turret body ObsTurret not found while initializing the model exile_psycho_uh1h\psycho_uh1h_m240.p3d
-20:50:52 Error: bin\config.bin/CfgVehicles/UH1H_M240/Turrets/CoPilotObs/: Turret gun ObsGun not found while initializing the model exile_psycho_uh1h\psycho_uh1h_m240.p3d
-20:50:52 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.
-uh1h
-20:50:52 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.
-uh1h
-20:50:52 "[occupationSky] _SC_vehicleSpawnLocation: [[8197,9081,400],3000,""ChernarusRedux""]"
-20:50:52 "ExileServer - Job with handle 10045 added."
-20:50:52 "ExileServer - Job with handle 10046 added."
-20:50:52 "ExileServer - Job with handle 10047 added."
-20:50:52 "ExileServer - Job with handle 10048 added."
-20:50:52 "ExileServer - Job with handle 10049 added."
-20:50:53 "ExileServer - Job with handle 10050 added."
-20:50:53 "V71 (23-01-2019) [OCCUPATION:Sky] Running"
-20:50:53 "V71 (23-01-2019) [OCCUPATION:Places]:: Starting Occupation Monitor @ 436.487"
-20:50:54 "ExileServer - Job with handle 10051 added."
-20:50:54 "ExileServer - Job with handle 10052 added."
-20:50:57 "ExileServer - Job with handle 10053 added."
-20:50:57 "ExileServer - Job with handle 10054 added."
-20:50:58 "ExileServer - Job with handle 10055 added."
-20:51:00 "ExileServer - Job with handle 10056 added."
-20:51:00 "ExileServer - Job with handle 10057 added."
-20:51:01 "ExileServer - Job with handle 10058 added."
-20:51:01 "ExileServer - Job with handle 10059 added."
-20:51:01 "ExileServer - Job with handle 10060 added."
-20:51:05 "ExileServer - Job with handle 10061 added."
-20:51:07 "ExileServer - Job with handle 10062 added."
-20:51:07 "ExileServer - Job with handle 10063 added."
-20:51:07 "ExileServer - Job with handle 10064 added."
-20:51:08 "ExileServer - Job with handle 10065 added."
-20:51:09 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Initialised at 452.458"
-20:51:09 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Air: 69d80100# 1524813: psycho_uh1h_m240.p3d is active"
-20:51:11 "[occupationMonitor] _tempLocation: [[8197,9081,400],3000,""ChernarusRedux""] _originalSpawnLocation: [8197,9081,400]"
-20:51:11 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 2-4:1 is active"
-20:51:13 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 2-1:1 REMOTE is active"
-20:51:15 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 2-2:1 is active"
-20:51:17 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Finished at 460.522"
-20:51:25 "ExileZ Mod: Monitored Zombies	|	0	"
-20:51:55 "ExileZ Mod: Monitored Zombies	|	0	"
-20:51:55 "V71 (23-01-2019) ======================================================================================================="
-20:51:55 "V71 (23-01-2019) [processReporter] Started @ 498.201 : [FPS: 46.1095|PLAYERS: 1|THREADS: 3]"
-20:51:55 "V71 (23-01-2019) ======================================================================================================="
-20:51:55 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:51:55 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 498.201"
-20:51:55 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 498.201"
-20:51:55 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,302] @ 498.201"
-20:51:55 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-498.201] @ 498.201"
-20:51:55 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-498.201] @ 498.201"
-20:51:55 "V71 (23-01-2019) [processReporter] Ended @ 498.201"
-20:51:55 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 8:58 multipler is 4"
-20:52:17 "ExileServer - Job with handle 10066 added."
-20:52:25 "ExileZ Mod: Monitored Zombies	|	0	"
-20:52:43 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Vehicle O Alpha 2-4:1 REMOTE _repairStatus false"
-20:52:43 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Starting repair check Vehicle O Alpha 2-4:1 REMOTE _repairStatus false"
-20:52:43 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Not enough damage to disable O Alpha 2-4:1 REMOTE, driver is O Alpha 2-4:1 REMOTE at 546.783"
-20:52:43 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Finished mphit eventhandler for Vehicle O Alpha 2-4:1 REMOTE _repairStatus false"
-20:52:43 Error: Object(2 : 1481) not found
-20:52:43 Error: Object(2 : 1482) not found
-20:52:43 "DMS Seat Switcher :: Temporarily setting owner of O Alpha 2-4 to server from 4. Success: true"
-20:52:43 Client: Local object 2:1481 not found
-20:52:43 Client: Local object 2:1482 not found
-20:52:43 Server: Object info 2:1481 not found during Changing Owner
-20:52:43 Server: Object info 2:1482 not found during Changing Owner
-20:52:50 "ExileZ Mod: klos is in a Blacklisted area, no Harassing Zombie for them."
-20:52:56 "ExileZ Mod: Monitored Zombies	|	0	"
-20:52:56 "V71 (23-01-2019) ======================================================================================================="
-20:52:56 "V71 (23-01-2019) [processReporter] Started @ 559.341 : [FPS: 45.8453|PLAYERS: 1|THREADS: 3]"
-20:52:56 "V71 (23-01-2019) ======================================================================================================="
-20:52:56 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:52:56 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 559.341"
-20:52:56 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 559.361"
-20:52:56 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 559.361"
-20:52:56 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-559.361] @ 559.361"
-20:52:56 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-559.361] @ 559.361"
-20:52:56 "V71 (23-01-2019) [processReporter] Ended @ 559.361"
-20:52:56 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:2 multipler is 4"
-20:53:26 "ExileZ Mod: Monitored Zombies	|	0	"
-20:53:38 ca\buildings\dum_mesto_in_open.p3d: house, config class missing
-20:53:41 "ExileZ Mod: Monitored Dead Zombies	|	2	"
-20:53:41 "ExileZ Mod: Removing 1 Probably dead Zombie	|	Position : [5707.57,13831.3,-0.0601807]	|	Class : RyanZombie31walker"
-20:53:41 "ExileZ Mod: Removing 1 Probably dead Zombie	|	Position : [5744.29,13820.6,-0.0358887]	|	Class : RyanZombieC_man_pilot_Fwalker"
-20:53:56 "ExileZ Mod: Monitored Zombies	|	0	"
-20:53:56 "V71 (23-01-2019) ======================================================================================================="
-20:53:56 "V71 (23-01-2019) [processReporter] Started @ 619.481 : [FPS: 46.1095|PLAYERS: 1|THREADS: 3]"
-20:53:56 "V71 (23-01-2019) ======================================================================================================="
-20:53:56 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:53:56 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 619.481"
-20:53:56 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 619.481"
-20:53:56 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,302] @ 619.481"
-20:53:56 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-619.481] @ 619.481"
-20:53:56 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-619.481] @ 619.481"
-20:53:56 "V71 (23-01-2019) [processReporter] Ended @ 619.481"
-20:53:56 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:6 multipler is 4"
-20:54:26 "ExileZ Mod: Monitored Zombies	|	0	"
-20:54:56 "ExileZ Mod: Monitored Zombies	|	0	"
-20:54:56 "V71 (23-01-2019) ======================================================================================================="
-20:54:56 "V71 (23-01-2019) [processReporter] Started @ 679.644 : [FPS: 45.8453|PLAYERS: 1|THREADS: 3]"
-20:54:56 "V71 (23-01-2019) ======================================================================================================="
-20:54:56 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:54:56 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 679.644"
-20:54:56 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 679.644"
-20:54:56 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 679.644"
-20:54:56 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-679.644] @ 679.644"
-20:54:56 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-679.644] @ 679.644"
-20:54:56 "V71 (23-01-2019) [processReporter] Ended @ 679.644"
-20:54:56 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:10 multipler is 4"
-20:55:26 "ExileZ Mod: Monitored Zombies	|	0	"
-20:55:51 "ExileZ Mod: klos is in a Blacklisted area, no Harassing Zombie for them."
-20:55:52 "ExileZ Mod: klos is in a SafeZone, no Harassing Zombie for them."
-20:55:57 Error: Object(4 : 84) not found
-20:55:57 Error: Object(4 : 82) not found
-20:55:57 Error: Object(4 : 83) not found
-20:55:58 "ExileZ Mod: Monitored Zombies	|	0	"
-20:55:58 "V71 (23-01-2019) ======================================================================================================="
-20:55:58 "V71 (23-01-2019) [processReporter] Started @ 741.269 : [FPS: 45.3258|PLAYERS: 1|THREADS: 3]"
-20:55:58 "V71 (23-01-2019) ======================================================================================================="
-20:55:58 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:55:58 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 741.269"
-20:55:58 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 741.269"
-20:55:58 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 741.269"
-20:55:58 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-741.292] @ 741.292"
-20:55:58 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-741.292] @ 741.292"
-20:55:58 "V71 (23-01-2019) [processReporter] Ended @ 741.292"
-20:55:58 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:15 multipler is 4"
-20:55:58 "V71 (23-01-2019) [OCCUPATION:Vehicle] Started"
-20:56:21 Bad simulation thingx, type Land_RepairDepot_01_green_F (class=house), a3\structures_f_tank\military\repairdepot\repairdepot_01_green_f.p3d
-20:56:24 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Vehicle O Alpha 2-2:1 _repairStatus false"
-20:56:24 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Starting repair check Vehicle O Alpha 2-2:1 _repairStatus false"
-20:56:24 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Not enough damage to disable O Alpha 2-2:1, driver is O Alpha 2-2:1 at 767.269"
-20:56:24 "V71 (23-01-2019) [OCCUPATION:repairVehicle]:: Finished mphit eventhandler for Vehicle O Alpha 2-2:1 _repairStatus false"
-20:56:24 exile_assets\model\exile_item_mountaindupe.p3d: No geometry and no visual shape
-20:56:26 "[OCCUPATION:Vehicle] found position [2833.85,4179.08,0]"
-20:56:27 "ExileServer - Job with handle 10067 added."
-20:56:27 "ExileServer - Job with handle 10068 added."
-20:56:27 "ExileServer - Job with handle 10069 added."
-20:56:27 "V71 (23-01-2019) [OCCUPATION:Vehicle] bandit vehicle I_C_Offroad_02_unarmed_F spawned @ [2833.85,4179.08,0]"
-20:56:39 "V71 (23-01-2019) [OCCUPATION:Vehicle] End check 3 currently active (max 3) @ 782.4"
-20:56:39 "V71 (23-01-2019) [OCCUPATION:Sky] Started"
-20:56:39 "ExileZ Mod: Monitored Zombies	|	0	"
-20:56:39 "V71 (23-01-2019) [OCCUPATION:Places]:: Starting Occupation Monitor @ 782.912"
-20:56:41 "ExileServer - Job with handle 10070 added."
-20:56:41 "ExileServer - Job with handle 10071 added."
-20:56:41 "ExileServer - Job with handle 10072 added."
-20:56:43 "ExileServer - Job with handle 10073 added."
-20:56:44 "ExileServer - Job with handle 10074 added."
-20:56:44 "ExileServer - Job with handle 10075 added."
-20:56:45 "ExileServer - Job with handle 10076 added."
-20:56:45 "ExileServer - Job with handle 10077 added."
-20:56:46 "ExileServer - Job with handle 10078 added."
-20:56:49 "ExileServer - Job with handle 10079 added."
-20:56:49 "ExileServer - Job with handle 10080 added."
-20:56:50 "ExileServer - Job with handle 10081 added."
-20:56:50 "ExileServer - Job with handle 10082 added."
-20:56:50 "ExileServer - Job with handle 10083 added."
-20:56:51 "ExileServer - Job with handle 10084 added."
-20:56:51 "ExileServer - Job with handle 10085 added."
-20:56:53 "ExileServer - Job with handle 10086 added."
-20:56:53 "ExileServer - Job with handle 10087 added."
-20:56:53 "ExileServer - Job with handle 10088 added."
-20:56:55 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Initialised at 798.408"
-20:56:55 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Air: 69d80100# 1524813: psycho_uh1h_m240.p3d is active"
-20:56:57 "[occupationMonitor] _tempLocation: [[8197,9081,400],3000,""ChernarusRedux""] _originalSpawnLocation: [8197,9081,400]"
-20:56:57 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 2-1:1 REMOTE is active"
-20:56:59 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 2-2:1 is active"
-20:57:01 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 1-1:1 is active"
-20:57:01 "V71 (23-01-2019) [OCCUPATION:Unstuck]:: MB 4WD (I_C_Offroad_02_unarmed_F) is stuck,attempting to unstick from [2833.86,4179.05,0.0010376] @ 804.451"
-20:57:01 "V71 (23-01-2019) [OCCUPATION:Unstuck]:: MB 4WD (I_C_Offroad_02_unarmed_F) was stuck and was moved from [2833.86,4179.05,0.0010376] to [2831.5,4173.5,0] resetting patrol around point [2833.85,4179.08,0] @ 804.587"
-20:57:03 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Finished at 806.627"
-20:57:03 "ExileServer - Job with handle 10089 added."
-20:57:04 "V71 (23-01-2019) ======================================================================================================="
-20:57:04 "V71 (23-01-2019) [processReporter] Started @ 807.148 : [FPS: 45.8453|PLAYERS: 1|THREADS: 3]"
-20:57:04 "V71 (23-01-2019) ======================================================================================================="
-20:57:04 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:57:04 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 807.17"
-20:57:04 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 807.17"
-20:57:04 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 807.17"
-20:57:04 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-807.17] @ 807.17"
-20:57:04 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-807.17] @ 807.17"
-20:57:04 "V71 (23-01-2019) [processReporter] Ended @ 807.17"
-20:57:04 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:19 multipler is 4"
-20:57:11 "ExileZ Mod: Monitored Zombies	|	0	"
-20:57:41 "ExileZ Mod: Monitored Zombies	|	0	"
-20:58:06 "V71 (23-01-2019) ======================================================================================================="
-20:58:06 "V71 (23-01-2019) [processReporter] Started @ 869.34 : [FPS: 45.7143|PLAYERS: 1|THREADS: 3]"
-20:58:06 "V71 (23-01-2019) ======================================================================================================="
-20:58:06 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:58:06 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 869.34"
-20:58:06 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 869.34"
-20:58:06 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 869.34"
-20:58:06 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-869.34] @ 869.34"
-20:58:06 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-869.34] @ 869.34"
-20:58:06 "V71 (23-01-2019) [processReporter] Ended @ 869.34"
-20:58:06 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:23 multipler is 4"
-20:58:11 "ExileZ Mod: Monitored Zombies	|	0	"
-20:58:41 "ExileZ Mod: Monitored Zombies	|	0	"
-20:58:46 "ExileZ Mod: Monitored Dead Zombies	|	0	"
-20:58:56 "ExileZ Mod: klos is in a Blacklisted area, no Harassing Zombie for them."
-20:58:57 "ExileZ Mod: klos is in a SafeZone, no Harassing Zombie for them."
-20:59:08 "V71 (23-01-2019) ======================================================================================================="
-20:59:08 "V71 (23-01-2019) [processReporter] Started @ 931.003 : [FPS: 45.8453|PLAYERS: 1|THREADS: 3]"
-20:59:08 "V71 (23-01-2019) ======================================================================================================="
-20:59:08 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-20:59:08 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 931.003"
-20:59:08 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 931.003"
-20:59:08 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,302] @ 931.003"
-20:59:08 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-931.003] @ 931.003"
-20:59:08 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-931.003] @ 931.003"
-20:59:08 "V71 (23-01-2019) [processReporter] Ended @ 931.003"
-20:59:08 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:27 multipler is 4"
-20:59:13 "ExileZ Mod: Monitored Zombies	|	0	"
-20:59:43 "ExileZ Mod: Monitored Zombies	|	0	"
-21:00:08 "V71 (23-01-2019) ======================================================================================================="
-21:00:08 "V71 (23-01-2019) [processReporter] Started @ 991.109 : [FPS: 45.1977|PLAYERS: 1|THREADS: 3]"
-21:00:08 "V71 (23-01-2019) ======================================================================================================="
-21:00:08 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-21:00:08 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 991.109"
-21:00:08 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 991.109"
-21:00:08 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 991.109"
-21:00:08 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-991.109] @ 991.109"
-21:00:08 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-991.109] @ 991.109"
-21:00:08 "V71 (23-01-2019) [processReporter] Ended @ 991.109"
-21:00:08 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:31 multipler is 4"
-21:00:13 "ExileZ Mod: Monitored Zombies	|	0	"
-21:00:43 "ExileZ Mod: Monitored Zombies	|	0	"
-21:01:08 "V71 (23-01-2019) ======================================================================================================="
-21:01:08 "V71 (23-01-2019) [processReporter] Started @ 1051.25 : [FPS: 45.977|PLAYERS: 1|THREADS: 3]"
-21:01:08 "V71 (23-01-2019) ======================================================================================================="
-21:01:08 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-21:01:08 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 1051.25"
-21:01:08 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 1051.25"
-21:01:08 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,302] @ 1051.25"
-21:01:08 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-1051.25] @ 1051.25"
-21:01:08 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-1051.25] @ 1051.25"
-21:01:08 "V71 (23-01-2019) [processReporter] Ended @ 1051.25"
-21:01:08 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:35 multipler is 4"
-21:01:13 "ExileZ Mod: Monitored Zombies	|	0	"
-21:01:43 "ExileZ Mod: Monitored Zombies	|	0	"
-21:01:43 "V71 (23-01-2019) [OCCUPATION:Vehicle] Started"
-21:02:02 "[OCCUPATION:Vehicle] found position [4750.94,5698.38,0]"
-21:02:02 "ExileServer - Job with handle 10090 added."
-21:02:02 "ExileServer - Job with handle 10091 added."
-21:02:02 "ExileServer - Job with handle 10092 added."
-21:02:02 "ExileServer - Job with handle 10093 added."
-21:02:02 "V71 (23-01-2019) [OCCUPATION:Vehicle] bandit vehicle I_C_Offroad_02_unarmed_F spawned @ [4750.94,5698.38,0]"
-21:02:14 "V71 (23-01-2019) [OCCUPATION:Vehicle] End check 3 currently active (max 3) @ 1117.31"
-21:02:14 "ExileZ Mod: Monitored Zombies	|	0	"
-21:02:18 "ExileZ Mod: Spawning 2 Harassing Zombie(s) for klos."
-21:02:18 "V71 (23-01-2019) ======================================================================================================="
-21:02:18 "V71 (23-01-2019) [processReporter] Started @ 1121.87 : [FPS: 45.7143|PLAYERS: 1|THREADS: 3]"
-21:02:18 "V71 (23-01-2019) ======================================================================================================="
-21:02:18 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-21:02:18 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 1121.87"
-21:02:18 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 1121.87"
-21:02:18 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 1121.87"
-21:02:18 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-1121.87] @ 1121.87"
-21:02:18 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-1121.87] @ 1121.87"
-21:02:18 "V71 (23-01-2019) [processReporter] Ended @ 1121.87"
-21:02:18 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:40 multipler is 4"
-21:02:18 "V71 (23-01-2019) [OCCUPATION:Sky] Started"
-21:02:18 "V71 (23-01-2019) [OCCUPATION:Places]:: Starting Occupation Monitor @ 1121.87"
-21:02:20 "ExileServer - Job with handle 10094 added."
-21:02:20 "ExileServer - Job with handle 10095 added."
-21:02:24 Loading movesType CfgMovesHen_F
-21:02:25 "ExileServer - Job with handle 10096 added."
-21:02:25 hidebullet_001 - unknown animation source codrivermuzzle_revolving
-21:02:25 hidebullet_002 - unknown animation source codrivermuzzle_revolving
-21:02:25 hidebullet2_001 - unknown animation source codrivermuzzle_revolving
-21:02:25 hidebullet2_002 - unknown animation source codrivermuzzle_revolving
-21:02:25 "ExileServer - Job with handle 10097 added."
-21:02:27 "ExileServer - Job with handle 10098 added."
-21:02:27 "ExileServer - Job with handle 10099 added."
-21:02:29 "ExileServer - Job with handle 10100 added."
-21:02:30 "ExileServer - Job with handle 10101 added."
-21:02:30 "ExileServer - Job with handle 10102 added."
-21:02:30 "ExileServer - Job with handle 10103 added."
-21:02:32 ca\misc\garbage_metal.p3d: house, config class missing
-21:02:32 "ExileServer - Job with handle 10104 added."
-21:02:32 "ExileServer - Job with handle 10105 added."
-21:02:32 "ExileServer - Job with handle 10106 added."
-21:02:32 "ExileServer - Job with handle 10107 added."
-21:02:35 "ExileServer - Job with handle 10108 added."
-21:02:36 "ExileServer - Job with handle 10109 added."
-21:02:36 "ExileServer - Job with handle 10110 added."
-21:02:37 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Initialised at 1140.35"
-21:02:37 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Air: 69d80100# 1524813: psycho_uh1h_m240.p3d is active"
-21:02:39 "[occupationMonitor] _tempLocation: [[8197,9081,400],3000,""ChernarusRedux""] _originalSpawnLocation: [8197,9081,400]"
-21:02:39 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 2-1:1 REMOTE is active"
-21:02:41 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 2-2:1 is active"
-21:02:43 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Land: O Alpha 1-1:1 is active"
-21:02:45 "V71 (23-01-2019) [OCCUPATION:Unstick]:: Finished at 1148.42"
-21:02:46 "ExileZ Mod: Monitored Zombies	|	0	"
-21:03:16 a3\data_f\particleeffects\universal\ammobelt_links.p3d: No geometry and no visual shape
-21:03:18 "ExileZ Mod: Monitored Zombies	|	0	"
-21:03:23 "V71 (23-01-2019) ======================================================================================================="
-21:03:23 "V71 (23-01-2019) [processReporter] Started @ 1186.11 : [FPS: 44.9438|PLAYERS: 1|THREADS: 3]"
-21:03:23 "V71 (23-01-2019) ======================================================================================================="
-21:03:23 "V71 (23-01-2019) [processReporter] Process Counts: spawn-ed: 1 execVM-ed: 2 exec-ed: 0 execFSM-ed: 2"
-21:03:23 "V71 (23-01-2019) [processReporter] Active SQF: [""DMS_fnc_HeliParatroopers_Monitor"",""x\addons\a3_exile_occupation\scripts\extras\processReporter.sqf"",true,25] @ 1186.11"
-21:03:23 "V71 (23-01-2019) [processReporter] Active SQF: [""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",""mpmissions\__cur_mp.ChernarusRedux\R3F_LOG\surveiller_objets_a_proteger.sqf"",true,82] @ 1186.11"
-21:03:23 "V71 (23-01-2019) [processReporter] Active SQF: [""BIS_fnc_selectRandom"",""x\addons\a3_exile_occupation\scripts\occupationTransport.sqf"",true,306] @ 1186.11"
-21:03:23 "V71 (23-01-2019) [processReporter] Active FSM: [""main.fsm"",""Wait"",-1186.11] @ 1186.11"
-21:03:23 "V71 (23-01-2019) [processReporter] Active FSM: [""missions"",""Waiting"",-1186.11] @ 1186.11"
-21:03:23 "V71 (23-01-2019) [processReporter] Ended @ 1186.11"
-21:03:23 "V71 (23-01-2019) [OCCUPATION:FastNights]::  Current in game time is 9:44 multipler is 4"
-21:03:48 "ExileZ Mod: Monitored Zombies	|	0	"
-21:03:48 "ExileZ Mod: Monitored Dead Zombies	|	0	"
+Private ["_weaponQuanity","_ammoQuanity","_attachmentQuanity","_headgearQuanity","_uniformQuanity","_backpackQuanity","_vestQuanity","_itemQuanity","_foodQuanity","_drinkQuanity","_medQuanity","_explosiveQuanity","_maxOfEach","_position","_weapons","_ammos","_attachments","_headgears","_uniforms","_backpacks","_vests","_items","_foods","_drinks","_meds","_explosives","_weapon","_ammo","_attachment","_headgear","_uniform","_backpack","_vest","_item","_food","_drink","_med","_explosive","_cargoBox","_lootBox","_antiflag"];
+
+_weaponQuanity = 25;
+_ammoQuanity = 15;
+_attachmentQuanity = 10;
+_headgearQuanity = 5;
+_uniformQuanity = 10;
+_backpackQuanity = 5;
+_vestQuanity = 5;
+_itemQuanity = 10;
+_foodQuanity = 20;
+_drinkQuanity = 20;
+_medQuanity = 10;
+_explosiveQuanity = 5;
+
+_maxOfEach = 2;
+_position = _this select 0;
+
+_weapons = [
+//Pistols
+"hgun_ACPC2_F",
+"hgun_P07_F",
+"hgun_Pistol_heavy_01_F",
+"hgun_Pistol_heavy_02_F",
+"hgun_Pistol_Signal_F",
+"hgun_Rook40_F",
+"Exile_Weapon_Colt1911",
+"Exile_Weapon_Makarov",
+"Exile_Weapon_Taurus",
+"Exile_Weapon_TaurusGold",
+//Apex
+"hgun_Pistol_01_F",
+"hgun_P07_khk_F",
+//SMG
+"hgun_PDW2000_F",
+"SMG_01_F",
+"SMG_02_F",
+"SMG_05_F",
+//LMG
+"arifle_MX_SW_Black_F",
+"arifle_MX_SW_F",
+"LMG_Mk200_F",
+"LMG_Zafir_F",
+"LMG_03_F",
+"Exile_Weapon_RPK",
+"Exile_Weapon_PK",
+"Exile_Weapon_PKP",
+"MMG_01_hex_F",
+"MMG_01_tan_F",
+"MMG_02_black_F",
+"MMG_02_camo_F",
+"MMG_02_sand_F",
+//Assault Rifles
+"arifle_Katiba_C_F",
+"arifle_Katiba_F",
+"arifle_Katiba_GL_F",
+"arifle_Mk20_F",
+"arifle_Mk20_GL_F",
+"arifle_Mk20_GL_plain_F",
+"arifle_Mk20_plain_F",
+"arifle_Mk20C_F",
+"arifle_Mk20C_plain_F",
+"arifle_MX_Black_F",
+"arifle_MX_F",
+"arifle_MX_GL_Black_F",
+"arifle_MX_GL_F",
+"arifle_MXC_Black_F",
+"arifle_MXC_F",
+"arifle_SDAR_F",
+"arifle_TRG20_F",
+"arifle_TRG21_F",
+"arifle_TRG21_GL_F",
+"Exile_Weapon_AK107",
+"Exile_Weapon_AK107_GL",
+"Exile_Weapon_AK74",
+"Exile_Weapon_AK74_GL",
+"Exile_Weapon_AK47",
+"Exile_Weapon_AKS_Gold",
+//Apex
+"arifle_AK12_F",
+"arifle_AK12_GL_F",
+"arifle_AKM_F",
+"arifle_AKM_FL_F",
+"arifle_AKS_F",
+"arifle_ARX_blk_F",
+"arifle_ARX_ghex_F",
+"arifle_ARX_hex_F",
+"arifle_CTAR_blk_F",
+"arifle_CTAR_hex_F",
+"arifle_CTAR_ghex_F",
+"arifle_CTAR_GL_blk_F",
+"arifle_CTARS_blk_F",
+"arifle_CTARS_hex_F",
+"arifle_CTARS_ghex_F",
+"arifle_SPAR_01_blk_F",
+"arifle_SPAR_01_khk_F",
+"arifle_SPAR_01_snd_F",
+"arifle_SPAR_01_GL_blk_F",
+"arifle_SPAR_01_GL_khk_F",
+"arifle_SPAR_01_GL_snd_F",
+"arifle_SPAR_02_blk_F",
+"arifle_SPAR_02_khk_F",
+"arifle_SPAR_02_snd_F",			
+"arifle_SPAR_03_blk_F",
+"arifle_SPAR_03_khk_F",
+"arifle_SPAR_03_snd_F",
+"arifle_MX_khk_F",
+"arifle_MX_GL_khk_F",
+"arifle_MXC_khk_F",
+"arifle_MXM_khk_F",
+//Shotguns
+"Exile_Weapon_M1014",
+//Sniper Rifles
+"arifle_MXM_Black_F",
+"arifle_MXM_F",
+"srifle_DMR_01_F",
+"srifle_DMR_02_camo_F",
+"srifle_DMR_02_F",
+"srifle_DMR_02_sniper_F",
+"srifle_DMR_03_F",
+"srifle_DMR_03_khaki_F",
+"srifle_DMR_03_multicam_F",
+"srifle_DMR_03_tan_F",
+"srifle_DMR_03_woodland_F",
+"srifle_DMR_04_F",
+"srifle_DMR_04_Tan_F",
+"srifle_DMR_05_blk_F",
+"srifle_DMR_05_hex_F",
+"srifle_DMR_05_tan_f",
+"srifle_DMR_06_camo_F",
+"srifle_DMR_06_olive_F",
+"srifle_EBR_F",
+"srifle_GM6_camo_F",
+"srifle_GM6_F",
+"srifle_LRR_camo_F",
+"srifle_LRR_F",
+"Exile_Weapon_CZ550",
+"Exile_Weapon_SVD",
+"Exile_Weapon_SVDCamo",
+"Exile_Weapon_VSSVintorez",
+"Exile_Weapon_DMR",
+"Exile_Weapon_LeeEnfield",
+//Apex
+"srifle_LRR_tna_F",
+"srifle_GM6_ghex_F",
+"srifle_DMR_07_blk_F",
+"srifle_DMR_07_hex_F",
+"srifle_DMR_07_ghex_F"
+];
+
+_ammos = [
+"100Rnd_65x39_caseless_mag",
+"100Rnd_65x39_caseless_mag_Tracer",
+"10Rnd_127x54_Mag",
+"10Rnd_338_Mag",
+"10Rnd_762x54_Mag",
+"10Rnd_93x64_DMR_05_Mag",
+"11Rnd_45ACP_Mag",
+"130Rnd_338_Mag",
+"150Rnd_762x54_Box",
+"150Rnd_762x54_Box_Tracer",
+"150Rnd_93x64_Mag",
+"16Rnd_9x21_Mag",
+"200Rnd_65x39_cased_Box",
+"200Rnd_65x39_cased_Box_Tracer",
+"20Rnd_556x45_UW_mag",
+"20Rnd_762x51_Mag",
+"30Rnd_45ACP_Mag_SMG_01",
+"30Rnd_45ACP_Mag_SMG_01_tracer_green",
+"30Rnd_45ACP_Mag_SMG_01_Tracer_Red",
+"30Rnd_45ACP_Mag_SMG_01_Tracer_Yellow",
+"30Rnd_556x45_Stanag",
+"30Rnd_556x45_Stanag_Tracer_Green",
+"30Rnd_556x45_Stanag_Tracer_Red",
+"30Rnd_556x45_Stanag_Tracer_Yellow",
+"30Rnd_65x39_caseless_green",
+"30Rnd_65x39_caseless_green_mag_Tracer",
+"30Rnd_65x39_caseless_mag",
+"30Rnd_65x39_caseless_mag_Tracer",
+"30Rnd_9x21_Mag",
+"30Rnd_9x21_Yellow_Mag",
+"30Rnd_9x21_Green_Mag",
+"30Rnd_9x21_Red_Mag",
+"5Rnd_127x108_APDS_Mag",
+"5Rnd_127x108_Mag",
+"6Rnd_45ACP_Cylinder",
+"6Rnd_GreenSignal_F",
+"6Rnd_RedSignal_F",
+"7Rnd_408_Mag",
+"9Rnd_45ACP_Mag",
+"Exile_Magazine_30Rnd_762x39_AK",
+"Exile_Magazine_30Rnd_545x39_AK_Green",
+"Exile_Magazine_30Rnd_545x39_AK_Red",
+"Exile_Magazine_30Rnd_545x39_AK_White",
+"Exile_Magazine_30Rnd_545x39_AK_Yellow",
+"Exile_Magazine_45Rnd_545x39_RPK_Green",
+"Exile_Magazine_75Rnd_545x39_RPK_Green",
+"Exile_Magazine_20Rnd_762x51_DMR",
+"Exile_Magazine_20Rnd_762x51_DMR_Yellow",
+"Exile_Magazine_20Rnd_762x51_DMR_Red",
+"Exile_Magazine_20Rnd_762x51_DMR_Green",
+"Exile_Magazine_10Rnd_303",
+"Exile_Magazine_100Rnd_762x54_PK_Green",
+"Exile_Magazine_7Rnd_45ACP",
+"Exile_Magazine_8Rnd_9x18",
+"Exile_Magazine_30Rnd_545x39_AK",
+"Exile_Magazine_6Rnd_45ACP",
+"Exile_Magazine_5Rnd_22LR",
+"Exile_Magazine_10Rnd_762x54",
+"Exile_Magazine_10Rnd_9x39",
+"Exile_Magazine_20Rnd_9x39",
+"Exile_Magazine_8Rnd_74Pellets",
+"Exile_Magazine_8Rnd_74Slug",
+//Apex
+"30Rnd_9x21_Mag_SMG_02",
+"30Rnd_9x21_Mag_SMG_02_Tracer_Red",
+"30Rnd_9x21_Mag_SMG_02_Tracer_Yellow",
+"30Rnd_9x21_Mag_SMG_02_Tracer_Green",
+"30Rnd_580x42_Mag_F",
+"30Rnd_580x42_Mag_Tracer_F",
+"100Rnd_580x42_Mag_F",
+"100Rnd_580x42_Mag_Tracer_F",
+"20Rnd_650x39_Cased_Mag_F",
+"10Rnd_50BW_Mag_F",
+"150Rnd_556x45_Drum_Mag_F",
+"150Rnd_556x45_Drum_Mag_Tracer_F",
+"30Rnd_762x39_Mag_F",
+"30Rnd_762x39_Mag_Green_F",
+"30Rnd_762x39_Mag_Tracer_F",
+"30Rnd_762x39_Mag_Tracer_Green_F",
+"30Rnd_545x39_Mag_F",
+"30Rnd_545x39_Mag_Green_F",
+"30Rnd_545x39_Mag_Tracer_F",
+"30Rnd_545x39_Mag_Tracer_Green_F",
+"200Rnd_556x45_Box_F",
+"200Rnd_556x45_Box_Red_F",
+"200Rnd_556x45_Box_Tracer_F",
+"200Rnd_556x45_Box_Tracer_Red_F",
+"10Rnd_9x21_Mag",
+"Exile_Magazine_5Rnd_127x108_Bullet_Cam_Mag",
+"Exile_Magazine_10Rnd_93x64_DMR_05_Bullet_Cam_Mag",
+"Exile_Magazine_7Rnd_408_Bullet_Cam_Mag",
+"Exile_Magazine_10Rnd_338_Bullet_Cam_Mag"
+];
+
+_attachments = [
+"bipod_01_F_blk",
+"bipod_01_F_mtp",
+"bipod_01_F_snd",
+"bipod_02_F_blk",
+"bipod_02_F_hex",
+"bipod_02_F_tan",
+"bipod_03_F_blk",
+"bipod_03_F_oli",
+"bipod_01_F_khk",
+"muzzle_snds_338_black",
+"muzzle_snds_338_green",
+"muzzle_snds_338_sand",
+"muzzle_snds_93mmg",
+"muzzle_snds_93mmg_tan",
+"muzzle_snds_acp",
+"muzzle_snds_B",
+"muzzle_snds_H",
+"muzzle_snds_H_MG",
+"muzzle_snds_H_SW",
+"muzzle_snds_L",
+"muzzle_snds_M",
+"muzzle_snds_H_khk_F",
+"muzzle_snds_H_snd_F",
+"muzzle_snds_58_blk_F",
+"muzzle_snds_m_khk_F",
+"muzzle_snds_m_snd_F",
+"muzzle_snds_B_khk_F",
+"muzzle_snds_B_snd_F",
+"muzzle_snds_58_wdm_F",
+"muzzle_snds_65_TI_blk_F",
+"muzzle_snds_65_TI_hex_F",
+"muzzle_snds_65_TI_ghex_F",
+"muzzle_snds_H_MG_blk_F",
+"muzzle_snds_H_MG_khk_F",
+"optic_Aco",
+"optic_ACO_grn",
+"optic_ACO_grn_smg",
+"optic_Aco_smg",
+"optic_AMS",
+"optic_AMS_khk",
+"optic_AMS_snd",
+"optic_Arco",
+"optic_DMS",
+"optic_Hamr",
+"optic_Holosight",
+"optic_Holosight_smg",
+"optic_KHS_blk",
+"optic_KHS_hex",
+"optic_KHS_old",
+"optic_KHS_tan",
+"optic_LRPS",
+"optic_MRCO",
+"optic_MRD",
+"optic_Nightstalker",
+"optic_NVS",
+"optic_SOS",
+"optic_tws",
+"optic_tws_mg",
+"optic_Yorris",
+"optic_Arco_blk_F",
+"optic_Arco_ghex_F",
+"optic_DMS_ghex_F",
+"optic_Hamr_khk_F",
+"optic_ERCO_blk_F",
+"optic_ERCO_khk_F",
+"optic_ERCO_snd_F",
+"optic_SOS_khk_F",
+"optic_LRPS_tna_F",
+"optic_LRPS_ghex_F",
+"optic_Holosight_blk_F",
+"optic_Holosight_khk_F",
+"optic_Holosight_smg_blk_F"
+];
+
+_explosives = [
+"HandGrenade",
+"MiniGrenade",
+"B_IR_Grenade",
+"O_IR_Grenade",
+"I_IR_Grenade",
+"1Rnd_HE_Grenade_shell",
+"3Rnd_HE_Grenade_shell",
+"APERSBoundingMine_Range_Mag",
+"APERSMine_Range_Mag",
+"APERSTripMine_Wire_Mag",
+"ClaymoreDirectionalMine_Remote_Mag",
+"DemoCharge_Remote_Mag",
+"IEDLandBig_Remote_Mag",
+"IEDLandSmall_Remote_Mag",
+"IEDUrbanBig_Remote_Mag",
+"IEDUrbanSmall_Remote_Mag",
+"SatchelCharge_Remote_Mag",
+"SLAMDirectionalMine_Wire_Mag"
+];
+
+_headgears = [
+"Exile_Headgear_SantaHat",
+"Exile_Headgear_SafetyHelmet",
+"H_Cap_blk",
+"H_Cap_blk_Raven",
+"H_Cap_blu",
+"H_Cap_brn_SPECOPS",
+"H_Cap_grn",
+"H_Cap_headphones",
+"H_Cap_khaki_specops_UK",
+"H_Cap_oli",
+"H_Cap_press",
+"H_Cap_red",
+"H_Cap_tan",
+"H_Cap_tan_specops_US",
+"H_Watchcap_blk",
+"H_Watchcap_camo",
+"H_Watchcap_khk",
+"H_Watchcap_sgg",
+"H_MilCap_blue",
+"H_MilCap_dgtl",
+"H_MilCap_mcamo",
+"H_MilCap_ocamo",
+"H_MilCap_oucamo",
+"H_MilCap_rucamo",
+"H_Bandanna_camo",
+"H_Bandanna_cbr",
+"H_Bandanna_gry",
+"H_Bandanna_khk",
+"H_Bandanna_khk_hs",
+"H_Bandanna_mcamo",
+"H_Bandanna_sgg",
+"H_Bandanna_surfer",
+"H_Booniehat_dgtl",
+"H_Booniehat_dirty",
+"H_Booniehat_grn",
+"H_Booniehat_indp",
+"H_Booniehat_khk",
+"H_Booniehat_khk_hs",
+"H_Booniehat_mcamo",
+"H_Booniehat_tan",
+"H_Hat_blue",
+"H_Hat_brown",
+"H_Hat_camo",
+"H_Hat_checker",
+"H_Hat_grey",
+"H_Hat_tan",
+"H_StrawHat",
+"H_StrawHat_dark",
+"H_Beret_02",
+"H_Beret_blk",
+"H_Beret_blk_POLICE",
+"H_Beret_brn_SF",
+"H_Beret_Colonel",
+"H_Beret_grn",
+"H_Beret_grn_SF",
+"H_Beret_ocamo",
+"H_Beret_red",
+"H_Shemag_khk",
+"H_Shemag_olive",
+"H_Shemag_olive_hs",
+"H_Shemag_tan",
+"H_ShemagOpen_khk",
+"H_ShemagOpen_tan",
+"H_TurbanO_blk",
+"H_HelmetB",
+"H_HelmetB_black",
+"H_HelmetB_camo",
+"H_HelmetB_desert",
+"H_HelmetB_grass",
+"H_HelmetB_light",
+"H_HelmetB_light_black",
+"H_HelmetB_light_desert",
+"H_HelmetB_light_grass",
+"H_HelmetB_light_sand",
+"H_HelmetB_light_snakeskin",
+"H_HelmetB_paint",
+"H_HelmetB_plain_blk",
+"H_HelmetB_sand",
+"H_HelmetB_snakeskin",
+"H_HelmetCrew_B",
+"H_HelmetCrew_I",
+"H_HelmetCrew_O",
+"H_HelmetIA",
+"H_HelmetIA_camo",
+"H_HelmetIA_net",
+"H_HelmetLeaderO_ocamo",
+"H_HelmetLeaderO_oucamo",
+"H_HelmetO_ocamo",
+"H_HelmetO_oucamo",
+"H_HelmetSpecB",
+"H_HelmetSpecB_blk",
+"H_HelmetSpecB_paint1",
+"H_HelmetSpecB_paint2",
+"H_HelmetSpecO_blk",
+"H_HelmetSpecO_ocamo",
+"H_CrewHelmetHeli_B",
+"H_CrewHelmetHeli_I",
+"H_CrewHelmetHeli_O",
+"H_HelmetCrew_I",
+"H_HelmetCrew_B",
+"H_HelmetCrew_O",
+"H_PilotHelmetHeli_B",
+"H_PilotHelmetHeli_I",
+"H_PilotHelmetHeli_O",
+//Apex
+"H_Helmet_Skate",
+"H_HelmetB_TI_tna_F",
+"H_HelmetO_ViperSP_hex_F",
+"H_HelmetO_ViperSP_ghex_F",
+"H_HelmetB_tna_F",
+"H_HelmetB_Enh_tna_F",
+"H_HelmetB_Light_tna_F",
+"H_HelmetSpecO_ghex_F",
+"H_HelmetLeaderO_ghex_F",
+"H_HelmetO_ghex_F",
+"H_HelmetCrew_O_ghex_F",
+"H_MilCap_tna_F",
+"H_MilCap_ghex_F",
+"H_Booniehat_tna_F",
+"H_Beret_gen_F",
+"H_MilCap_gen_F",
+"H_Cap_oli_Syndikat_F",
+"H_Cap_tan_Syndikat_F",
+"H_Cap_blk_Syndikat_F",
+"H_Cap_grn_Syndikat_F"
+];
+
+_uniforms = [
+"U_C_Journalist",
+"U_C_Poloshirt_blue",
+"U_C_Poloshirt_burgundy",
+"U_C_Poloshirt_salmon",
+"U_C_Poloshirt_stripped",
+"U_C_Poloshirt_tricolour",
+"U_C_Poor_1",
+"U_C_Poor_2",
+"U_C_Poor_shorts_1",
+"U_C_Scientist",
+"U_OrestesBody",
+"U_Rangemaster",
+"U_NikosAgedBody",
+"U_NikosBody",
+"U_Competitor",
+"U_B_CombatUniform_mcam",
+"U_B_CombatUniform_mcam_tshirt",
+"U_B_CombatUniform_mcam_vest",
+"U_B_CombatUniform_mcam_worn",
+"U_B_CTRG_1",
+"U_B_CTRG_2",
+"U_B_CTRG_3",
+"U_I_CombatUniform",
+"U_I_CombatUniform_shortsleeve",
+"U_I_CombatUniform_tshirt",
+"U_I_OfficerUniform",
+"U_O_CombatUniform_ocamo",
+"U_O_CombatUniform_oucamo",
+"U_O_OfficerUniform_ocamo",
+"U_B_SpecopsUniform_sgg",
+"U_O_SpecopsUniform_blk",
+"U_O_SpecopsUniform_ocamo",
+"U_I_G_Story_Protagonist_F",
+"Exile_Uniform_Woodland",
+"U_C_HunterBody_grn",
+"U_IG_Guerilla1_1",
+"U_IG_Guerilla2_1",
+"U_IG_Guerilla2_2",
+"U_IG_Guerilla2_3",
+"U_IG_Guerilla3_1",
+"U_BG_Guerilla2_1",
+"U_IG_Guerilla3_2",
+"U_BG_Guerrilla_6_1",
+"U_BG_Guerilla1_1",
+"U_BG_Guerilla2_2",
+"U_BG_Guerilla2_3",
+"U_BG_Guerilla3_1",
+"U_BG_leader",
+"U_IG_leader",
+"U_I_G_resistanceLeader_F",
+"U_B_FullGhillie_ard",
+"U_B_FullGhillie_lsh",
+"U_B_FullGhillie_sard",
+"U_B_GhillieSuit",
+"U_I_FullGhillie_ard",
+"U_I_FullGhillie_lsh",
+"U_I_FullGhillie_sard",
+"U_I_GhillieSuit",
+"U_O_FullGhillie_ard",
+"U_O_FullGhillie_lsh",
+"U_O_FullGhillie_sard",
+"U_O_GhillieSuit",
+"U_I_Wetsuit",
+"U_O_Wetsuit",
+"U_B_Wetsuit",
+"U_B_survival_uniform",
+"U_B_HeliPilotCoveralls",
+"U_I_HeliPilotCoveralls",
+"U_B_PilotCoveralls",
+"U_I_pilotCoveralls",
+"U_O_PilotCoveralls",
+
+//Apex
+"U_B_T_Soldier_F",
+"U_B_T_Soldier_AR_F",
+"U_B_T_Soldier_SL_F",
+"U_B_T_Sniper_F",
+"U_B_T_FullGhillie_tna_F",
+"U_B_CTRG_Soldier_F",
+"U_B_CTRG_Soldier_2_F",
+"U_B_CTRG_Soldier_3_F",
+"U_B_GEN_Soldier_F",
+"U_B_GEN_Commander_F",
+"U_O_T_Soldier_F",
+"U_O_T_Officer_F",
+"U_O_T_Sniper_F",
+"U_O_T_FullGhillie_tna_F",
+"U_O_V_Soldier_Viper_F",
+"U_O_V_Soldier_Viper_hex_F",
+"U_I_C_Soldier_Para_1_F",
+"U_I_C_Soldier_Para_2_F",
+"U_I_C_Soldier_Para_3_F",
+"U_I_C_Soldier_Para_4_F",
+"U_I_C_Soldier_Para_5_F",
+"U_I_C_Soldier_Bandit_1_F",
+"U_I_C_Soldier_Bandit_2_F",
+"U_I_C_Soldier_Bandit_3_F",
+"U_I_C_Soldier_Bandit_4_F",
+"U_I_C_Soldier_Bandit_5_F",
+"U_I_C_Soldier_Camo_F",
+"U_C_man_sport_1_F",
+"U_C_man_sport_2_F",
+"U_C_man_sport_3_F",
+"U_C_Man_casual_1_F",
+"U_C_Man_casual_2_F",
+"U_C_Man_casual_3_F",
+"U_C_Man_casual_4_F",
+"U_C_Man_casual_5_F",
+"U_C_Man_casual_6_F",
+"U_B_CTRG_Soldier_urb_1_F",
+"U_B_CTRG_Soldier_urb_2_F",
+"U_B_CTRG_Soldier_urb_3_F"
+];
+
+_backpacks = [
+"B_AssaultPack_blk",
+"B_AssaultPack_cbr",
+"B_AssaultPack_dgtl",
+"B_AssaultPack_khk",
+"B_AssaultPack_mcamo",
+"B_AssaultPack_rgr",
+"B_AssaultPack_sgg",
+"B_Bergen_blk",
+"B_Bergen_mcamo",
+"B_Bergen_rgr",
+"B_Bergen_sgg",
+"B_Carryall_cbr",
+"B_Carryall_khk",
+"B_Carryall_mcamo",
+"B_Carryall_ocamo",
+"B_Carryall_oli",
+"B_Carryall_oucamo",
+"B_FieldPack_blk",
+"B_FieldPack_cbr",
+"B_FieldPack_ocamo",
+"B_FieldPack_oucamo",
+"B_HuntingBackpack",
+"B_Kitbag_cbr",
+"B_Kitbag_mcamo",
+"B_Kitbag_sgg",
+"B_OutdoorPack_blk",
+"B_OutdoorPack_blu",
+"B_OutdoorPack_tan",
+"B_TacticalPack_blk",
+"B_TacticalPack_mcamo",
+"B_TacticalPack_ocamo",
+"B_TacticalPack_oli",
+"B_TacticalPack_rgr",
+"B_Bergen_mcamo_F",
+"B_Bergen_dgtl_F",
+"B_Bergen_hex_F",
+"B_Bergen_tna_F",
+"B_AssaultPack_tna_F",
+"B_Carryall_ghex_F",
+"B_FieldPack_ghex_F",
+"B_ViperHarness_blk_F",
+"B_ViperHarness_ghex_F",
+"B_ViperHarness_hex_F",
+"B_ViperHarness_khk_F",
+"B_ViperHarness_oli_F",
+"B_ViperLightHarness_blk_F",
+"B_ViperLightHarness_ghex_F",
+"B_ViperLightHarness_hex_F",
+"B_ViperLightHarness_khk_F",
+"B_ViperLightHarness_oli_F"
+];
+
+_vests = [
+"V_Press_F",
+"V_Rangemaster_belt",
+"V_TacVest_blk",
+"V_TacVest_blk_POLICE",
+"V_TacVest_brn",
+"V_TacVest_camo",
+"V_TacVest_khk",
+"V_TacVest_oli",
+"V_TacVestCamo_khk",
+"V_TacVestIR_blk",
+"V_I_G_resistanceLeader_F",
+"V_BandollierB_blk",
+"V_BandollierB_cbr",
+"V_BandollierB_khk",
+"V_BandollierB_oli",
+"V_BandollierB_rgr",
+"V_Chestrig_blk",
+"V_Chestrig_khk",
+"V_Chestrig_oli",
+"V_Chestrig_rgr",
+"V_HarnessO_brn",
+"V_HarnessO_gry",
+"V_HarnessOGL_brn",
+"V_HarnessOGL_gry",
+"V_HarnessOSpec_brn",
+"V_HarnessOSpec_gry",
+"V_PlateCarrier1_blk",
+"V_PlateCarrier1_rgr",
+"V_PlateCarrier2_rgr",
+"V_PlateCarrier3_rgr",
+"V_PlateCarrierGL_blk",
+"V_PlateCarrierGL_mtp",
+"V_PlateCarrierGL_rgr",
+"V_PlateCarrierH_CTRG",
+"V_PlateCarrierIA1_dgtl",
+"V_PlateCarrierIA2_dgtl",
+"V_PlateCarrierIAGL_dgtl",
+"V_PlateCarrierIAGL_oli",
+"V_PlateCarrierL_CTRG",
+"V_PlateCarrierSpec_blk",
+"V_PlateCarrierSpec_mtp",
+"V_PlateCarrierSpec_rgr",
+//Apex
+"V_TacChestrig_grn_F",
+"V_TacChestrig_oli_F",
+"V_TacChestrig_cbr_F",
+"V_PlateCarrier1_tna_F",
+"V_PlateCarrier2_tna_F",
+"V_PlateCarrierSpec_tna_F",
+"V_PlateCarrierGL_tna_F",
+"V_HarnessO_ghex_F",
+"V_HarnessOGL_ghex_F",
+"V_BandollierB_ghex_F",
+"V_TacVest_gen_F",
+"V_PlateCarrier1_rgr_noflag_F",
+"V_PlateCarrier2_rgr_noflag_F"
+];
+
+_items = [
+"DemoCharge_Remote_Mag",
+"SLAMDirectionalMine_Wire_Mag",
+"IEDLandSmall_Remote_Mag",
+"IEDUrbanSmall_Remote_Mag",
+"HandGrenade",
+"HandGrenade",
+"HandGrenade",
+"Exile_Item_SafeKit",
+"Exile_Item_SafeKit",
+"Exile_Item_SafeKit",
+"NVGoggles",
+"NVGoggles_INDEP",
+"NVGoggles_OPFOR",
+"Rangefinder",
+"Laserdesignator",
+"Laserdesignator_02",
+"Laserdesignator_03",
+"Exile_Item_Flag"
+];
+
+_drinks = [
+"Exile_Item_PlasticBottleCoffee",
+"Exile_Item_PowerDrink",
+"Exile_Item_PlasticBottleFreshWater",
+"Exile_Item_Beer",
+"Exile_Item_EnergyDrink",
+"Exile_Item_ChocolateMilk",
+"Exile_Item_MountainDupe",
+"Exile_Item_PlasticBottleEmpty"
+];
+
+_foods = [
+"Exile_Item_EMRE",		
+"Exile_Item_GloriousKnakworst",
+"Exile_Item_Surstromming",
+"Exile_Item_SausageGravy",
+"Exile_Item_Catfood",
+"Exile_Item_ChristmasTinner",
+"Exile_Item_BBQSandwich",
+"Exile_Item_MacasCheese",
+"Exile_Item_Dogfood",
+// Cooked Food
+"Exile_Item_GloriousKnakworst_Cooked",
+"Exile_Item_Surstromming_Cooked",
+"Exile_Item_SausageGravy_Cooked",
+"Exile_Item_ChristmasTinner_Cooked",
+"Exile_Item_BBQSandwich_Cooked",
+"Exile_Item_Catfood_Cooked",
+"Exile_Item_DogFood_Cooked",
+// Cooked Food
+"Exile_Item_BeefParts",
+"Exile_Item_Cheathas",
+"Exile_Item_Noodles",
+"Exile_Item_SeedAstics",
+"Exile_Item_Raisins",
+"Exile_Item_Moobar"
+];
+
+_meds = [
+"Exile_Item_InstaDoc",
+"Exile_Item_Bandage",
+"Exile_Item_Vishpirin",
+"Exile_Item_Heatpack",
+"Exile_Item_Defibrillator"
+];
+
+_cargoBox = [
+"B_CargoNet_01_ammo_F",
+"O_CargoNet_01_ammo_F",
+"I_CargoNet_01_ammo_F"	
+];
+	
+//////////////////////////////////////////
+/* DON'T EDIT BELOW ADVANCED USERS ONLY */
+//////////////////////////////////////////
+
+_lootBox = (selectRandom _cargoBox) createvehicle _position;
+_antiflag = "Exile_Construction_Flag_Static" createvehicle _position;
+
+clearMagazineCargoGlobal _lootBox;
+clearWeaponCargoGlobal _lootBox;
+clearItemCargoGlobal _lootBox;
+_lootBox enableRopeAttach false;
+_lootBox setVariable ["permaLoot",true];
+_lootBox allowDamage false;
+
+for "_i" from 1 to _weaponQuanity do {
+	_weapon = selectRandom _weapons;
+	_lootBox addItemCargoGlobal [_weapon, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _ammoQuanity do {
+	_ammo = selectRandom _ammos;
+	_lootBox addItemCargoGlobal [_ammo, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _attachmentQuanity do {
+	_attachment = selectRandom _attachments;
+	_lootBox addItemCargoGlobal [_attachment, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _headgearQuanity do {
+	_headgear = selectRandom _headgears;
+	_lootBox addItemCargoGlobal [_headgear, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _uniformQuanity do {
+	_uniform = selectRandom _uniforms;
+	_lootBox addItemCargoGlobal [_uniform, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _backpackQuanity do {
+	_backpack = selectRandom _backpacks;
+	_lootBox addItemCargoGlobal [_backpack, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _vestQuanity do {
+	_vest = selectRandom _vests;
+	_lootBox addItemCargoGlobal [_vest, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _itemQuanity do {
+	_item = selectRandom _items;
+	_lootBox addItemCargoGlobal [_item, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _foodQuanity do {
+	_food = selectRandom _foods;
+	_lootBox addItemCargoGlobal [_food, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _drinkQuanity do {
+	_drink = selectRandom _drinks;
+	_lootBox addItemCargoGlobal [_drink, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _medQuanity do {
+	_med = selectRandom _meds;
+	_lootBox addItemCargoGlobal [_med, (ceil random _maxOfEach)];
+};
+
+for "_i" from 1 to _explosiveQuanity do {
+	_explosive = selectRandom _explosives;
+	_lootBox addItemCargoGlobal [_explosive, (ceil random _maxOfEach)];
+};
