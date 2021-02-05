@@ -1,184 +1,500 @@
-private["_display","_spawnButton","_listBox","_listItemIndex","_numberOfSpawnPoints","_randNum","_randData","_randomSpawnIndex"];
+/**
+ * config
+ *
+ * Exile Mod
+ * www.exilemod.com
+ * © 2015 Exile Mod Team
+ *
+ * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ */
+ 
 
-if(isNil "spawnRegistry") then 
+class CfgClans
 {
-	spawnRegistry = [];
+	/*
+		Defines the amount of pop tabs needed to register a new clan
+
+		Default: 20,000
+	*/
+	registrationFee = 20000;
+
+	/*
+		A list of all characters allowed in a clan *name*
+
+		NOTE: 
+	*/
+	clanNameAlphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ._-!\\/";
+
+	/*
+
+		Maximum markers per clan
+
+	*/
+	maximumIcons = 20;
+
+	/*
+		Maximum number of characters on a Marker in a presistent system
+
+		Note: MAX 255!
+		
+	*/
+	maximumIconText = 50;
+
+	/*
+
+		Maximum poly markers per clan
+
+	*/
+	maximumPolys = 10;
+
+
+	/* 
+
+		Maximum points in poly
+	*/
+	maximumPolyNode = 10;
 };
-
-fn_checkRespawnDelay = {
-	_markerName = _this select 0;
-	if(isNil "_markerName") exitWith { diag_log "checkRespawn: invalid parameter 1"; true; };
-	
-	diag_log format["checkRespawn: Checking flag %1...", _markerName];
-	
-	_counter = 0;
-	{
-
-		
-		_name = _x select 0;
-		_time = _x select 1;
-		
-		if(isNil "_name") exitWith { true; };
-		if(isNil "_time") exitWith { true; };
-		
-		diag_log format["checkRespawn: checking flag %1, with reg %2", _markerName, _name];
-		if(_name isEqualTo _markerName) then 
-		{
-			if(_time > time-300) then 
-			{
-				_counter = _counter + 1;
-			};
-		};
-	} forEach spawnRegistry;
-	diag_log format["checkRespawn: counter for flag %1 = %2",_markerName, _counter];
-	
-	if(_counter >= 1) exitWith
-	{
-		diag_log format["checkRespawn: returned false"];
-		false;
-	};
-	
-	diag_log format["checkRespawn: returned true"];
-	true;
-};
-
-disableSerialization;
-diag_log "Selecting spawn location...";
-ExileClientSpawnLocationSelectionDone = false;
-ExileClientSelectedSpawnLocationMarkerName = "";
-createDialog "RscExileSelectSpawnLocationDialog";
-waitUntil {_display = findDisplay 24002;!isNull _display};
-_display displayAddEventHandler ["KeyDown", "_this call ExileClient_gui_loadingScreen_event_onKeyDown"];
-_listBox = _display displayCtrl 24002;
-lbClear _listBox;
+class Exile_AbstractCraftingRecipe
 {
-	if (getMarkerType _x == "ExileSpawnZone") then
-	{
-		_name = markerText _x;
-		if(! ( [_name] call fn_checkRespawnDelay) ) exitWith { diag_log format["checkRespawn returned false for spawn zone: %1, respawn disabled",_name]; };
-		
-		diag_log format["Adding spawn zone: %1",markerText _x];
-		
-		_listItemIndex = _listBox lbAdd (markerText _x);
-		_listBox lbSetData [_listItemIndex, _x];
-		
-	};
-} forEach allMapMarkers;
-// _numberOfSpawnPoints = {getMarkerType _x == "ExileSpawnZone"} count allMapMarkers;
-// if(_numberOfSpawnPoints > 0)then 
-// {
-	// _randNum = floor(random _numberOfSpawnPoints);
-	// _randData = lbData [24002,_randNum];
-	// _randomSpawnIndex = _listBox lbAdd "Random";
-	// _listBox lbSetData [_randomSpawnIndex, _randData];
-// };
+	name = "";
+	pictureItem = ""; 
+	returnedItems[] = {};
+	components[] = {}; // Required components
+	tools[] = {}; // Required tools (matches, gas cooker etc.)
+	requiredInteractionModelGroup = ""; // See CfgInteractionModels
+	requiresOcean = 0; // isSurfaceWater test
+	requiresFire = 0; // inflamed object nearby
+	requiresConcreteMixer = 0; // Check if concrete mixer is nearby
+};
 
-defaultLBsize = lbSize _listBox;
-myUID = getPlayerUID player;
-myFlags = [];
+class CfgCraftingRecipes
 {
-	_flag = _x;
-	_owner = _flag getVariable ["ExileOwnerUID", ""];
-    _arrBuildRights = _x getVariable["ExileTerritoryBuildRights",[]]; // by Nerexis
 	
-	if(myUID isEqualTo _owner OR ( !(isNil "_arrBuildRights") AND (count _arrBuildRights>0) AND (myUID in _arrBuildRights) ) )then
+class BreachingChargeBigMomma: Exile_AbstractCraftingRecipe
+{
+	name = "Breaching Charge (Big Momma)";
+	pictureItem = "Exile_Item_BreachingCharge_BigMomma";
+	returnedItems[] =
 	{
-		
-		
-		_name = _flag getVariable ["ExileTerritoryName", ""];
-		
-		if(! ( [_name] call fn_checkRespawnDelay) ) exitWith { diag_log format["checkRespawn returned false for flag: %1, respawn disabled",_name]; };
-		
-		_lbid = _listBox lbAdd (_flag getVariable ["ExileTerritoryName", ""]);
-		_listBox lbSetColor [_lbid, [0,0.68,1,1]];
-		_listBox lbSetData [_lbid,str(count myFlags)];
-		myFlags pushBack _flag;
-		
-		// localmarkerName = format['LOCALFLAG_%1',myUID];
-		// deleteMarkerLocal localmarkerName;
-		// _marker = createMarkerLocal [localmarkerName,getPosATL _flag];
-		// _marker setMarkerShapeLocal "ICON";
-		// _marker setMarkerTypeLocal "loc_Bunker";
-		// _marker setMarkerColorLocal "ColorGreen";
-		// _marker setMarkerSize [3, 3];
-		// _marker setMarkerTextLocal (_flag getVariable ["ExileTerritoryName", ""]);
+		{1, "Exile_Item_BreachingCharge_BigMomma"}
 	};
-} forEach (allMissionObjects "Exile_Construction_Flag_Static");
-
-
-fnc_LBSelChanged_24002 = {
-	disableSerialization;
-	_ctrl = _this select 0;
-	_curSel = lbCurSel _ctrl;
-	if(_curSel < defaultLBsize)then
+	tools[] =
 	{
-		_this call ExileClient_gui_selectSpawnLocation_event_onListBoxSelectionChanged;
-	}
-	else
+		"Exile_Item_Foolbox"
+	};
+	components[] = 
 	{
-		_data = _ctrl lbData _curSel;
-		_num = parseNumber _data;
-		_flag = myFlags select _num;
-		
-		
-		markerName = format['FLAG_%1',myUID];
-		deleteMarker markerName;
-		createMarker [markerName,getPosATL _flag];
-		ExileClientSelectedSpawnLocationMarkerName = markerName;
-		
-		// localmarkerName = format['LOCALFLAG_%1',myUID];
-		// deleteMarkerLocal localmarkerName;
-		// _marker = createMarkerLocal [localmarkerName,getPosATL _flag];
-		// _marker setMarkerShapeLocal "ICON";
-		// _marker setMarkerTypeLocal "loc_Bunker";
-		// _marker setMarkerColorLocal "ColorGreen";
-		// _marker setMarkerSize [3, 3];
-		// _marker setMarkerTextLocal (_flag getVariable ["ExileTerritoryName", ""]);
-		
-		_mapControl = (findDisplay 24002) displayCtrl 24001;
-		_mapControl ctrlMapAnimAdd [1, 0.1, getMarkerPos ExileClientSelectedSpawnLocationMarkerName]; 
-		ctrlMapAnimCommit _mapControl;
+		{3, "Exile_Item_BreachingCharge_Metal"},
+		{1, "Exile_Item_MobilePhone"},
+		{1, "Exile_Item_DuctTape"},
+		{1, "Exile_Item_ZipTie"}
 	};
 };
-_listBox ctrlRemoveAllEventHandlers "LBSelChanged";
-_listBox ctrlAddEventHandler ["LBSelChanged", "_this call fnc_LBSelChanged_24002;"];
 
-fnc_ButtonClick_24003 = {
-	disableSerialization;
-	
-	_display = nil;
-	waitUntil {_display = findDisplay 24002;!isNull _display};
-	_lB = _display displayCtrl 24002;
-	_curSel = lbCurSel _lB;
-	_data = _lB lbData _curSel;
-	_num = parseNumber _data;
-	_flag = myFlags select _num;
-	_name = lbText [24002, _curSel]; //_flag getVariable ["ExileTerritoryName", ""];
-	//spawnRegistry pushBack [_name, time];	
-	spawnRegistry pushBack [_name, time];
-	
-	//diag_log format["Plr selected spawn %1", lbText [24002, _curSel]];
-	diag_log format["Plr respawning at flag %1 - time: %2",_name, _time];
-	
-	[] call ExileClient_gui_selectSpawnLocation_event_onSpawnButtonClick;
-	
-	
-	
-	// if(!isNil 'markerName')then
-	// {
-		// [] spawn {
-			// waitUntil {!isNil 'ExileClientLoadedIn'};
-			// uiSleep 3;
-			// deleteMarker markerName;
-			// deleteMarkerLocal localmarkerName;
-		// };
-	// };
+class BreachingChargeMetal: Exile_AbstractCraftingRecipe
+{
+	name = "Breaching Charge (Metal)";
+	pictureItem = "Exile_Item_BreachingCharge_Metal";
+	returnedItems[] =
+	{
+		{1, "Exile_Item_BreachingCharge_Metal"}
+	};
+	tools[] =
+	{
+		"Exile_Item_Foolbox"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_DuctTape"},
+		{1, "SatchelCharge_Remote_Mag"}
+	};
 };
-_spawnButton = _display displayCtrl 24003;
-_spawnButton ctrlRemoveAllEventHandlers "ButtonClick";
-_spawnButton ctrlSetEventHandler["ButtonClick","call fnc_ButtonClick_24003"];
-_spawnButton ctrlSetText "Spawn!";
-_spawnButton ctrlEnable true;
-_spawnButton ctrlCommit 0;
 
-true
+class BreachingChargeWood: Exile_AbstractCraftingRecipe
+{
+	name = "Breaching Charge (Wood)";
+	pictureItem = "Exile_Item_BreachingCharge_Wood";
+	returnedItems[] =
+	{
+		{1, "Exile_Item_BreachingCharge_Wood"}
+	};
+	tools[] =
+	{
+		"Exile_Item_Foolbox"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_DuctTape"},
+		{1, "DemoCharge_Remote_Mag"}
+	};
+};
+
+class CookBBQSandwich: Exile_AbstractCraftingRecipe
+{
+	name = "Cook BBQ Sandwich";
+	pictureItem = "Exile_Item_BBQSandwich_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_BBQSandwich_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_BBQSandwich"}
+	};
+};
+
+class CookCatFood: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Cat Food";
+	pictureItem = "Exile_Item_CatFood_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_CatFood_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_CatFood"}
+	};
+};
+
+class CookChristmasTinner: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Christmas Tinner";
+	pictureItem = "Exile_Item_ChristmasTinner_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_ChristmasTinner_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_ChristmasTinner"}
+	};
+};
+class CookCoffee: Exile_AbstractCraftingRecipe
+{
+	name = "Brew Coffee";
+	pictureItem = "Exile_Item_PlasticBottleCoffee";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_PlasticBottleCoffee"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_PlasticBottleFreshWater"},
+		{1, "Exile_Item_InstantCoffee"}
+	};
+};
+class CookDogFood: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Dog Food";
+	pictureItem = "Exile_Item_DogFood_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_DogFood_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_DogFood"}
+	};
+};
+
+class CookGloriousKnakworst: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Glorious Knakworst";
+	pictureItem = "Exile_Item_GloriousKnakworst_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_GloriousKnakworst_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_GloriousKnakworst"}
+	};
+};
+
+class CookMacasCheese: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Macas Cheese";
+	pictureItem = "Exile_Item_MacasCheese_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_MacasCheese_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_MacasCheese"}
+	};
+};
+
+class CookPlasticBottleDirtyWater: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Dirty Water";
+	pictureItem = "Exile_Item_PlasticBottleFreshWater";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_PlasticBottleFreshWater"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_PlasticBottleDirtyWater"}
+	};
+};
+class CookPlasticBottleSaltWater: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Salt Water";
+	pictureItem = "Exile_Item_PlasticBottleFreshWater";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_PlasticBottleFreshWater"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_PlasticBottleSaltWater"}
+	};
+};
+
+class CookSausageGravy: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Sausage Gravy";
+	pictureItem = "Exile_Item_SausageGravy_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_SausageGravy_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_SausageGravy"}
+	};
+};
+
+class CookSurstromming: Exile_AbstractCraftingRecipe
+{
+	name = "Cook Surströmming";
+	pictureItem = "Exile_Item_Surstromming_Cooked";
+	requiresFire = 1;
+	returnedItems[] =
+	{
+		{1, "Exile_Item_Surstromming_Cooked"}
+	};
+	tools[] =
+	{
+		"Exile_Item_CookingPot"
+	};
+	components[] = 
+	{
+		{1, "Exile_Item_Surstromming"}
+	};
+};
+
+class CraftBandage: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Bandage";
+	pictureItem = "Exile_Item_Bandage";
+	returnedItems[] =
+	{
+		{1, "Exile_Item_Bandage"}
+	};
+	components[] = 
+	{
+		{4, "Exile_Item_ToiletPaper"}
+	};
+};
+
+class CraftConcreteDoorway: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Doorway";
+	pictureItem = "Exile_Item_ConcreteDoorwayKit";
+	requiresConcreteMixer = true;
+	returnedItems[] = 
+	{
+		{1, "Exile_Item_ConcreteDoorwayKit"},
+		{3, "Exile_Item_WaterCanisterEmpty"},
+		{1, "Exile_Item_FuelCanisterEmpty"}
+	};
+	components[] = 
+	{
+		{3, "Exile_Item_Cement"},
+		{3, "Exile_Item_Sand"},
+		{3, "Exile_Item_MetalPole"},
+		{3, "Exile_Item_WaterCanisterDirtyWater"},
+		{1, "Exile_Item_FuelCanisterFull"}
+	};
+};
+class CraftConcreteDrawbridge: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Drawbridge";
+	pictureItem = "Exile_Item_ConcreteDrawBridgeKit";
+	requiresConcreteMixer = true;
+	returnedItems[] = 
+	{
+		{1, "Exile_Item_ConcreteDrawBridgeKit"},
+		{4, "Exile_Item_WaterCanisterEmpty"},
+		{1, "Exile_Item_FuelCanisterEmpty"}
+	};
+	components[] = 
+	{
+		{4, "Exile_Item_Cement"},
+		{4, "Exile_Item_Sand"},
+		{4, "Exile_Item_MetalPole"},
+		{3, "Exile_Item_JunkMetal"},
+		{4, "Exile_Item_WaterCanisterDirtyWater"},
+		{1, "Exile_Item_FuelCanisterFull"}
+	};
+};
+class CraftConcreteFloor: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Floor";
+	pictureItem = "Exile_Item_ConcreteFloorKit";
+	requiresConcreteMixer = true;
+	returnedItems[] = 
+	{
+		{1, "Exile_Item_ConcreteFloorKit"},
+		{2, "Exile_Item_WaterCanisterEmpty"},
+		{1, "Exile_Item_FuelCanisterEmpty"}
+	};
+	components[] = 
+	{
+		{2, "Exile_Item_Cement"},
+		{2, "Exile_Item_Sand"},
+		{2, "Exile_Item_MetalPole"},
+		{2, "Exile_Item_WaterCanisterDirtyWater"},
+		{1, "Exile_Item_FuelCanisterFull"}
+	};
+};
+class CraftConcreteFloorPort: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Floor Port";
+	pictureItem = "Exile_Item_ConcreteFloorPortKit";
+	requiresConcreteMixer = true;
+	returnedItems[] = 
+	{
+		{1, "Exile_Item_ConcreteFloorPortKit"},
+		{3, "Exile_Item_WaterCanisterEmpty"},
+		{1, "Exile_Item_FuelCanisterEmpty"}
+	};
+	components[] = 
+	{
+		{3, "Exile_Item_Cement"},
+		{3, "Exile_Item_Sand"},
+		{3, "Exile_Item_MetalPole"},
+		{3, "Exile_Item_WaterCanisterDirtyWater"},
+		{1, "Exile_Item_FuelCanisterFull"}
+	};
+};
+class CraftConcreteFloorPortSmall: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Floor Port (Small)";
+	pictureItem = "Exile_Item_ConcreteFloorPortSmallKit";
+	requiresConcreteMixer = true;
+	returnedItems[] = 
+	{
+		{1, "Exile_Item_ConcreteFloorPortSmallKit"},
+		{3, "Exile_Item_WaterCanisterEmpty"},
+		{1, "Exile_Item_FuelCanisterEmpty"}
+	};
+	components[] = 
+	{
+		{3, "Exile_Item_Cement"},
+		{2, "Exile_Item_Sand"},
+		{2, "Exile_Item_MetalPole"},
+		{3, "Exile_Item_WaterCanisterDirtyWater"},
+		{1, "Exile_Item_FuelCanisterFull"}
+	};
+};
+class CraftConcreteGate: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Gate";
+	pictureItem = "Exile_Item_ConcreteGateKit";
+	requiresConcreteMixer = true;
+	returnedItems[] = 
+	{
+		{1, "Exile_Item_ConcreteGateKit"},
+		{4, "Exile_Item_WaterCanisterEmpty"},
+		{1, "Exile_Item_FuelCanisterEmpty"}
+	};
+	components[] = 
+	{
+		{4, "Exile_Item_Cement"},
+		{4, "Exile_Item_Sand"},
+		{4, "Exile_Item_MetalPole"},
+		{4, "Exile_Item_WaterCanisterDirtyWater"},
+		{1, "Exile_Item_FuelCanisterFull"}
+	};
+};
+class CraftConcreteLadderHatch: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Ladder Hatch";
+	pictureItem = "Exile_Item_ConcreteLadderHatchKit";
+	requiresConcreteMixer = true;
+	returnedItems[] = 
+	{
+		{1, "Exile_Item_ConcreteLadderHatchKit"},
+		{3, "Exile_Item_WaterCanisterEmpty"},
+		{1, "Exile_Item_FuelCanisterEmpty"}
+	};
+	components[] = 
+	{
+		{3, "Exile_Item_Cement"},
+		{2, "Exile_Item_Sand"},
+		{2, "Exile_Item_MetalPole"},
+		{3, "Exile_Item_JunkMetal"},
+		{3, "Exile_Item_WaterCanisterDirtyWater"},
+		{1, "Exile_Item_FuelCanisterFull"}
+	};
+};
+class CraftConcretStairs: Exile_AbstractCraftingRecipe
+{
+	name = "Craft Concrete Stairs";
+	pictureItem = "Exile_Item_ConcreteStairsKit";
+	requiresConcreteMixer = true;
