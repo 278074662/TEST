@@ -1,70 +1,110 @@
-**
-	 * Should animals spawn on your server? Y/N?
-	 */
-	enabled = 1;
+class CfgExileArsenal
+{
+	class Exile_Uniform_BambiOverall				{ quality = 1; price = 1; sellPrice = 1; };
 
-	/**
-	 * Should vanilla Arma animals (fish, rabbits, bees, etc.) be disabled?
-	 * We think it should, since it might confuse players if they cant eat them. *munches on bees*
-	 */
-	disableVanillaAnimals = 1;
+	///////////////////////////////////////////////////////////////////////////////
+	// Civillian Clothing
+	///////////////////////////////////////////////////////////////////////////////
+	class U_C_Journalist 							{ quality = 1; price = 20; };
+	class U_C_Poloshirt_blue 						{ quality = 1; price = 20; };
+	class U_C_Poloshirt_burgundy 					{ quality = 1; price = 20; };
+	class U_C_Poloshirt_salmon 						{ quality = 1; price = 20; };
+	class U_C_Poloshirt_stripped 					{ quality = 1; price = 20; };
+	class U_C_Poloshirt_tricolour 					{ quality = 1; price = 20; };
+	class U_C_Poor_1 								{ quality = 1; price = 20; };
+	class U_C_Poor_2 								{ quality = 1; price = 20; };
+	class U_C_Poor_shorts_1 						{ quality = 1; price = 20; };
+	class U_C_Scientist 							{ quality = 1; price = 20; };
+	class U_OrestesBody 							{ quality = 1; price = 40; };
+	class U_Rangemaster 							{ quality = 1; price = 40; };
+	class U_NikosAgedBody 							{ quality = 1; price = 40; };
+	class U_NikosBody 								{ quality = 1; price = 40; };
+	class U_Competitor 								{ quality = 1; price = 40; };
 
-	/**
-	 * Which animals to spawn. 
-	 * Exile automatically spawns a color variation of that animal, if variations exist.
-	 * Each player (client) has a maximum of one animal at a time.
-	 * Exile checks which animal type can spawn in front of the player and then
-	 * picks a random one. 
-	 *
-	 * For now it is like this:
-	 * 
-	 * - Goats spawn on hill tops, but not in forests
-	 * - Sheep spawn on meadows, but not next to forests and not on hill tops
-	 * - Hens and roosters spawn next to buildings only
-	 *
-	 * => More animal types will follow in upcoming Exile versions, hopefully.
-	 */
-	animalTypes[] = 
-	{
-		"Exile_Animal_Rooster_Abstract",
-		"Exile_Animal_Hen_Abstract",
-		"Exile_Animal_Goat_Abstract",
-		"Exile_Animal_Sheep_Abstract"
-	};
+	///////////////////////////////////////////////////////////////////////////////
+	// Soldier Uniforms
+	///////////////////////////////////////////////////////////////////////////////
+	class U_B_CombatUniform_mcam 					{ quality = 2; price = 40; };
+	class U_B_CombatUniform_mcam_tshirt 			{ quality = 2; price = 40; };
+	class U_B_CombatUniform_mcam_vest 				{ quality = 2; price = 40; };
+	class U_B_CombatUniform_mcam_worn 				{ quality = 2; price = 40; };
+	class U_B_CTRG_1 								{ quality = 2; price = 40; };
+	class U_B_CTRG_2 								{ quality = 2; price = 40; };
+	class U_B_CTRG_3								{ quality = 2; price = 40; };
+	class U_I_CombatUniform 						{ quality = 2; price = 40; };
+	class U_I_CombatUniform_shortsleeve				{ quality = 2; price = 40; };
+	class U_I_CombatUniform_tshirt					{ quality = 2; price = 40; };
+	class U_I_OfficerUniform						{ quality = 2; price = 40; };
+	class U_O_CombatUniform_ocamo 					{ quality = 2; price = 40; };
+	class U_O_CombatUniform_oucamo 					{ quality = 2; price = 40; };
+	class U_O_OfficerUniform_ocamo 					{ quality = 3; price = 80; };
+	class U_B_SpecopsUniform_sgg 					{ quality = 3; price = 80; };
+	class U_O_SpecopsUniform_blk 					{ quality = 3; price = 80; };
+	class U_O_SpecopsUniform_ocamo 					{ quality = 3; price = 80; };
+	class U_I_G_Story_Protagonist_F 				{ quality = 3; price = 100; };
+	class Exile_Uniform_Woodland 					{ quality = 3; price = 150; };
 
-	/**
-	 * Animals are always spawned in front of the player, but
-	 * at least a certain distance away. The radius is applied on top.
-	 *
-	 * Example:
-	 * Distance = 150
-	 * Radius = 50
-	 *
-	 * => Minimum Distance from Player = 150 
-	 * => Maximum Distance from Player = 150 + 50 * 2
-	 */
-	spawnDistance = 150;
-	spawnRadius = 50;
+	///////////////////////////////////////////////////////////////////////////////
+	// Guerilla Uniforms
+	///////////////////////////////////////////////////////////////////////////////
+	class U_C_HunterBody_grn						{ quality = 2; price = 40; };
+	class U_IG_Guerilla1_1							{ quality = 2; price = 40; };
+	class U_IG_Guerilla2_1							{ quality = 2; price = 60; };
+	class U_IG_Guerilla2_2							{ quality = 2; price = 40; };
+	class U_IG_Guerilla2_3							{ quality = 2; price = 40; };
+	class U_IG_Guerilla3_1							{ quality = 2; price = 40; };
+	class U_BG_Guerilla2_1							{ quality = 2; price = 40; };
+	class U_IG_Guerilla3_2							{ quality = 2; price = 40; };
+	class U_BG_Guerrilla_6_1						{ quality = 2; price = 60; };
+	class U_BG_Guerilla1_1							{ quality = 2; price = 40; };
+	class U_BG_Guerilla2_2							{ quality = 2; price = 40; };
+	class U_BG_Guerilla2_3							{ quality = 2; price = 40; };
+	class U_BG_Guerilla3_1							{ quality = 2; price = 40; };
+	class U_BG_leader								{ quality = 3; price = 40; };
+	class U_IG_leader								{ quality = 3; price = 40; };
+	class U_I_G_resistanceLeader_F					{ quality = 3; price = 100; };
 
-	/**
-	 * Specifies the minimum time in seconds between spawning animals.
-	 * When the animal diededed, this time has to pass before it spawns
-	 * a new one.
-	 *
-	 * It is a min/max setting, so the intervals will be uneven and a bit random.
-	 * By default it will take 5 to 10 minutes to respawn a new animal.
-	 */
-	minimumSpawnDelay = 5 * 60;
-	maximumSpawnDelay = 10 * 60;
+	///////////////////////////////////////////////////////////////////////////////
+	// Ghillie Suits
+	///////////////////////////////////////////////////////////////////////////////
+	class U_B_FullGhillie_ard						{ quality = 4; price = 150; };
+	class U_B_FullGhillie_lsh						{ quality = 4; price = 150; };
+	class U_B_FullGhillie_sard						{ quality = 4; price = 150; };
+	class U_B_GhillieSuit							{ quality = 3; price = 100; };
+	class U_I_FullGhillie_ard						{ quality = 4; price = 150; };
+	class U_I_FullGhillie_lsh						{ quality = 4; price = 150; };
+	class U_I_FullGhillie_sard						{ quality = 4; price = 150; };
+	class U_I_GhillieSuit							{ quality = 3; price = 100; };
+	class U_O_FullGhillie_ard						{ quality = 6; price = 150; };
+	class U_O_FullGhillie_lsh						{ quality = 6; price = 150; };
+	class U_O_FullGhillie_sard						{ quality = 6; price = 150; };
+	class U_O_GhillieSuit							{ quality = 5; price = 100; };
 
-	/**
-	 * Clients will despawn animals if no player is in this radius around the animal
-	 * This check is ran every 1 minute, so it is pretty unprecise, but performance-friendly. 
-	 */
-	keepAliveRadius = 500;
+	///////////////////////////////////////////////////////////////////////////////
+	// Wet Suits
+	///////////////////////////////////////////////////////////////////////////////
+	class U_I_Wetsuit								{ quality = 3; price = 80; };
+	class U_O_Wetsuit								{ quality = 3; price = 80; };
+	class U_B_Wetsuit								{ quality = 3; price = 80; };
+	class U_B_survival_uniform						{ quality = 3; price = 80; };
 
-	/**
-	 * Defines the minimum lifetime of an animal in seconds. During this time, right after spawning,
-	 * it will not despawn. (+-0..1 minute delay)
-	 */
-	minimumLifetime = 5 * 60;
+	///////////////////////////////////////////////////////////////////////////////
+	// Bandolliers
+	///////////////////////////////////////////////////////////////////////////////
+	class V_BandollierB_blk							{ quality = 1; price = 20; };
+	class V_BandollierB_cbr							{ quality = 1; price = 20; };
+	class V_BandollierB_khk							{ quality = 1; price = 20; };
+	class V_BandollierB_oli							{ quality = 1; price = 20; };
+	class V_BandollierB_rgr							{ quality = 1; price = 20; };
+
+	///////////////////////////////////////////////////////////////////////////////
+	// Chestrigs
+	///////////////////////////////////////////////////////////////////////////////
+	class V_Chestrig_blk 							{ quality = 1; price = 30; };
+	class V_Chestrig_khk 							{ quality = 1; price = 30; };
+	class V_Chestrig_oli 							{ quality = 1; price = 30; };
+	class V_Chestrig_rgr 							{ quality = 1; price = 30; };
+
+	///////////////////////////////////////////////////////////////////////////////
+	// Vests
+	///////////////////////////////////////////////////////////////////////////////
