@@ -1,71 +1,116 @@
-/**
-	 * Should animals spawn on your server? Y/N?
-	 */
-	enabled = 1;
+You can overwrite every single file of our code without touching it.
+		To do that, add the function name you want to overwrite plus the 
+		path to your custom file here. If you wonder how this works, have a
+		look at our bootstrap/fn_preInit.sqf function.
 
-	/**
-	 * Should vanilla Arma animals (fish, rabbits, bees, etc.) be disabled?
-	 * We think it should, since it might confuse players if they cant eat them. *munches on bees*
-	 */
-	disableVanillaAnimals = 1;
+		Simply add the following scheme here:
 
-	/**
-	 * Which animals to spawn. 
-	 * Exile automatically spawns a color variation of that animal, if variations exist.
-	 * Each player (client) has a maximum of one animal at a time.
-	 * Exile checks which animal type can spawn in front of the player and then
-	 * picks a random one. 
-	 *
-	 * For now it is like this:
-	 * 
-	 * - Goats spawn on hill tops, but not in forests
-	 * - Sheep spawn on meadows, but not next to forests and not on hill tops
-	 * - Hens and roosters spawn next to buildings only
-	 *
-	 * => More animal types will follow in upcoming Exile versions, hopefully.
-	 */
-	animalTypes[] = 
-	{
-		"Exile_Animal_Rooster_Abstract",
-		"Exile_Animal_Hen_Abstract",
-		"Exile_Animal_Goat_Abstract",
-		"Exile_Animal_Sheep_Abstract"
-	};
+		<Function Name of Exile> = "<New File Name>";
 
-	/**
-	 * Animals are always spawned in front of the player, but
-	 * at least a certain distance away. The radius is applied on top.
-	 *
-	 * Example:
-	 * Distance = 150
-	 * Radius = 50
-	 *
-	 * => Minimum Distance from Player = 150 
-	 * => Maximum Distance from Player = 150 + 50 * 2
-	 */
-	spawnDistance = 150;
-	spawnRadius = 50;
+		Example:
 
-	/**
-	 * Specifies the minimum time in seconds between spawning animals.
-	 * When the animal diededed, this time has to pass before it spawns
-	 * a new one.
-	 *
-	 * It is a min/max setting, so the intervals will be uneven and a bit random.
-	 * By default it will take 5 to 10 minutes to respawn a new animal.
-	 */
-	minimumSpawnDelay = 5 * 60;
-	maximumSpawnDelay = 10 * 60;
-
-	/**
-	 * Clients will despawn animals if no player is in this radius around the animal
-	 * This check is ran every 1 minute, so it is pretty unprecise, but performance-friendly. 
-	 */
-	keepAliveRadius = 500;
-
-	/**
-	 * Defines the minimum lifetime of an animal in seconds. During this time, right after spawning,
-	 * it will not despawn. (+-0..1 minute delay)
-	 */
-	minimumLifetime = 5 * 60;
+		ExileClient_util_fusRoDah = "myaddon\myfunction.sqf";
+		
+	*/
+	//StatusBar
+      ExileServer_system_database_connect = "Custom\StatusBar\ExileServer_system_database_connect.sqf";
+	  // base respawns
+      ExileClient_gui_selectSpawnLocation_show = "Custom\baserespawn.sqf";
 };
+class CfgExileEnvironment
+{
+	class ChernarusRedux 
+	{
+		class FireFlies
+		{
+			// 1 = enabled, 0 = disabled
+			enable = 0;
+
+			// At this hour fire flies begin to spawn
+			startHour = 18;
+
+			// At this hour fire flies stop spawning
+			endHour = 4;
+		};
+
+		class Anomalies
+		{
+			// 1 = enabled, 0 = disabled
+			enable = 0;
+
+			// At this hour anomalies begin to spawn
+			startHour = 19;
+
+			// At this hour anomalies stop spawning
+			endHour = 6;
+		};
+
+		class Breathing
+		{
+			// 1 = enabled, 0 = disabled
+			enable = 0;
+		};
+
+		class Snow
+		{
+			// 1 = enabled, 0 = disabled
+			enable = 0;
+
+			// https://community.bistudio.com/wiki/surfaceType
+			surfaces[] = {};
+		};
+
+		class Temperature
+		{
+			// Temperature in °C for the time of day, per hour
+			// Add the first index to the last index, so it is 25 indizes!
+			daytimeTemperature[] = {15.93,16.89,18.42,20.40,22.68,25.10,27.48,29.63,31.40,32.66,33.32,33.80,33.80,33.32,32.66,31.40,29.63,27.48,25.10,22.68,20.40,18.42,16.89,15.93,15.93};
+		
+			// Temperature change in °C when it is 100% overcast
+			overcast = -2;
+
+			// Temperature change in °C when it is 100% raining
+			rain = -5;
+
+			// Temperature change in °C when it is 100% windy
+			wind = -1;
+
+			// Temperature change per 100m altitude in °C
+			altitude = -0.5;
+
+			// Difference from the daytime temperature to the water temperature
+			water = -5;
+		};
+		
+		class Radiation 
+		{
+			// 1 = enabled, 0 = disabled
+			enable = 1;
+
+			/*
+				Defines contaminated zones in a specific map. 
+				You can define multiple zones per map. The format
+				of the zones is:
+
+				[Position ASL(!), Full Radiation Radius, Maximum Radius]
+
+				The radius works as follows:
+
+	            |-------------------------------------------------------|
+	                                Maximum Radius
+				
+				|------------------------|
+				  Full Radiation Radius   
+
+				Within the full radiation radius, radiation factor is
+				always at a maximum. Outside of this, it lowers down
+				to no radiation smoothly.
+
+				Radiation:
+
+	            |------------------------|------------------------------|
+	            1        1      1        1     0.75    0.5     0.25    0
+			*/
+			contaminatedZones[] = {{6894,11429,0}, 100, 200};
+		};
+	};
