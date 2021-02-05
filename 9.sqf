@@ -1,320 +1,184 @@
+private["_display","_spawnButton","_listBox","_listItemIndex","_numberOfSpawnPoints","_randNum","_randData","_randomSpawnIndex"];
 
+if(isNil "spawnRegistry") then 
+{
+	spawnRegistry = [];
+};
+
+fn_checkRespawnDelay = {
+	_markerName = _this select 0;
+	if(isNil "_markerName") exitWith { diag_log "checkRespawn: invalid parameter 1"; true; };
+	
+	diag_log format["checkRespawn: Checking flag %1...", _markerName];
+	
+	_counter = 0;
 	{
-		/*
-			A list of events that are active
-		*/
-		enabledEvents[] = {"SupplyBox", "AbandonedSafe", "AmbientFlyOver", "EarthQuake"}; 
-		enabledEscapeEvents[] = {"EscapeSupplyBox", "AmbientFlyOver", "EarthQuake"}; 
 
-		class EarthQuake 
+		
+		_name = _x select 0;
+		_time = _x select 1;
+		
+		if(isNil "_name") exitWith { true; };
+		if(isNil "_time") exitWith { true; };
+		
+		diag_log format["checkRespawn: checking flag %1, with reg %2", _markerName, _name];
+		if(_name isEqualTo _markerName) then 
 		{
-			type = "spawn";
-			function = "ExileServer_system_event_earthQuake_start";
-			minTime = 60;
-			maxTime = 180;
-			minimumPlayersOnline = 20;
-		};
-
-		class SupplyBox 
-		{
-			/*
-				Drops a supply box on a parachute next to a random airport on the map.
-				The box may contain items. The box can be transported to a territory
-				and installed to become a normal storage container.
-			*/
-			type = "spawn";
-			function = "ExileServer_system_event_supplyBox_start";
-			minTime = 60; // minutes
-			maxTime = 180; // minutes
-			minimumPlayersOnline = 10;
-			dropRadius = 500; // 500m around an airport (including the main airport on Altis!)
-			dropAltitude = 100; // altitude of the drop
-			markerTime = 10; // minutes
-
-			/*
-				These are different types of boxes can be dropped.
-				You can specify the cargo a box should contain.
-				The type of box is chosen randomly from the following list.
-				Add a type multiple times to increase the chance of being used.
-			*/
-			types[] = {"Beer", "Beer", "Tools", "Food", "Food", "RepairParts"};
-
-			class BoxTypes
+			if(_time > time-300) then 
 			{
-				class Beer 
-				{
-					items[] = 
-					{
-						{"Exile_Item_Beer", 24}
-					};
-				};
-
-				class Food 
-				{
-					items[] = 
-					{
-						{"Exile_Item_BBQSandwich", 5},
-						{"Exile_Item_Catfood", 5},
-						{"Exile_Item_ChristmasTinner", 5},
-						{"Exile_Item_GloriousKnakworst", 5},
-						{"Exile_Item_SausageGravy", 5},
-						{"Exile_Item_Surstromming", 5},
-						{"Exile_Item_CanOpener", 1},
-						{"Exile_Item_CookingPot", 1},
-						{"Exile_Item_Matches", 1}
-					};
-				};
-
-				class Tools 
-				{
-					items[] = 
-					{
-						{"Exile_Item_Wrench", 1},
-						{"Exile_Item_Shovel", 1},
-						{"Exile_Item_Screwdriver", 1},
-						{"Exile_Item_Pliers", 1},
-						{"Exile_Item_Handsaw", 1},
-						{"Exile_Item_FireExtinguisher", 1},
-						{"Exile_Item_DuctTape", 1}
-					};
-				};
-
-				class RepairParts 
-				{
-					items[] = 
-					{
-						{"Exile_Item_CarWheel", 8},
-						{"Exile_Item_FuelCanisterFull", 4},
-						{"Exile_Item_OilCanister", 1},
-						{"Exile_Item_Grinder", 1},
-						{"Exile_Item_CordlessScrewdriver", 1}
-					};
-				};
+				_counter = _counter + 1;
 			};
 		};
-
-		class EscapeSupplyBox 
-		{
-			/*
-				Drops a supply box on a parachute next to a random airport on the map.
-				The box may contain items. The box can be transported to a territory
-				and installed to become a normal storage container.
-			*/
-			type = "spawn";
-			function = "ExileServer_system_event_escapeSupplyBox_start";
-			minTime = 3; // minutes
-			maxTime = 6; // minutes
-			minimumPlayersOnline = 1;
-			dropAltitude = 100; // altitude of the drop
-			markerTime = 5; // minutes
-
-			/*
-				These are different types of boxes can be dropped.
-				You can specify the cargo a box should contain.
-				The type of box is chosen randomly from the following list.
-				Add a type multiple times to increase the chance of being used.
-			*/
-			types[] = {"CyrusBulletCam","LynxBulletCam","LRRBulletCam","MAR10BulletCam","Rahim","MkIEMR","ASP1Kir","Mk14","CMR","EBR","MXSW","Mk200"};
-
-			class BoxTypes
-			{
-				class CyrusBulletCam 
-				{
-					items[] = 
-					{
-						{"Exile_Magazine_10Rnd_93x64_DMR_05_Bullet_Cam_Mag", 1},
-						{"10Rnd_93x64_DMR_05_Mag", 3},
-						{"srifle_DMR_05_blk_F", 1}
-					};
-				};
-				class LynxBulletCam 
-				{
-					items[] = 
-					{
-						{"Exile_Magazine_5Rnd_127x108_Bullet_Cam_Mag", 1},
-						{"5Rnd_127x108_Mag", 3},
-						{"srifle_GM6_F", 1}
-					};
-				};
-				class LRRBulletCam 
-				{
-					items[] = 
-					{
-						{"Exile_Magazine_7Rnd_408_Bullet_Cam_Mag", 1},
-						{"7Rnd_408_Mag", 3},
-						{"srifle_LRR_F", 1}
-					};
-				};
-				class MAR10BulletCam 
-				{
-					items[] = 
-					{
-						{"Exile_Magazine_10Rnd_338_Bullet_Cam_Mag", 1},
-						{"10Rnd_338_Mag", 3},
-						{"srifle_DMR_02_F", 1}
-					};
-				};
-				class Rahim 
-				{
-					items[] = 
-					{
-						{"srifle_DMR_01_F", 1},
-						{"10Rnd_762x54_Mag", 3}
-					};
-				};
-				class MkIEMR 
-				{
-					items[] = 
-					{
-						{"srifle_DMR_03_woodland_F", 1},
-						{"20Rnd_762x51_Mag", 2}
-					};
-				};
-				class ASP1Kir 
-				{
-					items[] = 
-					{
-						{"srifle_DMR_04_F", 1},
-						{"10Rnd_127x54_Mag", 3}
-					};
-				};
-				class Mk14 
-				{
-					items[] = 
-					{
-						{"srifle_DMR_06_camo_F", 1},
-						{"20Rnd_762x51_Mag", 2}
-					};
-				};
-				class CMR 
-				{
-					items[] = 
-					{
-						{"srifle_DMR_07_ghex_F", 1},
-						{"20Rnd_650x39_Cased_Mag_F", 2}
-					};
-				};
-				class EBR 
-				{
-					items[] = 
-					{
-						{"srifle_EBR_F", 1},
-						{"20Rnd_762x51_Mag", 2}
-					};
-				};
-				class MXSW 
-				{
-					items[] = 
-					{
-						{"arifle_MX_SW_Black_F", 1},
-						{"30Rnd_65x39_caseless_mag", 2}
-					};
-				};
-				class Mk200 
-				{
-					items[] = 
-					{
-						{"LMG_Mk200_F", 1},
-						{"200Rnd_65x39_cased_Box", 1}
-					};
-				};
-			};
-		};
-
-		class AbandonedSafe
-		{
-			type = "spawn";
-			function = "ExileServer_system_event_abandonedSafe_start";
-			minTime = 60; // minutes
-			maxTime = 120; // minutes
-			minimumPlayersOnline = 0;
-			markerTime = 15; // minutes
-		};
-
-		class AmbientFlyOver
-		{
-			type = "call";
-			function = "ExileServer_system_event_ambientFlyOver_start";
-			minTime = 30; // minutes
-			maxTime = 90; // minutes
-			minimumPlayersOnline = 1;
-		};
+	} forEach spawnRegistry;
+	diag_log format["checkRespawn: counter for flag %1 = %2",_markerName, _counter];
+	
+	if(_counter >= 1) exitWith
+	{
+		diag_log format["checkRespawn: returned false"];
+		false;
 	};
 	
-	class Logging
+	diag_log format["checkRespawn: returned true"];
+	true;
+};
+
+disableSerialization;
+diag_log "Selecting spawn location...";
+ExileClientSpawnLocationSelectionDone = false;
+ExileClientSelectedSpawnLocationMarkerName = "";
+createDialog "RscExileSelectSpawnLocationDialog";
+waitUntil {_display = findDisplay 24002;!isNull _display};
+_display displayAddEventHandler ["KeyDown", "_this call ExileClient_gui_loadingScreen_event_onKeyDown"];
+_listBox = _display displayCtrl 24002;
+lbClear _listBox;
+{
+	if (getMarkerType _x == "ExileSpawnZone") then
 	{
-		/*
-			If logging is enabled separate logs will be made in the sql logs folder for each type
-		*/
-		traderLogging = 1;
-		deathLogging = 1;
-		territoryLogging = 1;
+		_name = markerText _x;
+		if(! ( [_name] call fn_checkRespawnDelay) ) exitWith { diag_log format["checkRespawn returned false for spawn zone: %1, respawn disabled",_name]; };
+		
+		diag_log format["Adding spawn zone: %1",markerText _x];
+		
+		_listItemIndex = _listBox lbAdd (markerText _x);
+		_listBox lbSetData [_listItemIndex, _x];
+		
 	};
+} forEach allMapMarkers;
+// _numberOfSpawnPoints = {getMarkerType _x == "ExileSpawnZone"} count allMapMarkers;
+// if(_numberOfSpawnPoints > 0)then 
+// {
+	// _randNum = floor(random _numberOfSpawnPoints);
+	// _randData = lbData [24002,_randNum];
+	// _randomSpawnIndex = _listBox lbAdd "Random";
+	// _listBox lbSetData [_randomSpawnIndex, _randData];
+// };
 
-
-	///////////////////////////////////////////////////////////////////////
-	// EXILE ESCAPE CONFIGURATION
-	// NOTE: REQUIRES ExileEscape.MAPNAME MISSION FILE TO BE LOADED!
-	///////////////////////////////////////////////////////////////////////
-	class Escape
+defaultLBsize = lbSize _listBox;
+myUID = getPlayerUID player;
+myFlags = [];
+{
+	_flag = _x;
+	_owner = _flag getVariable ["ExileOwnerUID", ""];
+    _arrBuildRights = _x getVariable["ExileTerritoryBuildRights",[]]; // by Nerexis
+	
+	if(myUID isEqualTo _owner OR ( !(isNil "_arrBuildRights") AND (count _arrBuildRights>0) AND (myUID in _arrBuildRights) ) )then
 	{
-		/*
-			A very simple option with powerful consequences
-			Set to 1 to enable Exile Escape!
-		*/
-		enableEscape = 0;
 		
-		/*
-			Map Configs
-		*/
-		class Tanoa 
-		{
-			//Starting Position and radius
-			startingLocation[] = {1277.18,560.44,0.00142193};
-			startingAreaRadius = 100;
-		};
 		
-		class Altis
-		{
-			//Starting Position and radius
-			startingLocation[] = {8452.87, 25086.9, 0};
-			startingAreaRadius = 200;
-		};
+		_name = _flag getVariable ["ExileTerritoryName", ""];
+		
+		if(! ( [_name] call fn_checkRespawnDelay) ) exitWith { diag_log format["checkRespawn returned false for flag: %1, respawn disabled",_name]; };
+		
+		_lbid = _listBox lbAdd (_flag getVariable ["ExileTerritoryName", ""]);
+		_listBox lbSetColor [_lbid, [0,0.68,1,1]];
+		_listBox lbSetData [_lbid,str(count myFlags)];
+		myFlags pushBack _flag;
+		
+		// localmarkerName = format['LOCALFLAG_%1',myUID];
+		// deleteMarkerLocal localmarkerName;
+		// _marker = createMarkerLocal [localmarkerName,getPosATL _flag];
+		// _marker setMarkerShapeLocal "ICON";
+		// _marker setMarkerTypeLocal "loc_Bunker";
+		// _marker setMarkerColorLocal "ColorGreen";
+		// _marker setMarkerSize [3, 3];
+		// _marker setMarkerTextLocal (_flag getVariable ["ExileTerritoryName", ""]);
+	};
+} forEach (allMissionObjects "Exile_Construction_Flag_Static");
 
-		// Which players are allowed to spectate after they are dead.
-		// Useful for admins/mods and streamers
-		spectatorUIDs[] = 
-		{
-			"76561198127675194",	// Eichi
-			"0",	// Grim
-			"0",	// Vish
-			"0"		// WolfkillArcadia
-		};
-		
-		//Number of players needed before the game initializes
-		minimumPlayersOnline = 10;
-		
-		//Radius of the circle for each round
-		roundZoneRadius[] = {1000, 500, 250};
-		
-		//Final shrink size of last round. To prevent shrinking make finalZoneRadius equal to last roundZoneRadius
-		finalZoneRadius = 100;
-		
-		//Time in minutes after minimumPlayersOnline met before game begins
-		timeBeforeStart = 5;
-		
-		//Total Round Minutes
-		minutesPerRound = 10;
-		
-		//Minutes after round starts before new preview
-		minutesBeforePreview = 7;
 
-		// How much do ppl get when they win?
-		respectWinKill = 1000;
-		respectWinGetIn = 500;
-		respectWinSuicide = 500;
+fnc_LBSelChanged_24002 = {
+	disableSerialization;
+	_ctrl = _this select 0;
+	_curSel = lbCurSel _ctrl;
+	if(_curSel < defaultLBsize)then
+	{
+		_this call ExileClient_gui_selectSpawnLocation_event_onListBoxSelectionChanged;
+	}
+	else
+	{
+		_data = _ctrl lbData _curSel;
+		_num = parseNumber _data;
+		_flag = myFlags select _num;
 		
-		//Number of weapon boxes to spawn
-		numberOfBoxes = 10;
+		
+		markerName = format['FLAG_%1',myUID];
+		deleteMarker markerName;
+		createMarker [markerName,getPosATL _flag];
+		ExileClientSelectedSpawnLocationMarkerName = markerName;
+		
+		// localmarkerName = format['LOCALFLAG_%1',myUID];
+		// deleteMarkerLocal localmarkerName;
+		// _marker = createMarkerLocal [localmarkerName,getPosATL _flag];
+		// _marker setMarkerShapeLocal "ICON";
+		// _marker setMarkerTypeLocal "loc_Bunker";
+		// _marker setMarkerColorLocal "ColorGreen";
+		// _marker setMarkerSize [3, 3];
+		// _marker setMarkerTextLocal (_flag getVariable ["ExileTerritoryName", ""]);
+		
+		_mapControl = (findDisplay 24002) displayCtrl 24001;
+		_mapControl ctrlMapAnimAdd [1, 0.1, getMarkerPos ExileClientSelectedSpawnLocationMarkerName]; 
+		ctrlMapAnimCommit _mapControl;
 	};
 };
+_listBox ctrlRemoveAllEventHandlers "LBSelChanged";
+_listBox ctrlAddEventHandler ["LBSelChanged", "_this call fnc_LBSelChanged_24002;"];
+
+fnc_ButtonClick_24003 = {
+	disableSerialization;
+	
+	_display = nil;
+	waitUntil {_display = findDisplay 24002;!isNull _display};
+	_lB = _display displayCtrl 24002;
+	_curSel = lbCurSel _lB;
+	_data = _lB lbData _curSel;
+	_num = parseNumber _data;
+	_flag = myFlags select _num;
+	_name = lbText [24002, _curSel]; //_flag getVariable ["ExileTerritoryName", ""];
+	//spawnRegistry pushBack [_name, time];	
+	spawnRegistry pushBack [_name, time];
+	
+	//diag_log format["Plr selected spawn %1", lbText [24002, _curSel]];
+	diag_log format["Plr respawning at flag %1 - time: %2",_name, _time];
+	
+	[] call ExileClient_gui_selectSpawnLocation_event_onSpawnButtonClick;
+	
+	
+	
+	// if(!isNil 'markerName')then
+	// {
+		// [] spawn {
+			// waitUntil {!isNil 'ExileClientLoadedIn'};
+			// uiSleep 3;
+			// deleteMarker markerName;
+			// deleteMarkerLocal localmarkerName;
+		// };
+	// };
+};
+_spawnButton = _display displayCtrl 24003;
+_spawnButton ctrlRemoveAllEventHandlers "ButtonClick";
+_spawnButton ctrlSetEventHandler["ButtonClick","call fnc_ButtonClick_24003"];
+_spawnButton ctrlSetText "Spawn!";
+_spawnButton ctrlEnable true;
+_spawnButton ctrlCommit 0;
+
+true
