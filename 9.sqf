@@ -1,116 +1,76 @@
-You can overwrite every single file of our code without touching it.
-		To do that, add the function name you want to overwrite plus the 
-		path to your custom file here. If you wonder how this works, have a
-		look at our bootstrap/fn_preInit.sqf function.
+	/**
+	 * Lifetime of loot in minutes. Synchronize this with
+	 * the garbage collector settings of your server
+	 * CfgSettings!
+	 */
+	lifeTime = 8;
 
-		Simply add the following scheme here:
+	/**
+	 * Interval in seconds when the client searches for
+	 * new buildings to spawn loot in
+	 */
+	spawnInterval = 30;
 
-		<Function Name of Exile> = "<New File Name>";
+	/**
+	 * This is a percentage value to determine how many loot
+	 * positions should contain loot when the system spawns loot.
+	 *
+	 * If a building has 20 positions defined, Exile will 
+	 * spawn loot in 10 random positions of them.
+	 * 
+	 * This means smaller buildings spawn less loot and larger
+	 * ones spawn more loot.
+	 *
+	 * You can also cap it at a maximum value. See below.
+	 */
+	maximumPositionCoverage = 30;
 
-		Example:
+ 	/**
+ 	 * Limit the number of loot positions per building. If the 
+ 	 * above percentage value exceeds this value, it will be capped.
+ 	 *
+ 	 * Example: Coverage is 50%. Building has 60 loot positions defined.
+ 	 * This results in 30 loot positions and that is too much. So we
+ 	 * cap this at 10
+ 	 */
+	maximumNumberOfLootSpotsPerBuilding = 3;
 
-		ExileClient_util_fusRoDah = "myaddon\myfunction.sqf";
-		
-	*/
-	//StatusBar
-      ExileServer_system_database_connect = "Custom\StatusBar\ExileServer_system_database_connect.sqf";
-	  // base respawns
-      ExileClient_gui_selectSpawnLocation_show = "Custom\baserespawn.sqf";
+	/**
+	 * Exile spawns a random number of items per loot spot. This 
+	 * is the upper cap for that. So 3 means it could spawn 1, 2 
+	 * or 3.
+	 */
+	maximumNumberOfItemsPerLootSpot = 2;
+
+	/**
+	 * Radius in meter to spawn loot AROUND each player.
+	 * Do NOT touch this value if you dont know what you do.
+	 * The higher the number, the higher the drop rates, the
+	 * easier your server will lag.
+	 *
+	 * 50m  = Minimum
+	 * 200m = Maximum
+	 */
+	spawnRadius = 60;
+
+	/**
+	 * Defines the radius around trader cities where the system should
+	 * not spawn loot. Set this to 0 if you want to have loot spawning
+	 * in trader citites, ugh.
+	 */
+	minimumDistanceToTraderZones = 500;
+
+	/**
+	 * Defines the radius around territories where no loot spawns.
+	 * This does not regard the actual size of a territory. So do not
+	 * set this to a lower value than the maximum radius of a territory,
+	 * which is 150m by default.
+	 */
+	minimumDistanceToTerritories = 150;
 };
-class CfgExileEnvironment
+class CfgExileMobileXM8
 {
-	class ChernarusRedux 
-	{
-		class FireFlies
-		{
-			// 1 = enabled, 0 = disabled
-			enable = 0;
-
-			// At this hour fire flies begin to spawn
-			startHour = 18;
-
-			// At this hour fire flies stop spawning
-			endHour = 4;
-		};
-
-		class Anomalies
-		{
-			// 1 = enabled, 0 = disabled
-			enable = 0;
-
-			// At this hour anomalies begin to spawn
-			startHour = 19;
-
-			// At this hour anomalies stop spawning
-			endHour = 6;
-		};
-
-		class Breathing
-		{
-			// 1 = enabled, 0 = disabled
-			enable = 0;
-		};
-
-		class Snow
-		{
-			// 1 = enabled, 0 = disabled
-			enable = 0;
-
-			// https://community.bistudio.com/wiki/surfaceType
-			surfaces[] = {};
-		};
-
-		class Temperature
-		{
-			// Temperature in °C for the time of day, per hour
-			// Add the first index to the last index, so it is 25 indizes!
-			daytimeTemperature[] = {15.93,16.89,18.42,20.40,22.68,25.10,27.48,29.63,31.40,32.66,33.32,33.80,33.80,33.32,32.66,31.40,29.63,27.48,25.10,22.68,20.40,18.42,16.89,15.93,15.93};
-		
-			// Temperature change in °C when it is 100% overcast
-			overcast = -2;
-
-			// Temperature change in °C when it is 100% raining
-			rain = -5;
-
-			// Temperature change in °C when it is 100% windy
-			wind = -1;
-
-			// Temperature change per 100m altitude in °C
-			altitude = -0.5;
-
-			// Difference from the daytime temperature to the water temperature
-			water = -5;
-		};
-		
-		class Radiation 
-		{
-			// 1 = enabled, 0 = disabled
-			enable = 1;
-
-			/*
-				Defines contaminated zones in a specific map. 
-				You can define multiple zones per map. The format
-				of the zones is:
-
-				[Position ASL(!), Full Radiation Radius, Maximum Radius]
-
-				The radius works as follows:
-
-	            |-------------------------------------------------------|
-	                                Maximum Radius
-				
-				|------------------------|
-				  Full Radiation Radius   
-
-				Within the full radiation radius, radiation factor is
-				always at a maximum. Outside of this, it lowers down
-				to no radiation smoothly.
-
-				Radiation:
-
-	            |------------------------|------------------------------|
-	            1        1      1        1     0.75    0.5     0.25    0
-			*/
-			contaminatedZones[] = {{6894,11429,0}, 100, 200};
-		};
-	};
+	/**
+	 * Add the 4 digit permission code here, so players can authorize
+	 * your server to send them messages to their Mobile XM8 app.
+	 */
