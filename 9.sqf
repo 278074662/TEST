@@ -7676,3 +7676,4 @@ class XM8SlideSlothMachine: RscExileXM8Slide
 		};
 	};
 };
+1
