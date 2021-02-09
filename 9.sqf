@@ -1,805 +1,807 @@
-/**
- * ExileServer_object_player_createBambi
- *
- * Exile Mod
- * www.exilemod.com
- * © 2015 Exile Mod Team
- *
- * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
- * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
- */
- 
-private["_sessionID","_requestingPlayer","_spawnLocationMarkerName","_thugToCheck","_HaloSpawnCheck","_bambiPlayer","_accountData","_direction","_position","_spawnAreaPosition","_spawnAreaRadius","_clanID","_clanData","_clanGroup","_player","_devFriendlyMode","_devs","_parachuteNetID","_spawnType","_parachuteObject"];
-_sessionID = _this select 0;
-_requestingPlayer = _this select 1;
-_spawnLocationMarkerName = _this select 2;
-_bambiPlayer = _this select 3;
-_accountData = _this select 4;
-_direction = random 360;
-_Respect = (_accountData select 0);
-if ((count ExileSpawnZoneMarkerPositions) isEqualTo 0) then 
-{
-    _position = call ExileClient_util_world_findCoastPosition;
-    if ((toLower worldName) isEqualTo "namalsk") then 
-    {
-        while {(_position distance2D [76.4239, 107.141, 0]) < 100} do 
-        {
-            _position = call ExileClient_util_world_findCoastPosition;
-        };
-    };
-}
-else 
-{
-    _spawnAreaPosition = getMarkerPos _spawnLocationMarkerName;
-    _spawnAreaRadius = getNumber(configFile >> "CfgSettings" >> "BambiSettings" >> "spawnZoneRadius");
-    _position = [_spawnAreaPosition, _spawnAreaRadius] call ExileClient_util_math_getRandomPositionInCircle;
-    while {surfaceIsWater _position} do 
-    {
-        _position = [_spawnAreaPosition, _spawnAreaRadius] call ExileClient_util_math_getRandomPositionInCircle;
-    };
-};
-
-_name = name _requestingPlayer;
-_clanID = (_accountData select 3);
-if !((typeName _clanID) isEqualTo "SCALAR") then
-{
-    _clanID = -1;
-    _clanData = [];
-}
-else
-{
-    _clanData = missionNamespace getVariable [format ["ExileServer_clan_%1",_clanID],[]];
-    if(isNull (_clanData select 5))then
-    {
-        _clanGroup = createGroup independent;
-        _clanData set [5,_clanGroup];
-        _clanGroup setGroupIdGlobal [_clanData select 0];
-        missionNameSpace setVariable [format ["ExileServer_clan_%1",_clanID],_clanData];
-    }
-    else
-    {
-        _clanGroup = (_clanData select 5);
-    };
-    [_player] joinSilent _clanGroup;
-};
-_bambiPlayer setPosATL [_position select 0,_position select 1,0];
-_bambiPlayer disableAI "FSM";
-_bambiPlayer disableAI "MOVE";
-_bambiPlayer disableAI "AUTOTARGET";
-_bambiPlayer disableAI "TARGET";
-_bambiPlayer disableAI "CHECKVISIBLE";
-_bambiPlayer setDir _direction;
-_bambiPlayer setName _name;
-_bambiPlayer setVariable ["ExileMoney", 0, true]; 
-_bambiPlayer setVariable ["ExileScore", (_accountData select 0)];
-_bambiPlayer setVariable ["ExileKills", (_accountData select 1)];
-_bambiPlayer setVariable ["ExileDeaths", (_accountData select 2)];
-_bambiPlayer setVariable ["ExileClanID", _clanID];
-_bambiPlayer setVariable ["ExileClanData", _clanData];
-_bambiPlayer setVariable ["ExileHunger", 100];
-_bambiPlayer setVariable ["ExileThirst", 100];
-_bambiPlayer setVariable ["ExileTemperature", 37];
-_bambiPlayer setVariable ["ExileWetness", 0];
-_bambiPlayer setVariable ["ExileAlcohol", 0]; 
-_bambiPlayer setVariable ["ExileName", _name]; 
-_bambiPlayer setVariable ["ExileOwnerUID", getPlayerUID _requestingPlayer]; 
-_bambiPlayer setVariable ["ExileIsBambi", true];
-_bambiPlayer setVariable ["ExileXM8IsOnline", false, true];
-_bambiPlayer setVariable ["ExileLocker", (_accountData select 4), true];
-_devFriendlyMode = getNumber (configFile >> "CfgSettings" >> "ServerSettings" >> "devFriendyMode");
-if (_devFriendlyMode isEqualTo 1) then 
-{
-    _devs = getArray (configFile >> "CfgSettings" >> "ServerSettings" >> "devs");
-    {
-        if ((getPlayerUID _requestingPlayer) isEqualTo (_x select 0))exitWith 
-        {
-            if((name _requestingPlayer) isEqualTo (_x select 1))then
-            {
-                _bambiPlayer setVariable ["ExileMoney", 500000, true];
-                _bambiPlayer setVariable ["ExileScore", 100000];
-            };
-        };
-    }
-    forEach _devs;
-};
-_parachuteNetID = "";
-
-_thugToCheck = _sessionID call ExileServer_system_session_getPlayerObject;
-_HaloSpawnCheck = _thugToCheck getVariable ["playerWantsHaloSpawn", 0];
-
-if (_HaloSpawnCheck isEqualTo 1) then
-{
-    _position set [2, getNumber(configFile >> "CfgSettings" >> "BambiSettings" >> "parachuteDropHeight")]; 
-    if ((getNumber(configFile >> "CfgSettings" >> "BambiSettings" >> "haloJump")) isEqualTo 1) then
-    {
-        _bambiPlayer addBackpackGlobal "B_Parachute";
-        _bambiPlayer setPosATL _position;
-        _spawnType = 2;
-    }
-    else 
-    {
-        _parachuteObject = createVehicle ["Steerable_Parachute_F", _position, [], 0, "CAN_COLLIDE"];
-        _parachuteObject setDir _direction;
-        _parachuteObject setPosATL _position;
-        _parachuteObject enableSimulationGlobal true;
-        _parachuteNetID = netId _parachuteObject;
-        _spawnType = 1;
-    };
-}
-else
-{
-    _spawnType = 0;
-};
-
-//Weapon Tier is to randomize what weapon the player spawns in with.
-//if you change the weapons in these weapon tiers make sure all the weapons will be able to use the type of attachments you are using in the loadout your putting them in.
-//if using the weapon tiers code found in the respect based loadouts below do not define ammo because it is automatically coded to give the ammo specific to the random gun players end up with.
-private _Tier1PrimaryWeapons = selectRandom
-											[		//5.56mm
-												"arifle_Mk20_plain_F",				
-												"arifle_TRG20_F",
-												"arifle_SPAR_01_blk_F",				
-												"Exile_Weapon_M16A4",
-												"Exile_Weapon_M4"		
-											];	
-	
-private _Tier2PrimaryWeapons = selectRandom
-											[		//6.5mm
-												"LMG_Mk200_F",
-												"arifle_Katiba_F",
-												"arifle_MXC_Black_F",
-												"srifle_DMR_07_blk_F",
-												"arifle_ARX_blk_F"
-											];
-											
-private _Tier3PrimaryWeapons = selectRandom
-											[		//7.62mm
-												"srifle_DMR_01_F",
-												"srifle_EBR_F",
-												"LMG_Zafir_F",
-												"srifle_DMR_03_F",
-												"Exile_Weapon_AK47",
-												"arifle_SPAR_03_khk_F",
-												"Exile_Weapon_DMR",
-												"Exile_Weapon_PKP"
-											];
-
-private _Tier4PrimaryWeapons = selectRandom
-											[	//Random High Calib.
-												"srifle_DMR_05_hex_F",
-												"MMG_01_tan_F",
-												"srifle_DMR_02_F",
-												"MMG_02_black_F",
-												"srifle_GM6_F"			
-											];
-				
-switch (true) do 
-{
-//Loadouts by UID place the player UID in "PlacePlayerUIDHere" inside the quotations.
-
-//UID Loadout 1
-	if((getPlayerUID _requestingPlayer) in ["PlacePlayerUIDHere"]) then {
-		clearWeaponCargo _bambiPlayer; 
-		clearMagazineCargo _bambiPlayer;
-		_bambiPlayer forceAddUniform "U_O_FullGhillie_sard"; // adds uniforms
-		_bambiPlayer addVest "V_HarnessOGL_gry";
-		_bambiPlayer addWeapon "Exile_Item_XM8";
-		_bambiPlayer addWeapon "ItemCompass";
-		_bambiPlayer addWeapon "ItemMap";
-		_bambiPlayer addWeapon "ItemRadio";
-		_bambiPlayer addWeapon "ItemGPS";
-		_bambiPlayer addWeapon "Rangefinder";
-		_bambiPlayer addItem "NVGoggles_INDEP";
-		_bambiPlayer assignItem "NVGoggles_INDEP";
-		_bambiPlayer addBackpack "B_Carryall_cbr";
-		_bambiPlayer addItemToBackpack "HandGrenade";
-		_bambiPlayer addWeapon "srifle_GM6_camo_F";
-		_bambiPlayer addPrimaryWeaponItem "optic_KHS_blk";
-		_bambiPlayer addMagazines ["5Rnd_127x108_Mag", 4];
-		_bambiPlayer addWeapon "hgun_Pistol_heavy_01_F";
-		_bambiPlayer addHandgunItem "muzzle_snds_acp";
-		_bambiPlayer addMagazines ["11Rnd_45ACP_Mag", 3];
-		_bambiPlayer addItemToVest "Exile_Item_EMRE";
-		_bambiPlayer addItemToVest "Exile_Item_EnergyDrink";
-		_bambiPlayer addItemToVest "Exile_Item_InstaDoc";
-		_bambiPlayer addItemToVest "Exile_Item_DuctTape";
-		_bambiPlayer addItemToUniform "Exile_Item_Bandage";
-		_bambiPlayer addItemToBackpack "Exile_Item_Wrench";
-		};
-	
-//UID Loadout 2
-	if((getPlayerUID _requestingPlayer) in ["PlacePlayerUIDHere"]) then {
-		clearWeaponCargo _bambiPlayer; 
-		clearMagazineCargo _bambiPlayer;
-		_bambiPlayer forceAddUniform "U_O_FullGhillie_sard"; // adds uniforms
-		_bambiPlayer addVest "V_HarnessOGL_gry";
-		_bambiPlayer addWeapon "Exile_Item_XM8";
-		_bambiPlayer addWeapon "ItemCompass";
-		_bambiPlayer addWeapon "ItemMap";
-		_bambiPlayer addWeapon "ItemRadio";
-		_bambiPlayer addWeapon "ItemGPS";
-		_bambiPlayer addWeapon "Rangefinder";
-		_bambiPlayer addItem "NVGoggles_INDEP";
-		_bambiPlayer assignItem "NVGoggles_INDEP";
-		_bambiPlayer addBackpack "B_Carryall_cbr";
-		_bambiPlayer addItemToBackpack "HandGrenade";
-		_bambiPlayer addWeapon "srifle_GM6_camo_F";
-		_bambiPlayer addPrimaryWeaponItem "optic_KHS_blk";
-		_bambiPlayer addMagazines ["5Rnd_127x108_Mag", 4];
-		_bambiPlayer addWeapon "hgun_Pistol_heavy_01_F";
-		_bambiPlayer addHandgunItem "muzzle_snds_acp";
-		_bambiPlayer addMagazines ["11Rnd_45ACP_Mag", 3];
-		_bambiPlayer addItemToVest "Exile_Item_EMRE";
-		_bambiPlayer addItemToVest "Exile_Item_EnergyDrink";
-		_bambiPlayer addItemToVest "Exile_Item_InstaDoc";
-		_bambiPlayer addItemToVest "Exile_Item_DuctTape";
-		_bambiPlayer addItemToUniform "Exile_Item_Bandage";
-		_bambiPlayer addItemToBackpack "Exile_Item_Wrench";
-		};
-
-//UID Loadout 3
-	if((getPlayerUID _requestingPlayer) in ["PlacePlayerUIDHere"]) then {
-		clearWeaponCargo _bambiPlayer; 
-		clearMagazineCargo _bambiPlayer;
-		_bambiPlayer forceAddUniform "U_O_FullGhillie_sard"; // adds uniforms
-		_bambiPlayer addVest "V_HarnessOGL_gry";
-		_bambiPlayer addWeapon "Exile_Item_XM8";
-		_bambiPlayer addWeapon "ItemCompass";
-		_bambiPlayer addWeapon "ItemMap";
-		_bambiPlayer addWeapon "ItemGPS";
-		_bambiPlayer addWeapon "Rangefinder";
-		_bambiPlayer addItem "NVGoggles_INDEP";
-		_bambiPlayer assignItem "NVGoggles_INDEP";
-		_bambiPlayer addBackpack "B_Carryall_cbr";
-		_bambiPlayer addItemToBackpack "HandGrenade";
-		_bambiPlayer addWeapon "LMG_Zafir_F";
-		_bambiPlayer addPrimaryWeaponItem "optic_DMS";
-		_bambiPlayer addMagazines ["150Rnd_762x54_Box_Tracer", 2];
-		_bambiPlayer addWeapon "hgun_Pistol_heavy_01_F";
-		_bambiPlayer addHandgunItem "muzzle_snds_acp";
-		_bambiPlayer addMagazines ["11Rnd_45ACP_Mag", 3];
-		_bambiPlayer addItemToVest "Exile_Item_EMRE";
-		_bambiPlayer addItemToVest "Exile_Item_EnergyDrink";
-		_bambiPlayer addItemToVest "Exile_Item_InstaDoc";
-		_bambiPlayer addItemToVest "Exile_Item_DuctTape";
-		_bambiPlayer addItemToUniform "Exile_Item_Bandage";
-		_bambiPlayer addItemToBackpack "Exile_Item_Wrench";
-		};
-		
-//UID Loadout 4
-	if((getPlayerUID _requestingPlayer) in ["PlacePlayerUIDHere"]) then {
-		clearWeaponCargo _bambiPlayer; 
-		clearMagazineCargo _bambiPlayer;
-		_bambiPlayer forceAddUniform "U_O_FullGhillie_sard"; // adds uniforms
-		_bambiPlayer addVest "V_HarnessOGL_gry";
-		_bambiPlayer addWeapon "Exile_Item_XM8";
-		_bambiPlayer addWeapon "ItemCompass";
-		_bambiPlayer addWeapon "ItemMap";
-		_bambiPlayer addWeapon "ItemGPS";
-		_bambiPlayer addWeapon "Rangefinder";
-		_bambiPlayer addItem "NVGoggles_INDEP";
-		_bambiPlayer assignItem "NVGoggles_INDEP";
-		_bambiPlayer addBackpack "B_Carryall_cbr";
-		_bambiPlayer addItemToBackpack "HandGrenade";
-		_bambiPlayer addWeapon "LMG_Zafir_F";
-		_bambiPlayer addPrimaryWeaponItem "optic_DMS";
-		_bambiPlayer addMagazines ["150Rnd_762x54_Box_Tracer", 2];
-		_bambiPlayer addWeapon "hgun_Pistol_heavy_01_F";
-		_bambiPlayer addHandgunItem "muzzle_snds_acp";
-		_bambiPlayer addMagazines ["11Rnd_45ACP_Mag", 3];
-		_bambiPlayer addItemToVest "Exile_Item_EMRE";
-		_bambiPlayer addItemToVest "Exile_Item_EnergyDrink";
-		_bambiPlayer addItemToVest "Exile_Item_InstaDoc";
-		_bambiPlayer addItemToVest "Exile_Item_DuctTape";
-		_bambiPlayer addItemToUniform "Exile_Item_Bandage";
-		_bambiPlayer addItemToBackpack "Exile_Item_Wrench";
-		};
-		
-//UID Loadout 5		
-	if((getPlayerUID _requestingPlayer) in ["PlacePlayerUIDHere"]) then {
-		clearWeaponCargo _bambiPlayer; 
-		clearMagazineCargo _bambiPlayer;
-		_bambiPlayer forceAddUniform "U_O_FullGhillie_sard"; // adds uniforms
-		_bambiPlayer addVest "V_HarnessOGL_gry";
-		_bambiPlayer addWeapon "Exile_Item_XM8";
-		_bambiPlayer addWeapon "ItemCompass";
-		_bambiPlayer addWeapon "ItemMap";
-		_bambiPlayer addWeapon "ItemRadio";
-		_bambiPlayer addWeapon "ItemGPS";
-		_bambiPlayer addWeapon "Rangefinder";
-		_bambiPlayer addItem "NVGoggles_INDEP";
-		_bambiPlayer assignItem "NVGoggles_INDEP";
-		_bambiPlayer addBackpack "B_Carryall_cbr";
-		_bambiPlayer addItemToBackpack "HandGrenade";
-		_bambiPlayer addWeapon "srifle_GM6_camo_F";
-		_bambiPlayer addPrimaryWeaponItem "optic_KHS_blk";
-		_bambiPlayer addMagazines ["5Rnd_127x108_Mag", 4];
-		_bambiPlayer addWeapon "hgun_Pistol_heavy_01_F";
-		_bambiPlayer addHandgunItem "muzzle_snds_acp";
-		_bambiPlayer addMagazines ["11Rnd_45ACP_Mag", 3];
-		_bambiPlayer addItemToVest "Exile_Item_EMRE";
-		_bambiPlayer addItemToVest "Exile_Item_EnergyDrink";
-		_bambiPlayer addItemToVest "Exile_Item_InstaDoc";
-		_bambiPlayer addItemToVest "Exile_Item_DuctTape";
-		_bambiPlayer addItemToUniform "Exile_Item_Bandage";
-		_bambiPlayer addItemToBackpack "Exile_Item_Wrench";
-	} else {
-	
-//If players are not given a loadout by UID number they will automatically be given loadouts below this line based on how much respect they have.	
-   case (_Respect > 0 && _Respect < 4999):
-   //Bambi
-    {
-	clearWeaponCargo _bambiPlayer; 
-	clearMagazineCargo _bambiPlayer;
-     _bambiPlayer forceAddUniform "Exile_Uniform_BambiOverall";
-	 _bambiplayer addVest "V_Rangemaster_belt";
-	 [_bambiPlayer,_Tier1PrimaryWeapons,5] call bis_fnc_addWeapon; 	//3 defines how many magazines the player will spawn with. _Tier1PrimaryWeapons point to weapon tier 1 above.
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-   
-   case (_Respect > 5000 && _Respect < 9999):
-   //Bambi Plus
-    {
-	clearWeaponCargo _bambiPlayer; 
-	clearMagazineCargo _bambiPlayer;
-     _bambiPlayer forceAddUniform "Exile_Uniform_BambiOverall";
-	 _bambiplayer addVest "V_BandollierB_blk";
-	 [_bambiPlayer,_Tier1PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
- 
-    case (_Respect > 10000 && _Respect < 14999):
-    //Super Bambi
-    {
-	clearWeaponCargo _bambiPlayer; 
-	clearMagazineCargo _bambiPlayer;
-     _bambiPlayer forceAddUniform "Exile_Uniform_BambiOverall";
-	 _bambiplayer addVest "V_BandollierB_blk";
-	 _bambiPlayer addBackpack "B_AssaultPack_blk";
-	 [_bambiPlayer,_Tier1PrimaryWeapons,5] call bis_fnc_addWeapon; 
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";
-	 _bambiPlayer addPrimaryWeaponItem "optic_ACO_grn";
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
- 
-    case (_Respect > 15000 && _Respect < 19999):
-    //Definetly Not a Bambi
-    {
-	clearWeaponCargo _bambiPlayer; 
-	clearMagazineCargo _bambiPlayer;
-     _bambiPlayer forceAddUniform "Exile_Uniform_BambiOverall";
-	 _bambiplayer addVest "V_BandollierB_blk";
-	 _bambiPlayer addBackpack "B_AssaultPack_blk";
-	 [_bambiPlayer,_Tier1PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";
-	 _bambiPlayer addPrimaryWeaponItem "optic_ACO_grn";
-	 _bambiPlayer addPrimaryWeaponItem "muzzle_snds_M";
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Binocular";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
- 
-    case (_Respect > 20000 && _Respect < 24999):
-    //Woodman
-    {
-	clearWeaponCargo _bambiPlayer; 
-	clearMagazineCargo _bambiPlayer;
-     _bambiPlayer forceAddUniform "Exile_Uniform_BambiOverall";
-	 _bambiplayer addVest "V_BandollierB_blk";
-	 _bambiPlayer addBackpack "B_AssaultPack_blk";
-	 _bambiPlayer addHeadgear "H_HelmetB_plain_blk";
-	 [_bambiPlayer,_Tier1PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";
-	 _bambiPlayer addPrimaryWeaponItem "optic_ACO_grn";
-	 _bambiPlayer addPrimaryWeaponItem "muzzle_snds_M";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Binocular";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 25000 && _Respect < 29999):
-    //Robber
-    {
-	clearWeaponCargo _bambiPlayer; 
-	clearMagazineCargo _bambiPlayer;
-     _bambiPlayer forceAddUniform "Exile_Uniform_Woodland";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_AssaultPack_blk";
-	 _bambiPlayer addHeadgear "H_HelmetB_plain_blk";
-	 [_bambiPlayer,_Tier2PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Binocular";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 30000 && _Respect < 34999):
-    //Hunter
-    {
-     _bambiPlayer forceAddUniform "Exile_Uniform_Woodland";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_AssaultPack_blk";
-	 _bambiPlayer addHeadgear "H_HelmetB_plain_blk";
-	 [_bambiPlayer,_Tier2PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 35000 && _Respect < 39999):
-    //Worker
-    {
-     _bambiPlayer forceAddUniform "Exile_Uniform_Woodland";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_FieldPack_blk";
-	 _bambiPlayer addHeadgear "H_HelmetB_plain_blk";
-	 [_bambiPlayer,_Tier2PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";
-	 _bambiPlayer addPrimaryWeaponItem "optic_Arco_blk_F";	 	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 40000 && _Respect < 44999):
-    //Murderer
-    {
-     _bambiPlayer forceAddUniform "Exile_Uniform_Woodland";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_FieldPack_blk";
-	 _bambiPlayer addHeadgear "H_HelmetSpecB_paint2";
-	 [_bambiPlayer,_Tier2PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";
-	 _bambiPlayer addPrimaryWeaponItem "optic_Arco_blk_F";	
-	 _bambiPlayer addPrimaryWeaponItem "muzzle_snds_H";	 	  	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 45000 && _Respect < 49999):
-    //Prisoner
-    {
-     _bambiPlayer forceAddUniform "Exile_Uniform_Woodland";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_Carryall_cbr";
-	 _bambiPlayer addHeadgear "H_HelmetSpecB_paint2";
-	 [_bambiPlayer,_Tier2PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_flashlight";
-	 _bambiPlayer addPrimaryWeaponItem "optic_Arco_blk_F";	
-	 _bambiPlayer addPrimaryWeaponItem "muzzle_snds_H";	 	  	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 50000 && _Respect < 59999):
-    //Prisoner
-    {
-     _bambiPlayer forceAddUniform "U_B_FullGhillie_ard";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_Carryall_cbr";
-	 _bambiPlayer addHeadgear "H_HelmetSpecB_paint2";
-	 [_bambiPlayer,_Tier3PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addItem "NVGoggles_INDEP";
-	 _bambiPlayer assignItem "NVGoggles_INDEP";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 60000 && _Respect < 69999):
-    //KUT AK
-    //Prisoner
-    {
-     _bambiPlayer forceAddUniform "U_B_FullGhillie_ard";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_Carryall_cbr";
-	 _bambiPlayer addHeadgear "H_HelmetSpecB_paint2";
-	 [_bambiPlayer,_Tier3PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_pointer_IR";
-	 _bambiPlayer addItem "NVGoggles_INDEP";
-	 _bambiPlayer assignItem "NVGoggles_INDEP";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 70000 && _Respect < 79999):
-    //Prisoner
-    {
-     _bambiPlayer forceAddUniform "U_B_FullGhillie_ard";
-	 _bambiplayer addVest "V_PlateCarrier1_rgr";
-	 _bambiPlayer addBackpack "B_Carryall_cbr";
-	 _bambiPlayer addHeadgear "H_HelmetLeaderO_ocamo";
-	 [_bambiPlayer,_Tier3PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_pointer_IR";
-	 _bambiPlayer addPrimaryWeaponItem "optic_DMS";
-	 _bambiPlayer addItem "NVGoggles_INDEP";
-	 _bambiPlayer assignItem "NVGoggles_INDEP";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 80000 && _Respect < 89999):
-    //Prisoner
-    {
-     _bambiPlayer forceAddUniform "U_B_FullGhillie_ard";
-	 _bambiplayer addVest "V_PlateCarrierGL_rgr";
-	 _bambiPlayer addBackpack "B_Carryall_cbr";
-	 _bambiPlayer addHeadgear "H_HelmetLeaderO_ocamo";
-	 [_bambiPlayer,_Tier4PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_pointer_IR";
-	 _bambiPlayer addItem "NVGoggles_INDEP";
-	 _bambiPlayer assignItem "NVGoggles_INDEP";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 90000 && _Respect < 99999):
-    //Prisoner
-    {
-     _bambiPlayer forceAddUniform "U_B_FullGhillie_ard";
-	 _bambiplayer addVest "V_PlateCarrierGL_rgr";
-	 _bambiPlayer addBackpack "B_Carryall_cbr";
-	 _bambiPlayer addHeadgear "H_HelmetLeaderO_ocamo";
-	 [_bambiPlayer,_Tier4PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_pointer_IR";
-	 _bambiPlayer addPrimaryWeaponItem "optic_Nightstalker";
-	 _bambiPlayer addItem "NVGoggles_INDEP";
-	 _bambiPlayer assignItem "NVGoggles_INDEP";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-    };
-	
-    case (_Respect > 100000 && _Respect < 9999999):
-    //Prisoner
-    {
-     _bambiPlayer forceAddUniform "U_B_FullGhillie_ard";
-	 _bambiplayer addVest "V_PlateCarrierGL_rgr";
-	 _bambiPlayer addBackpack "B_Carryall_cbr";
-	 _bambiPlayer addHeadgear "H_HelmetLeaderO_ocamo";
-	 [_bambiPlayer,_Tier4PrimaryWeapons,5] call bis_fnc_addWeapon;
-	 _bambiPlayer addPrimaryWeaponItem "acc_pointer_IR";
-	 _bambiPlayer addPrimaryWeaponItem "optic_Nightstalker";
-	 _bambiPlayer addItem "NVGoggles_INDEP";
-	 _bambiPlayer assignItem "NVGoggles_INDEP";	 
-	 _bambiPlayer addWeapon "Exile_Item_XM8";
-	 _bambiPlayer addWeapon "ItemCompass";
-	 _bambiPlayer addWeapon "ItemMap";
-	 _bambiPlayer addWeapon "ItemRadio";
-	 _bambiPlayer addWeapon "ItemGPS";
-	 _bambiPlayer addWeapon "Rangefinder";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-	 _bambiPlayer addItemToBackpack "HandGrenade";
-     _bambiplayer addItem "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-	 _bambiPlayer addItemToBackpack "Exile_Item_Wrench";
-    };
-	
-   default
-    {  
-	clearWeaponCargo _bambiPlayer; 
-	clearMagazineCargo _bambiPlayer;
-     _bambiPlayer forceAddUniform "Exile_Uniform_Woodland";
-	 _bambiplayer addVest "V_Rangemaster_belt";
-	 _bambiplayer addItem "Exile_Item_InstaDoc";
-     _bambiplayer addItem  "Exile_Item_PlasticBottleCoffee";
-	 _bambiplayer addItem  "Exile_Item_EMRE";
-     _bambiplayer addItem "Exile_Item_ExtensionCord";
-     _bambiplayer addMagazines ["30Rnd_556x45_Stanag", 5];
-     _bambiPlayer addWeapon "arifle_Mk20_plain_F";
-     };
+class CfgPatches {
+	class A3XAI_config {
+		units[] = {};
+		weapons[] = {};
+		requiredVersion = 0.1;
+		A3XAIVersion = "0.2.1";
+		requiredAddons[] = {};
 	};
 };
 
-if((canTriggerDynamicSimulation _bambiPlayer) isEqualTo false) then 
-{
-    _bambiPlayer triggerDynamicSimulation true; 
+class CfgA3XAISettings {
+
+	/*	A3XAI Settings
+	--------------------------------------------------------------------------------------------------------------------*/	
+	
+	//Enable or disable event logging to the server RPT file (named arma3server_[date]_[time].rpt). Debug level setting. 0: No debug output, 1: Basic Debug output, 2: Detailed Debug output. (Default: 0)
+	//Debug output may help finding additional information about A3XAI's background behavior. This output is helpful when asking for help regarding bugs or unexpected behaviors.
+	debugLevel = 0;
+	
+	//Frequency of server monitor update to RPT log in seconds. The monitor periodically reports number of max/current AI units and dynamically spawned triggers into RPT log. (Default: 300, 0 = Disable reporting)											
+	monitorReportRate = 300;
+	
+	//Enable or disable verification and error-correction of classname tables used by A3XAI. If invalid entries are found, they are removed and logged into the RPT log.
+	//If disabled, any invalid classnames will not be removed and clients may crash if AI bodies with invalid items are looted. Only disable if a previous scan shows no invalid classnames (Default: 1).										
+	verifyClassnames = 1;
+	
+	//Enables checking of all A3XAI config settings. (Default: 1)
+	verifySettings = 1;
+	
+	//Minimum server FPS to spawn/respawn AI (Default: 0)
+	minFPS = 10; //0
+	
+	//Minimum seconds to pass until each dead AI body or destroyed vehicle can be cleaned up by A3XAI's task scheduler. A3XAI will not clean up a body/vehicle if there is a player close by (Default: 900).									
+	cleanupDelay = 400;
+	
+	//Enabled: A3XAI will load custom spawn/blacklist definitions file on startup (A3XAI_config.pbo >> custom_defs.sqf) (Default: 0)
+	loadCustomFile = 0;
+	
+	//0: A3XAI uses individual threads to manage each spawned AI group (more accurate ammo/fuel reloading). 1: A3XAI will use a single thread to manage all AI groups (better performance). (Default: 0)
+	groupManageMode = 0;
+	
+	
+	/*	A3XAI HC Settings
+	--------------------------------------------------------------------------------------------------------------------*/	
+
+	//Enables A3XAI headless client support. (Default: 0)
+	enableHC = 1;
+	
+	//If HC support enabled, A3XAI will pause during post-initialization until HC has successfully connected. (Default: 0)
+	//IMPORTANT: It is highly recommended to ensure that the HC is properly setup before enabling this option, otherwise A3XAI may be stuck waiting for HC to to connect.
+	waitForHC = 0;
+
+	
+	/*	Dynamic Classname Settings
+
+		If a setting is disabled, A3XAI will use the corresponding classname table further below. See "AI clothing, weapon, loot, and equipment settings" section.
+	--------------------------------------------------------------------------------------------------------------------*/	
+	
+	//Purchase price limit for items generated by dynamic classname system as defined in CfgExileArsenal. Lowering this value may reduce variety of items carried by AI. (Default: 2000)
+	itemPriceLimit = 500000;
+	
+	//1: Generate AI weapons from Exile trader tables (Default)
+	//0: Weapons defined by pistolList, rifleList, machinegunList, sniperList
+	//dynamicWeaponBlacklist: Classnames of weapons to ignore from Exile trader tables
+	generateDynamicWeapons = 0;
+	dynamicWeaponBlacklist[] = {};
+	
+	//1: Use Exile loot table data as whitelist for AI-usable weapon scopes (Default)
+	//0: Scopes defined by weaponOpticsList
+	//dynamicOpticsBlacklist: List of optics classnames to ignore from Exile trader tables.
+	generateDynamicOptics = 0;
+	dynamicOpticsBlacklist[] = {};
+	
+	//1: Generate AI uniform types from Exile trader tables (Default)
+	//0: Uniforms defined by uniformTypes0, uniformTypes1, uniformTypes2, uniformTypes3
+	//dynamicUniformBlacklist: List of uniform classnames to ignore from Exile trader tables.
+	generateDynamicUniforms = 1;
+	dynamicUniformBlacklist[] = {};
+	
+	//1: Generate AI backpack types from Exile trader tables (Default)
+	//0: Backpacks defined by backpackTypes0, backpackTypes1, backpackTypes2, backpackTypes3
+	//dynamicBackpackBlacklist: List of backpack classnames to ignore from Exile trader tables.
+	generateDynamicBackpacks = 1;
+	dynamicBackpackBlacklist[] = {};
+	
+	//1: Generate AI backpack types from Exile trader tables (Default)
+	//0: Vests defined by vestTypes0, vestTypes1, vestTypes2, vestTypes3
+	//dynamicVestBlacklist: List of vest classnames to ignore from Exile trader tables.
+	generateDynamicVests = 1;
+	dynamicVestBlacklist[] = {};
+	
+	//1: Generate AI headgear types from Exile trader tables (Default)
+	//0: Headgear defined by headgearTypes0, headgearTypes1, headgearTypes2, headgearTypes3
+	//dynamicHeadgearBlacklist: List of headgear classnames to ignore from Exile trader tables.
+	generateDynamicHeadgear = 1;
+	dynamicHeadgearBlacklist[] = {};
+	
+	//1: Generate AI food types from Exile trader tables (Default)
+	//0: Food defined by foodLoot
+	//dynamicFoodBlacklist: List of food classnames to ignore from Exile trader tables.
+	generateDynamicFood = 0;
+	dynamicFoodBlacklist[] = {};
+	
+	//1: Generate AI medical types from Exile trader tables (Default)
+	//0: Food defined by medical Loot
+	//dynamicMedicalBlacklist: List of medical classnames to ignore from Exile trader tables.
+	generateDynamicMedical = 0;
+	dynamicMedicalBlacklist[] = {};
+	
+	
+	//1: Generate AI generic loot types from Exile trader tables. Includes "Hardware", "Smoke", "Flare" -class items. (Default)
+	//0: Loot defined by MiscLoot
+	//dynamicLootBlacklist: List of loot classnames to ignore from Exile trader tables.
+	generateDynamicLoot = 0;
+	dynamicLootBlacklist[] = {};
+
+
+	//Enable or disable radio message receiving. Players with radios or part of a group with at least one radio will be able to intercept some AI communications. (Default: 0)
+	enableRadioMessages = 1;
+
+
+	/*	Shared AI Unit Settings. These settings affect all AI spawned unless noted otherwise.
+	--------------------------------------------------------------------------------------------------------------------*/	
+	
+	//Sets side/faction for AI spawned by A3XAI. If A3XAI units are hostile with AI spawned from other install addons, consider changing this setting. Acceptable sides: east or west (Default: east)
+	side = east;
+	
+	//Number of online players required for maximum (or minimum) AI spawn chance. Affects Static, Dynamic, Random AI spawns. (Default: 10)	
+	playerCountThreshold = 1;
+	
+	//1: Spawn chance multiplier scales upwards from value defined by chanceScalingThreshold to 1.00. 0: Spawn chance multiplier scales downwards from 1.00 to chanceScalingThreshold.
+	upwardsChanceScaling = 1;
+	
+	//If upwardsChanceScaling is 1: Initial spawn chance multiplier. If upwardsChanceScaling is 0: Final spawn chance multiplier. (Default: 0.50)
+	chanceScalingThreshold = 0.50;
+	
+	//(Static/Dynamic/Random Spawns) minAI: Minimum number of units. addAI: maximum number of additional units. unitLevel: Unit level (0-3)
+	minAI_village = 4;
+	addAI_village = 2;
+	unitLevel_village = 2;
+	spawnChance_village = 0.90;
+	
+	//(Static/Dynamic/Random Spawns) minAI: Minimum number of units. addAI: maximum number of additional units. unitLevel: Unit level (0-3)
+	minAI_city = 6;
+	addAI_city = 2;
+	unitLevel_city = 3;
+	spawnChance_city = 0.90;
+	
+	//(Static/Dynamic/Random Spawns) minAI: Minimum number of units. addAI: maximum number of additional units. unitLevel: Unit level (0-3)
+	minAI_capitalCity = 8;
+	addAI_capitalCity = 3;
+	unitLevel_capitalCity = 3;
+	spawnChance_capitalCity = 0.90;
+	
+	//(Static/Dynamic/Random Spawns) minAI: Minimum number of units. addAI: maximum number of additional units. unitLevel: Unit level (0-3)
+	minAI_remoteArea = 6;
+	addAI_remoteArea = 3;
+	unitLevel_remoteArea = 3;
+	spawnChance_remoteArea = 0.90;
+	
+	//(Static/Dynamic/Random Spawns) minAI: Minimum number of units. addAI: maximum number of additional units. unitLevel: Unit level (0-3)
+	minAI_wilderness = 6;
+	addAI_wilderness = 2;
+	unitLevel_wilderness = 3;
+	spawnChance_wilderness = 0.70;
+	
+	//(For dynamic and random spawns only) Defines amount of time to wait in seconds until cleaning up temporary blacklist area after dynamic/random spawn is deactivated (Default: 1200)
+	tempBlacklistTime = 800;
+	
+	//Enable or disable AI death messages. Messages will be visible to all group members of player responsible for killing the AI unit. (Default: 1)
+	enableDeathMessages = 1;
+	
+	//If enabled, AI group will attempt to track down player responsible for killing a group member. (Default: 1)
+	enableFindKiller = 1;
+	
+	//If normal probability check for spawning NVGs fails, then give AI temporary NVGs during night hours. Temporary NVGs are unlootable and will be removed at death (Default: 0).									
+	enableTempNVGs = 1;
+	
+	//Minimum AI unit level requirement to use underslung grenade launchers. Set to -1 to disable completely. (Default: 1)
+	levelRequiredGL = 2;
+	
+	//Minimum AI unit level requirement to use launcher weapons. Set to -1 to disable completely. Launchers are unlootable and will be removed at death (Default: -1)
+	levelRequiredLauncher = 2;
+	
+	//List of launcher-type weapons that AI can use.
+	launcherTypes[] = {"launch_RPG32_F","CUP_launch_RPG7V","CUP_launch_RPG18","launch_B_Titan_short_F"}; 
+	
+	//Maximum number of launcher weapons allowed per group (Default: 1)
+	launchersPerGroup = 3;
+	
+	//Enable or disable AI self-healing. Level 0 AI cannot self-heal. Affects: All AI infantry units (Default: 1).
+	enableHealing = 1;
+	
+	//If enabled, A3XAI will remove all explosive ammo (missiles, rockets, bombs - but not HE rounds) from spawned AI air vehicles.  (Default: 1)
+	//Affects: All AI air vehicle types (patrols/custom/reinforcement). Does not affect UAV/UGVs.
+	removeExplosiveAmmo = 0;
+	
+	//if enabled, AI units suffer no damage from vehicle collisions. (Default: 1)
+	noCollisionDamage = 0;
+	
+	//If enabled, AI killed by vehicle collisions will have their gear removed (Default: 1)
+	roadKillPenalty = 0;
+	
+	//Array of positions defining trader locations. AI will be non-hostile and damage immune around this area.
+	//Use this if your server is not using the standard Exile trader markers or sensors in mission.sqm
+	//For performance reasons, do not add locations other than actual trader positions to this array. 
+	//Example: traderAreaLocations[] = {{2998.06,18175.5,0},{14600,16797.2,0},{23334.6,24188.9,0}};
+	traderAreaLocations[] = {};
+	
+	
+	/*	Static Infantry AI Spawning Settings
+
+		A3XAI will spawn an AI group at various named locations on the map if players are nearby. 
+	--------------------------------------------------------------------------------------------------------------------*/	
+	
+	//Enable or disable static AI spawns. If enabled, AI spawn points will be generated in cities, towns, and other named areas.
+	//Enabled: A3XAI automatically generates static spawns at named locations on map. Disabled: No static spawns will be generated. (Default: 1)
+	enableStaticSpawns = 1;
+	
+	//Set minimum and maximum wait time (seconds) to respawn an AI group after all units have been killed. Applies to both static AI and custom spawned AI (Default: Min 300, Max 600).									
+	respawnTimeMin = 300;
+	respawnTimeMax = 600;
+	
+	//Time to allow spawned AI units to exist in seconds before being despawned when no players are present in a trigger area. Applies to both static AI and custom spawned AI (Default: 120)										
+	despawnWait = 60;
+	
+	//Respawn Limits. Set to -1 for unlimited respawns. (Default: -1 for each).
+	respawnLimit_village = -1;
+	respawnLimit_city = -1;
+	respawnLimit_capitalCity = -1;
+	respawnLimit_remoteArea = -1;
+	
+	
+	/*	Dynamic Infantry AI Spawning Settings. Probabilities should add up to 1.00	
+
+		A3XAI will create ambient threat in the area for each player by periodically spawning AI to create unexpected ambush encounters. These AI may occasionally seek out and hunt a player. 
+	--------------------------------------------------------------------------------------------------------------------*/		
+
+	//Upper limit of dynamic spawns on map at once. Set to 0 to disable dynamic spawns (Default: 15)
+	maxDynamicSpawns = 20;
+	
+	//Minimum time (in seconds) that must pass between dynamic spawns for each player (Default: 900)
+	timePerDynamicSpawn = 120;
+	
+	//Players offline for this amount of time (seconds) will have their last spawn timestamp reset (Default: 3600)
+	purgeLastDynamicSpawnTime = 3600;
+	
+	//Probability for dynamic AI to actively hunt a targeted player. If probability check fails, dynamic AI will patrol the area instead of hunting (Default: 0.60)
+	spawnHunterChance = 0.90;
+	
+	//Time to wait (seconds) before despawning all AI units in dynamic spawn area when no players are present. (Default: 120)
+	despawnDynamicSpawnTime = 120;
+	
+	
+	/*	Random Infantry AI Spawning Settings
+
+		A3XAI will create spawns that are randomly placed around the map and are periodically relocated. These spawns are preferentially created in named locations, but may be also created anywhere in the world. 
+	--------------------------------------------------------------------------------------------------------------------*/		
+
+	//Maximum number of placed random spawns on map. Set to -1 for A3XAI to automatically adjust spawn limit according to map size. Set to 0 to disable random spawns. (Default: -1)
+	maxRandomSpawns = -1;
+	
+	//Time to wait (seconds) before despawning all AI units in random spawn area when no players are present. (Default: 120)
+	despawnRandomSpawnTime = 60;	
+	
+	//Minimum distance between a random spawn location and other random spawns. (Default: 0)
+	distanceBetweenRandomSpawns = 0;
+	
+	
+	/*	Shared AI Vehicle Settings
+
+		These settings affect the following AI vehicle patrol types: Air, Land, UAV, UGV
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Time to wait (seconds) before despawning disabled/destroyed AI vehicles. If vehiclesAllowedForPlayers is enabled, this timer is cleared once a player enters the vehicle. (Default: 600)
+	vehicleDespawnTime = 400;
+	
+	//Enable player use of AI vehicles. Players must either disable the vehicle or kill all units of the group in order to access the vehicle. (Default: 0)
+	vehiclesAllowedForPlayers = 1;
+	
+	//Add name of location as displayed on map prevent AI vehicle patrols from travelling to these locations. Location names are case-sensitive. Note: Vehicles may still pass through these areas
+	//Example: waypointBlacklistAir[] = {"Aggelochori","Panochori","Zaros"};
+	waypointBlacklistAir[] = {}; //Affects Air vehicles (including UAVs)
+	waypointBlacklistLand[] = {};  //Affects Land vehicles (including UGVs)
+	
+	
+	/*	AI Air Vehicle patrol settings. 
+
+		IMPORTANT: UAVs (Unmanned aerial vehicles) are not supported by this function. UAV spawns can be configured in the "UAV Patrol Settings" section further below.
+
+		A3XAI will create AI vehicle patrols that will randomly travel between different cities and towns, and engage any players encountered.
+		Helicopters with available cargo space may also occasionally deploy an AI group by parachute. 
+	--------------------------------------------------------------------------------------------------------------------*/		
+
+	//Global maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
+	maxAirPatrols = 3;	
+	
+	//Probability of spawning Level 0/1/2/3 AI air vehicle patrol spawns. Probabilities should add up to 1.00		
+	levelChancesAir[] = {0.00,0.00,0.10,0.90};
+	
+	//Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+	respawnAirMinTime = 300;
+	respawnAirMaxTime = 600;
+	
+	//Classnames of air vehicle types to use, with the maximum amount of each type to spawn.
+	airVehicleList[] = {
+		//{"B_Heli_Attack_01_F",1},			// AH-99
+		{"B_Heli_Transport_03_F",1},	// huron armed
+		{"B_Heli_Light_01_armed_F",2}, 		// AH9 PAWNEE
+		//{"O_Heli_Attack_02_F",1},			// MI-48
+		{"B_Heli_Transport_01_F",2},		// GHOST HAWK
+		//{"B_T_VTOL_01_armed_olive_F",1},			// blackfish
+		{"B_Plane_CAS_01_dynamicLoadout_F",1},		// wipeout
+		{"I_Heli_light_03_F",1}						// hellcat
+		
+		
+	};
+	
+	//Maximum number of gunner units per air vehicle. Limited by actual number of available gunner positions. (Default: 2)
+	//Affects: All AI air vehicle patrols, including custom and reinforcement.
+	airGunnerUnits = 2;
+	
+	//Probability of AI helicopter sucessfully detecting player if there is line-of-sight. AI helicopters will conduct a visual sweep upon arriving at each waypoint and some distance after leaving. (Default: 0.80)
+	//Affects: All AI air vehicle patrols, including custom and reinforcement.
+	airDetectChance = 0.80;
+	
+	//Probability of AI to deploy infantry units by parachute if players are nearby when helicopter is investigating a waypoint. (Default: 0.50)
+	//Affects: Air vehicle patrols.
+	paradropChance = 0.60;
+	
+	//Cooldown time for AI paradrop deployment in seconds. (Default: 1800).
+	//Affects: Air vehicle patrols.
+	paradropCooldown = 30;
+	
+	//Number of infantry AI to paradrop if players are nearby when helicopter is investigating a waypoint, or if helicopter is reinforcing a dynamic AI spawn. Limited by number of cargo seats available in the vehicle. (Default: 3)
+	//Affects: Air vehicle patrols, air reinforcements.
+	paradropAmount = 4;
+	
+	
+	/*	AI Land Vehicle patrol settings. These AI vehicles will randomly travel between different cities and towns.
+
+		IMPORTANT: UGVs (Unmanned ground vehicles) are not supported by this function. UGV spawns can be configured in the "UGV Patrol Settings" section further below.
+		
+		A3XAI will create AI vehicle patrols that will randomly travel between different cities and towns, and engage any players encountered.
+	--------------------------------------------------------------------------------------------------------------------*/	
+
+	//Global maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).	
+	maxLandPatrols = 20;
+	
+	//Probability of spawning Level 0/1/2/3 AI land vehicle spawns. Probabilities should add up to 1.00		
+	levelChancesLand[] = {0.00,0.00,0.10,0.90};
+	
+	//Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+	respawnLandMinTime = 600;
+	respawnLandMaxTime = 900;
+	
+	//Classnames of land vehicle types to use, with the maximum amount of each type to spawn.
+	landVehicleList[] = {
+		{"B_APC_Tracked_01_rcws_F",1},		// panter
+		//{"Exile_Car_Hatchback_Sport_Red",1},
+		//{"Exile_Car_SUV_Red",1},
+		//{"I_APC_tracked_03_cannon_F",1},
+		{"Exile_Car_Offroad_Armed_Guerilla01",1},
+		//{"B_T_LSV_01_armed_F",1},				// Prowler hmg
+		{"O_T_LSV_02_armed_F",1},		// quilin minigun
+		{"CUP_B_Jackal2_L2A1_GB_W",2},
+		{"CUP_B_HMMWV_M2_GPK_USA",2},
+		//{"I_MRAP_03_F",1},
+		//{"B_MRAP_01_F",1},
+		//{"O_MRAP_02_F",1},
+		//{"Exile_Car_Van_Black",1},
+		{"I_MBT_03_cannon_F",2},
+		{"Exile_Car_HEMMT",2},
+		{"Exile_Car_Tempest",1},
+		{"Exile_Car_Zamak",1},
+		{"Exile_Car_Offroad_Armed_Guerilla01",1},
+		{"I_APC_Wheeled_03_cannon_F",1},  		// GORGON
+		//{"O_MRAP_02_hmg_F",1},				// IFRIT
+		{"I_MRAP_03_gmg_F",1},				// strider
+		{"B_MRAP_01_hmg_F",1},
+		{"B_APC_Wheeled_01_cannon_F",1},	// marshall
+		//{"O_MBT_02_arty_F",1},				// artillery
+		{"B_APC_Tracked_01_AA_F",1},				//cheetah
+		{"I_APC_tracked_03_cannon_F",1}, 			// mora
+		{"O_APC_Tracked_02_cannon_F",1},				// kamysh
+		{"O_MBT_02_cannon_F",2},						// t-100
+		{"B_MBT_01_TUSK_F",2},						// slammer up
+		{"O_APC_Wheeled_02_rcws_F",1}
+				
+	};
+	
+	//Maximum number of gunner units per land vehicle. Limited by actual number of available gunner positions. (Default: 2)
+	landGunnerUnits = 2;
+	
+	//Maximum number of cargo units per land vehicle. Limited by actual number of available cargo positions. (Default: 3)
+	landCargoUnits = 8;
+	
+	
+	/*	AI Air Reinforcement Settings
+
+		Allowed types of AI groups (defined by airReinforcementAllowedTypes) may call for temporary air reinforcements if a player kills one of their units.
+		Probability to summon reinforcements determined by airReinforcementSpawnChance<AI level>, where <AI level> is the level of the calling group.
+		Once summoned, armed reinforcement vehicles will remain in the area for a duration determined by airReinforcementDuration<AI level> and engage nearby players.
+		Unarmed reinforcement vehicles will deploy a paradrop group and exit the area.
+		
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Maximum allowed number of simultaneous active reinforcements (Default: 5)
+	maxAirReinforcements = 3;
+	
+	//Air vehicles to use as reinforcement vehicles. Default: {"B_Heli_Transport_01_F","B_Heli_Light_01_armed_F"}
+	//Armed air vehicles will detect and engage players within reinforcement area. Unarmed air vehicles will deploy an AI paradrop group.
+	airReinforcementVehicles[] = {
+		"B_Heli_Transport_01_F",  			// ghost hawk armed
+		"B_Heli_Transport_03_F",					// huron armed
+		//"CUP_B_C130J_USMC"					// C130
+		//"B_Heli_Transport_03_unarmed_F" 		// huron
+		//"Exile_Chopper_Mohawk_FIA"
+		"B_Heli_Light_01_armed_F"    		// pawnee
+		//"B_Plane_CAS_01_dynamicLoadout_F",	// wipeout
+		//"B_Heli_Attack_01_F"					// ah-99
+		
+	};
+	
+	//Probability to spawn reinforcements for each AI level.
+	airReinforcementSpawnChance0 = 0.00;
+	airReinforcementSpawnChance1 = 0.20;
+	airReinforcementSpawnChance2 = 0.20;
+	airReinforcementSpawnChance3 = 0.30;
+	
+	//AI types permitted to summon reinforcements. Default: airReinforcementAllowedFor[] = {"static","dynamic","random"};
+	//Usable AI types: "static", "dynamic", "random", "air", "land", "staticcustom", "aircustom", "landcustom", "vehiclecrew"
+	airReinforcementAllowedFor[] = {"static","dynamic","random","vehiclecrew","land","air"};
+	
+	//Probability to deploy infantry AI. If chance roll fails, air vehicle will remain in area for duration defined by airReinforcementDuration0-3 and engage detected players
+	//Unarmed air vehicle will always have a 1.00 probability to deploy at least 1 infantry AI unit.
+	airReinforceDeployChance0 = 0.20;
+	airReinforceDeployChance1 = 0.40;
+	airReinforceDeployChance2 = 0.60;
+	airReinforceDeployChance3 = 0.80;
+	
+	//Maximum time for reinforcement for armed air vehicles in seconds. AI air vehicle will leave the area after this time if not destroyed.
+	airReinforcementDuration0 = 60;
+	airReinforcementDuration1 = 60;
+	airReinforcementDuration2 = 100;
+	airReinforcementDuration3 = 120;
+	
+	/*	UAV Patrol Settings
+
+		IMPORTANT: UAV patrols are a feature in testing, and may undergo significant changes or possible removal in future versions.
+
+		A3XAI can spawn UAVs that patrol between named locations, and deploy air reinforcements if players are found.
+		In order for air reinforcements to be deployed, maxAirReinforcements must be greater than zero and the current limit of air reinforcements has not been exceeded.
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Global maximum number of active UAV patrols. Set at 0 to disable (Default: 0).	
+	maxUAVPatrols = 0;
+	
+	//Classnames of UAV types to use, with the maximum amount of each type to spawn.
+	UAVList[] = {
+		{"I_UAV_02_CAS_F",5},
+		{"I_UAV_02_F",5},
+		{"B_UAV_02_CAS_F",5},
+		{"B_UAV_02_F",5},
+		{"O_UAV_02_CAS_F",5},
+		{"O_UAV_02_F",5}
+	};
+	
+	//Probability of spawning Level 0/1/2/3 UAV spawns. Probabilities should add up to 1.00	
+	levelChancesUAV[] = {0.00,0.00,0.20,0.80};
+	
+	//Set minimum and maximum wait time in seconds to respawn a UAV after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+	respawnUAVMinTime = 600;
+	respawnUAVMaxTime = 900;
+	
+	//Set to '1' to set detection-only behavior (UAV will not directly engage enemies). (Default: 0)
+	detectOnlyUAVs = 1;
+	
+	//Cooldown required in between air reinforcement summons when detecting players. Value in seconds. (Default: 1800)
+	UAVCallReinforceCooldown = 1800;
+	
+	//Probability to successfully detect player if there is line-of-sight. If at least one player is detected, air reinforcements will be summoned to the area. (Default: 0.50)
+	UAVDetectChance = 0.80;
+	
+	
+	/*	UGV Patrol Settings
+
+		IMPORTANT: UGV patrols are a feature in testing, and may undergo significant changes or possible removal in future versions.
+
+		A3XAI can spawn UGVs that patrol between named locations, and deploy air reinforcements if players are found. Damaged UGVs repair themselves over time if not engaging enemes.
+		In order for air reinforcements to be deployed, maxAirReinforcements must be greater than zero and the current limit of air reinforcements has not been exceeded.
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Global maximum number of active UGV patrols. Set at 0 to disable (Default: 0).	
+	maxUGVPatrols = 0;
+	
+	//Classnames of UGV types to use, with the maximum amount of each type to spawn.
+	UGVList[] = {
+		{"I_UGV_01_rcws_F",5},
+		{"B_UGV_01_rcws_F",5},
+		{"O_UGV_01_rcws_F",5}
+	};
+	
+	//Probability of spawning Level 0/1/2/3 AI UGV spawns. Probabilities should add up to 1.00	
+	levelChancesUGV[] = {0.35,0.50,0.15,0.00};
+	
+	//Set minimum and maximum wait time in seconds to respawn a UGV patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
+	respawnUGVMinTime = 600;
+	respawnUGVMaxTime = 900;
+	
+	//Set to '1' to set detection-only behavior (UGV will not directly engage enemies). (Default: 0)
+	detectOnlyUGVs = 0;
+	
+	//Cooldown required in between air reinforcement summons when detecting players. Value in seconds. (Default: 1800)
+	UGVCallReinforceCooldown = 1800;
+	
+	//Probability to successfully detect player if there is line-of-sight. If at least one player is detected, air reinforcements will be summoned to the area. (Default: 0.50)
+	UGVDetectChance = 0.80;
+	
+	
+	/*
+		AI skill settings. 
+		
+		These settings affect all AI units spawned by A3XAI.
+		
+		Skill Level: Description
+		0: Low-level AI found in villages
+		1: Medium-level AI found in cities and capital cities
+		2: High-level AI found in remote areas such as factories and military bases
+		3: Expert-level AI.
+		
+		Valid skill range: 0.00 - 1.00.
+		Hint: For all skill types, higher number = better skill. For skill sub-type explanation, see: https://community.bistudio.com/wiki/AI_Sub-skills
+	*/
+	
+	//AI skill settings level 0 (Skill, Minimum skill, Maximum skill). Defaults: Accuracy 0.05-0.10, Others 0.30-0.50
+	skill0[] = {
+		{"aimingAccuracy",0.05,0.10},
+		{"aimingShake",0.30,0.50},
+		{"aimingSpeed",0.30,0.50},
+		{"spotDistance",0.30,0.50},
+		{"spotTime",0.30,0.50},
+		{"courage",0.30,0.50},
+		{"reloadSpeed",0.30,0.50},
+		{"commanding",0.30,0.50},
+		{"general",0.80,0.99}
+	};
+	
+	//AI skill settings level 1 (Skill, Minimum skill, Maximum skill). Defaults: Accuracy 0.10-0.15, Others 0.40-0.60
+	skill1[] = {
+		{"aimingAccuracy",0.10,0.15},
+		{"aimingShake",0.40,0.60},
+		{"aimingSpeed",0.40,0.60},
+		{"spotDistance",0.40,0.60},
+		{"spotTime",0.40,0.60},
+		{"courage",0.40,0.60},
+		{"reloadSpeed",0.40,0.60},
+		{"commanding",0.40,0.60},
+		{"general",0.40,0.60}	
+	};
+	
+	//AI skill settings level 2 (Skill, Minimum skill, Maximum skill). Defaults: Accuracy 0.15-0.20, Others 0.50-0.70
+	skill2[] = {
+		{"aimingAccuracy",0.30,0.40},
+		{"aimingShake",0.50,0.70},
+		{"aimingSpeed",0.50,0.70},
+		{"spotDistance",0.70,0.80},
+		{"spotTime",0.70,0.80},
+		{"courage",0.85,0.90},
+		{"reloadSpeed",0.50,0.80},
+		{"commanding",0.70,0.90},
+		{"general",0.50,0.80}
+	};
+	
+	//AI skill settings level 3 (Skill, Minimum skill, Maximum skill). Defaults: Accuracy 0.20-0.25, Others 0.60-0.80
+	skill3[] = {
+		{"aimingAccuracy",0.35,0.45},
+		{"aimingShake",0.60,0.80},
+		{"aimingSpeed",0.60,0.80},
+		{"spotDistance",0.80,0.90},
+		{"spotTime",0.80,0.90},
+		{"courage",0.80,0.90},
+		{"reloadSpeed",0.60,0.80},
+		{"commanding",0.80,0.90},
+		{"general",0.70,0.90}
+	};
+	
+	
+	/*	AI loadout probability settings.
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Probabilities to equip backpack, according to AI level.
+	addBackpackChance0 = 0.60;
+	addBackpackChance1 = 0.70;
+	addBackpackChance2 = 0.80;
+	addBackpackChance3 = 0.90;
+	
+	//Probabilities to equip vest, according to AI level.
+	addVestChance0 = 0.60;
+	addVestChance1 = 0.70;
+	addVestChance2 = 0.80;
+	addVestChance3 = 0.90;
+	
+	//Probabilities to equip headgear, according to AI level.
+	addHeadgearChance0 = 0.60;
+	addHeadgearChance1 = 0.70;
+	addHeadgearChance2 = 0.80;
+	addHeadgearChance3 = 0.90;
+	
+	//Probabilities to equip level 0-3 AI with each weapon type. Order: {pistols, rifles, machineguns, sniper rifles}. Probabilities must add up to 1.00.
+	useWeaponChance0[] = {0.20,0.80,0.00,0.00};
+	useWeaponChance1[] = {0.00,0.90,0.05,0.05};
+	useWeaponChance2[] = {0.00,0.80,0.10,0.10};
+	useWeaponChance3[] = {0.00,0.70,0.15,0.15};
+	
+	//Probability to select a random optics attachment (ie: scopes) for level 0-3 AI
+	opticsChance0 = 0.90;
+	opticsChance1 = 0.99;
+	opticsChance2 = 0.99;
+	opticsChance3 = 0.99;
+	
+	//Probability to select a random pointer attachment (ie: flashlights) for level 0-3 AI
+	pointerChance0 = 0.90;
+	pointerChance1 = 0.90;
+	pointerChance2 = 0.90;
+	pointerChance3 = 0.90;
+	
+	//Probability to select a random muzzle attachment (ie: suppressors) for level 0-3 AI
+	muzzleChance0 = 0.90;
+	muzzleChance1 = 0.90;
+	muzzleChance2 = 0.90;
+	muzzleChance3 = 0.90;
+	
+	//Probability to select a random underbarrel attachment (ie: bipods) for level 0-3 AI
+	underbarrelChance0 = 0.90;
+	underbarrelChance1 = 0.90;
+	underbarrelChance2 = 0.90;
+	underbarrelChance3 = 0.90;
+	
+	
+	/*	AI loot quantity settings
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Maximum number of food loot items found on AI. (Default: 2)								
+	foodLootCount = 4;
+	
+	//Maximum number of items to select from MiscLoot (generic loot) table. (Default: 2)											
+	miscLootCount = 6;
+	
+	//Maximum number of items to select from medicalLoot table per infantry unit of each AI group. (Default: 1)											
+	medicalLootCount = 3;
+	
+	/*	AI loot quantity settings (Vehicle)
+	
+	Note: A3XAI_vehiclesAllowedForPlayers = 1; must be set in order to enable the settings in this section
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Maximum number of weapons from pistolList, rifleList, machinegunList, sniperList found in vehicles recovered by players. (Default: 5)								
+	weaponLootVehicleCount = 10;
+	
+	//Maximum number of magazines to generate for each weapon loot added to vehicle inventory (Default: 3)
+	ammoLootPerWeapon = 5;
+	
+	//Maximum number of food loot items from foodLoot found in vehicles recovered by players. (Default: 10)								
+	foodLootVehicleCount = 15;
+	
+	//Maximum number of items to select from miscLoot found in vehicles recovered by players. (Default: 10)											
+	miscLootVehicleCount = 15;
+	
+	//Maximum number of items to select from medicalLoot found in vehicles recovered by players. (Default: 5)											
+	medicalLootVehicleCount = 6;
+	
+	/*	AI loot probability settings. AI loot is pre-generated into a pool for each unit and randomly pulled to units as time passes.
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Chance to add a single InstaDoc to group loot pool per unit (Default: 0.25)
+	firstAidKitChance = 0.80;
+	
+	//Probability to successfully pull a random item from loot pool for level 0-3 AI. Influences the rate at which loot items are added to units.
+	lootPullChance0 = 0.20;
+	lootPullChance1 = 0.40;
+	lootPullChance2 = 0.60;
+	lootPullChance3 = 0.80;
+	
+	
+	/*	Respect rewards for AI kills. Note: This section only has effects if enableRespectRewards is enabled.
+	--------------------------------------------------------------------------------------------------------------------*/
+
+	//Enable Exile-style handling (ie: Respect rewards, kill-count tracking) for AI kills (Default: 1)
+	enableRespectRewards = 1;
+	
+	//Respect bonus for kills with Axe
+	respectHumiliation = 300;
+	
+	//Respect bonus for standard kills
+	respectFragged = 100;
+	
+	//Respect bonus for collision kills with parachute
+	respectChute = 2000;
+	
+	//Respect bonus for collision kills with air vehicle
+	respectBigBird = 6000;
+	
+	//Respect bonus for collision kills by vehicle driver
+	respectRoadkill = 100;
+	
+	//Respect bonus for kills with vehicle weapons
+	respectLetItRain = 100;
+	
+	//Respect bonus per kill streak
+	respectKillstreak = 50;
+	
+	//Respect bonus per 100m distance from target
+	respectPer100m = 50;
+	
+	
+	/*
+		AI skin, weapon, loot, and equipment settings
+
+		Note: Some of the below tables may not be used by A3XAI if a dynamic classname setting is enabled. Check each section below for details.
+	*/
+
+	//AI uniform classnames. Note: uniformTypes0-3 will not be read if generateDynamicUniforms is enabled.
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	uniformTypes0[] = {"U_C_Journalist","U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_salmon","U_C_Poloshirt_stripped","U_C_Poloshirt_tricolour","U_C_Poor_1","U_C_Poor_2","U_C_Poor_shorts_1","U_C_Scientist"};
+	uniformTypes1[] = {"U_B_CombatUniform_mcam_worn","U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3","U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_I_CombatUniform_tshirt","U_I_OfficerUniform","U_O_CombatUniform_ocamo","U_O_CombatUniform_oucamo","U_C_HunterBody_grn","U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_BG_Guerilla2_1","U_IG_Guerilla3_2","U_BG_Guerrilla_6_1","U_BG_Guerilla1_1","U_BG_Guerilla2_2","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_BG_leader","U_IG_leader","U_B_GhillieSuit","U_I_GhillieSuit","U_O_GhillieSuit","U_B_HeliPilotCoveralls","U_I_HeliPilotCoveralls","U_B_PilotCoveralls","U_I_pilotCoveralls"};
+	uniformTypes2[] = {"U_OrestesBody","U_NikosAgedBody","U_NikosBody","U_B_CombatUniform_mcam","U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3","U_O_OfficerUniform_ocamo","U_B_SpecopsUniform_sgg","U_O_SpecopsUniform_blk","U_O_SpecopsUniform_ocamo","U_I_G_Story_Protagonist_F","U_IG_Guerilla2_1","U_BG_Guerrilla_6_1","U_I_G_resistanceLeader_F","U_B_FullGhillie_ard","U_B_FullGhillie_lsh","U_B_FullGhillie_sard","U_B_GhillieSuit","U_I_FullGhillie_ard","U_I_FullGhillie_lsh","U_I_FullGhillie_sard","U_I_GhillieSuit","U_O_FullGhillie_ard","U_O_FullGhillie_lsh","U_O_FullGhillie_sard","U_O_GhillieSuit","U_I_Wetsuit","U_O_Wetsuit","U_B_Wetsuit","U_B_survival_uniform"};
+	uniformTypes3[] = {"U_OrestesBody","U_NikosAgedBody","U_NikosBody","U_O_OfficerUniform_ocamo","U_B_SpecopsUniform_sgg","U_O_SpecopsUniform_blk","U_O_SpecopsUniform_ocamo","U_I_G_Story_Protagonist_F","U_I_G_resistanceLeader_F","U_B_FullGhillie_ard","U_B_FullGhillie_lsh","U_B_FullGhillie_sard","U_I_FullGhillie_ard","U_I_FullGhillie_lsh","U_I_FullGhillie_sard","U_O_FullGhillie_ard","U_O_FullGhillie_lsh","U_O_FullGhillie_sard","U_I_Wetsuit","U_O_Wetsuit","U_B_Wetsuit","U_B_survival_uniform"};
+	
+	//AI weapon classnames. Note: pistolList, rifleList, machinegunList, sniperList will not be read if generateDynamicWeapons is enabled.
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	pistolList[] = {"hgun_ACPC2_F","hgun_P07_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F","hgun_Rook40_F"};
+	rifleList[] = {"arifle_Katiba_C_F","arifle_Katiba_F","arifle_Katiba_GL_F","arifle_Mk20_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_MX_Black_F","arifle_MX_F","arifle_MX_GL_Black_F","arifle_MX_GL_F","arifle_MXC_Black_F","arifle_MXC_F","arifle_SDAR_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F"};
+	machinegunList[] = {"arifle_MX_SW_Black_F","LMG_Mk200_F","LMG_Zafir_F","MMG_01_hex_F","MMG_01_tan_F","MMG_02_black_F","MMG_02_camo_F","MMG_02_sand_F","LMG_03_F"};
+	sniperList[] = {"arifle_MXM_Black_F","arifle_MXM_F","srifle_DMR_02_camo_F","srifle_DMR_02_sniper_F","srifle_DMR_03_multicam_F","srifle_DMR_03_woodland_F","srifle_DMR_04_Tan_F","srifle_DMR_05_blk_F","srifle_DMR_05_hex_F","srifle_DMR_05_tan_f","srifle_DMR_06_camo_F","srifle_DMR_06_olive_F","srifle_EBR_F","srifle_GM6_camo_F","srifle_GM6_F","srifle_LRR_camo_F","srifle_LRR_F"};
+	
+	//AI weapon scope attachment settings. Note: weaponOpticsList will not be read if generateDynamicOptics is enabled.
+	weaponOpticsList[] = {"optic_NVS","optic_SOS","optic_LRPS","optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_KHS_blk","optic_KHS_hex","optic_KHS_old","optic_KHS_tan","optic_DMS","optic_Arco","optic_Hamr","Elcan_Exile","Elcan_reflex_Exile","optic_MRCO","optic_Holosight","optic_Holosight_smg","optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Yorris","optic_MRD"};
+	
+	//AI backpack types (for AI levels 0-3). Note: backpackTypes0-3 will not be read if generateDynamicBackpacks is enabled.
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	backpackTypes0[] = {"B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_dgtl","B_AssaultPack_khk","B_AssaultPack_mcamo","B_AssaultPack_rgr","B_AssaultPack_sgg","B_OutdoorPack_blk","B_OutdoorPack_blu","B_OutdoorPack_tan"};
+	backpackTypes1[] = {"B_Bergen_blk","B_Bergen_mcamo","B_Bergen_rgr","B_Bergen_sgg","B_FieldPack_blk","B_FieldPack_cbr","B_FieldPack_ocamo","B_FieldPack_oucamo","B_OutdoorPack_blk","B_OutdoorPack_blu","B_OutdoorPack_tan","B_TacticalPack_blk","B_TacticalPack_mcamo","B_TacticalPack_ocamo","B_TacticalPack_oli","B_TacticalPack_rgr"};
+	backpackTypes2[] = {"B_Bergen_blk","B_Bergen_mcamo","B_Bergen_rgr","B_Bergen_sgg","B_Carryall_cbr","B_Mortar_01_weapon_F"};
+	backpackTypes3[] = {"B_Bergen_mcamo","B_Carryall_cbr","B_Carryall_khk","B_Carryall_mcamo","B_Carryall_khk","B_Mortar_01_weapon_F","B_Mortar_01_weapon_F"};
+	
+	
+	//AI vest types (for AI levels 0-3). Note: vestTypes0-3 will not be read if generateDynamicVests is enabled.
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	vestTypes0[] = {"V_Press_F","V_Rangemaster_belt","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_khk","V_BandollierB_oli","V_BandollierB_rgr","V_Chestrig_blk","V_Chestrig_khk","V_Chestrig_oli","V_Chestrig_rgr"};
+	vestTypes1[] = {"V_Chestrig_blk","V_Chestrig_khk","V_Chestrig_oli","V_Chestrig_rgr","V_HarnessO_brn","V_HarnessO_gry","V_HarnessOGL_brn","V_HarnessOGL_gry","V_HarnessOSpec_brn","V_HarnessOSpec_gry","V_PlateCarrier1_blk","V_PlateCarrier1_rgr","V_PlateCarrier2_rgr","V_PlateCarrier3_rgr","V_PlateCarrierH_CTRG","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl","V_PlateCarrierL_CTRG"};
+	vestTypes2[] = {"V_TacVest_blk","V_TacVest_blk_POLICE","V_TacVest_brn","V_TacVest_camo","V_TacVest_khk","V_TacVest_oli","V_TacVestCamo_khk","V_TacVestIR_blk","V_I_G_resistanceLeader_F","V_PlateCarrier2_rgr","V_PlateCarrier3_rgr","V_PlateCarrierGL_blk","V_PlateCarrierGL_mtp","V_PlateCarrierGL_rgr","V_PlateCarrierH_CTRG","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl","V_PlateCarrierIAGL_oli","V_PlateCarrierL_CTRG","V_PlateCarrierSpec_blk","V_PlateCarrierSpec_mtp","V_PlateCarrierSpec_rgr"};
+	vestTypes3[] = {"V_TacVest_blk_POLICE","V_PlateCarrierGL_blk","V_PlateCarrierGL_mtp","V_PlateCarrierGL_rgr","V_PlateCarrierIAGL_dgtl","V_PlateCarrierIAGL_oli","V_PlateCarrierSpec_blk","V_PlateCarrierSpec_mtp","V_PlateCarrierSpec_rgr"};
+	
+	//AI head gear types. Note: headgearTypes0-3 will not be read if generateDynamicHeadgear is enabled.
+	headgearTypes0[] = {"H_Cap_blk","H_Cap_blk_Raven","H_Cap_blu","H_Cap_brn_SPECOPS","H_Cap_grn","H_Cap_headphones","H_Cap_khaki_specops_UK","H_Cap_oli","H_Cap_press","H_Cap_red","H_Cap_tan","H_Cap_tan_specops_US","H_Watchcap_blk","H_Watchcap_camo"};
+	headgearTypes1[] = {"H_Beret_02","H_Beret_blk","H_Beret_blk_POLICE","H_Beret_brn_SF","H_Beret_grn","H_Beret_grn_SF","H_Beret_ocamo","H_Beret_red","H_Shemag_khk","H_Shemag_olive","H_Shemag_olive_hs","H_Shemag_tan"};
+	headgearTypes2[] = {"H_Beret_Colonel","H_HelmetB","H_HelmetB_black","H_HelmetB_camo","H_HelmetB_desert","H_HelmetB_grass","H_HelmetB_paint","H_HelmetB_plain_blk","H_HelmetB_sand","H_HelmetB_snakeskin","H_HelmetLeaderO_ocamo","H_HelmetLeaderO_oucamo","H_HelmetO_ocamo","H_HelmetO_oucamo","H_HelmetSpecB","H_HelmetSpecB_blk","H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetSpecO_blk","H_HelmetSpecO_ocamo","H_CrewHelmetHeli_B","H_CrewHelmetHeli_I","H_CrewHelmetHeli_O","H_PilotHelmetHeli_B","H_PilotHelmetHeli_I","H_PilotHelmetHeli_O"};
+	headgearTypes3[] = {"H_Beret_Colonel","H_HelmetB_camo","H_HelmetLeaderO_ocamo","H_HelmetLeaderO_oucamo","H_HelmetO_ocamo","H_HelmetO_oucamo","H_HelmetSpecO_blk","H_HelmetSpecO_ocamo","H_PilotHelmetHeli_B","H_PilotHelmetHeli_I","H_PilotHelmetHeli_O"};
+	
+	
+	//AI Food/Loot item types. 
+	// Note: foodLoot will not be read if generateDynamicFood is enabled.
+	// Note: miscLoot will not be read if generateDynamicLoot is enabled.
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	foodLoot[] = {"Exile_Item_Moobar","Exile_Item_BeefParts","Exile_Item_EMRE","Exile_Item_PlasticBottleFreshWater","Exile_Item_Energydrink","Exile_Item_SausageGravy","Exile_Item_Surstromming","handgrenade","APERSMine_Range_Mag","APERSMine_Range_Mag"};
+	miscLoot[] = {"handgrenade","handgrenade","Exile_Item_DuctTape","APERSMine_Range_Mag","APERSMine_Range_Mag","Exile_Item_CanOpener"};
+	//miscLoot[] = {"Exile_Item_Rope","Exile_Item_DuctTape","Exile_Item_ExtensionCord","Exile_Item_FuelCanisterEmpty","Exile_Item_JunkMetal","Exile_Item_LightBulb","Exile_Item_MetalBoard","Exile_Item_MetalPole","Exile_Item_CamoTentKit"};
+	//foodLoot[] = {"Exile_Item_GloriousKnakworst","Exile_Item_SausageGravy","Exile_Item_ChristmasTinner","Exile_Item_BBQSandwich","Exile_Item_Surstromming","Exile_Item_Catfood","Exile_Item_PlasticBottleFreshWater","Exile_Item_Beer","Exile_Item_Energydrink"};
+	
+	//AI Medical item types. 
+	// Note: medicalLoot will not be read if generateMedicalFood is enabled.
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	medicalLoot[] = {"Exile_Item_InstaDoc","Exile_Item_Bandage","Exile_Item_Vishpirin","FirstAidKit","FirstAidKit"};
+	
+	
+	//AI toolbelt item types. Toolbelt items are added to AI inventory upon death. Format: [item classname, item probability]
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	toolsList0[] = {
+		{"Exile_Item_XM8",0.90},{"ItemCompass",0.30},{"ItemMap",0.30},{"ItemGPS",0.00},{"ItemRadio",0.00}
+	};
+	toolsList1[] = {
+		{"Exile_Item_XM8",0.90},{"ItemCompass",0.50},{"ItemMap",0.50},{"ItemGPS",0.10},{"ItemRadio",0.10}
+	};
+	toolsList2[] = {
+		{"Exile_Item_XM8",0.90},{"ItemCompass",0.70},{"ItemMap",0.70},{"ItemGPS",0.20},{"ItemRadio",0.20}
+	};
+	toolsList3[] = {
+		{"Exile_Item_XM8",0.90},{"ItemCompass",0.90},{"ItemMap",0.90},{"ItemGPS",0.30},{"ItemRadio",0.30}
+	};
+	
+	
+	//AI-useable toolbelt item types. These items are added to AI inventory at unit creation and may be used by AI. Format: {item classname, item probability}
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	gadgetsList0[] = {
+		{"binocular",0.30},{"NVGoggles",0.00}
+	};
+	gadgetsList1[] = {
+		{"binocular",0.50},{"NVGoggles",0.10}
+	};
+	gadgetsList2[] = {
+		{"binocular",0.70},{"NVGoggles",0.20}
+	};
+	gadgetsList3[] = {
+		{"binocular",0.90},{"NVGoggles",0.30}  
+	};
 };
-_bambiPlayer addMPEventHandler ["MPKilled", {_this call ExileServer_object_player_event_onMpKilled}];
-_bambiPlayer call ExileServer_object_player_database_insert;
-_bambiPlayer call ExileServer_object_player_database_update;
-[
-    _sessionID, 
-    "createPlayerResponse", 
-    [
-        _bambiPlayer, 
-        _parachuteNetID, 
-        str (_accountData select 0),
-        (_accountData select 1),
-        (_accountData select 2),
-        100,
-        100,
-        0,
-        (getNumber (configFile >> "CfgSettings" >> "BambiSettings" >> "protectionDuration")) * 60, 
-        _clanData,
-        _spawnType
-    ]
-] 
-call ExileServer_system_network_send_to;
-[_sessionID, _bambiPlayer] call ExileServer_system_session_update;
-true
